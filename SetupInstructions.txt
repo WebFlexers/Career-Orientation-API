@@ -1,4 +1,4 @@
-Ρυθμιση postgres server
+* Ρυθμιση postgres server
 
 Βήμα 1: Άνοιγμα pgadmin
 
@@ -12,3 +12,20 @@ psql binarys https://stackoverflow.com/questions/69544583/please-configure-the-p
 	CREATE DATABASE "career_orientation_db";
 	GRANT ALL PRIVILEGES ON DATABASE "career_orientation_db" TO career_orientation;
 	GRANT ALL PRIVILEGES ON SCHEMA public TO career_orientation;
+	
+* Δημιουργία συλλογής Postman
+
+Βήμα 1: Εκτέλεση του API
+
+Βήμα 2: Άνοιγμα Postman
+
+Βήμα 4: Κλικ στο Import
+
+Βήμα 5: Επικόλληση του https://localhost:7155/swagger/v1/swagger.json και κλικ Import
+
+Βήμα 6: Κλικ στο CareerOrientation.API
+
+Βήμα 7: Από το μενού στα δεξιά της οθόνης επιλογή της καρτέλας Variables
+
+Βήμα 8: Στο Variable baseUrl αντικατάσταση του Initial Value και Current Value
+με https://localhost:7155

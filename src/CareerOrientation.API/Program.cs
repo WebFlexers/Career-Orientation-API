@@ -4,8 +4,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddCors();
 
+builder.AddSwaggerServices();
 builder.AddEfCoreDbProvider();
 builder.AddIdentityServices();
 builder.AddAuthServices();
@@ -17,6 +18,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+await app.UseIdentityRoles();
+
+app.UseCustomCors(builder);
 
 app.UseHttpsRedirection();
 

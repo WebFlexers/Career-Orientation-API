@@ -1,6 +1,5 @@
 ﻿using CareerOrientation.Data.DTOs;
 using CareerOrientation.Data.Entities;
-using CareerOrientation.Services.Auth;
 using CareerOrientation.Services.Auth.Abstractions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
