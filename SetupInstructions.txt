@@ -1,0 +1,14 @@
+Ρυθμιση postgres server
+
+Βήμα 1: Άνοιγμα pgadmin
+
+Βημα 2: (Σε περίπτωση: Utility file not found. Please configure the Binary Path in the Preferences dialog)
+psql binarys https://stackoverflow.com/questions/69544583/please-configure-the-postgresql-binary-path-in-the-preferences-dialog
+
+Βημα 3: Άνοιγμα query tool στην postgres
+
+Βημα 4: Εκτέλεση των παρακάτω εντολών:
+ 	create user career_orientation with encrypted password 'knowledge';
+	CREATE DATABASE "career_orientation_db";
+	GRANT ALL PRIVILEGES ON DATABASE "career_orientation_db" TO career_orientation;
+	GRANT ALL PRIVILEGES ON SCHEMA public TO career_orientation;
