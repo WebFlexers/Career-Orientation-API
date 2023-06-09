@@ -1,5 +1,5 @@
 ﻿using CareerOrientation.Data;
-using CareerOrientation.Data.Entities;
+using CareerOrientation.Data.Entities.Users;
 using CareerOrientation.Services.Auth;
 using CareerOrientation.Services.Auth.Abstractions;
 using Microsoft.AspNetCore.Authentication.JwtBearer;

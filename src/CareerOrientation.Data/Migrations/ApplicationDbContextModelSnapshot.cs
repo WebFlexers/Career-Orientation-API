@@ -22,7 +22,147 @@ namespace CareerOrientation.Data.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("CareerOrientation.Data.Entities.User", b =>
+            modelBuilder.Entity("CareerOrientation.Data.Entities.Specialties.MastersDegree", b =>
+                {
+                    b.Property<int>("MastersDegreeId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("MastersDegreeId"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
+
+                    b.HasKey("MastersDegreeId");
+
+                    b.ToTable("MastersDegrees");
+                });
+
+            modelBuilder.Entity("CareerOrientation.Data.Entities.Specialties.Profession", b =>
+                {
+                    b.Property<int>("ProfessionId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("ProfessionId"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
+
+                    b.HasKey("ProfessionId");
+
+                    b.ToTable("Professions");
+                });
+
+            modelBuilder.Entity("CareerOrientation.Data.Entities.Specialties.Track", b =>
+                {
+                    b.Property<int>("TrackId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("TrackId"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
+
+                    b.HasKey("TrackId");
+
+                    b.ToTable("Tracks");
+                });
+
+            modelBuilder.Entity("CareerOrientation.Data.Entities.Tests.GeneralTest", b =>
+                {
+                    b.Property<int>("GeneralTestId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("GeneralTestId"));
+
+                    b.Property<int>("Type")
+                        .HasColumnType("integer");
+
+                    b.HasKey("GeneralTestId");
+
+                    b.ToTable("GeneralTests");
+                });
+
+            modelBuilder.Entity("CareerOrientation.Data.Entities.Tests.Question", b =>
+                {
+                    b.Property<int>("QuestionId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("QuestionId"));
+
+                    b.Property<int?>("GeneralTestId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Text")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("Type")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("UniversityTestId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("QuestionId");
+
+                    b.HasIndex("GeneralTestId");
+
+                    b.HasIndex("UniversityTestId");
+
+                    b.ToTable("Questions");
+                });
+
+            modelBuilder.Entity("CareerOrientation.Data.Entities.Tests.UniversityTest", b =>
+                {
+                    b.Property<int>("UniversityTestId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("UniversityTestId"));
+
+                    b.Property<bool>("IsRevision")
+                        .HasColumnType("boolean");
+
+                    b.Property<int>("Semester")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Year")
+                        .HasColumnType("integer");
+
+                    b.HasKey("UniversityTestId");
+
+                    b.ToTable("UniversityTests");
+                });
+
+            modelBuilder.Entity("CareerOrientation.Data.Entities.Users.UniversityStudent", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("text");
+
+                    b.Property<int>("Semester")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("TrackId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("UserId");
+
+                    b.HasIndex("TrackId");
+
+                    b.ToTable("UniversityStudents");
+                });
+
+            modelBuilder.Entity("CareerOrientation.Data.Entities.Users.User", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("text");
@@ -41,7 +181,7 @@ namespace CareerOrientation.Data.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("boolean");
 
-                    b.Property<bool>("IsUniStudent")
+                    b.Property<bool>("IsProspectiveStudent")
                         .HasColumnType("boolean");
 
                     b.Property<bool>("LockoutEnabled")
@@ -68,12 +208,6 @@ namespace CareerOrientation.Data.Migrations
                         .HasColumnType("boolean");
 
                     b.Property<string>("SecurityStamp")
-                        .HasColumnType("text");
-
-                    b.Property<int?>("Semester")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("Track")
                         .HasColumnType("text");
 
                     b.Property<bool>("TwoFactorEnabled")
@@ -227,6 +361,38 @@ namespace CareerOrientation.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("CareerOrientation.Data.Entities.Tests.Question", b =>
+                {
+                    b.HasOne("CareerOrientation.Data.Entities.Tests.GeneralTest", "GeneralTest")
+                        .WithMany("Questions")
+                        .HasForeignKey("GeneralTestId");
+
+                    b.HasOne("CareerOrientation.Data.Entities.Tests.UniversityTest", "UniversityTest")
+                        .WithMany("Questions")
+                        .HasForeignKey("UniversityTestId");
+
+                    b.Navigation("GeneralTest");
+
+                    b.Navigation("UniversityTest");
+                });
+
+            modelBuilder.Entity("CareerOrientation.Data.Entities.Users.UniversityStudent", b =>
+                {
+                    b.HasOne("CareerOrientation.Data.Entities.Specialties.Track", "Track")
+                        .WithMany("UniversityStudents")
+                        .HasForeignKey("TrackId");
+
+                    b.HasOne("CareerOrientation.Data.Entities.Users.User", "User")
+                        .WithOne("UniversityStudent")
+                        .HasForeignKey("CareerOrientation.Data.Entities.Users.UniversityStudent", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Track");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -238,7 +404,7 @@ namespace CareerOrientation.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("CareerOrientation.Data.Entities.User", null)
+                    b.HasOne("CareerOrientation.Data.Entities.Users.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -247,7 +413,7 @@ namespace CareerOrientation.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("CareerOrientation.Data.Entities.User", null)
+                    b.HasOne("CareerOrientation.Data.Entities.Users.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -262,7 +428,7 @@ namespace CareerOrientation.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CareerOrientation.Data.Entities.User", null)
+                    b.HasOne("CareerOrientation.Data.Entities.Users.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -271,11 +437,31 @@ namespace CareerOrientation.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("CareerOrientation.Data.Entities.User", null)
+                    b.HasOne("CareerOrientation.Data.Entities.Users.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("CareerOrientation.Data.Entities.Specialties.Track", b =>
+                {
+                    b.Navigation("UniversityStudents");
+                });
+
+            modelBuilder.Entity("CareerOrientation.Data.Entities.Tests.GeneralTest", b =>
+                {
+                    b.Navigation("Questions");
+                });
+
+            modelBuilder.Entity("CareerOrientation.Data.Entities.Tests.UniversityTest", b =>
+                {
+                    b.Navigation("Questions");
+                });
+
+            modelBuilder.Entity("CareerOrientation.Data.Entities.Users.User", b =>
+                {
+                    b.Navigation("UniversityStudent");
                 });
 #pragma warning restore 612, 618
         }

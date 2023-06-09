@@ -1,4 +1,4 @@
-﻿namespace CareerOrientation.Data.DTOs;
+﻿namespace CareerOrientation.Data.DTOs.Auth;
 
 public class AuthenticationResponse
 {

@@ -1,5 +1,5 @@
-﻿using CareerOrientation.Data.DTOs;
-using CareerOrientation.Data.Entities;
+﻿using CareerOrientation.Data.DTOs.Auth;
+using CareerOrientation.Data.Entities.Users;
 using CareerOrientation.Services.Auth.Abstractions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;

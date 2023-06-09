@@ -1,5 +1,6 @@
 ﻿using CareerOrientation.Data.DTOs;
-using CareerOrientation.Data.Entities;
+using CareerOrientation.Data.DTOs.Auth;
+using CareerOrientation.Data.Entities.Users;
 using CareerOrientation.Services.Auth.Abstractions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -27,21 +28,22 @@ public class UsersController : ControllerBase
     [HttpGet("{username}")]
     public async Task<ActionResult<UserDTO>> GetUser(string username)
     {
-        User? user = await _userManager.FindByNameAsync(username);
+        //User? user = await _userManager.FindByNameAsync(username);
 
-        if (user == null)
-        {
-            return NotFound();
-        }
+        //if (user == null)
+        //{
+        //    return NotFound();
+        //}
 
-        return new UserDTO
-        {
-            Username = user.UserName,
-            Email = user.Email,
-            IsUniStudent = user.IsUniStudent,
-            Semester = user.Semester,
-            Track = user.Track
-        };
+        //return new UserDTO
+        //{
+        //    Username = user.UserName,
+        //    Email = user.Email,
+        //    IsUniStudent = user.IsUniStudent,
+        //    Semester = user.Semester,
+        //    Track = user.Track
+        //};
+        return Ok();
     }
 
     // POST: api/Users
@@ -52,31 +54,32 @@ public class UsersController : ControllerBase
     [AllowAnonymous]
     public async Task<ActionResult<UserDTO>> PostUser(UserDTO user)
     {
-        // TODO: Validate the given information further
-        if (ModelState.IsValid == false)
-        {
-            return BadRequest(ModelState);
-        }
+        //// TODO: Validate the given information further
+        //if (ModelState.IsValid == false)
+        //{
+        //    return BadRequest(ModelState);
+        //}
 
-        var result = await _userManager.CreateAsync(
-            new User() { 
-                UserName = user.Username, 
-                Email = user.Email,
-                IsUniStudent = user.IsUniStudent,
-                Semester = user.Semester,
-                Track = user.Track
-            },
-            user.Password
-        );
+        //var result = await _userManager.CreateAsync(
+        //    new User() { 
+        //        UserName = user.Username, 
+        //        Email = user.Email,
+        //        IsUniStudent = user.IsUniStudent,
+        //        Semester = user.Semester,
+        //        Track = user.Track
+        //    },
+        //    user.Password
+        //);
 
-        if (result.Succeeded == false)
-        {
-            return BadRequest(result.Errors);
-        }
+        //if (result.Succeeded == false)
+        //{
+        //    return BadRequest(result.Errors);
+        //}
 
-        user.Password = null;
-        _logger.LogInformation("User created: {user}", user.Username);
-        return CreatedAtAction(nameof(GetUser), new { username = user.Username }, user);
+        //user.Password = null;
+        //_logger.LogInformation("User created: {user}", user.Username);
+        //return CreatedAtAction(nameof(GetUser), new { username = user.Username }, user);
+        return Ok();
     }
 
     // POST: api/Users/Login

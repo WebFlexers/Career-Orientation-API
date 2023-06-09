@@ -1,5 +1,5 @@
-﻿using CareerOrientation.Data.DTOs;
-using CareerOrientation.Data.Entities;
+﻿using CareerOrientation.Data.DTOs.Auth;
+using CareerOrientation.Data.Entities.Users;
 
 namespace CareerOrientation.Services.Auth.Abstractions;
 
