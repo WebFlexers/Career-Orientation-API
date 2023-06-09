@@ -21,6 +21,14 @@ public class CourseConfig : IEntityTypeConfiguration<Course>
         builder.Property(x => x.Semester)
             .IsRequired();
 
+        builder.Property(x => x.TrackId)
+            .IsRequired(false);
+
+        // One to mane relations
+        builder.HasOne(course => course.Track)
+            .WithMany(track => track.Courses)
+            .HasForeignKey(course => course.TrackId);
+
         // Many to many relations
         builder.HasMany(course => course.Skills)
             .WithMany(skills => skills.Courses)
