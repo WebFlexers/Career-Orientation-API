@@ -1,5 +1,6 @@
 ﻿using CareerOrientation.Data.Entities.Tests;
 using CareerOrientation.Data.Entities.TestsUsersRelations;
+using CareerOrientation.Data.Entities.UsersCoursesRelations;
 using Microsoft.AspNetCore.Identity;
 
 namespace CareerOrientation.Data.Entities.Users;
@@ -18,4 +19,8 @@ public class User : IdentityUser
     // User tests taken
     public List<GeneralTest> CompletedGeneralTests { get; set; }
     public List<UniversityTest> CompletedUniversityTests { get; set; }
+
+    // Course relations
+    public List<UserCourseGrade> UserCourseGrades { get; set; }
+    public List<UserCourseStatistics> UserCourseStatistics { get; set; }
 }
