@@ -53,6 +53,21 @@ namespace CareerOrientation.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Course",
+                columns: table => new
+                {
+                    CourseId = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Name = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
+                    Description = table.Column<string>(type: "text", nullable: false),
+                    Semester = table.Column<int>(type: "integer", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Course", x => x.CourseId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "GeneralTests",
                 columns: table => new
                 {
@@ -89,6 +104,20 @@ namespace CareerOrientation.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Professions", x => x.ProfessionId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Skill",
+                columns: table => new
+                {
+                    SkillId = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Name = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
+                    Type = table.Column<int>(type: "integer", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Skill", x => x.SkillId);
                 });
 
             migrationBuilder.CreateTable(
@@ -226,6 +255,56 @@ namespace CareerOrientation.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "UserCourseGrade",
+                columns: table => new
+                {
+                    CourseId = table.Column<int>(type: "integer", nullable: false),
+                    UserId = table.Column<string>(type: "text", nullable: false),
+                    Value = table.Column<float>(type: "real", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserCourseGrade", x => new { x.CourseId, x.UserId });
+                    table.ForeignKey(
+                        name: "FK_UserCourseGrade_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_UserCourseGrade_Course_CourseId",
+                        column: x => x.CourseId,
+                        principalTable: "Course",
+                        principalColumn: "CourseId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "UserCourseStatistics",
+                columns: table => new
+                {
+                    CourseId = table.Column<int>(type: "integer", nullable: false),
+                    UserId = table.Column<string>(type: "text", nullable: false),
+                    AccessCount = table.Column<int>(type: "integer", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserCourseStatistics", x => new { x.CourseId, x.UserId });
+                    table.ForeignKey(
+                        name: "FK_UserCourseStatistics_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_UserCourseStatistics_Course_CourseId",
+                        column: x => x.CourseId,
+                        principalTable: "Course",
+                        principalColumn: "CourseId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "UsersTookGeneralTests",
                 columns: table => new
                 {
@@ -246,6 +325,30 @@ namespace CareerOrientation.Data.Migrations
                         column: x => x.GeneralTestId,
                         principalTable: "GeneralTests",
                         principalColumn: "GeneralTestId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "CourseSkill",
+                columns: table => new
+                {
+                    CourseId = table.Column<int>(type: "integer", nullable: false),
+                    SkillId = table.Column<int>(type: "integer", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CourseSkill", x => new { x.CourseId, x.SkillId });
+                    table.ForeignKey(
+                        name: "FK_CourseSkill_Course_CourseId",
+                        column: x => x.CourseId,
+                        principalTable: "Course",
+                        principalColumn: "CourseId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_CourseSkill_Skill_SkillId",
+                        column: x => x.SkillId,
+                        principalTable: "Skill",
+                        principalColumn: "SkillId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -547,6 +650,11 @@ namespace CareerOrientation.Data.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
+                name: "IX_CourseSkill_SkillId",
+                table: "CourseSkill",
+                column: "SkillId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_MultipleChoiceAnswers_QuestionId",
                 table: "MultipleChoiceAnswers",
                 column: "QuestionId");
@@ -593,6 +701,16 @@ namespace CareerOrientation.Data.Migrations
                 column: "TrackId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_UserCourseGrade_UserId",
+                table: "UserCourseGrade",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UserCourseStatistics_UserId",
+                table: "UserCourseStatistics",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_UserLikertScaleAnswers_UserId",
                 table: "UserLikertScaleAnswers",
                 column: "UserId");
@@ -632,6 +750,9 @@ namespace CareerOrientation.Data.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "CourseSkill");
+
+            migrationBuilder.DropTable(
                 name: "QuestionsMastersDegrees");
 
             migrationBuilder.DropTable(
@@ -645,6 +766,12 @@ namespace CareerOrientation.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "UniversityStudents");
+
+            migrationBuilder.DropTable(
+                name: "UserCourseGrade");
+
+            migrationBuilder.DropTable(
+                name: "UserCourseStatistics");
 
             migrationBuilder.DropTable(
                 name: "UserLikertScaleAnswers");
@@ -662,6 +789,9 @@ namespace CareerOrientation.Data.Migrations
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
+                name: "Skill");
+
+            migrationBuilder.DropTable(
                 name: "MastersDegrees");
 
             migrationBuilder.DropTable(
@@ -669,6 +799,9 @@ namespace CareerOrientation.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "Tracks");
+
+            migrationBuilder.DropTable(
+                name: "Course");
 
             migrationBuilder.DropTable(
                 name: "MultipleChoiceAnswers");
