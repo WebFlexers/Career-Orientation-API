@@ -1,4 +1,6 @@
-﻿namespace CareerOrientation.Data.Entities.Tests;
+﻿using CareerOrientation.Data.Entities.Users;
+
+namespace CareerOrientation.Data.Entities.Tests;
 
 public class UniversityTest
 {
@@ -8,4 +10,5 @@ public class UniversityTest
     public bool IsRevision { get; set; }
 
     public List<Question> Questions { get; set; }
+    public List<User> UsersTookTest { get; set; }
 }

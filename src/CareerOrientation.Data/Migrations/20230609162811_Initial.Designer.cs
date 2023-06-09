@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CareerOrientation.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230609151721_Initial")]
+    [Migration("20230609162811_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -118,7 +118,7 @@ namespace CareerOrientation.Data.Migrations
 
                     b.HasIndex("QuestionId");
 
-                    b.ToTable("MultipleChoiceAnswer");
+                    b.ToTable("MultipleChoiceAnswers");
                 });
 
             modelBuilder.Entity("CareerOrientation.Data.Entities.Tests.Question", b =>
@@ -170,7 +170,7 @@ namespace CareerOrientation.Data.Migrations
                     b.HasIndex("QuestionId")
                         .IsUnique();
 
-                    b.ToTable("TrueFalseAnswer");
+                    b.ToTable("TrueFalseAnswers");
                 });
 
             modelBuilder.Entity("CareerOrientation.Data.Entities.Tests.UniversityTest", b =>
@@ -238,6 +238,84 @@ namespace CareerOrientation.Data.Migrations
                     b.HasIndex("TrackId");
 
                     b.ToTable("QuestionsTracks");
+                });
+
+            modelBuilder.Entity("CareerOrientation.Data.Entities.TestsUsersRelations.StudentTookUniversityTest", b =>
+                {
+                    b.Property<int>("UniversityTestId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("text");
+
+                    b.HasKey("UniversityTestId", "UserId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("StudentsTookUniversityTests");
+                });
+
+            modelBuilder.Entity("CareerOrientation.Data.Entities.TestsUsersRelations.UserLikertScaleAnswer", b =>
+                {
+                    b.Property<int>("QuestionId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("text");
+
+                    b.Property<int>("Value")
+                        .HasColumnType("integer");
+
+                    b.HasKey("QuestionId", "UserId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserLikertScaleAnswers");
+                });
+
+            modelBuilder.Entity("CareerOrientation.Data.Entities.TestsUsersRelations.UserMultipleChoiceAnswer", b =>
+                {
+                    b.Property<int>("MultipleChoiceAnswerId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("text");
+
+                    b.HasKey("MultipleChoiceAnswerId", "UserId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserMultipleChoiceAnswers");
+                });
+
+            modelBuilder.Entity("CareerOrientation.Data.Entities.TestsUsersRelations.UserTookGeneralTest", b =>
+                {
+                    b.Property<int>("GeneralTestId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("text");
+
+                    b.HasKey("GeneralTestId", "UserId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UsersTookGeneralTests");
+                });
+
+            modelBuilder.Entity("CareerOrientation.Data.Entities.TestsUsersRelations.UserTrueFalseAnswer", b =>
+                {
+                    b.Property<int>("TrueFalseAnswerId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("text");
+
+                    b.HasKey("TrueFalseAnswerId", "UserId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserTrueFalseAnswers");
                 });
 
             modelBuilder.Entity("CareerOrientation.Data.Entities.Users.UniversityStudent", b =>
@@ -551,6 +629,101 @@ namespace CareerOrientation.Data.Migrations
                     b.Navigation("Track");
                 });
 
+            modelBuilder.Entity("CareerOrientation.Data.Entities.TestsUsersRelations.StudentTookUniversityTest", b =>
+                {
+                    b.HasOne("CareerOrientation.Data.Entities.Tests.UniversityTest", "UniversityTest")
+                        .WithMany()
+                        .HasForeignKey("UniversityTestId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CareerOrientation.Data.Entities.Users.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("UniversityTest");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("CareerOrientation.Data.Entities.TestsUsersRelations.UserLikertScaleAnswer", b =>
+                {
+                    b.HasOne("CareerOrientation.Data.Entities.Tests.Question", "Question")
+                        .WithMany("UsersLikertScaleAnswers")
+                        .HasForeignKey("QuestionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CareerOrientation.Data.Entities.Users.User", "User")
+                        .WithMany("UserLikertScaleAnswers")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Question");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("CareerOrientation.Data.Entities.TestsUsersRelations.UserMultipleChoiceAnswer", b =>
+                {
+                    b.HasOne("CareerOrientation.Data.Entities.Tests.MultipleChoiceAnswer", "MultipleChoiceAnswer")
+                        .WithMany()
+                        .HasForeignKey("MultipleChoiceAnswerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CareerOrientation.Data.Entities.Users.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("MultipleChoiceAnswer");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("CareerOrientation.Data.Entities.TestsUsersRelations.UserTookGeneralTest", b =>
+                {
+                    b.HasOne("CareerOrientation.Data.Entities.Tests.GeneralTest", "GeneralTest")
+                        .WithMany()
+                        .HasForeignKey("GeneralTestId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CareerOrientation.Data.Entities.Users.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("GeneralTest");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("CareerOrientation.Data.Entities.TestsUsersRelations.UserTrueFalseAnswer", b =>
+                {
+                    b.HasOne("CareerOrientation.Data.Entities.Tests.TrueFalseAnswer", "TrueFalseAnswer")
+                        .WithMany()
+                        .HasForeignKey("TrueFalseAnswerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CareerOrientation.Data.Entities.Users.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("TrueFalseAnswer");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("CareerOrientation.Data.Entities.Users.UniversityStudent", b =>
                 {
                     b.HasOne("CareerOrientation.Data.Entities.Specialties.Track", "Track")
@@ -634,6 +807,8 @@ namespace CareerOrientation.Data.Migrations
                     b.Navigation("MultipleChoiceAnswers");
 
                     b.Navigation("TrueFalseAnswer");
+
+                    b.Navigation("UsersLikertScaleAnswers");
                 });
 
             modelBuilder.Entity("CareerOrientation.Data.Entities.Tests.UniversityTest", b =>
@@ -644,6 +819,8 @@ namespace CareerOrientation.Data.Migrations
             modelBuilder.Entity("CareerOrientation.Data.Entities.Users.User", b =>
                 {
                     b.Navigation("UniversityStudent");
+
+                    b.Navigation("UserLikertScaleAnswers");
                 });
 #pragma warning restore 612, 618
         }

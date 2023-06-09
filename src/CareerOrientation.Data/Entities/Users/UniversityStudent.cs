@@ -1,4 +1,5 @@
 ﻿using CareerOrientation.Data.Entities.Specialties;
+using CareerOrientation.Data.Entities.Tests;
 
 namespace CareerOrientation.Data.Entities.Users;
 

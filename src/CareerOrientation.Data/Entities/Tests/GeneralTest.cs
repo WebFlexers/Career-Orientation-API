@@ -1,4 +1,5 @@
 ﻿using CareerOrientation.Data.Entities.Tests.Enums;
+using CareerOrientation.Data.Entities.Users;
 
 namespace CareerOrientation.Data.Entities.Tests;
 
@@ -8,4 +9,5 @@ public class GeneralTest
     public GeneralTestType Type { get; set; }
 
     public List<Question> Questions { get; set; }
+    public List<User> UsersTookTest { get; set; }
 }

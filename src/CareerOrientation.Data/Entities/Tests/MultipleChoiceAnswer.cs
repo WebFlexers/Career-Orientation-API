@@ -1,4 +1,6 @@
-﻿namespace CareerOrientation.Data.Entities.Tests;
+﻿using CareerOrientation.Data.Entities.Users;
+
+namespace CareerOrientation.Data.Entities.Tests;
 
 public class MultipleChoiceAnswer
 {
@@ -8,4 +10,6 @@ public class MultipleChoiceAnswer
 
     public int QuestionId { get; set; }
     public Question Question { get; set; }
+
+    public List<User>? UsersAnswered { get; set; }
 }

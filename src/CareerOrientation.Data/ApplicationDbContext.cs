@@ -3,6 +3,7 @@ using CareerOrientation.Data.Entities.Configurations.TestsUsersRelations;
 using CareerOrientation.Data.Entities.Specialties;
 using CareerOrientation.Data.Entities.Tests;
 using CareerOrientation.Data.Entities.TestsSpecialtiesRelations;
+using CareerOrientation.Data.Entities.TestsUsersRelations;
 using CareerOrientation.Data.Entities.Users;
 using CareerOrientation.Data.Seeding;
 using Microsoft.AspNetCore.Identity;
@@ -42,6 +43,15 @@ public class ApplicationDbContext : IdentityDbContext<User, IdentityRole, string
     public DbSet<QuestionMastersDegree> QuestionsMastersDegrees { get; set; }
     public DbSet<QuestionProfession> QuestionsProfessions { get; set; }
     public DbSet<QuestionTrack> QuestionsTracks { get; set; }
+
+    // Answers - Users relations
+    public DbSet<UserLikertScaleAnswer> UserLikertScaleAnswers { get; set; }    
+    public DbSet<UserMultipleChoiceAnswer> UserMultipleChoiceAnswers { get; set; }
+    public DbSet<UserTrueFalseAnswer> UserTrueFalseAnswers { get; set; }
+
+    // Tests - Users relations
+    public DbSet<UserTookGeneralTest> UsersTookGeneralTests { get; set; }
+    public DbSet<StudentTookUniversityTest> StudentsTookUniversityTests { get; set; }
 
     // Users
     public DbSet<UniversityStudent> UniversityStudents { get; set; }

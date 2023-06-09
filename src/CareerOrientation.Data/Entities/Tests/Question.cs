@@ -1,5 +1,6 @@
 ﻿using CareerOrientation.Data.Entities.Specialties;
 using CareerOrientation.Data.Entities.Tests.Enums;
+using CareerOrientation.Data.Entities.TestsUsersRelations;
 
 namespace CareerOrientation.Data.Entities.Tests;
 
@@ -24,4 +25,6 @@ public class Question
     public TrueFalseAnswer? TrueFalseAnswer { get; set; }
     public List<MultipleChoiceAnswer>? MultipleChoiceAnswers { get; set; }
 
+    // User answers relations
+    public List<UserLikertScaleAnswer> UsersLikertScaleAnswers { get; set; }
 }

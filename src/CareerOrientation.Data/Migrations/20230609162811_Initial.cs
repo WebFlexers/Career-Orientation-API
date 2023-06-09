@@ -226,6 +226,30 @@ namespace CareerOrientation.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "UsersTookGeneralTests",
+                columns: table => new
+                {
+                    GeneralTestId = table.Column<int>(type: "integer", nullable: false),
+                    UserId = table.Column<string>(type: "text", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UsersTookGeneralTests", x => new { x.GeneralTestId, x.UserId });
+                    table.ForeignKey(
+                        name: "FK_UsersTookGeneralTests_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_UsersTookGeneralTests_GeneralTests_GeneralTestId",
+                        column: x => x.GeneralTestId,
+                        principalTable: "GeneralTests",
+                        principalColumn: "GeneralTestId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "UniversityStudents",
                 columns: table => new
                 {
@@ -276,7 +300,31 @@ namespace CareerOrientation.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "MultipleChoiceAnswer",
+                name: "StudentsTookUniversityTests",
+                columns: table => new
+                {
+                    UniversityTestId = table.Column<int>(type: "integer", nullable: false),
+                    UserId = table.Column<string>(type: "text", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_StudentsTookUniversityTests", x => new { x.UniversityTestId, x.UserId });
+                    table.ForeignKey(
+                        name: "FK_StudentsTookUniversityTests_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_StudentsTookUniversityTests_UniversityTests_UniversityTestId",
+                        column: x => x.UniversityTestId,
+                        principalTable: "UniversityTests",
+                        principalColumn: "UniversityTestId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "MultipleChoiceAnswers",
                 columns: table => new
                 {
                     MultipleChoiceAnswerId = table.Column<int>(type: "integer", nullable: false)
@@ -287,9 +335,9 @@ namespace CareerOrientation.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_MultipleChoiceAnswer", x => x.MultipleChoiceAnswerId);
+                    table.PrimaryKey("PK_MultipleChoiceAnswers", x => x.MultipleChoiceAnswerId);
                     table.ForeignKey(
-                        name: "FK_MultipleChoiceAnswer_Questions_QuestionId",
+                        name: "FK_MultipleChoiceAnswers_Questions_QuestionId",
                         column: x => x.QuestionId,
                         principalTable: "Questions",
                         principalColumn: "QuestionId",
@@ -369,7 +417,7 @@ namespace CareerOrientation.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "TrueFalseAnswer",
+                name: "TrueFalseAnswers",
                 columns: table => new
                 {
                     TrueFalseAnswerId = table.Column<int>(type: "integer", nullable: false)
@@ -379,12 +427,85 @@ namespace CareerOrientation.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TrueFalseAnswer", x => x.TrueFalseAnswerId);
+                    table.PrimaryKey("PK_TrueFalseAnswers", x => x.TrueFalseAnswerId);
                     table.ForeignKey(
-                        name: "FK_TrueFalseAnswer_Questions_QuestionId",
+                        name: "FK_TrueFalseAnswers_Questions_QuestionId",
                         column: x => x.QuestionId,
                         principalTable: "Questions",
                         principalColumn: "QuestionId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "UserLikertScaleAnswers",
+                columns: table => new
+                {
+                    QuestionId = table.Column<int>(type: "integer", nullable: false),
+                    UserId = table.Column<string>(type: "text", nullable: false),
+                    Value = table.Column<int>(type: "integer", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserLikertScaleAnswers", x => new { x.QuestionId, x.UserId });
+                    table.ForeignKey(
+                        name: "FK_UserLikertScaleAnswers_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_UserLikertScaleAnswers_Questions_QuestionId",
+                        column: x => x.QuestionId,
+                        principalTable: "Questions",
+                        principalColumn: "QuestionId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "UserMultipleChoiceAnswers",
+                columns: table => new
+                {
+                    MultipleChoiceAnswerId = table.Column<int>(type: "integer", nullable: false),
+                    UserId = table.Column<string>(type: "text", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserMultipleChoiceAnswers", x => new { x.MultipleChoiceAnswerId, x.UserId });
+                    table.ForeignKey(
+                        name: "FK_UserMultipleChoiceAnswers_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_UserMultipleChoiceAnswers_MultipleChoiceAnswers_MultipleCho~",
+                        column: x => x.MultipleChoiceAnswerId,
+                        principalTable: "MultipleChoiceAnswers",
+                        principalColumn: "MultipleChoiceAnswerId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "UserTrueFalseAnswers",
+                columns: table => new
+                {
+                    TrueFalseAnswerId = table.Column<int>(type: "integer", nullable: false),
+                    UserId = table.Column<string>(type: "text", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserTrueFalseAnswers", x => new { x.TrueFalseAnswerId, x.UserId });
+                    table.ForeignKey(
+                        name: "FK_UserTrueFalseAnswers_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_UserTrueFalseAnswers_TrueFalseAnswers_TrueFalseAnswerId",
+                        column: x => x.TrueFalseAnswerId,
+                        principalTable: "TrueFalseAnswers",
+                        principalColumn: "TrueFalseAnswerId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -426,8 +547,8 @@ namespace CareerOrientation.Data.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_MultipleChoiceAnswer_QuestionId",
-                table: "MultipleChoiceAnswer",
+                name: "IX_MultipleChoiceAnswers_QuestionId",
+                table: "MultipleChoiceAnswers",
                 column: "QuestionId");
 
             migrationBuilder.CreateIndex(
@@ -456,8 +577,13 @@ namespace CareerOrientation.Data.Migrations
                 column: "TrackId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_TrueFalseAnswer_QuestionId",
-                table: "TrueFalseAnswer",
+                name: "IX_StudentsTookUniversityTests_UserId",
+                table: "StudentsTookUniversityTests",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TrueFalseAnswers_QuestionId",
+                table: "TrueFalseAnswers",
                 column: "QuestionId",
                 unique: true);
 
@@ -465,6 +591,26 @@ namespace CareerOrientation.Data.Migrations
                 name: "IX_UniversityStudents_TrackId",
                 table: "UniversityStudents",
                 column: "TrackId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UserLikertScaleAnswers_UserId",
+                table: "UserLikertScaleAnswers",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UserMultipleChoiceAnswers_UserId",
+                table: "UserMultipleChoiceAnswers",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UsersTookGeneralTests_UserId",
+                table: "UsersTookGeneralTests",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UserTrueFalseAnswers_UserId",
+                table: "UserTrueFalseAnswers",
+                column: "UserId");
         }
 
         /// <inheritdoc />
@@ -486,9 +632,6 @@ namespace CareerOrientation.Data.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "MultipleChoiceAnswer");
-
-            migrationBuilder.DropTable(
                 name: "QuestionsMastersDegrees");
 
             migrationBuilder.DropTable(
@@ -498,10 +641,22 @@ namespace CareerOrientation.Data.Migrations
                 name: "QuestionsTracks");
 
             migrationBuilder.DropTable(
-                name: "TrueFalseAnswer");
+                name: "StudentsTookUniversityTests");
 
             migrationBuilder.DropTable(
                 name: "UniversityStudents");
+
+            migrationBuilder.DropTable(
+                name: "UserLikertScaleAnswers");
+
+            migrationBuilder.DropTable(
+                name: "UserMultipleChoiceAnswers");
+
+            migrationBuilder.DropTable(
+                name: "UsersTookGeneralTests");
+
+            migrationBuilder.DropTable(
+                name: "UserTrueFalseAnswers");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
@@ -513,13 +668,19 @@ namespace CareerOrientation.Data.Migrations
                 name: "Professions");
 
             migrationBuilder.DropTable(
-                name: "Questions");
+                name: "Tracks");
+
+            migrationBuilder.DropTable(
+                name: "MultipleChoiceAnswers");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "Tracks");
+                name: "TrueFalseAnswers");
+
+            migrationBuilder.DropTable(
+                name: "Questions");
 
             migrationBuilder.DropTable(
                 name: "GeneralTests");
