@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CareerOrientation.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230609143020_Initial")]
+    [Migration("20230609145902_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -145,6 +145,51 @@ namespace CareerOrientation.Data.Migrations
                     b.HasKey("UniversityTestId");
 
                     b.ToTable("UniversityTests");
+                });
+
+            modelBuilder.Entity("CareerOrientation.Data.Entities.TestsSpecialtiesRelations.QuestionMastersDegree", b =>
+                {
+                    b.Property<int>("QuestionId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("MastersDegreeId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("QuestionId", "MastersDegreeId");
+
+                    b.HasIndex("MastersDegreeId");
+
+                    b.ToTable("QuestionsMastersDegrees");
+                });
+
+            modelBuilder.Entity("CareerOrientation.Data.Entities.TestsSpecialtiesRelations.QuestionProfession", b =>
+                {
+                    b.Property<int>("QuestionId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("ProfessionId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("QuestionId", "ProfessionId");
+
+                    b.HasIndex("ProfessionId");
+
+                    b.ToTable("QuestionsProfessions");
+                });
+
+            modelBuilder.Entity("CareerOrientation.Data.Entities.TestsSpecialtiesRelations.QuestionTrack", b =>
+                {
+                    b.Property<int>("QuestionId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("TrackId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("QuestionId", "TrackId");
+
+                    b.HasIndex("TrackId");
+
+                    b.ToTable("QuestionsTracks");
                 });
 
             modelBuilder.Entity("CareerOrientation.Data.Entities.Users.UniversityStudent", b =>
@@ -377,6 +422,63 @@ namespace CareerOrientation.Data.Migrations
                     b.Navigation("GeneralTest");
 
                     b.Navigation("UniversityTest");
+                });
+
+            modelBuilder.Entity("CareerOrientation.Data.Entities.TestsSpecialtiesRelations.QuestionMastersDegree", b =>
+                {
+                    b.HasOne("CareerOrientation.Data.Entities.Specialties.MastersDegree", "MastersDegree")
+                        .WithMany()
+                        .HasForeignKey("MastersDegreeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CareerOrientation.Data.Entities.Tests.Question", "Question")
+                        .WithMany()
+                        .HasForeignKey("QuestionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("MastersDegree");
+
+                    b.Navigation("Question");
+                });
+
+            modelBuilder.Entity("CareerOrientation.Data.Entities.TestsSpecialtiesRelations.QuestionProfession", b =>
+                {
+                    b.HasOne("CareerOrientation.Data.Entities.Specialties.Profession", "Profession")
+                        .WithMany()
+                        .HasForeignKey("ProfessionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CareerOrientation.Data.Entities.Tests.Question", "Question")
+                        .WithMany()
+                        .HasForeignKey("QuestionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Profession");
+
+                    b.Navigation("Question");
+                });
+
+            modelBuilder.Entity("CareerOrientation.Data.Entities.TestsSpecialtiesRelations.QuestionTrack", b =>
+                {
+                    b.HasOne("CareerOrientation.Data.Entities.Tests.Question", "Question")
+                        .WithMany()
+                        .HasForeignKey("QuestionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CareerOrientation.Data.Entities.Specialties.Track", "Track")
+                        .WithMany()
+                        .HasForeignKey("TrackId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Question");
+
+                    b.Navigation("Track");
                 });
 
             modelBuilder.Entity("CareerOrientation.Data.Entities.Users.UniversityStudent", b =>

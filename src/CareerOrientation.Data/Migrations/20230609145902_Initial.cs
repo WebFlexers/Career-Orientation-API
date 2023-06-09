@@ -275,6 +275,78 @@ namespace CareerOrientation.Data.Migrations
                         principalColumn: "UniversityTestId");
                 });
 
+            migrationBuilder.CreateTable(
+                name: "QuestionsMastersDegrees",
+                columns: table => new
+                {
+                    QuestionId = table.Column<int>(type: "integer", nullable: false),
+                    MastersDegreeId = table.Column<int>(type: "integer", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_QuestionsMastersDegrees", x => new { x.QuestionId, x.MastersDegreeId });
+                    table.ForeignKey(
+                        name: "FK_QuestionsMastersDegrees_MastersDegrees_MastersDegreeId",
+                        column: x => x.MastersDegreeId,
+                        principalTable: "MastersDegrees",
+                        principalColumn: "MastersDegreeId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_QuestionsMastersDegrees_Questions_QuestionId",
+                        column: x => x.QuestionId,
+                        principalTable: "Questions",
+                        principalColumn: "QuestionId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "QuestionsProfessions",
+                columns: table => new
+                {
+                    QuestionId = table.Column<int>(type: "integer", nullable: false),
+                    ProfessionId = table.Column<int>(type: "integer", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_QuestionsProfessions", x => new { x.QuestionId, x.ProfessionId });
+                    table.ForeignKey(
+                        name: "FK_QuestionsProfessions_Professions_ProfessionId",
+                        column: x => x.ProfessionId,
+                        principalTable: "Professions",
+                        principalColumn: "ProfessionId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_QuestionsProfessions_Questions_QuestionId",
+                        column: x => x.QuestionId,
+                        principalTable: "Questions",
+                        principalColumn: "QuestionId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "QuestionsTracks",
+                columns: table => new
+                {
+                    QuestionId = table.Column<int>(type: "integer", nullable: false),
+                    TrackId = table.Column<int>(type: "integer", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_QuestionsTracks", x => new { x.QuestionId, x.TrackId });
+                    table.ForeignKey(
+                        name: "FK_QuestionsTracks_Questions_QuestionId",
+                        column: x => x.QuestionId,
+                        principalTable: "Questions",
+                        principalColumn: "QuestionId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_QuestionsTracks_Tracks_TrackId",
+                        column: x => x.TrackId,
+                        principalTable: "Tracks",
+                        principalColumn: "TrackId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -323,6 +395,21 @@ namespace CareerOrientation.Data.Migrations
                 column: "UniversityTestId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_QuestionsMastersDegrees_MastersDegreeId",
+                table: "QuestionsMastersDegrees",
+                column: "MastersDegreeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_QuestionsProfessions_ProfessionId",
+                table: "QuestionsProfessions",
+                column: "ProfessionId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_QuestionsTracks_TrackId",
+                table: "QuestionsTracks",
+                column: "TrackId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_UniversityStudents_TrackId",
                 table: "UniversityStudents",
                 column: "TrackId");
@@ -347,6 +434,21 @@ namespace CareerOrientation.Data.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "QuestionsMastersDegrees");
+
+            migrationBuilder.DropTable(
+                name: "QuestionsProfessions");
+
+            migrationBuilder.DropTable(
+                name: "QuestionsTracks");
+
+            migrationBuilder.DropTable(
+                name: "UniversityStudents");
+
+            migrationBuilder.DropTable(
+                name: "AspNetRoles");
+
+            migrationBuilder.DropTable(
                 name: "MastersDegrees");
 
             migrationBuilder.DropTable(
@@ -356,22 +458,16 @@ namespace CareerOrientation.Data.Migrations
                 name: "Questions");
 
             migrationBuilder.DropTable(
-                name: "UniversityStudents");
+                name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "AspNetRoles");
+                name: "Tracks");
 
             migrationBuilder.DropTable(
                 name: "GeneralTests");
 
             migrationBuilder.DropTable(
                 name: "UniversityTests");
-
-            migrationBuilder.DropTable(
-                name: "AspNetUsers");
-
-            migrationBuilder.DropTable(
-                name: "Tracks");
         }
     }
 }

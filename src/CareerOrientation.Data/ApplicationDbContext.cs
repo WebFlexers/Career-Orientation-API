@@ -1,5 +1,6 @@
 ﻿using CareerOrientation.Data.Entities.Specialties;
 using CareerOrientation.Data.Entities.Tests;
+using CareerOrientation.Data.Entities.TestsSpecialtiesRelations;
 using CareerOrientation.Data.Entities.Users;
 using CareerOrientation.Data.Seeding;
 using Microsoft.AspNetCore.Identity;
@@ -23,14 +24,19 @@ public class ApplicationDbContext : IdentityDbContext<User, IdentityRole, string
     }
 
     // Specialties
-    public DbSet<Track> Tracks { get;set; }
     public DbSet<MastersDegree> MastersDegrees { get; set; }
     public DbSet<Profession> Professions { get; set; }
+    public DbSet<Track> Tracks { get;set; }
 
     // Tests
-    public DbSet<Question> Questions { get; set; }
     public DbSet<GeneralTest> GeneralTests { get; set; }
+    public DbSet<Question> Questions { get; set; }
     public DbSet<UniversityTest> UniversityTests { get; set; }
+
+    // Tests - Specialty relations
+    public DbSet<QuestionMastersDegree> QuestionsMastersDegrees { get; set; }
+    public DbSet<QuestionProfession> QuestionsProfessions { get; set; }
+    public DbSet<QuestionTrack> QuestionsTracks { get; set; }
 
     // Users
     public DbSet<UniversityStudent> UniversityStudents { get; set; }
