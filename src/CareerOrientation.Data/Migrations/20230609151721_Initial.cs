@@ -276,6 +276,27 @@ namespace CareerOrientation.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "MultipleChoiceAnswer",
+                columns: table => new
+                {
+                    MultipleChoiceAnswerId = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Text = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
+                    IsCorrect = table.Column<bool>(type: "boolean", nullable: false),
+                    QuestionId = table.Column<int>(type: "integer", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_MultipleChoiceAnswer", x => x.MultipleChoiceAnswerId);
+                    table.ForeignKey(
+                        name: "FK_MultipleChoiceAnswer_Questions_QuestionId",
+                        column: x => x.QuestionId,
+                        principalTable: "Questions",
+                        principalColumn: "QuestionId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "QuestionsMastersDegrees",
                 columns: table => new
                 {
@@ -347,6 +368,26 @@ namespace CareerOrientation.Data.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "TrueFalseAnswer",
+                columns: table => new
+                {
+                    TrueFalseAnswerId = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Value = table.Column<bool>(type: "boolean", nullable: false),
+                    QuestionId = table.Column<int>(type: "integer", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TrueFalseAnswer", x => x.TrueFalseAnswerId);
+                    table.ForeignKey(
+                        name: "FK_TrueFalseAnswer_Questions_QuestionId",
+                        column: x => x.QuestionId,
+                        principalTable: "Questions",
+                        principalColumn: "QuestionId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -385,6 +426,11 @@ namespace CareerOrientation.Data.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
+                name: "IX_MultipleChoiceAnswer_QuestionId",
+                table: "MultipleChoiceAnswer",
+                column: "QuestionId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Questions_GeneralTestId",
                 table: "Questions",
                 column: "GeneralTestId");
@@ -408,6 +454,12 @@ namespace CareerOrientation.Data.Migrations
                 name: "IX_QuestionsTracks_TrackId",
                 table: "QuestionsTracks",
                 column: "TrackId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TrueFalseAnswer_QuestionId",
+                table: "TrueFalseAnswer",
+                column: "QuestionId",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_UniversityStudents_TrackId",
@@ -434,6 +486,9 @@ namespace CareerOrientation.Data.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "MultipleChoiceAnswer");
+
+            migrationBuilder.DropTable(
                 name: "QuestionsMastersDegrees");
 
             migrationBuilder.DropTable(
@@ -441,6 +496,9 @@ namespace CareerOrientation.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "QuestionsTracks");
+
+            migrationBuilder.DropTable(
+                name: "TrueFalseAnswer");
 
             migrationBuilder.DropTable(
                 name: "UniversityStudents");

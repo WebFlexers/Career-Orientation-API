@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CareerOrientation.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230609145902_Initial")]
+    [Migration("20230609151721_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -95,6 +95,32 @@ namespace CareerOrientation.Data.Migrations
                     b.ToTable("GeneralTests");
                 });
 
+            modelBuilder.Entity("CareerOrientation.Data.Entities.Tests.MultipleChoiceAnswer", b =>
+                {
+                    b.Property<int>("MultipleChoiceAnswerId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("MultipleChoiceAnswerId"));
+
+                    b.Property<bool>("IsCorrect")
+                        .HasColumnType("boolean");
+
+                    b.Property<int>("QuestionId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Text")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
+
+                    b.HasKey("MultipleChoiceAnswerId");
+
+                    b.HasIndex("QuestionId");
+
+                    b.ToTable("MultipleChoiceAnswer");
+                });
+
             modelBuilder.Entity("CareerOrientation.Data.Entities.Tests.Question", b =>
                 {
                     b.Property<int>("QuestionId")
@@ -123,6 +149,28 @@ namespace CareerOrientation.Data.Migrations
                     b.HasIndex("UniversityTestId");
 
                     b.ToTable("Questions");
+                });
+
+            modelBuilder.Entity("CareerOrientation.Data.Entities.Tests.TrueFalseAnswer", b =>
+                {
+                    b.Property<int>("TrueFalseAnswerId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("TrueFalseAnswerId"));
+
+                    b.Property<int>("QuestionId")
+                        .HasColumnType("integer");
+
+                    b.Property<bool>("Value")
+                        .HasColumnType("boolean");
+
+                    b.HasKey("TrueFalseAnswerId");
+
+                    b.HasIndex("QuestionId")
+                        .IsUnique();
+
+                    b.ToTable("TrueFalseAnswer");
                 });
 
             modelBuilder.Entity("CareerOrientation.Data.Entities.Tests.UniversityTest", b =>
@@ -409,6 +457,17 @@ namespace CareerOrientation.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("CareerOrientation.Data.Entities.Tests.MultipleChoiceAnswer", b =>
+                {
+                    b.HasOne("CareerOrientation.Data.Entities.Tests.Question", "Question")
+                        .WithMany("MultipleChoiceAnswers")
+                        .HasForeignKey("QuestionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Question");
+                });
+
             modelBuilder.Entity("CareerOrientation.Data.Entities.Tests.Question", b =>
                 {
                     b.HasOne("CareerOrientation.Data.Entities.Tests.GeneralTest", "GeneralTest")
@@ -422,6 +481,17 @@ namespace CareerOrientation.Data.Migrations
                     b.Navigation("GeneralTest");
 
                     b.Navigation("UniversityTest");
+                });
+
+            modelBuilder.Entity("CareerOrientation.Data.Entities.Tests.TrueFalseAnswer", b =>
+                {
+                    b.HasOne("CareerOrientation.Data.Entities.Tests.Question", "Question")
+                        .WithOne("TrueFalseAnswer")
+                        .HasForeignKey("CareerOrientation.Data.Entities.Tests.TrueFalseAnswer", "QuestionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Question");
                 });
 
             modelBuilder.Entity("CareerOrientation.Data.Entities.TestsSpecialtiesRelations.QuestionMastersDegree", b =>
@@ -557,6 +627,13 @@ namespace CareerOrientation.Data.Migrations
             modelBuilder.Entity("CareerOrientation.Data.Entities.Tests.GeneralTest", b =>
                 {
                     b.Navigation("Questions");
+                });
+
+            modelBuilder.Entity("CareerOrientation.Data.Entities.Tests.Question", b =>
+                {
+                    b.Navigation("MultipleChoiceAnswers");
+
+                    b.Navigation("TrueFalseAnswer");
                 });
 
             modelBuilder.Entity("CareerOrientation.Data.Entities.Tests.UniversityTest", b =>

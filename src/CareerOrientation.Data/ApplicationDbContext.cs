@@ -1,4 +1,6 @@
-﻿using CareerOrientation.Data.Entities.Specialties;
+﻿using CareerOrientation.Data.Entities.Configurations.Tests;
+using CareerOrientation.Data.Entities.Configurations.TestsUsersRelations;
+using CareerOrientation.Data.Entities.Specialties;
 using CareerOrientation.Data.Entities.Tests;
 using CareerOrientation.Data.Entities.TestsSpecialtiesRelations;
 using CareerOrientation.Data.Entities.Users;
@@ -32,6 +34,9 @@ public class ApplicationDbContext : IdentityDbContext<User, IdentityRole, string
     public DbSet<GeneralTest> GeneralTests { get; set; }
     public DbSet<Question> Questions { get; set; }
     public DbSet<UniversityTest> UniversityTests { get; set; }
+
+    public DbSet<MultipleChoiceAnswer> MultipleChoiceAnswers { get; set; }
+    public DbSet<TrueFalseAnswer> TrueFalseAnswers { get; set; }
 
     // Tests - Specialty relations
     public DbSet<QuestionMastersDegree> QuestionsMastersDegrees { get; set; }
