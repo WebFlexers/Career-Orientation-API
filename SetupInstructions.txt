@@ -13,6 +13,9 @@ psql binarys https://stackoverflow.com/questions/69544583/please-configure-the-p
 	GRANT ALL PRIVILEGES ON DATABASE "career_orientation_db" TO career_orientation;
 	GRANT ALL PRIVILEGES ON SCHEMA public TO career_orientation;
 	
+Για τη λειτουργία των Unit Tests:
+	ALTER USER career_orientation CREATEDB;
+	
 * Δημιουργία συλλογής Postman
 
 Βήμα 1: Εκτέλεση του API

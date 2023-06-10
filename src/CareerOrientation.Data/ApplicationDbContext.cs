@@ -1,6 +1,4 @@
-﻿using CareerOrientation.Data.Entities.Configurations.Tests;
-using CareerOrientation.Data.Entities.Configurations.TestsUsersRelations;
-using CareerOrientation.Data.Entities.Specialties;
+﻿using CareerOrientation.Data.Entities.Specialties;
 using CareerOrientation.Data.Entities.Tests;
 using CareerOrientation.Data.Entities.TestsSpecialtiesRelations;
 using CareerOrientation.Data.Entities.TestsUsersRelations;
@@ -9,13 +7,29 @@ using CareerOrientation.Data.Seeding;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using System.Reflection;
 
 namespace CareerOrientation.Data;
 
 public class ApplicationDbContext : IdentityDbContext<User, IdentityRole, string>
 {
-    public ApplicationDbContext(DbContextOptions options): base(options) { }
+    private readonly ILoggerFactory? _loggerFactory;
+
+    public ApplicationDbContext(DbContextOptions options, ILoggerFactory? loggerFactory): base(options) 
+    {
+        _loggerFactory = loggerFactory;
+    }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        base.OnConfiguring(optionsBuilder);
+
+        if (_loggerFactory != null)
+        {
+            optionsBuilder.UseLoggerFactory(_loggerFactory);
+        }
+    }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
@@ -23,7 +37,7 @@ public class ApplicationDbContext : IdentityDbContext<User, IdentityRole, string
         builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
         var sampleData = new SampleData();
-        sampleData.Seed();
+        sampleData.Seed(builder);
     }
 
     // Specialties

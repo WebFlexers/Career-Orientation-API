@@ -11,7 +11,7 @@ public class UniversityTestConfig : IEntityTypeConfiguration<UniversityTest>
         builder.HasKey(x => x.UniversityTestId);
 
         builder.Property(x => x.Semester)
-            .IsRequired();
+            .IsRequired(false);
 
         builder.Property(x => x.Year)
             .IsRequired();
