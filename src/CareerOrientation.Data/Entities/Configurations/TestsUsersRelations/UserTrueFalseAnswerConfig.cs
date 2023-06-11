@@ -8,6 +8,10 @@ public class UserTrueFalseAnswerConfig : IEntityTypeConfiguration<UserTrueFalseA
 {
     public void Configure(EntityTypeBuilder<UserTrueFalseAnswer> builder)
     {
-        builder.HasKey(x => new { x.TrueFalseAnswerId, x.UserId});
+        builder.HasKey(x => new { x.QuestionId, x.UserId});
+
+        builder.HasOne(userMultipleChoice => userMultipleChoice.TrueFalseAnswer)
+            .WithMany()
+            .HasForeignKey(userMultipleChoice => userMultipleChoice.QuestionId);
     }
 }

@@ -4,7 +4,6 @@ namespace CareerOrientation.Data.Entities.Tests;
 
 public class MultipleChoiceAnswer
 {
-    public int MultipleChoiceAnswerId { get; set; }
     public string Text { get; set; }
     public bool IsCorrect { get; set; }
 

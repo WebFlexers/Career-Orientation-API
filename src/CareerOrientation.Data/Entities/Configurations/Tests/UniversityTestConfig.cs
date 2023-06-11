@@ -18,5 +18,12 @@ public class UniversityTestConfig : IEntityTypeConfiguration<UniversityTest>
 
         builder.Property(x => x.IsRevision)
             .IsRequired();
+
+        builder.Property(x => x.TrackId)
+            .IsRequired(false);
+
+        builder.HasOne(universityTest => universityTest.Track)
+            .WithMany(track => track.UniversityTests)
+            .HasForeignKey(universityTest => universityTest.TrackId);
     }
 }

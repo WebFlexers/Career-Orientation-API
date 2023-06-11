@@ -8,7 +8,7 @@ public class TrueFalseAnswerConfig : IEntityTypeConfiguration<TrueFalseAnswer>
 {
     public void Configure(EntityTypeBuilder<TrueFalseAnswer> builder)
     {
-        builder.HasKey(x => x.TrueFalseAnswerId);
+        builder.HasKey(x => x.QuestionId);
 
         builder.Property(x => x.Value)
             .IsRequired();

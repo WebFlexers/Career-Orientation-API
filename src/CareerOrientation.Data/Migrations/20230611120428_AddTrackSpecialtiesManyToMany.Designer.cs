@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CareerOrientation.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230610161448_temp")]
-    partial class temp
+    [Migration("20230611120428_AddTrackSpecialtiesManyToMany")]
+    partial class AddTrackSpecialtiesManyToMany
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -145,6 +145,36 @@ namespace CareerOrientation.Data.Migrations
                     b.ToTable("Tracks");
                 });
 
+            modelBuilder.Entity("CareerOrientation.Data.Entities.SpecialtiesRelations.TrackMastersDegree", b =>
+                {
+                    b.Property<int>("TrackId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("MastersDegreeId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("TrackId", "MastersDegreeId");
+
+                    b.HasIndex("MastersDegreeId");
+
+                    b.ToTable("TrackMastersDegrees");
+                });
+
+            modelBuilder.Entity("CareerOrientation.Data.Entities.SpecialtiesRelations.TrackProfession", b =>
+                {
+                    b.Property<int>("TrackId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("ProfessionId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("TrackId", "ProfessionId");
+
+                    b.HasIndex("ProfessionId");
+
+                    b.ToTable("TrackProfessions");
+                });
+
             modelBuilder.Entity("CareerOrientation.Data.Entities.Tests.GeneralTest", b =>
                 {
                     b.Property<int>("GeneralTestId")
@@ -215,14 +245,6 @@ namespace CareerOrientation.Data.Migrations
                     b.HasIndex("UniversityTestId");
 
                     b.ToTable("Questions");
-
-                    b.HasData(
-                        new
-                        {
-                            QuestionId = 1,
-                            Text = "Hello",
-                            Type = 0
-                        });
                 });
 
             modelBuilder.Entity("CareerOrientation.Data.Entities.Tests.TrueFalseAnswer", b =>
@@ -667,6 +689,44 @@ namespace CareerOrientation.Data.Migrations
                         .HasForeignKey("SkillId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("CareerOrientation.Data.Entities.SpecialtiesRelations.TrackMastersDegree", b =>
+                {
+                    b.HasOne("CareerOrientation.Data.Entities.Specialties.MastersDegree", "MastersDegree")
+                        .WithMany()
+                        .HasForeignKey("MastersDegreeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CareerOrientation.Data.Entities.Specialties.Track", "Track")
+                        .WithMany()
+                        .HasForeignKey("TrackId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("MastersDegree");
+
+                    b.Navigation("Track");
+                });
+
+            modelBuilder.Entity("CareerOrientation.Data.Entities.SpecialtiesRelations.TrackProfession", b =>
+                {
+                    b.HasOne("CareerOrientation.Data.Entities.Specialties.Profession", "Profession")
+                        .WithMany()
+                        .HasForeignKey("ProfessionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CareerOrientation.Data.Entities.Specialties.Track", "Track")
+                        .WithMany()
+                        .HasForeignKey("TrackId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Profession");
+
+                    b.Navigation("Track");
                 });
 
             modelBuilder.Entity("CareerOrientation.Data.Entities.Tests.MultipleChoiceAnswer", b =>

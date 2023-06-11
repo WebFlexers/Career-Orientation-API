@@ -3,6 +3,7 @@ using System;
 using CareerOrientation.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CareerOrientation.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230611133611_AddTrackUniversityTestOneToMany")]
+    partial class AddTrackUniversityTestOneToMany
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -190,18 +193,26 @@ namespace CareerOrientation.Data.Migrations
 
             modelBuilder.Entity("CareerOrientation.Data.Entities.Tests.MultipleChoiceAnswer", b =>
                 {
-                    b.Property<int>("QuestionId")
+                    b.Property<int>("MultipleChoiceAnswerId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("MultipleChoiceAnswerId"));
 
                     b.Property<bool>("IsCorrect")
                         .HasColumnType("boolean");
+
+                    b.Property<int>("QuestionId")
+                        .HasColumnType("integer");
 
                     b.Property<string>("Text")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("character varying(100)");
 
-                    b.HasKey("QuestionId");
+                    b.HasKey("MultipleChoiceAnswerId");
+
+                    b.HasIndex("QuestionId");
 
                     b.ToTable("MultipleChoiceAnswers");
                 });
@@ -238,13 +249,22 @@ namespace CareerOrientation.Data.Migrations
 
             modelBuilder.Entity("CareerOrientation.Data.Entities.Tests.TrueFalseAnswer", b =>
                 {
+                    b.Property<int>("TrueFalseAnswerId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("TrueFalseAnswerId"));
+
                     b.Property<int>("QuestionId")
                         .HasColumnType("integer");
 
                     b.Property<bool>("Value")
                         .HasColumnType("boolean");
 
-                    b.HasKey("QuestionId");
+                    b.HasKey("TrueFalseAnswerId");
+
+                    b.HasIndex("QuestionId")
+                        .IsUnique();
 
                     b.ToTable("TrueFalseAnswers");
                 });
@@ -356,13 +376,13 @@ namespace CareerOrientation.Data.Migrations
 
             modelBuilder.Entity("CareerOrientation.Data.Entities.TestsUsersRelations.UserMultipleChoiceAnswer", b =>
                 {
-                    b.Property<int>("QuestionId")
+                    b.Property<int>("MultipleChoiceAnswerId")
                         .HasColumnType("integer");
 
                     b.Property<string>("UserId")
                         .HasColumnType("text");
 
-                    b.HasKey("QuestionId", "UserId");
+                    b.HasKey("MultipleChoiceAnswerId", "UserId");
 
                     b.HasIndex("UserId");
 
@@ -386,13 +406,13 @@ namespace CareerOrientation.Data.Migrations
 
             modelBuilder.Entity("CareerOrientation.Data.Entities.TestsUsersRelations.UserTrueFalseAnswer", b =>
                 {
-                    b.Property<int>("QuestionId")
+                    b.Property<int>("TrueFalseAnswerId")
                         .HasColumnType("integer");
 
                     b.Property<string>("UserId")
                         .HasColumnType("text");
 
-                    b.HasKey("QuestionId", "UserId");
+                    b.HasKey("TrueFalseAnswerId", "UserId");
 
                     b.HasIndex("UserId");
 
@@ -859,7 +879,7 @@ namespace CareerOrientation.Data.Migrations
                 {
                     b.HasOne("CareerOrientation.Data.Entities.Tests.MultipleChoiceAnswer", "MultipleChoiceAnswer")
                         .WithMany()
-                        .HasForeignKey("QuestionId")
+                        .HasForeignKey("MultipleChoiceAnswerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -897,7 +917,7 @@ namespace CareerOrientation.Data.Migrations
                 {
                     b.HasOne("CareerOrientation.Data.Entities.Tests.TrueFalseAnswer", "TrueFalseAnswer")
                         .WithMany()
-                        .HasForeignKey("QuestionId")
+                        .HasForeignKey("TrueFalseAnswerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

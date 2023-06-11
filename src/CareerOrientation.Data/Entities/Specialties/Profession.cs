@@ -1,5 +1,4 @@
 ﻿using CareerOrientation.Data.Entities.Tests;
-using CareerOrientation.Data.Entities.TestsSpecialtiesRelations;
 
 namespace CareerOrientation.Data.Entities.Specialties;
 
@@ -9,4 +8,6 @@ public class Profession
     public string Name { get; set; }
 
     public List<Question> Questions { get; set; }
+
+    public List<Track> Tracks { get; set; }
 }

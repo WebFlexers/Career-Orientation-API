@@ -1,5 +1,4 @@
-﻿using CareerOrientation.Data.Entities.Configurations.TestsUsersRelations;
-using CareerOrientation.Data.Entities.Tests;
+﻿using CareerOrientation.Data.Entities.Tests;
 using CareerOrientation.Data.Entities.TestsSpecialtiesRelations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;

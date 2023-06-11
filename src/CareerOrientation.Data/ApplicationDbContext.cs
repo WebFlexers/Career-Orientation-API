@@ -1,4 +1,5 @@
 ﻿using CareerOrientation.Data.Entities.Specialties;
+using CareerOrientation.Data.Entities.SpecialtiesRelations;
 using CareerOrientation.Data.Entities.Tests;
 using CareerOrientation.Data.Entities.TestsSpecialtiesRelations;
 using CareerOrientation.Data.Entities.TestsUsersRelations;
@@ -36,8 +37,8 @@ public class ApplicationDbContext : IdentityDbContext<User, IdentityRole, string
         base.OnModelCreating(builder);
         builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
-        var sampleData = new SampleData();
-        sampleData.Seed(builder);
+        //var realData = new RealData();
+        //realData.Seed(builder);
     }
 
     // Specialties
@@ -52,6 +53,10 @@ public class ApplicationDbContext : IdentityDbContext<User, IdentityRole, string
 
     public DbSet<MultipleChoiceAnswer> MultipleChoiceAnswers { get; set; }
     public DbSet<TrueFalseAnswer> TrueFalseAnswers { get; set; }
+
+    // Specialty relations
+    public DbSet<TrackMastersDegree> TrackMastersDegrees { get; set; }
+    public DbSet<TrackProfession> TrackProfessions { get; set; }
 
     // Tests - Specialty relations
     public DbSet<QuestionMastersDegree> QuestionsMastersDegrees { get; set; }

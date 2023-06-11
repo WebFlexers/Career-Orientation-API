@@ -8,6 +8,10 @@ public class UserMultipleChoiceAnswerConfig : IEntityTypeConfiguration<UserMulti
 {
     public void Configure(EntityTypeBuilder<UserMultipleChoiceAnswer> builder)
     {
-        builder.HasKey(x => new { x.MultipleChoiceAnswerId, x.UserId});
+        builder.HasKey(x => new { x.QuestionId, x.UserId});
+
+        builder.HasOne(userMultipleChoice => userMultipleChoice.MultipleChoiceAnswer)
+            .WithMany()
+            .HasForeignKey(userMultipleChoice => userMultipleChoice.QuestionId);
     }
 }

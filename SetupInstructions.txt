@@ -15,7 +15,7 @@ psql binarys https://stackoverflow.com/questions/69544583/please-configure-the-p
 	
 Για τη λειτουργία των Unit Tests:
 	ALTER USER career_orientation CREATEDB;
-	
+
 * Δημιουργία συλλογής Postman
 
 Βήμα 1: Εκτέλεση του API
