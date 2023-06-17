@@ -1,4 +1,4 @@
-﻿using CareerOrientation.Data.DTOs;
+﻿using CareerOrientation.Data.DTOs.Auth;
 using FluentValidation;
 
 namespace CareerOrientation.Services.Validation.Auth;

@@ -21,4 +21,8 @@ public static partial class ILoggerExtensions
     [LoggerMessage(EventId = 3, Level = LogLevel.Information, 
     Message = "Failed to assign a role to user with id: {userId}")]
     public static partial void LogFailedRoleAssignment(this ILogger logger, string userId);
+
+    [LoggerMessage(EventId = 4, Level = LogLevel.Error, 
+    Message = "An error occurred when trying to access the database")]
+    public static partial void LogFailedDatabaseOperation(this ILogger logger, Exception ex);
 }

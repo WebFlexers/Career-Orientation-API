@@ -1,5 +1,5 @@
 ﻿using CareerOrientation.Data;
-using CareerOrientation.Data.DTOs;
+using CareerOrientation.Data.DTOs.Auth;
 using CareerOrientation.Data.Entities.Users;
 using CareerOrientation.Services.Validation.Exceptions;
 using LanguageExt.Common;

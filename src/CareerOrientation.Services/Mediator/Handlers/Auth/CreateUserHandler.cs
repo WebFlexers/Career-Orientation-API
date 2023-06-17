@@ -1,5 +1,4 @@
 ﻿using CareerOrientation.Data;
-using CareerOrientation.Data.DTOs;
 using CareerOrientation.Data.DTOs.Auth;
 using CareerOrientation.Data.Entities.Users;
 using CareerOrientation.Services.Auth;
@@ -11,7 +10,6 @@ using FluentValidation;
 using LanguageExt.Common;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
 namespace CareerOrientation.Services.Mediator.Handlers.Auth;

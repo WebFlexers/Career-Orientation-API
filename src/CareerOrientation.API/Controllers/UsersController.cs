@@ -1,6 +1,6 @@
-﻿using CareerOrientation.Data.DTOs;
-using CareerOrientation.Data.DTOs.Auth;
+﻿using CareerOrientation.Data.DTOs.Auth;
 using CareerOrientation.Services.Mediator.Commands.Auth;
+using CareerOrientation.Services.Mediator.Queries.Auth;
 using CareerOrientation.Services.Validation.Exceptions;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -19,26 +19,17 @@ public class UsersController : ControllerBase
         _mediator = mediator;
     }
 
-    // GET: api/Users/username
+    // GET: api/Users/userId
     [HttpGet("{userId}")]
+    [Authorize]
     public async Task<IActionResult> Get([FromRoute] string userId)
     {
-        //User? user = await _userManager.FindByNameAsync(username);
+        var result = await _mediator.Send(new GetUserByIdQuery(userId));
 
-        //if (user == null)
-        //{
-        //    return NotFound();
-        //}
-
-        //return new UserDTO
-        //{
-        //    Username = user.UserName,
-        //    Email = user.Email,
-        //    IsUniStudent = user.IsUniStudent,
-        //    Semester = user.Semester,
-        //    Track = user.Track
-        //};
-        return Ok();
+        return result.Match<IActionResult>(
+            userResponse => Ok(userResponse),
+            error => BadRequest(error.MapToResponse())
+        );
     }
 
     // POST: api/Users
@@ -50,6 +41,7 @@ public class UsersController : ControllerBase
     public async Task<IActionResult> Register([FromBody] CreateUserRequest createUserRequest)
     {
         var result = await _mediator.Send(new CreateUserCommand(createUserRequest));
+
         return result.Match<IActionResult>(
             authResponse => CreatedAtAction(nameof(Get), new { userId = authResponse.UserId}, authResponse),
             error => BadRequest(error.MapToResponse())
@@ -57,8 +49,8 @@ public class UsersController : ControllerBase
     }
 
     // POST: api/Users/Login
-    [HttpPost(nameof(Login))]
-        [AllowAnonymous]
+    [HttpPost("Login")]
+    [AllowAnonymous]
     public async Task<ActionResult<AuthenticationResponse>> Login([FromBody] AuthenticationRequest request)
     {
         //if (!ModelState.IsValid)

@@ -1,5 +1,4 @@
-﻿using CareerOrientation.Data.DTOs;
-using CareerOrientation.Data.DTOs.Auth;
+﻿using CareerOrientation.Data.DTOs.Auth;
 using LanguageExt.Common;
 using MediatR;
 
