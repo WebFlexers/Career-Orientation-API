@@ -11,7 +11,10 @@ public class UniversityStudentConfig : IEntityTypeConfiguration<UniversityStuden
         builder.HasKey(x => x.UserId);
 
         builder.Property(x => x.Semester)
-            .IsRequired(); 
+            .IsRequired(false); 
+
+        builder.Property(x => x.IsGraduate)
+            .IsRequired();
 
         builder.Property(x => x.TrackId)
             .IsRequired(false);

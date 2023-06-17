@@ -1,9 +1,9 @@
 ﻿using CareerOrientation.Data.DTOs;
 using CareerOrientation.Data.DTOs.Auth;
-using CareerOrientation.Data.Entities.Users;
-using CareerOrientation.Services.Auth.Abstractions;
+using CareerOrientation.Services.Mediator.Commands.Auth;
+using CareerOrientation.Services.Validation.Exceptions;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CareerOrientation.API.Controllers;
@@ -12,21 +12,16 @@ namespace CareerOrientation.API.Controllers;
 [ApiController]
 public class UsersController : ControllerBase
 {
-    private readonly ILogger<UsersController> _logger;
-    private readonly UserManager<User> _userManager;
-    private readonly ITokenCreationService _tokenCreationService;
+    private readonly IMediator _mediator;
 
-    public UsersController(ILogger<UsersController> logger, UserManager<User> userManager, 
-        ITokenCreationService tokenCreationService)
+    public UsersController(IMediator mediator)
     {
-        _logger = logger;
-        _userManager = userManager;
-        _tokenCreationService = tokenCreationService;
+        _mediator = mediator;
     }
 
     // GET: api/Users/username
-    [HttpGet("{username}")]
-    public async Task<ActionResult<UserDTO>> GetUser(string username)
+    [HttpGet("{userId}")]
+    public async Task<IActionResult> Get([FromRoute] string userId)
     {
         //User? user = await _userManager.FindByNameAsync(username);
 
@@ -50,70 +45,50 @@ public class UsersController : ControllerBase
     /// <summary>
     /// Registers a user to the identity system
     /// </summary>
-    [HttpPost]
+    [HttpPost("Register")]
     [AllowAnonymous]
-    public async Task<ActionResult<UserDTO>> PostUser(UserDTO user)
+    public async Task<IActionResult> Register([FromBody] CreateUserRequest createUserRequest)
     {
-        //// TODO: Validate the given information further
-        //if (ModelState.IsValid == false)
-        //{
-        //    return BadRequest(ModelState);
-        //}
-
-        //var result = await _userManager.CreateAsync(
-        //    new User() { 
-        //        UserName = user.Username, 
-        //        Email = user.Email,
-        //        IsUniStudent = user.IsUniStudent,
-        //        Semester = user.Semester,
-        //        Track = user.Track
-        //    },
-        //    user.Password
-        //);
-
-        //if (result.Succeeded == false)
-        //{
-        //    return BadRequest(result.Errors);
-        //}
-
-        //user.Password = null;
-        //_logger.LogInformation("User created: {user}", user.Username);
-        //return CreatedAtAction(nameof(GetUser), new { username = user.Username }, user);
-        return Ok();
+        var result = await _mediator.Send(new CreateUserCommand(createUserRequest));
+        return result.Match<IActionResult>(
+            authResponse => CreatedAtAction(nameof(Get), new { userId = authResponse.UserId}, authResponse),
+            error => BadRequest(error.MapToResponse())
+        );
     }
 
     // POST: api/Users/Login
-    [AllowAnonymous]
     [HttpPost(nameof(Login))]
-    public async Task<ActionResult<AuthenticationResponse>> Login(AuthenticationRequest request)
+        [AllowAnonymous]
+    public async Task<ActionResult<AuthenticationResponse>> Login([FromBody] AuthenticationRequest request)
     {
-        if (!ModelState.IsValid)
-        {
-            return Unauthorized("Authentication failed");
-        }
+        //if (!ModelState.IsValid)
+        //{
+        //    return Unauthorized("Authentication failed");
+        //}
 
-        User? user;
+        //User? user;
 
-        user = await _userManager.FindByNameAsync(request.UsernameOrEmail);
+        //user = await _userManager.FindByNameAsync(request.UsernameOrEmail);
 
-        if (user == null)
-        {
-            user = await _userManager.FindByEmailAsync(request.UsernameOrEmail);
-            if (user == null)
-            {
-                return Unauthorized("Authentication failed");
-            }
-        }
+        //if (user == null)
+        //{
+        //    user = await _userManager.FindByEmailAsync(request.UsernameOrEmail);
+        //    if (user == null)
+        //    {
+        //        return Unauthorized("Authentication failed");
+        //    }
+        //}
 
-        var isPasswordValid = await _userManager.CheckPasswordAsync(user, request.Password);
+        //var isPasswordValid = await _userManager.CheckPasswordAsync(user, request.Password);
 
-        if (isPasswordValid == false)
-        {
-            return Unauthorized("Authentication failed");
-        }
+        //if (isPasswordValid == false)
+        //{
+        //    return Unauthorized("Authentication failed");
+        //}
 
-        var token = _tokenCreationService.CreateToken(user);
+        //var token = _tokenCreationService.CreateToken(user);
 
-        return Ok(token);
+        //return Ok(token);
+        return Ok();
     }
 }

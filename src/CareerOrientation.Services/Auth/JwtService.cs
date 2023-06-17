@@ -37,6 +37,7 @@ public class JwtService : ITokenCreationService
 
         return new AuthenticationResponse
         {
+            UserId = user.Id,
             Token = tokenHandler.WriteToken(token),
             Expiration = expiration
         };

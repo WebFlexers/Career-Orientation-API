@@ -2,18 +2,14 @@
 
 namespace CareerOrientation.Data.DTOs;
 
-public class UserDTO
+public class CreateUserRequest
 {
-    [Required]
     public string Username { get; set; }
-    [Required]
     public string Password { get; set; }
-    [Required]
+    public string ConfirmPassword { get; set; }
     public string Email { get; set; }
-    [Required]
-    public bool IsUniStudent { get; set; }
-
+    public bool IsProspectiveStudent { get; set; }
+    public bool IsGraduate { get; set; }
     public int? Semester { get; set; }
-
     public string? Track { get; set; }
 }

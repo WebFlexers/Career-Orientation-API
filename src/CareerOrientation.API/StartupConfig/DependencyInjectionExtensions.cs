@@ -2,6 +2,7 @@
 using CareerOrientation.Data.Entities.Users;
 using CareerOrientation.Services.Auth;
 using CareerOrientation.Services.Auth.Abstractions;
+using CareerOrientation.Services.Validation.Auth;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -69,10 +70,13 @@ public static class DependencyInjectionExtensions
             options.Password.RequireLowercase = true;
         })
         .AddEntityFrameworkStores<ApplicationDbContext>()
-        .AddDefaultTokenProviders();
+        .AddDefaultTokenProviders()
+        .AddErrorDescriber<GreekIdentityErrorDescriber>();
+
+        builder.Services.AddScoped<IRoleManagerService, RoleManagerService>();
     }
 
-    public static async Task UseIdentityRoles(this WebApplication app)
+    public static async Task CreateIdentityRoles(this WebApplication app)
     {
         using var scope = app.Services.CreateScope();
 
@@ -114,12 +118,12 @@ public static class DependencyInjectionExtensions
                 };
             });
 
-         builder.Services.AddTransient<ITokenCreationService, JwtService>();
+         builder.Services.AddScoped<ITokenCreationService, JwtService>();
     }
 
-    public static void UseCustomCors(this WebApplication app, WebApplicationBuilder builder)
+    public static void UseCustomCors(this WebApplication app)
     {
-        var corsConfiguration = builder.Configuration.GetSection("Cors");
+        var corsConfiguration = app.Configuration.GetSection("Cors");
         var corsSettings = corsConfiguration.GetChildren();
 
         string[] allowedOrigins = corsSettings.Select(cs => cs.Value!)

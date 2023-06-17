@@ -4,7 +4,6 @@ using CareerOrientation.Data.Entities.Tests;
 using CareerOrientation.Data.Entities.TestsSpecialtiesRelations;
 using CareerOrientation.Data.Entities.TestsUsersRelations;
 using CareerOrientation.Data.Entities.Users;
-using CareerOrientation.Data.Seeding;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
