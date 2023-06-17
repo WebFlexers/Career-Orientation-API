@@ -51,36 +51,13 @@ public class UsersController : ControllerBase
     // POST: api/Users/Login
     [HttpPost("Login")]
     [AllowAnonymous]
-    public async Task<ActionResult<AuthenticationResponse>> Login([FromBody] AuthenticationRequest request)
+    public async Task<IActionResult> Login([FromBody] AuthenticationRequest request)
     {
-        //if (!ModelState.IsValid)
-        //{
-        //    return Unauthorized("Authentication failed");
-        //}
+        var result = await _mediator.Send(new AuthenticateUserQuery(request));
 
-        //User? user;
-
-        //user = await _userManager.FindByNameAsync(request.UsernameOrEmail);
-
-        //if (user == null)
-        //{
-        //    user = await _userManager.FindByEmailAsync(request.UsernameOrEmail);
-        //    if (user == null)
-        //    {
-        //        return Unauthorized("Authentication failed");
-        //    }
-        //}
-
-        //var isPasswordValid = await _userManager.CheckPasswordAsync(user, request.Password);
-
-        //if (isPasswordValid == false)
-        //{
-        //    return Unauthorized("Authentication failed");
-        //}
-
-        //var token = _tokenCreationService.CreateToken(user);
-
-        //return Ok(token);
-        return Ok();
+        return result.Match<IActionResult>(
+            authResponse => Ok(authResponse),
+            error => Unauthorized(error.MapToResponse())
+        );
     }
 }

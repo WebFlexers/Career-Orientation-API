@@ -38,7 +38,7 @@ public class CreateUserHandler : IRequestHandler<CreateUserCommand, Result<Authe
     {
         var createRequest = command.CreateUserRequest;
 
-        var validationResult = _validator.Validate(createRequest);
+        var validationResult = await _validator.ValidateAsync(createRequest, cancellationToken);
 
         IdentityException? exception = null;
         if (validationResult.IsValid == false)
