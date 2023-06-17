@@ -12,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Data;
+using System.Reflection;
 using System.Text;
 
 namespace CareerOrientation.API.StartupConfig;
@@ -49,6 +50,14 @@ public static class DependencyInjectionExtensions
         {
             opts.AddSecurityDefinition("bearerAuth", securityScheme);
             opts.AddSecurityRequirement(securityRequirements);
+            opts.SwaggerDoc("v1", new OpenApiInfo 
+            { 
+                Version = "v1",
+                Title = "Career Orientation API",
+                Description = "This API powers the Career Orientation App based on University of Peireus",
+            });
+            var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+            opts.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFile));
         });
     }
 

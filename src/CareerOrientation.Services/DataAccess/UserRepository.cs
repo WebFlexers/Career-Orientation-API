@@ -28,7 +28,7 @@ public class UserRepository : IUserRepository
 
             if (user == null)
             {
-                var exception = new Exception("User Id not found");
+                var exception = new Exception("Δεν βρέθηκε χρήστης με το δεδομένο ID");
                 return new Result<UserResponse>(exception);
             }
         
@@ -48,7 +48,7 @@ public class UserRepository : IUserRepository
 
             if (student is null)
             {
-                var exception = new Exception("Student was not found");
+                var exception = new Exception("Δεν βρέθηκε χρήστης με το δεδομένο ID");
                 return new Result<UserResponse>(exception);
             }
 
