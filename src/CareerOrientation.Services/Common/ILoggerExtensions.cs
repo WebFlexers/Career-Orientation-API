@@ -44,5 +44,9 @@ public static partial class ILoggerExtensions
     [LoggerMessage(EventId = 8, Level = LogLevel.Error, 
         Message = "An error occurred when trying to access the database")]
     public static partial void LogFailedDatabaseOperation(this ILogger logger, Exception ex);
+
+    [LoggerMessage(EventId = 9, Level = LogLevel.Information, 
+    Message = "Successully inserted student with id: {userId}")]
+    public static partial void LogSuccessfullStudentInsertion(this ILogger logger, string userId);
     #endregion
 }

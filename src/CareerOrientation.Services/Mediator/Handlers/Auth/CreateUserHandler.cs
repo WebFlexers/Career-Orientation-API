@@ -4,6 +4,7 @@ using CareerOrientation.Data.Entities.Users;
 using CareerOrientation.Services.Auth;
 using CareerOrientation.Services.Auth.Abstractions;
 using CareerOrientation.Services.Common;
+using CareerOrientation.Services.DataAccess.Abstractions;
 using CareerOrientation.Services.Mediator.Commands.Auth;
 using CareerOrientation.Services.Validation.Exceptions;
 using FluentValidation;
@@ -22,9 +23,11 @@ public class CreateUserHandler : IRequestHandler<CreateUserCommand, Result<Authe
     private readonly UserManager<User> _userManager;
     private readonly IRoleManagerService _roleManagerService;
     private readonly ITokenCreationService _tokenCreationService;
+    private readonly IUserRepository _userRepository;
 
     public CreateUserHandler(ILogger<CreateUserHandler> logger, IValidator<CreateUserRequest> validator, ApplicationDbContext dbContext,
-        UserManager<User> userManager, IRoleManagerService roleManagerService, ITokenCreationService tokenCreationService)
+        UserManager<User> userManager, IRoleManagerService roleManagerService, ITokenCreationService tokenCreationService,
+        IUserRepository userRepository)
     {
         _logger = logger;
         _validator = validator;
@@ -32,6 +35,7 @@ public class CreateUserHandler : IRequestHandler<CreateUserCommand, Result<Authe
         _userManager = userManager;
         _roleManagerService = roleManagerService;
         _tokenCreationService = tokenCreationService;
+        _userRepository = userRepository;
     }
 
     public async Task<Result<AuthenticationResponse>> Handle(CreateUserCommand command, CancellationToken cancellationToken)
@@ -71,6 +75,19 @@ public class CreateUserHandler : IRequestHandler<CreateUserCommand, Result<Authe
             {
                 exception.Errors = exception.Errors.Concat(userCreationResult.Errors);
             }
+        }
+
+        if (createRequest.IsProspectiveStudent == false)
+        {
+            var creationResult = await _userRepository.CreateStudent(createRequest, newUser.Id);
+
+            creationResult.Match(
+                student => Unit.Value,
+                exception => { 
+                    _logger.LogFailedDatabaseOperation(exception);
+                    return Unit.Value;
+                }
+            );
         }
 
         if (exception is not null)

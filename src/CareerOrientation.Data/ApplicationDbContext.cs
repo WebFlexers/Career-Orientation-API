@@ -36,6 +36,12 @@ public class ApplicationDbContext : IdentityDbContext<User, IdentityRole, string
         base.OnModelCreating(builder);
         builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
+        builder.Entity<Track>().HasData(new List<Track>
+        {
+            new Track { TrackId = 1, Name = "ΤΛΕΣ" },
+            new Track { TrackId = 2, Name = "ΠΣΥ" },
+            new Track { TrackId = 3, Name = "ΔΥΣ" }
+        });
         //var realData = new RealData();
         //realData.Seed(builder);
     }
