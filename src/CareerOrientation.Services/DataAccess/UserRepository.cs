@@ -74,13 +74,14 @@ public class UserRepository : IUserRepository
     {
         try
         {
-            var track = await _dbContext.Tracks.FirstAsync(track => track.Name == createRequest.Track);
+            var track = await _dbContext.Tracks.FirstOrDefaultAsync(track => track.Name == createRequest.Track);
+            
             var student = new UniversityStudent()
             {
                 UserId = userId,
                 IsGraduate = createRequest.IsGraduate,
                 Semester = createRequest.Semester,
-                TrackId =  track.TrackId
+                TrackId =  track?.TrackId
             };
 
             await _dbContext.UniversityStudents.AddAsync(student);

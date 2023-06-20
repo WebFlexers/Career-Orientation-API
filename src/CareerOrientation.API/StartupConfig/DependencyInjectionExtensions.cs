@@ -42,7 +42,7 @@ public static class DependencyInjectionExtensions
                         Id = "bearerAuth"
                     }
                 },
-                new string[] {}
+                Array.Empty<string>()
             }
         };
             
@@ -130,7 +130,8 @@ public static class DependencyInjectionExtensions
                 ValidAudience = builder.Configuration["Jwt:Audience"],
                 IssuerSigningKey = new SymmetricSecurityKey(
                     Encoding.ASCII.GetBytes(builder.Configuration["Jwt:Key"]!)
-                )
+                ),
+                ClockSkew = TimeSpan.FromSeconds(10)
             };
         });
 

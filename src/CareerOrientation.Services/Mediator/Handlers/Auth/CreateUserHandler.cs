@@ -51,7 +51,7 @@ public class CreateUserHandler : IRequestHandler<CreateUserCommand, Result<Authe
         }
 
         // Begin a transaction to rollback the user creation if the role assignment fails
-        using var transaction = _dbContext.Database.BeginTransaction();
+        using var transaction = await _dbContext.Database.BeginTransactionAsync(cancellationToken);
 
         var newUser = new User()
         {
@@ -81,18 +81,19 @@ public class CreateUserHandler : IRequestHandler<CreateUserCommand, Result<Authe
         {
             var creationResult = await _userRepository.CreateStudent(createRequest, newUser.Id);
 
-            creationResult.Match(
-                student => Unit.Value,
-                exception => { 
-                    _logger.LogFailedDatabaseOperation(exception);
-                    return Unit.Value;
+            creationResult.Match<Result<AuthenticationResponse>>(
+                student => null,
+                ex => { 
+                    transaction.Rollback();
+                    _logger.LogFailedDatabaseOperation(ex);
+                    return new Result<AuthenticationResponse>(ex);
                 }
             );
         }
 
         if (exception is not null)
         {
-            transaction.Rollback();
+            await transaction.RollbackAsync();
             _logger.LogValidationFail(nameof(createRequest));
             return new Result<AuthenticationResponse>(exception);
         }
@@ -110,10 +111,10 @@ public class CreateUserHandler : IRequestHandler<CreateUserCommand, Result<Authe
                 transaction.Commit();
                 return _tokenCreationService.CreateToken(newUser);
             },
-            exception => { 
+            ex => { 
                 _logger.LogFailedRoleAssignment(newUser.Id);
                 transaction.Rollback();
-                return new Result<AuthenticationResponse>(exception);
+                return new Result<AuthenticationResponse>(ex);
             }
         );
     }
