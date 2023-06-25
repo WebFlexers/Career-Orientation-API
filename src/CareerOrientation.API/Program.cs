@@ -18,7 +18,6 @@ builder.AddSwaggerServices();
 builder.AddEfCoreDbProvider();
 builder.AddIdentityServices();
 builder.AddAuthServices();
-builder.AddRepositories();
 
 var app = builder.Build();
 

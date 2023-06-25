@@ -4,13 +4,13 @@ using CareerOrientation.Data.Entities.Users;
 using CareerOrientation.Services.Auth;
 using CareerOrientation.Services.Auth.Abstractions;
 using CareerOrientation.Services.Common;
-using CareerOrientation.Services.DataAccess.Abstractions;
 using CareerOrientation.Services.Mediator.Commands.Auth;
 using CareerOrientation.Services.Validation.Exceptions;
 using FluentValidation;
 using LanguageExt.Common;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
 namespace CareerOrientation.Services.Mediator.Handlers.Auth;
@@ -23,11 +23,10 @@ public class CreateUserHandler : IRequestHandler<CreateUserCommand, Result<Authe
     private readonly UserManager<User> _userManager;
     private readonly IRoleManagerService _roleManagerService;
     private readonly ITokenCreationService _tokenCreationService;
-    private readonly IUserRepository _userRepository;
 
-    public CreateUserHandler(ILogger<CreateUserHandler> logger, IValidator<CreateUserRequest> validator, ApplicationDbContext dbContext,
-        UserManager<User> userManager, IRoleManagerService roleManagerService, ITokenCreationService tokenCreationService,
-        IUserRepository userRepository)
+    public CreateUserHandler(ILogger<CreateUserHandler> logger, IValidator<CreateUserRequest> validator, 
+        ApplicationDbContext dbContext, UserManager<User> userManager, IRoleManagerService roleManagerService, 
+        ITokenCreationService tokenCreationService)
     {
         _logger = logger;
         _validator = validator;
@@ -35,10 +34,10 @@ public class CreateUserHandler : IRequestHandler<CreateUserCommand, Result<Authe
         _userManager = userManager;
         _roleManagerService = roleManagerService;
         _tokenCreationService = tokenCreationService;
-        _userRepository = userRepository;
     }
 
-    public async Task<Result<AuthenticationResponse>> Handle(CreateUserCommand command, CancellationToken cancellationToken)
+    public async Task<Result<AuthenticationResponse>> Handle(CreateUserCommand command, 
+        CancellationToken cancellationToken)
     {
         var createRequest = command.CreateUserRequest;
 
@@ -51,7 +50,7 @@ public class CreateUserHandler : IRequestHandler<CreateUserCommand, Result<Authe
         }
 
         // Begin a transaction to rollback the user creation if the role assignment fails
-        using var transaction = await _dbContext.Database.BeginTransactionAsync(cancellationToken);
+        await using var transaction = await _dbContext.Database.BeginTransactionAsync(cancellationToken);
 
         var newUser = new User()
         {
@@ -79,16 +78,31 @@ public class CreateUserHandler : IRequestHandler<CreateUserCommand, Result<Authe
 
         if (createRequest.IsProspectiveStudent == false)
         {
-            var creationResult = await _userRepository.CreateStudent(createRequest, newUser.Id);
+            // Add the extra information that is not registered with the identity CreateAsync method
+            try
+            {
+                var track = await _dbContext.Tracks.FirstOrDefaultAsync(track => track.Name == createRequest.Track);
+            
+                var student = new UniversityStudent()
+                {
+                    UserId = newUser.Id,
+                    IsGraduate = createRequest.IsGraduate,
+                    Semester = createRequest.Semester,
+                    TrackId =  track?.TrackId
+                };
 
-            creationResult.Match<Result<AuthenticationResponse>>(
-                student => null,
-                ex => { 
-                    transaction.Rollback();
-                    _logger.LogFailedDatabaseOperation(ex);
-                    return new Result<AuthenticationResponse>(ex);
-                }
-            );
+                await _dbContext.UniversityStudents.AddAsync(student);
+
+                await _dbContext.SaveChangesAsync();
+                
+                _logger.LogSuccessfullStudentInsertion(newUser.Id);
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                _logger.LogFailedDatabaseOperation(ex);
+                return new Result<AuthenticationResponse>(ex);
+            }
         }
 
         if (exception is not null)

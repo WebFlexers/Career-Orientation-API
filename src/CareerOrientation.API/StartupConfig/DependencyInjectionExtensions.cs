@@ -1,9 +1,9 @@
-﻿using CareerOrientation.Data;
+﻿using System.Reflection;
+using System.Text;
+using CareerOrientation.Data;
 using CareerOrientation.Data.Entities.Users;
 using CareerOrientation.Services.Auth;
 using CareerOrientation.Services.Auth.Abstractions;
-using CareerOrientation.Services.DataAccess;
-using CareerOrientation.Services.DataAccess.Abstractions;
 using CareerOrientation.Services.Validation.Auth;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -11,9 +11,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using System.Data;
-using System.Reflection;
-using System.Text;
 
 namespace CareerOrientation.API.StartupConfig;
 
@@ -137,12 +134,7 @@ public static class DependencyInjectionExtensions
 
          builder.Services.AddScoped<ITokenCreationService, JwtService>();
     }
-
-    public static void AddRepositories(this WebApplicationBuilder builder)
-    {
-        builder.Services.AddScoped<IUserRepository, UserRepository>();
-    }
-
+    
     public static void UseCustomCors(this WebApplication app)
     {
         var corsConfiguration = app.Configuration.GetSection("Cors");

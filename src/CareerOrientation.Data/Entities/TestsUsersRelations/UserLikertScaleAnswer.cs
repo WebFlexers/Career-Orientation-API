@@ -1,5 +1,6 @@
 ﻿using CareerOrientation.Data.Entities.Tests;
 using CareerOrientation.Data.Entities.Users;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace CareerOrientation.Data.Entities.TestsUsersRelations;
 
