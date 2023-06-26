@@ -27,8 +27,8 @@ public class RealDataSeeding : IDataSeeding
         builder.Entity<Track>().HasData(new List<Track>
         {
             new Track { TrackId = 1, Name = "ΤΛΕΣ" },
-            new Track { TrackId = 2, Name = "ΠΣΥ" },
-            new Track { TrackId = 3, Name = "ΔΥΣ" }
+            new Track { TrackId = 2, Name = "ΔΥΣ" },
+            new Track { TrackId = 3, Name = "ΠΣΥ" }
         });
     }
 }

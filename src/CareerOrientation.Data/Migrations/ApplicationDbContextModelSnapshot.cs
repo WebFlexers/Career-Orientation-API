@@ -2472,12 +2472,12 @@ namespace CareerOrientation.Data.Migrations
                         new
                         {
                             TrackId = 2,
-                            Name = "ΠΣΥ"
+                            Name = "ΔΥΣ"
                         },
                         new
                         {
                             TrackId = 3,
-                            Name = "ΔΥΣ"
+                            Name = "ΠΣΥ"
                         });
                 });
 

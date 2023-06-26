@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CareerOrientation.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230626131605_AddSampleData")]
-    partial class AddSampleData
+    [Migration("20230626150417_DataSeeding")]
+    partial class DataSeeding
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -2475,12 +2475,12 @@ namespace CareerOrientation.Data.Migrations
                         new
                         {
                             TrackId = 2,
-                            Name = "ΠΣΥ"
+                            Name = "ΔΥΣ"
                         },
                         new
                         {
                             TrackId = 3,
-                            Name = "ΔΥΣ"
+                            Name = "ΠΣΥ"
                         });
                 });
 

@@ -7,7 +7,7 @@
 namespace CareerOrientation.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class AddSampleData : Migration
+    public partial class DataSeeding : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -198,8 +198,8 @@ namespace CareerOrientation.Data.Migrations
                 values: new object[,]
                 {
                     { 1, "ΤΛΕΣ" },
-                    { 2, "ΠΣΥ" },
-                    { 3, "ΔΥΣ" }
+                    { 2, "ΔΥΣ" },
+                    { 3, "ΠΣΥ" }
                 });
 
             migrationBuilder.InsertData(
