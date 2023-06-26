@@ -38,11 +38,12 @@ public class GetCoursesWithSkillsHandler : IRequestHandler<GetCoursesWithSkillsQ
             }
 
             List<CourseDTO>? coursesWithSkills = null;
-            if (coursesWithSkillsRequest.Track is null)
+            if (coursesWithSkillsRequest.Track is null || coursesWithSkillsRequest.IsProspectiveStudent)
             {
                 coursesWithSkills = await _dbContext.Courses
                     .AsNoTracking()
                     .Where(c => c.Semester == coursesWithSkillsRequest.Semester)
+                    .Include(c => c.Track)
                     .Select(c =>
                         c.MapToCourseWithSkills(c.Skills.OrderBy(s => s.Type).ToList())
                     ).ToListAsync(cancellationToken);
@@ -53,6 +54,7 @@ public class GetCoursesWithSkillsHandler : IRequestHandler<GetCoursesWithSkillsQ
                 
                 coursesWithSkills = await _dbContext.Courses
                     .AsNoTracking()
+                    .Include(c => c.Track)
                     .Where(c => c.Semester == coursesWithSkillsRequest.Semester &&
                                 (c.TrackId == null || c.TrackId == track.TrackId))
                     .Select(c =>

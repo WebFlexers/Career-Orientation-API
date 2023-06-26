@@ -16,6 +16,7 @@ public static class CourseMapper
         {
             Name = course.Name,
             Description = course.Description,
+            Track = course?.Track?.Name,
             Skills = skillDTOs
         };
     }

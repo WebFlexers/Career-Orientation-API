@@ -4,4 +4,5 @@ public class CoursesSkillsRequest
 {
     public int Semester { get; set; }
     public string? Track { get; set; }
+    public bool IsProspectiveStudent { get; set; }
 }

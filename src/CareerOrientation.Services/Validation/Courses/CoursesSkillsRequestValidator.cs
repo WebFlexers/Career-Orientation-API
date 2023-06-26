@@ -12,7 +12,7 @@ public class CoursesSkillsRequestValidator : AbstractValidator<CoursesSkillsRequ
             .Must(semester => BeValidSemester(semester))
             .WithMessage("Τα διαθέσιμα εξάμηνα είναι από 1 έως 8");
 
-        When(x => x.Semester >= 5, () =>
+        When(x => x.Semester >= 5 && x.IsProspectiveStudent == false, () =>
         {
             RuleFor(x => x.Track)
                 .NotNull()

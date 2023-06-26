@@ -2,6 +2,7 @@ using CareerOrientation.Data.DTOs.Courses;
 using CareerOrientation.Services.Mediator.Queries.Courses;
 using CareerOrientation.Services.Validation.Exceptions;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CareerOrientation.API.Controllers
@@ -67,6 +68,7 @@ namespace CareerOrientation.API.Controllers
         /// ] <br/>
         /// </remarks>
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IActionResult> Get([FromQuery]CoursesSkillsRequest request, CancellationToken token)
         {
             var result = await _mediator.Send(new GetCoursesWithSkillsQuery(request), token);
