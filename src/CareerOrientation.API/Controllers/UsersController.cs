@@ -8,6 +8,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CareerOrientation.API.Controllers;
 
+/// <summary>
+/// Used for user authentication and retrieval
+/// </summary>
 [Route("api/[controller]")]
 [ApiController]
 public class UsersController : ControllerBase

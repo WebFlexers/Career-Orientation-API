@@ -2,6 +2,6 @@
 
 public enum SkillType
 {
-    Soft,
-    Hard
+    Hard,
+    Soft
 }

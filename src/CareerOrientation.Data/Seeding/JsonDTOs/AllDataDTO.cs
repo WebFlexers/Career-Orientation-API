@@ -2,9 +2,9 @@
 using CareerOrientation.Data.Entities.Tests;
 using CareerOrientation.Data.Entities.TestsSpecialtiesRelations;
 
-namespace CareerOrientation.Data.Seeding;
+namespace CareerOrientation.Data.Seeding.JsonDTOs;
 
-public class JsonDataDTO
+public class AllDataDTO
 {
     public List<Question> Questions;
     public List<TrueFalseAnswer> TrueFalseAnswers;

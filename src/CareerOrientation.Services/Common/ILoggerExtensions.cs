@@ -31,7 +31,7 @@ public static partial class ILoggerExtensions
     Message = "Authenticating with username {username} and/or email {email} failed")]
     public static partial void LogAuthenticationFailed(this ILogger logger, string? username, string? email);
 
-    [LoggerMessage(EventId = 6, Level = LogLevel.Error, 
+    [LoggerMessage(EventId = 6, Level = LogLevel.Warning, 
     Message = "Login attempt with username {username} and/or email {email} failed, because the user was not found")]
     public static partial void LogUserNotFoundOnLogin(this ILogger logger, string? username, string? email);
 

@@ -12,7 +12,7 @@ public class SkillConfig : IEntityTypeConfiguration<Skill>
 
         builder.Property(x => x.Name)
             .IsRequired()
-            .HasMaxLength(100);
+            .HasMaxLength(1000);
 
         builder.Property(x => x.Type)
             .IsRequired();

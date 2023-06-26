@@ -9,16 +9,21 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System.Reflection;
+using CareerOrientation.Data.Entities.Courses;
+using CareerOrientation.Data.Seeding;
 
 namespace CareerOrientation.Data;
 
 public class ApplicationDbContext : IdentityDbContext<User, IdentityRole, string>
 {
     private readonly ILoggerFactory? _loggerFactory;
+    private readonly IDataSeeding? _dataSeeding;
 
-    public ApplicationDbContext(DbContextOptions options, ILoggerFactory? loggerFactory): base(options) 
+    public ApplicationDbContext(DbContextOptions options, ILoggerFactory? loggerFactory, 
+        IDataSeeding? dataSeeding = null): base(options)
     {
         _loggerFactory = loggerFactory;
+        _dataSeeding = dataSeeding;
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -29,21 +34,24 @@ public class ApplicationDbContext : IdentityDbContext<User, IdentityRole, string
         {
             optionsBuilder.UseLoggerFactory(_loggerFactory);
         }
+
+        optionsBuilder.EnableSensitiveDataLogging();
     }
 
-    protected override void OnModelCreating(ModelBuilder builder)
+    protected override async void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
         builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
-        builder.Entity<Track>().HasData(new List<Track>
+        if (_dataSeeding == null)
         {
-            new Track { TrackId = 1, Name = "ΤΛΕΣ" },
-            new Track { TrackId = 2, Name = "ΠΣΥ" },
-            new Track { TrackId = 3, Name = "ΔΥΣ" }
-        });
-        //var realData = new RealData();
-        //realData.Seed(builder);
+            var realData = new RealDataSeeding();
+            await realData.Seed(builder);
+        }
+        else
+        {
+            await _dataSeeding.Seed(builder);
+        }
     }
 
     // Specialties
@@ -79,4 +87,9 @@ public class ApplicationDbContext : IdentityDbContext<User, IdentityRole, string
 
     // Users
     public DbSet<UniversityStudent> UniversityStudents { get; set; }
+    
+    // Courses
+    public DbSet<Course> Courses { get; set; }
+    public DbSet<Skill> Skills { get; set; }
+    public DbSet<CourseSkill> CourseSkills { get; set; }
 }

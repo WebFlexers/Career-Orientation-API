@@ -1,11 +1,12 @@
 ﻿using CareerOrientation.Data.DTOs.Auth;
 using FluentValidation;
+using static CareerOrientation.Services.Validation.Common.ValidationHelper;
 
 namespace CareerOrientation.Services.Validation.Auth;
 
-public class UserValidator : AbstractValidator<CreateUserRequest>
+public class CreateUserRequestValidator : AbstractValidator<CreateUserRequest>
 {
-    public UserValidator()
+    public CreateUserRequestValidator()
     {
         RuleFor(user => user.IsProspectiveStudent).NotNull()
             .WithErrorCode(UserErrorCodes.UserIdentifierRequired)
@@ -46,8 +47,8 @@ public class UserValidator : AbstractValidator<CreateUserRequest>
             {
                 RuleFor(user => user.Semester).Must(BeValidSemester)
                     .WithErrorCode(UserErrorCodes.InvalidSemester)
-                    .WithMessage(@"Οι φοιτητές πρέπει να προσδιορίζουν το εξάμηνο, 
-                                   στο οποίο βρίσκονται (από 1 έως 8)");
+                    .WithMessage("Οι φοιτητές πρέπει να προσδιορίζουν το εξάμηνο, "+
+                                 "στο οποίο βρίσκονται (από 1 έως 8)");
             });
 
             When(user => (user.Semester >= 5 && user.Semester <= 8) ||
@@ -55,8 +56,8 @@ public class UserValidator : AbstractValidator<CreateUserRequest>
                 {
                     RuleFor(user => user.Track).Must(BeValidTrack)
                         .WithErrorCode(UserErrorCodes.InvalidTrack)
-                        .WithMessage(@"Οι φοιτητές και οι απόφοιτοι πρέπει να προσδιορίζουν 
-                                       μία από τις κατευθύνσεις: ΤΛΕΣ, ΔΥΣ, ΠΣΥ");
+                        .WithMessage("Οι φοιτητές και οι απόφοιτοι πρέπει να προσδιορίζουν " +
+                                     "μία από τις κατευθύνσεις: ΤΛΕΣ, ΔΥΣ, ΠΣΥ");
                 });
 
             When(user => user.Semester >= 1 && user.Semester <= 4, () =>
@@ -66,23 +67,5 @@ public class UserValidator : AbstractValidator<CreateUserRequest>
                     .WithMessage("Οι φοιτητές μέχρι το 4ο εξάμηνο δεν έχουν επιλέξει ακόμη κατεύθυνση");
             });
         });
-    }
-
-    private bool BeValidSemester(int? semester)
-    {
-        if (semester == null) return false;
-
-        return semester >= 1 && semester <= 8;
-    }
-
-    private bool BeValidTrack(string? track)
-    {
-        if (track == null) return false;
-
-        track.ToUpper();
-
-        return track == "ΤΛΕΣ" ||
-               track == "ΔΥΣ" ||
-               track == "ΠΣΥ";
     }
 }

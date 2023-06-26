@@ -12,15 +12,15 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CareerOrientation.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230618215023_AddTracksData")]
-    partial class AddTracksData
+    [Migration("20230626131346_FinishMainSchema")]
+    partial class FinishMainSchema
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.7")
+                .HasAnnotation("ProductVersion", "7.0.8")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
@@ -52,7 +52,7 @@ namespace CareerOrientation.Data.Migrations
 
                     b.HasIndex("TrackId");
 
-                    b.ToTable("Course");
+                    b.ToTable("Courses");
                 });
 
             modelBuilder.Entity("CareerOrientation.Data.Entities.Courses.CourseSkill", b =>
@@ -67,7 +67,7 @@ namespace CareerOrientation.Data.Migrations
 
                     b.HasIndex("SkillId");
 
-                    b.ToTable("CourseSkill");
+                    b.ToTable("CourseSkills");
                 });
 
             modelBuilder.Entity("CareerOrientation.Data.Entities.Courses.Skill", b =>
@@ -80,15 +80,15 @@ namespace CareerOrientation.Data.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("character varying(100)");
+                        .HasMaxLength(1000)
+                        .HasColumnType("character varying(1000)");
 
                     b.Property<int>("Type")
                         .HasColumnType("integer");
 
                     b.HasKey("SkillId");
 
-                    b.ToTable("Skill");
+                    b.ToTable("Skills");
                 });
 
             modelBuilder.Entity("CareerOrientation.Data.Entities.Specialties.MastersDegree", b =>
@@ -143,23 +143,6 @@ namespace CareerOrientation.Data.Migrations
                     b.HasKey("TrackId");
 
                     b.ToTable("Tracks");
-
-                    b.HasData(
-                        new
-                        {
-                            TrackId = 1,
-                            Name = "ΤΛΕΣ"
-                        },
-                        new
-                        {
-                            TrackId = 2,
-                            Name = "ΠΣΥ"
-                        },
-                        new
-                        {
-                            TrackId = 3,
-                            Name = "ΔΥΣ"
-                        });
                 });
 
             modelBuilder.Entity("CareerOrientation.Data.Entities.SpecialtiesRelations.TrackMastersDegree", b =>
@@ -208,20 +191,66 @@ namespace CareerOrientation.Data.Migrations
                     b.ToTable("GeneralTests");
                 });
 
+            modelBuilder.Entity("CareerOrientation.Data.Entities.Tests.LikertScaleAnswers", b =>
+                {
+                    b.Property<int>("LikertScaleAnswerId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("LikertScaleAnswerId"));
+
+                    b.Property<string>("Option1")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
+
+                    b.Property<string>("Option2")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
+
+                    b.Property<string>("Option3")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
+
+                    b.Property<string>("Option4")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
+
+                    b.Property<string>("Option5")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
+
+                    b.HasKey("LikertScaleAnswerId");
+
+                    b.ToTable("LikertScaleAnswers");
+                });
+
             modelBuilder.Entity("CareerOrientation.Data.Entities.Tests.MultipleChoiceAnswer", b =>
                 {
-                    b.Property<int>("QuestionId")
+                    b.Property<int>("MultipleChoiceAnswerId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("MultipleChoiceAnswerId"));
 
                     b.Property<bool>("IsCorrect")
                         .HasColumnType("boolean");
+
+                    b.Property<int>("QuestionId")
+                        .HasColumnType("integer");
 
                     b.Property<string>("Text")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("character varying(100)");
 
-                    b.HasKey("QuestionId");
+                    b.HasKey("MultipleChoiceAnswerId");
+
+                    b.HasIndex("QuestionId");
 
                     b.ToTable("MultipleChoiceAnswers");
                 });
@@ -254,6 +283,21 @@ namespace CareerOrientation.Data.Migrations
                     b.HasIndex("UniversityTestId");
 
                     b.ToTable("Questions");
+                });
+
+            modelBuilder.Entity("CareerOrientation.Data.Entities.Tests.QuestionLikertScaleAnswers", b =>
+                {
+                    b.Property<int>("QuestionId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("LikertScaleAnswersId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("QuestionId", "LikertScaleAnswersId");
+
+                    b.HasIndex("LikertScaleAnswersId");
+
+                    b.ToTable("QuestionLikertScaleAnswers");
                 });
 
             modelBuilder.Entity("CareerOrientation.Data.Entities.Tests.TrueFalseAnswer", b =>
@@ -761,6 +805,21 @@ namespace CareerOrientation.Data.Migrations
                     b.Navigation("GeneralTest");
 
                     b.Navigation("UniversityTest");
+                });
+
+            modelBuilder.Entity("CareerOrientation.Data.Entities.Tests.QuestionLikertScaleAnswers", b =>
+                {
+                    b.HasOne("CareerOrientation.Data.Entities.Tests.LikertScaleAnswers", null)
+                        .WithMany()
+                        .HasForeignKey("LikertScaleAnswersId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CareerOrientation.Data.Entities.Tests.Question", null)
+                        .WithMany()
+                        .HasForeignKey("QuestionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("CareerOrientation.Data.Entities.Tests.TrueFalseAnswer", b =>

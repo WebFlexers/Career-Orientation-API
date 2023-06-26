@@ -8,13 +8,16 @@ public class MultipleChoiceAnswerConfig : IEntityTypeConfiguration<MultipleChoic
 {
     public void Configure(EntityTypeBuilder<MultipleChoiceAnswer> builder)
     {
-        builder.HasKey(x => x.QuestionId);
+        builder.HasKey(x => x.MultipleChoiceAnswerId);
 
         builder.Property(x => x.Text)
             .IsRequired()
             .HasMaxLength(100);
 
         builder.Property(x => x.IsCorrect)
+            .IsRequired();
+
+        builder.Property(x => x.QuestionId)
             .IsRequired();
 
         // One to many relationships

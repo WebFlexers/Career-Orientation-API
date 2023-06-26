@@ -1,4 +1,5 @@
-﻿using FluentValidation.Results;
+﻿using FluentValidation;
+using FluentValidation.Results;
 using Microsoft.AspNetCore.Identity;
 
 namespace CareerOrientation.Services.Validation.Exceptions;
@@ -12,10 +13,21 @@ public static class ValidationExceptionExtensions
             return null;
         }
 
-        return new IdentityException(validationResult!.Errors.Select(x => new IdentityError()
+        return new IdentityException(validationResult!.Errors!.Select(x => new IdentityError()
         {
             Code = x.ErrorCode,
             Description = x.ErrorMessage
         }));
+    }
+
+    public static SimpleValidationException MapToSimpleValidationException(this ValidationException validationException)
+    {
+        return new SimpleValidationException(validationException.Errors.Select(err =>
+            new SimpleValidationError
+            {
+                PropertyName = err.PropertyName,
+                ErrorMessage = err.ErrorMessage
+            })
+        );
     }
 }
