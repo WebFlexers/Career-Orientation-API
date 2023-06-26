@@ -52,6 +52,17 @@ namespace CareerOrientation.API.Controllers
         ///         "name": "Another soft skill", <br/>
         ///         "type": "soft" <br/>
         ///     }] <br/>
+        /// } <br/> <br/>
+        /// If wrong data is supplied the error response has the following format: <br/>
+        /// { <br/>
+        ///   [ <br/>
+        ///     "propertyName": "semester", <br/>
+        ///     "errorMessage": "The semester must be between 1 and 8" <br/>
+        ///   ], <br/>
+        ///   [ <br/>
+        ///     "propertyName": "track", <br/>
+        ///     "errorMessage": "The track can only be TLES, DYS or PSY" <br/>
+        ///   ] <br/>
         /// } <br/>
         /// </remarks>
         [HttpGet]
