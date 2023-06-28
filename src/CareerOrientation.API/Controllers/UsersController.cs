@@ -96,7 +96,7 @@ public class UsersController : ApiController
 
         return result.Match<IActionResult>(
             authResponse =>
-                Ok(),//CreatedAtAction(nameof(Get), new { userId = authResponse.UserId }, authResponse),
+                CreatedAtAction(nameof(Get), new { userId = authResponse.UserId }, authResponse),
             errors => Problem(errors));
     }
 

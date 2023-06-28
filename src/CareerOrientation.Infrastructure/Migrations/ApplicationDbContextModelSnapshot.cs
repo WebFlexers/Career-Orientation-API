@@ -2951,22 +2951,22 @@ namespace CareerOrientation.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "c25e1b7e-fdb2-4ced-b737-413e529bd2ae",
-                            ConcurrencyStamp = "8ea97c34-3d5e-4fbd-b40c-62c751c3a31a",
+                            Id = "b0c6f406-dbfd-44b2-a22f-79ff592d2044",
+                            ConcurrencyStamp = "021912d6-49d1-454f-b71f-a9b3e012e5f2",
                             Name = "Student",
                             NormalizedName = "STUDENT"
                         },
                         new
                         {
-                            Id = "e9698e1f-25aa-488c-9d80-fc3e3efe3eb5",
-                            ConcurrencyStamp = "6201e88e-8e8f-47cb-9b7f-fc6013c83514",
+                            Id = "0117a10b-320b-47c8-9df6-f2dbc5aeec3e",
+                            ConcurrencyStamp = "a6ba7969-891e-4d6a-b9d8-442e64ccb21a",
                             Name = "GraduateStudent",
                             NormalizedName = "GRADUATESTUDENT"
                         },
                         new
                         {
-                            Id = "39cb7cc0-ef6d-4a7f-b0f4-7cf6a2335a30",
-                            ConcurrencyStamp = "9c6e5475-4752-4c2b-a805-7bb958e006d1",
+                            Id = "e03021b7-0d03-4fb2-8fa3-ec650996baf0",
+                            ConcurrencyStamp = "4ffe1157-4cea-4591-9072-dc75f96302f9",
                             Name = "ProspectiveStudent",
                             NormalizedName = "PROSPECTIVESTUDENT"
                         });

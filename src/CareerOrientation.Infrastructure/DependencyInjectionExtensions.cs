@@ -1,11 +1,13 @@
 ﻿using System.Text;
 
 using CareerOrientation.Application.Common.Abstractions.Auth;
+using CareerOrientation.Application.Common.Abstractions.Persistence;
 using CareerOrientation.Application.Common.Abstractions.Services;
 using CareerOrientation.Domain.Common.DomainErrors;
 using CareerOrientation.Domain.Entities;
 using CareerOrientation.Infrastructure.Auth;
 using CareerOrientation.Infrastructure.Persistence;
+using CareerOrientation.Infrastructure.Persistence.Repositories;
 using CareerOrientation.Infrastructure.Services;
 
 using Microsoft.Extensions.DependencyInjection;
@@ -95,6 +97,9 @@ public static class DependencyInjectionExtensions
         {
             options.UseNpgsql(configuration.GetConnectionString("Default"));
         });
+        
+        services.AddScoped<IUserRepository, UserRepository>();
+        services.AddScoped<ITrackRepository, TrackRepository>();
         
         return services;
     }

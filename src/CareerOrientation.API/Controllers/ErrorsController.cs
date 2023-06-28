@@ -6,13 +6,14 @@ namespace CareerOrientation.API.Controllers;
 /// <summary>
 /// Catches unhandled errors and displays them formatted to the client
 /// </summary>
-[Route("api/[controller]")]
+[ApiExplorerSettings(IgnoreApi = true)]
 public class ErrorsController : ControllerBase
 {
-    internal IActionResult Error()
+    [Route("/error")]
+    public IActionResult Error()
     {
         Exception? exception = HttpContext.Features.Get<IExceptionHandlerFeature>()?.Error;
-
+        
         return Problem();
     }
 }

@@ -12,7 +12,7 @@ public static class RegisterUserRequestMapping
             Password: request.Password,
             ConfirmPassword: request.ConfirmPassword,
             Email: request.Email,
-            IsProspectiveStudent: request.IsGraduate,
+            IsProspectiveStudent: request.IsProspectiveStudent,
             IsGraduate: request.IsGraduate,
             Semester: request.Semester,
             Track: request.Track);

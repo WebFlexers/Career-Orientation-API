@@ -1,20 +1,24 @@
 ﻿using CareerOrientation.Application.Auth.Commands.Register;
 using CareerOrientation.Application.Common.Abstractions.Services;
+using CareerOrientation.Application.Common.Logging;
 using CareerOrientation.Domain.Common;
 using CareerOrientation.Domain.Entities;
 
 using ErrorOr;
 
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Logging;
 
 namespace CareerOrientation.Infrastructure.Services;
 
 public class RoleManagerService : IRoleManagerService
 {
+    private readonly ILogger<RoleManagerService> _logger;
     private readonly UserManager<User> _userManager;
 
-    public RoleManagerService(UserManager<User> userManager)
+    public RoleManagerService(ILogger<RoleManagerService> logger, UserManager<User> userManager)
     {
+        _logger = logger;
         _userManager = userManager;
     }
 
@@ -49,6 +53,8 @@ public class RoleManagerService : IRoleManagerService
                     description: identityError.Description
                 ))
             .ToList();
+        
+        _logger.LogFailedRoleAssignment(role);
 
         return errors;
     }

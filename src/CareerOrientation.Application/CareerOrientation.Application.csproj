@@ -5,7 +5,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Common\Logging\" />
       <Folder Include="Courses\Commands\" />
     </ItemGroup>
 
