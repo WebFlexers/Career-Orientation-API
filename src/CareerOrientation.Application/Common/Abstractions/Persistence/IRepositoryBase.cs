@@ -1,4 +1,4 @@
-namespace CareerOrientation.Infrastructure.Persistence.Repositories;
+namespace CareerOrientation.Application.Common.Abstractions.Persistence;
 
 public interface IRepositoryBase
 {

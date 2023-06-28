@@ -1,19 +1,17 @@
-﻿using System.ComponentModel;
-
-using CareerOrientation.Application.Auth.Common;
-using CareerOrientation.Application.Auth.Queries.Login;
+﻿using CareerOrientation.Application.Auth.Common;
 using CareerOrientation.Application.Common.Abstractions.Auth;
 using CareerOrientation.Application.Common.Logging;
 using CareerOrientation.Domain.Common.DomainErrors;
 using CareerOrientation.Domain.Entities;
 
 using ErrorOr;
+
 using MediatR;
 
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 
-namespace CareerOrientation.Application.Auth.Queries;
+namespace CareerOrientation.Application.Auth.Queries.Login;
 
 public class LoginQueryHandler : IRequestHandler<LoginQuery, ErrorOr<AuthenticationResult>>
 {

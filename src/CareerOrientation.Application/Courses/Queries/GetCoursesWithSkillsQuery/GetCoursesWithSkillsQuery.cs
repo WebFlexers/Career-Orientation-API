@@ -9,4 +9,4 @@ namespace CareerOrientation.Application.Courses.Queries.GetCoursesWithSkillsQuer
 public record GetCoursesWithSkillsQuery(
     int Semester,
     string? Track,
-    bool IsProspectiveStudent) : IRequest<ErrorOr<CoursesWithSkillsResult>>;
+    bool IsProspectiveStudent) : IRequest<ErrorOr<List<CoursesWithSkillsResult>>>;

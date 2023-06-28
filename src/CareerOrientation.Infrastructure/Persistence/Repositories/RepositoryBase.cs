@@ -1,5 +1,7 @@
 ﻿using System.Diagnostics;
 
+using CareerOrientation.Application.Common.Abstractions.Persistence;
+
 using Microsoft.EntityFrameworkCore.Storage;
 
 namespace CareerOrientation.Infrastructure.Persistence.Repositories;

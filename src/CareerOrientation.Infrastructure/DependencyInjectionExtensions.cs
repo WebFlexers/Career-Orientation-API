@@ -130,6 +130,7 @@ public static class DependencyInjectionExtensions
         
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<ITrackRepository, TrackRepository>();
+        services.AddScoped<ICourseRepository, CourseRepository>();
         
         return services;
     }

@@ -1,6 +1,7 @@
 ﻿namespace CareerOrientation.Application.Courses.Common;
 
-public class CoursesWithSkillsResult
-{
-    
-}
+public record CoursesWithSkillsResult(
+    string Name,
+    string Description,
+    string? Track,
+    List<SkillResult> Skills);
