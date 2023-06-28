@@ -100,7 +100,7 @@ public class CareerOrientationProblemDetailsFactory : ProblemDetailsFactory
 
         if (errors is not null)
         {
-            problemDetails.Extensions.Add("errorCodes", errors.Select(e => e.Code));
+            problemDetails.Extensions.Add("errors", errors.Select(e => e.Code));
         }
 
         _configure?.Invoke(new() { HttpContext = httpContext!, ProblemDetails = problemDetails });

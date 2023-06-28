@@ -1,8 +1,10 @@
 ﻿using CareerOrientation.Application.Auth.Common;
+
 using ErrorOr;
+
 using MediatR;
 
-namespace CareerOrientation.Application.Auth.Queries;
+namespace CareerOrientation.Application.Auth.Queries.Login;
 
 public record LoginQuery(
     string? Username,

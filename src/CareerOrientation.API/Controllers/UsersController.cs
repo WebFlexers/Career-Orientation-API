@@ -1,5 +1,6 @@
 using CareerOrientation.API.Common.Contracts.Auth;
 using CareerOrientation.API.Common.Mapping.Auth;
+using CareerOrientation.Application.Auth.Queries.GetUser;
 
 using MediatR;
 
@@ -39,17 +40,13 @@ public class UsersController : ApiController
     /// The user with the specified id was not found
     /// </remarks>
     [HttpGet("{userId}")]
-    [Authorize]
-    public async Task<IActionResult> Get([FromRoute] string userId, CancellationToken token)
+    public async Task<IActionResult> Get(string userId, CancellationToken token)
     {
-        /*var getQuery = 
         var result = await _mediator.Send(new GetUserByIdQuery(userId), token);
 
         return result.Match<IActionResult>(
             userResponse => Ok(userResponse),
-            error => BadRequest(error.MapToResponse())
-        );*/
-        return Ok(userId);
+            errors => Problem(errors));
     }
 
     // POST: api/Users
@@ -124,12 +121,10 @@ public class UsersController : ApiController
     [AllowAnonymous]
     public async Task<IActionResult> Login([FromBody] AuthenticationRequest request, CancellationToken token)
     {
-        /*var result = await _mediator.Send(new AuthenticateUserQuery(request), token);
+        var result = await _mediator.Send(request.MapToLoginQuery(), token);
 
         return result.Match<IActionResult>(
             authResponse => Ok(authResponse),
-            error => Unauthorized(error.MapToResponse())
-        );*/
-        return Ok(request);
+            errors => Problem(statusCode: 401, title: errors[0].Description));
     }
 }
