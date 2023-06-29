@@ -14,10 +14,15 @@ public static class ValidationHelper
 
     public static bool BeValidTrack(string? track)
     {
-        if (track == null) return false;
+        if (track is null) return false;
 
         track = track.ToUpper();
 
         return track is "ΤΛΕΣ" or "ΔΥΣ" or "ΠΣΥ";
+    }
+
+    public static bool BeValidRevisionYear(int? revisionYear)
+    {
+        return revisionYear is >= 1 and <= 4;
     }
 }

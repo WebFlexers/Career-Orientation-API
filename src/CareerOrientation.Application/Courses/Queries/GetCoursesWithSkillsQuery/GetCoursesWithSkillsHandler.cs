@@ -35,7 +35,7 @@ public class GetCoursesWithSkillsHandler :
 
         if (coursesWithSkills is null || coursesWithSkills.Any() == false)
         {
-            return Errors.NoCoursesFound;
+            return Errors.Courses.NoCoursesFound;
         }
 
         return coursesWithSkills;

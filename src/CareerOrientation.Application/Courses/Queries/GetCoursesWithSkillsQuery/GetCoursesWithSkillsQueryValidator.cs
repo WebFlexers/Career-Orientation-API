@@ -1,4 +1,6 @@
-﻿using FluentValidation;
+﻿using CareerOrientation.Application.Common.Validation;
+
+using FluentValidation;
 
 using static CareerOrientation.Application.Common.Validation.ValidationHelper;
 
@@ -10,7 +12,7 @@ public class GetCoursesWithSkillsQueryValidator : AbstractValidator<GetCoursesWi
     {
         RuleFor(x => x.Semester)
             .Must(semester => BeValidSemester(semester))
-            .WithMessage("Τα διαθέσιμα εξάμηνα είναι από 1 έως 8");
+            .WithMessage(ValidationMessages.InvalidSemester);
 
         When(x => x.Semester >= 5 && x.IsProspectiveStudent == false, () =>
         {
@@ -27,7 +29,7 @@ public class GetCoursesWithSkillsQueryValidator : AbstractValidator<GetCoursesWi
             
             RuleFor(x => x.Track)
                 .Must(BeValidTrack)
-                .WithMessage("Οι διαθέσιμες κατευθύνσεις είναι: ΤΛΕΣ, ΔΥΣ, ΠΣΥ");
+                .WithMessage(ValidationMessages.InvalidTrack);
         });
     }
 }

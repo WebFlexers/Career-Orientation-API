@@ -35,7 +35,9 @@ public class ValidationBehavior<TRequest, TResponse> :
 
         var errors = validationResult.Errors
             .ConvertAll(validationFailure => Error.Validation(
-                validationFailure.PropertyName,
+                string.IsNullOrWhiteSpace(validationFailure.PropertyName) 
+                    ? validationFailure.ErrorCode 
+                    : validationFailure.PropertyName,
                 validationFailure.ErrorMessage));
 
         return (dynamic)errors;

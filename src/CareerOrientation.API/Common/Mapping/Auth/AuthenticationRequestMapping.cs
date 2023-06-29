@@ -1,5 +1,4 @@
 ﻿using CareerOrientation.API.Common.Contracts.Auth;
-using CareerOrientation.Application.Auth.Queries;
 using CareerOrientation.Application.Auth.Queries.Login;
 
 namespace CareerOrientation.API.Common.Mapping.Auth;

@@ -1,6 +1,4 @@
-﻿using CareerOrientation.Application.Auth.Common;
-
-using ErrorOr;
+﻿using ErrorOr;
 
 using MediatR;
 

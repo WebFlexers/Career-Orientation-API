@@ -6,6 +6,10 @@
 
     <ItemGroup>
       <Folder Include="Courses\Commands\" />
+      <Folder Include="ProspectiveStudentTests\Commands\" />
+      <Folder Include="ProspectiveStudentTests\Common\" />
+      <Folder Include="ProspectiveStudentTests\Queries\" />
+      <Folder Include="StudentTests\Commands\" />
     </ItemGroup>
 
     <ItemGroup>
