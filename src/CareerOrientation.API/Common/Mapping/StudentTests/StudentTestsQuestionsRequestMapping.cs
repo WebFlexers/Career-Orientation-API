@@ -8,6 +8,7 @@ public static class StudentTestsQuestionsRequestMapping
     public static GetStudentTestsQuestionsQuery MapToQuery(this StudentTestsQuestionsRequest request)
     {
         return new GetStudentTestsQuestionsQuery(
+            Track: request.Track,
             Semester: request.Semester,
             RevisionYear: request.RevisionYear);
     }

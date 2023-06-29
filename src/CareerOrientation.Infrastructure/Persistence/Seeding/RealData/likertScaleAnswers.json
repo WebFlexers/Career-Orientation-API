@@ -1,0 +1,12 @@
+{
+  "likertScaleAnswers": [
+    {
+      "LikertScaleAnswerId": 1,
+      "Option1": "Πολύ Λίγο",
+      "Option2": "Λίγο",
+      "Option3": "Ουδέτερο",
+      "Option4": "Πολύ",
+      "Option5": "Πάρα Πολύ"
+    }
+  ]
+}

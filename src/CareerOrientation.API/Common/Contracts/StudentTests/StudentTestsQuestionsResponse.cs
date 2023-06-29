@@ -2,7 +2,16 @@
 
 namespace CareerOrientation.API.Common.Contracts.StudentTests;
 
-public record StudentTestsQuestionsResponse(
-    bool IsRevision,
-    int UniversityTestId,
-    List<TestQuestionResult> Questions);
+public class StudentTestsQuestionsResponse
+{
+    public StudentTestsQuestionsResponse(bool isRevision, int universityTestId, List<ITestQuestionResult?> questions)
+    {
+        IsRevision = isRevision;
+        UniversityTestId = universityTestId;
+        Questions = questions;
+    }
+
+    public bool IsRevision { get; set; }
+    public int UniversityTestId { get; set; }
+    public List<ITestQuestionResult?> Questions { get; set; }
+}

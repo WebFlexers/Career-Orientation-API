@@ -1,0 +1,676 @@
+{
+  "questions": [
+    {
+      "questionId": 21,
+      "text": "Ποια είναι η βασική δομή ενός προγράμματος σε Python;",
+      "type": "MultipleChoice",
+      "universityTestId": 1,
+      "generalTestId": null
+    },
+    {
+      "questionId": 22,
+      "text": "Η C είναι μια γλώσσα υψηλού επιπέδου.",
+      "type": "TrueFalse",
+      "universityTestId": 1,
+      "generalTestId": null
+    },
+    {
+      "questionId": 23,
+      "text": "Πόσο σας αρέσει ο προγραμματισμός;",
+      "type": "LikertScale",
+      "universityTestId": 1,
+      "generalTestId": null
+    },
+    {
+      "questionId": 24,
+      "text": "Ποια είναι η βασική διαφορά μεταξύ των στατικών και δυναμικών ιστοσελίδων;",
+      "type": "MultipleChoice",
+      "universityTestId": 1,
+      "generalTestId": null
+    },
+    {
+      "questionId": 25,
+      "text": "Η HTML είναι γλώσσα προγραμματισμού.",
+      "type": "TrueFalse",
+      "universityTestId": 1,
+      "generalTestId": null
+    },
+    {
+      "questionId": 26,
+      "text": "Πόσο σας αρέσει η δημιουργία ιστοσελίδων;",
+      "type": "LikertScale",
+      "universityTestId": 1,
+      "generalTestId": null
+    },
+    {
+      "questionId": 27,
+      "text": "Ποιος από τους παρακάτω ορισμούς περιγράφει καλύτερα την έννοια του \"αλγορίθμου\";",
+      "type": "MultipleChoice",
+      "universityTestId": 1,
+      "generalTestId": null
+    },
+    {
+      "questionId": 28,
+      "text": "Ποιο από τα παρακάτω είναι ένα παράδειγμα δομής δεδομένων που έχει το LIFO (Last In First Out) χαρακτηριστικό;",
+      "type": "MultipleChoice",
+      "universityTestId": 2,
+      "generalTestId": null
+    },
+    {
+      "questionId": 29,
+      "text": "Ένα λειτουργικό σύστημα είναι ένα πρόγραμμα που διαχειρίζεται τον υλικό εξοπλισμό ενός υπολογιστή.",
+      "type": "TrueFalse",
+      "universityTestId": 2,
+      "generalTestId": null
+    },
+    {
+      "questionId": 30,
+      "text": "Πόσο σας αρέσει η εργασία με δομές δεδομένων;",
+      "type": "LikertScale",
+      "universityTestId": 2,
+      "generalTestId": null
+    },
+    {
+      "questionId": 31,
+      "text": "Ποιο από τα παρακάτω είναι ένα παράδειγμα ασύγχρονου προγραμματισμού;",
+      "type": "MultipleChoice",
+      "universityTestId": 2,
+      "generalTestId": null
+    },
+    {
+      "questionId": 32,
+      "text": "Η κωδικοποίηση Huffman χρησιμοποιείται για την περίληψη κειμένων.",
+      "type": "TrueFalse",
+      "universityTestId": 2,
+      "generalTestId": null
+    },
+    {
+      "questionId": 33,
+      "text": "Πόσο απολαύσατε την εισαγωγή σας στα λειτουργικά συστήματα;",
+      "type": "LikertScale",
+      "universityTestId": 2,
+      "generalTestId": null
+    },
+    {
+      "questionId": 34,
+      "text": "Ποια από τις παρακάτω γλώσσες χρησιμοποιείται συχνά για την ανάπτυξη λογισμικού για λειτουργικά συστήματα;",
+      "type": "MultipleChoice",
+      "universityTestId": 2,
+      "generalTestId": null
+    },
+    {
+      "questionId": 35,
+      "text": "Ποιο από τα παρακάτω είναι ένα παράδειγμα δομής δεδομένων που έχει το LIFO (Last In First Out) χαρακτηριστικό;",
+      "type": "MultipleChoice",
+      "universityTestId": 3,
+      "generalTestId": null
+    },
+    {
+      "questionId": 36,
+      "text": "Ένα λειτουργικό σύστημα είναι ένα πρόγραμμα που διαχειρίζεται τον υλικό εξοπλισμό ενός υπολογιστή.",
+      "type": "TrueFalse",
+      "universityTestId": 3,
+      "generalTestId": null
+    },
+    {
+      "questionId": 37,
+      "text": "Πόσο σας αρέσει η εργασία με δομές δεδομένων;",
+      "type": "LikertScale",
+      "universityTestId": 3,
+      "generalTestId": null
+    },
+    {
+      "questionId": 38,
+      "text": "Η κωδικοποίηση Huffman χρησιμοποιείται για την περίληψη κειμένων.",
+      "type": "TrueFalse",
+      "universityTestId": 3,
+      "generalTestId": null
+    },
+    {
+      "questionId": 39,
+      "text": "Πόσο απολαύσατε την εισαγωγή σας στα λειτουργικά συστήματα;",
+      "type": "LikertScale",
+      "universityTestId": 3,
+      "generalTestId": null
+    },
+    {
+      "questionId": 40,
+      "text": "Ποια είναι η βασική δομή ενός προγράμματος σε Python;",
+      "type": "MultipleChoice",
+      "universityTestId": 3,
+      "generalTestId": null
+    },
+    {
+      "questionId": 41,
+      "text": "Η C είναι μια γλώσσα υψηλού επιπέδου.",
+      "type": "TrueFalse",
+      "universityTestId": 3,
+      "generalTestId": null
+    },
+    {
+      "questionId": 42,
+      "text": "Πόσο σας αρέσει ο προγραμματισμός;",
+      "type": "LikertScale",
+      "universityTestId": 3,
+      "generalTestId": null
+    },
+    {
+      "questionId": 43,
+      "text": "Ποια είναι η βασική διαφορά μεταξύ των στατικών και δυναμικών ιστοσελίδων;",
+      "type": "MultipleChoice",
+      "universityTestId": 3,
+      "generalTestId": null
+    },
+    {
+      "questionId": 44,
+      "text": "Η HTML είναι γλώσσα προγραμματισμού.",
+      "type": "TrueFalse",
+      "universityTestId": 3,
+      "generalTestId": null
+    },
+    {
+      "questionId": 45,
+      "text": "Ποια είναι η πολυπλοκότητα χρόνου του αλγορίθμου Quicksort στη χειρότερη περίπτωση?",
+      "type": "MultipleChoice",
+      "universityTestId": 4,
+      "generalTestId": null
+    },
+    {
+      "questionId": 46,
+      "text": "Η SQL είναι μια γλώσσα προγραμματισμού που χρησιμοποιείται για τη διαχείριση και την ανάκτηση δεδομένων σε βάσεις δεδομένων.",
+      "type": "TrueFalse",
+      "universityTestId": 4,
+      "generalTestId": null
+    },
+    {
+      "questionId": 47,
+      "text": "Πόσο σας αρέσει η εργασία με βάσεις δεδομένων;",
+      "type": "LikertScale",
+      "universityTestId": 4,
+      "generalTestId": null
+    },
+    {
+      "questionId": 48,
+      "text": "Ποιο από τα παρακάτω είναι ένα παράδειγμα μηχανισμού μετάδοσης δεδομένων σε ένα δίκτυο;",
+      "type": "MultipleChoice",
+      "universityTestId": 4,
+      "generalTestId": null
+    },
+    {
+      "questionId": 49,
+      "text": "Στην επιστήμη των υπολογιστών, το 'routing' αναφέρεται στη διαδικασία επιλογής μονοπατιών σε ένα δίκτυο για τη μεταφορά δεδομένων από μια πηγή σε έναν προορισμό.",
+      "type": "TrueFalse",
+      "universityTestId": 4,
+      "generalTestId": null
+    },
+    {
+      "questionId": 50,
+      "text": "Πόσο σας ενδιέφερε η εισαγωγή στις έννοιες δικτύων;",
+      "type": "LikertScale",
+      "universityTestId": 4,
+      "generalTestId": null
+    },
+    {
+      "questionId": 51,
+      "text": "Ποια από τα παρακάτω είναι σύνθετες δομές δεδομένων;",
+      "type": "MultipleChoice",
+      "universityTestId": 4,
+      "generalTestId": null
+    },
+    {
+      "questionId": 52,
+      "text": "Τι από τα παρακάτω είναι μέρος της αρχιτεκτονικής ενός υπολογιστή;",
+      "type": "MultipleChoice",
+      "universityTestId": 5,
+      "generalTestId": null
+    },
+    {
+      "questionId": 53,
+      "text": "Ένα λειτουργικό σύστημα είναι ένα πρόγραμμα που διαχειρίζεται τον υλικό οργανισμό ενός υπολογιστή.",
+      "type": "TrueFalse",
+      "universityTestId": 5,
+      "generalTestId": null
+    },
+    {
+      "questionId": 54,
+      "text": "Πόσο σας αρέσει η εργασία με λειτουργικά συστήματα;",
+      "type": "LikertScale",
+      "universityTestId": 5,
+      "generalTestId": null
+    },
+    {
+      "questionId": 55,
+      "text": "Ποια από τις παρακάτω τεχνολογίες χρησιμοποιούνται συνήθως για τη δημιουργία γραφικών 3D;",
+      "type": "MultipleChoice",
+      "universityTestId": 5,
+      "generalTestId": null
+    },
+    {
+      "questionId": 56,
+      "text": "Η τεχνητή νοημοσύνη περιλαμβάνει τη δημιουργία μηχανών που μπορούν να 'σκέφτονται' και να μαθαίνουν όπως οι άνθρωποι.",
+      "type": "TrueFalse",
+      "universityTestId": 5,
+      "generalTestId": null
+    },
+    {
+      "questionId": 57,
+      "text": "Πόσο σας αρέσει η εργασία με τεχνητή νοημοσύνη;",
+      "type": "LikertScale",
+      "universityTestId": 5,
+      "generalTestId": null
+    },
+    {
+      "questionId": 58,
+      "text": "Ποιο από τα παρακάτω είναι ένα παράδειγμα αλγορίθμου μηχανικής μάθησης;",
+      "type": "MultipleChoice",
+      "universityTestId": 5,
+      "generalTestId": null
+    },
+    {
+      "questionId": 59,
+      "text": "Πόσο σας αρέσει η εργασία με λειτουργικά συστήματα;",
+      "type": "LikertScale",
+      "universityTestId": 6,
+      "generalTestId": null
+    },
+    {
+      "questionId": 60,
+      "text": "Ποια από τις παρακάτω τεχνολογίες χρησιμοποιούνται συνήθως για τη δημιουργία γραφικών 3D;",
+      "type": "MultipleChoice",
+      "universityTestId": 6,
+      "generalTestId": null
+    },
+    {
+      "questionId": 61,
+      "text": "Η τεχνητή νοημοσύνη περιλαμβάνει τη δημιουργία μηχανών που μπορούν να 'σκέφτονται' και να μάθαίνουν όπως οι άνθρωποι.",
+      "type": "TrueFalse",
+      "universityTestId": 6,
+      "generalTestId": null
+    },
+    {
+      "questionId": 62,
+      "text": "Πόσο σας αρέσει η εργασία με τεχνητή νοημοσύνη;",
+      "type": "LikertScale",
+      "universityTestId": 6,
+      "generalTestId": null
+    },
+    {
+      "questionId": 63,
+      "text": "Ποιο από τα παρακάτω είναι ένα παράδειγμα αλγορίθμου μηχανικής μάθησης;",
+      "type": "MultipleChoice",
+      "universityTestId": 6,
+      "generalTestId": null
+    },
+    {
+      "questionId": 64,
+      "text": "Ποια είναι η πολυπλοκότητα χρόνου του αλγορίθμου Quicksort στη χειρότερη περίπτωση?",
+      "type": "MultipleChoice",
+      "universityTestId": 6,
+      "generalTestId": null
+    },
+    {
+      "questionId": 65,
+      "text": "Η SQL είναι μια γλώσσα προγραμματισμού που χρησιμοποιείται για τη διαχείριση και την ανάκτηση δεδομένων σε βάσεις δεδομένων.",
+      "type": "TrueFalse",
+      "universityTestId": 6,
+      "generalTestId": null
+    },
+    {
+      "questionId": 66,
+      "text": "Πόσο σας αρέσει η εργασία με βάσεις δεδομένων;",
+      "type": "LikertScale",
+      "universityTestId": 6,
+      "generalTestId": null
+    },
+    {
+      "questionId": 67,
+      "text": "Ποιο από τα παρακάτω είναι ένα παράδειγμα μηχανισμού μετάδοσης δεδομένων σε ένα δίκτυο;",
+      "type": "MultipleChoice",
+      "universityTestId": 6,
+      "generalTestId": null
+    },
+    {
+      "questionId": 68,
+      "text": "Προτίμηση: Πόσο σας ενδιέφερε η εισαγωγή στις έννοιες δικτύων;",
+      "type": "LikertScale",
+      "universityTestId": 6,
+      "generalTestId": null
+    },
+    {
+      "questionId": 69,
+      "text": "Ποια από τις παρακάτω γλώσσες προγραμματισμού είναι η πιο δημοφιλής για την ανάπτυξη τεχνητής νοημοσύνης;",
+      "type": "MultipleChoice",
+      "universityTestId": 7,
+      "generalTestId": null
+    },
+    {
+      "questionId": 70,
+      "text": "Οι αλγόριθμοι μηχανικής μάθησης δεν μπορούν να εφαρμοστούν σε πραγματικά συστήματα, αλλά είναι μόνο για την ακαδημαϊκή έρευνα.",
+      "type": "TrueFalse",
+      "universityTestId": 7,
+      "generalTestId": null
+    },
+    {
+      "questionId": 71,
+      "text": "Πόσο σας αρέσει να αναπτύσσετε λογισμικό που περιλαμβάνει έξυπνες λειτουργίες, όπως την τεχνητή νοημοσύνη;",
+      "type": "LikertScale",
+      "universityTestId": 7,
+      "generalTestId": null
+    },
+    {
+      "questionId": 72,
+      "text": "Ποια από τις παρακάτω είναι μια βασική μέθοδος για την εκπαίδευση ενός μοντέλου μηχανικής μάθησης;",
+      "type": "MultipleChoice",
+      "universityTestId": 7,
+      "generalTestId": null
+    },
+    {
+      "questionId": 73,
+      "text": "Πόσο αρέσει σας η ανάπτυξη εφαρμογών λογισμικού που επιλύουν πραγματικά προβλήματα;",
+      "type": "LikertScale",
+      "universityTestId": 7,
+      "generalTestId": null
+    },
+    {
+      "questionId": 74,
+      "text": "Η συγγραφή κώδικα είναι ο μοναδικός τρόπος για να αναπτύξετε λογισμικό.",
+      "type": "TrueFalse",
+      "universityTestId": 7,
+      "generalTestId": null
+    },
+    {
+      "questionId": 75,
+      "text": "Ποια από τις παρακάτω μεθόδους είναι βασική για τη διαχείριση πολύπλοκων προβλημάτων λογισμικού;",
+      "type": "MultipleChoice",
+      "universityTestId": 7,
+      "generalTestId": null
+    },
+    {
+      "questionId": 76,
+      "text": "Ποιος από τους παρακάτω είναι ένας αλγόριθμος machine learning;",
+      "type": "MultipleChoice",
+      "universityTestId": 8,
+      "generalTestId": null
+    },
+    {
+      "questionId": 77,
+      "text": "Η ανάπτυξη λογισμικού αφορά μόνο την εγγραφή κώδικα.",
+      "type": "TrueFalse",
+      "universityTestId": 8,
+      "generalTestId": null
+    },
+    {
+      "questionId": 78,
+      "text": "Πόσο σας αρέσει η ανάπτυξη λογισμικού;",
+      "type": "LikertScale",
+      "universityTestId": 8,
+      "generalTestId": null
+    },
+    {
+      "questionId": 79,
+      "text": "Ποια από τα παρακάτω είναι γλώσσα προγραμματισμού που χρησιμοποιείται ευρέως στην ανάπτυξη λογισμικού;",
+      "type": "MultipleChoice",
+      "universityTestId": 8,
+      "generalTestId": null
+    },
+    {
+      "questionId": 80,
+      "text": "Πόσο σας αρέσει η διαδικασία του debugging στον κώδικά σας;",
+      "type": "LikertScale",
+      "universityTestId": 8,
+      "generalTestId": null
+    },
+    {
+      "questionId": 81,
+      "text": "Τα Ευφυή Συστήματα χρησιμοποιούνται για την επεξεργασία και την ανάλυση δεδομένων μεγάλης κλίμακας.",
+      "type": "TrueFalse",
+      "universityTestId": 8,
+      "generalTestId": null
+    },
+    {
+      "questionId": 82,
+      "text": "Ποιο από τα παρακάτω είναι ένα framework για την ανάπτυξη λογισμικού;",
+      "type": "MultipleChoice",
+      "universityTestId": 8,
+      "generalTestId": null
+    },
+    {
+      "questionId": 83,
+      "text": "Πόσο σας αρέσει η ανάπτυξη λογισμικού;",
+      "type": "LikertScale",
+      "universityTestId": 9,
+      "generalTestId": null
+    },
+    {
+      "questionId": 84,
+      "text": "Ποια από τα παρακάτω είναι γλώσσα προγραμματισμού που χρησιμοποιείται ευρέως στην ανάπτυξη λογισμικού;",
+      "type": "MultipleChoice",
+      "universityTestId": 9,
+      "generalTestId": null
+    },
+    {
+      "questionId": 85,
+      "text": "Πόσο σας αρέσει η διαδικασία του debugging στον κώδικά σας;",
+      "type": "LikertScale",
+      "universityTestId": 9,
+      "generalTestId": null
+    },
+    {
+      "questionId": 86,
+      "text": "Τα Ευφυή Συστήματα χρησιμοποιούνται για την επεξεργασία και την ανάλυση δεδομένων μεγάλης κλίμακας.",
+      "type": "TrueFalse",
+      "universityTestId": 9,
+      "generalTestId": null
+    },
+    {
+      "questionId": 87,
+      "text": "Ποιο από τα παρακάτω είναι ένα framework για την ανάπτυξη λογισμικού;",
+      "type": "MultipleChoice",
+      "universityTestId": 9,
+      "generalTestId": null
+    },
+    {
+      "questionId": 88,
+      "text": "Πόσο σας αρέσει να αναπτύσσετε λογισμικό που περιλαμβάνει έξυπνες λειτουργίες, όπως την τεχνητή νοημοσύνη;",
+      "type": "LikertScale",
+      "universityTestId": 9,
+      "generalTestId": null
+    },
+    {
+      "questionId": 89,
+      "text": "Ποια από τις παρακάτω είναι μια βασική μέθοδος για την εκπαίδευση ενός μοντέλου μηχανικής μάθησης;",
+      "type": "MultipleChoice",
+      "universityTestId": 9,
+      "generalTestId": null
+    },
+    {
+      "questionId": 90,
+      "text": "Πόσο αρέσει σας η ανάπτυξη εφαρμογών λογισμικού που επιλύουν πραγματικά προβλήματα;",
+      "type": "LikertScale",
+      "universityTestId": 9,
+      "generalTestId": null
+    },
+    {
+      "questionId": 91,
+      "text": "Η συγγραφή κώδικα είναι ο μοναδικός τρόπος για να αναπτύξετε λογισμικό.",
+      "type": "TrueFalse",
+      "universityTestId": 9,
+      "generalTestId": null
+    },
+    {
+      "questionId": 92,
+      "text": "Ποια από τις παρακάτω μεθόδους είναι βασική για τη διαχείριση πολύπλοκων προβλημάτων λογισμικού;",
+      "type": "MultipleChoice",
+      "universityTestId": 9,
+      "generalTestId": null
+    },
+    {
+      "questionId": 93,
+      "text": "Ποια από τις ακόλουθες τεχνολογίες αναφέρεται περισσότερο στην αυτοματοποίηση διαχείρισης και εκτέλεσης λογισμικού σε εικονικούς εξυπηρετητές;",
+      "type": "MultipleChoice",
+      "universityTestId": 10,
+      "generalTestId": null
+    },
+    {
+      "questionId": 94,
+      "text": "Οι βάσεις δεδομένων NoSQL είναι καλύτερες για την επεξεργασία μεγάλων όγκων δεδομένων σε σύγκριση με τις SQL βάσεις δεδομένων.",
+      "type": "TrueFalse",
+      "universityTestId": 10,
+      "generalTestId": null
+    },
+    {
+      "questionId": 95,
+      "text": "Σε ποιο βαθμό σας αρέσει να ασχολείστε με την διαχείριση και την συντήρηση υπολογιστικών συστημάτων;",
+      "type": "LikertScale",
+      "universityTestId": 10,
+      "generalTestId": null
+    },
+    {
+      "questionId": 96,
+      "text": "Ποιο από τα ακόλουθα λειτουργικά συστήματα είναι πιο πιθανό να χρησιμοποιηθεί σε επαγγελματικό περιβάλλον για διαχείριση δικτύων;",
+      "type": "MultipleChoice",
+      "universityTestId": 10,
+      "generalTestId": null
+    },
+    {
+      "questionId": 97,
+      "text": "Η διαχείριση των ανθρώπινων πόρων και η επικοινωνία είναι σημαντικές δεξιότητες στη διοίκηση υπολογιστικών συστημάτων.",
+      "type": "TrueFalse",
+      "universityTestId": 10,
+      "generalTestId": null
+    },
+    {
+      "questionId": 98,
+      "text": "Πόσο σας αρέσει να εργάζεστε με υπολογιστικά συστήματα και δίκτυα σε σύγκριση με τον προγραμματισμό;",
+      "type": "LikertScale",
+      "universityTestId": 10,
+      "generalTestId": null
+    },
+    {
+      "questionId": 99,
+      "text": "Ποιο από τα ακόλουθα είναι ένα εργαλείο διαχείρισης κώδικα που χρησιμοποιείται στη διαχείριση υπολογιστικών συστημάτων;",
+      "type": "MultipleChoice",
+      "universityTestId": 10,
+      "generalTestId": null
+    },
+    {
+      "questionId": 100,
+      "text": "Ποιο από τα παρακάτω είναι ένα πρότυπο πρωτοκόλλου δικτύου;",
+      "type": "MultipleChoice",
+      "universityTestId": 11,
+      "generalTestId": null
+    },
+    {
+      "questionId": 101,
+      "text": "Το Wi-Fi είναι ο μόνος τρόπος για να συνδεθείτε ασύρματα σε ένα δίκτυο.",
+      "type": "TrueFalse",
+      "universityTestId": 11,
+      "generalTestId": null
+    },
+    {
+      "questionId": 102,
+      "text": "Πόσο σας αρέσει να σχεδιάζετε και να εφαρμόζετε δίκτυα;",
+      "type": "LikertScale",
+      "universityTestId": 11,
+      "generalTestId": null
+    },
+    {
+      "questionId": 103,
+      "text": "Ποιο από τα παρακάτω πρωτόκολλα χρησιμοποιείται για τη μεταφορά ηλεκτρονικών μηνυμάτων;",
+      "type": "MultipleChoice",
+      "universityTestId": 11,
+      "generalTestId": null
+    },
+    {
+      "questionId": 104,
+      "text": "Πόσο σας αρέσει η δημιουργία και διαχείριση υπηρεσιών δικτύου, όπως ηλεκτρονικό ταχυδρομείο, web servers, κλπ.;",
+      "type": "LikertScale",
+      "universityTestId": 11,
+      "generalTestId": null
+    },
+    {
+      "questionId": 105,
+      "text": "Το VPN είναι μια τεχνική που χρησιμοποιείται για να κάνει ένα δίκτυο ασφαλέστερο.",
+      "type": "TrueFalse",
+      "universityTestId": 11,
+      "generalTestId": null
+    },
+    {
+      "questionId": 106,
+      "text": "Ποια από τα παρακάτω είναι τεχνική για την καταπολέμηση των DDoS επιθέσεων;",
+      "type": "MultipleChoice",
+      "universityTestId": 11,
+      "generalTestId": null
+    },
+    {
+      "questionId": 107,
+      "text": "Ποια από τις ακόλουθες τεχνολογίες αναφέρεται περισσότερο στην αυτοματοποίηση διαχείρισης και εκτέλεσης λογισμικού σε εικονικούς εξυπηρετητές;",
+      "type": "MultipleChoice",
+      "universityTestId": 12,
+      "generalTestId": null
+    },
+    {
+      "questionId": 108,
+      "text": "Οι βάσεις δεδομένων NoSQL είναι καλύτερες για την επεξεργασία μεγάλων όγκων δεδομένων σε σύγκριση με τις SQL βάσεις δεδομένων.",
+      "type": "TrueFalse",
+      "universityTestId": 12,
+      "generalTestId": null
+    },
+    {
+      "questionId": 109,
+      "text": "Σε ποιο βαθμό σας αρέσει να ασχολείστε με την διαχείριση και την συντήρηση υπολογιστικών συστημάτων;",
+      "type": "LikertScale",
+      "universityTestId": 12,
+      "generalTestId": null
+    },
+    {
+      "questionId": 110,
+      "text": "Ποιο από τα ακόλουθα λειτουργικά συστήματα είναι πιο πιθανό να χρησιμοποιηθεί σε επαγγελματικό περιβάλλον για διαχείριση δικτύων;",
+      "type": "MultipleChoice",
+      "universityTestId": 12,
+      "generalTestId": null
+    },
+    {
+      "questionId": 111,
+      "text": "Η διαχείριση των ανθρώπινων πόρων και η επικοινωνία είναι σημαντικές δεξιότητες στη διοίκηση υπολογιστικών συστημάτων.",
+      "type": "TrueFalse",
+      "universityTestId": 12,
+      "generalTestId": null
+    },
+    {
+      "questionId": 112,
+      "text": "Πόσο σας αρέσει να σχεδιάζετε και να εφαρμόζετε δίκτυα;",
+      "type": "LikertScale",
+      "universityTestId": 12,
+      "generalTestId": null
+    },
+    {
+      "questionId": 113,
+      "text": "Ποιο από τα παρακάτω πρωτόκολλα χρησιμοποιείται για τη μεταφορά ηλεκτρονικών μηνυμάτων;",
+      "type": "MultipleChoice",
+      "universityTestId": 12,
+      "generalTestId": null
+    },
+    {
+      "questionId": 114,
+      "text": " Πόσο σας αρέσει η δημιουργία και διαχείριση υπηρεσιών δικτύου, όπως ηλεκτρονικό ταχυδρομείο, web servers, κλπ.;",
+      "type": "LikertScale",
+      "universityTestId": 12,
+      "generalTestId": null
+    },
+    {
+      "questionId": 115,
+      "text": "Το VPN είναι μια τεχνική που χρησιμοποιείται για να κάνει ένα δίκτυο ασφαλέστερο.",
+      "type": "TrueFalse",
+      "universityTestId": 12,
+      "generalTestId": null
+    },
+    {
+      "questionId": 116,
+      "text": "Ποια από τα παρακάτω είναι τεχνική για την καταπολέμηση των DDoS επιθέσεων;",
+      "type": "MultipleChoice",
+      "universityTestId": 12,
+      "generalTestId": null
+    }
+  ]
+}

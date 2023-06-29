@@ -1,0 +1,707 @@
+{
+  "multipleChoiceAnswers":
+  [
+    {
+      "multipleChoiceAnswerId": 1,
+      "text": "Εισαγωγή βιβλιοθηκών, Κύρια συνάρτηση, Βοηθητικές συναρτήσεις",
+      "isCorrect": true,
+      "questionId": 21
+    },
+    {
+      "multipleChoiceAnswerId": 2,
+      "text": "Εκφώνηση προβλήματος, Υλοποίηση λύσης, Εξαγωγή αποτελεσμάτων",
+      "isCorrect": false,
+      "questionId": 21
+    },
+    {
+      "multipleChoiceAnswerId": 3,
+      "text": "Κεφαλίδα, Σώμα, Υποσημείωση",
+      "isCorrect": false,
+      "questionId": 21
+    },
+    {
+      "multipleChoiceAnswerId": 4,
+      "text": "Το περιεχόμενο",
+      "isCorrect": true,
+      "questionId": 24
+    },
+    {
+      "multipleChoiceAnswerId": 5,
+      "text": "Η εμφάνιση",
+      "isCorrect": false,
+      "questionId": 24
+    },
+    {
+      "multipleChoiceAnswerId": 6,
+      "text": "Οι χρήστες",
+      "isCorrect": false,
+      "questionId": 24
+    },
+    {
+      "multipleChoiceAnswerId": 7,
+      "text": "Μια ακολουθία οδηγιών που επιλύει ένα συγκεκριμένο πρόβλημα",
+      "isCorrect": true,
+      "questionId": 27
+    },
+    {
+      "multipleChoiceAnswerId": 8,
+      "text": "Μια συλλογή δεδομένων",
+      "isCorrect": false,
+      "questionId": 27
+    },
+    {
+      "multipleChoiceAnswerId": 9,
+      "text": "Ένα εργαλείο για την ανάλυση δεδομένων",
+      "isCorrect": false,
+      "questionId": 27
+    },
+    {
+      "multipleChoiceAnswerId": 10,
+      "text": "Ουρά (Queue)",
+      "isCorrect": false,
+      "questionId": 28
+    },
+    {
+      "multipleChoiceAnswerId": 11,
+      "text": "Στοίβα (Stack)",
+      "isCorrect": true,
+      "questionId": 28
+    },
+    {
+      "multipleChoiceAnswerId": 12,
+      "text": "Λίστα (List)",
+      "isCorrect": false,
+      "questionId": 28
+    },
+    {
+      "multipleChoiceAnswerId": 13,
+      "text": "AJAX σε JavaScript",
+      "isCorrect": true,
+      "questionId": 31
+    },
+    {
+      "multipleChoiceAnswerId": 14,
+      "text": "Λούπες σε Python",
+      "isCorrect": false,
+      "questionId": 31
+    },
+    {
+      "multipleChoiceAnswerId": 15,
+      "text": "Κλάσεις σε Java",
+      "isCorrect": false,
+      "questionId": 31
+    },
+    {
+      "multipleChoiceAnswerId": 16,
+      "text": "Python",
+      "isCorrect": false,
+      "questionId": 34
+    },
+    {
+      "multipleChoiceAnswerId": 17,
+      "text": "C",
+      "isCorrect": true,
+      "questionId": 34
+    },
+    {
+      "multipleChoiceAnswerId": 18,
+      "text": "JavaScript",
+      "isCorrect": false,
+      "questionId": 34
+    },
+    {
+      "multipleChoiceAnswerId": 19,
+      "text": "Ουρά (Queue)",
+      "isCorrect": false,
+      "questionId": 35
+    },
+    {
+      "multipleChoiceAnswerId": 20,
+      "text": "Στοίβα (Stack)",
+      "isCorrect": true,
+      "questionId": 35
+    },
+    {
+      "multipleChoiceAnswerId": 21,
+      "text": "Λίστα (List)",
+      "isCorrect": false,
+      "questionId": 35
+    },
+    {
+      "multipleChoiceAnswerId": 22,
+      "text": "Εισαγωγή βιβλιοθηκών, Κύρια συνάρτηση, Βοηθητικές συναρτήσεις",
+      "isCorrect": true,
+      "questionId": 40
+    },
+    {
+      "multipleChoiceAnswerId": 23,
+      "text": "Εκφώνηση προβλήματος, Υλοποίηση λύσης, Εξαγωγή αποτελεσμάτων",
+      "isCorrect": false,
+      "questionId": 40
+    },
+    {
+      "multipleChoiceAnswerId": 24,
+      "text": "Κεφαλίδα, Σώμα, Υποσημείωση",
+      "isCorrect": false,
+      "questionId": 40
+    },
+    {
+      "multipleChoiceAnswerId": 25,
+      "text": "Το περιεχόμενο",
+      "isCorrect": true,
+      "questionId": 43
+    },
+    {
+      "multipleChoiceAnswerId": 26,
+      "text": "Η εμφάνιση",
+      "isCorrect": false,
+      "questionId": 43
+    },
+    {
+      "multipleChoiceAnswerId": 27,
+      "text": "Οι χρήστες",
+      "isCorrect": false,
+      "questionId": 43
+    },
+    {
+      "multipleChoiceAnswerId": 28,
+      "text": "O(n log n)",
+      "isCorrect": false,
+      "questionId": 45
+    },
+    {
+      "multipleChoiceAnswerId": 29,
+      "text": "O(n^2)",
+      "isCorrect": true,
+      "questionId": 45
+    },
+    {
+      "multipleChoiceAnswerId": 30,
+      "text": "O(n)",
+      "isCorrect": false,
+      "questionId": 45
+    },
+    {
+      "multipleChoiceAnswerId": 31,
+      "text": "TCP/IP",
+      "isCorrect": true,
+      "questionId": 48
+    },
+    {
+      "multipleChoiceAnswerId": 32,
+      "text": "HTTP",
+      "isCorrect": false,
+      "questionId": 48
+    },
+    {
+      "multipleChoiceAnswerId": 33,
+      "text": "SSL",
+      "isCorrect": false,
+      "questionId": 48
+    },
+    {
+      "multipleChoiceAnswerId": 34,
+      "text": "Πίνακας",
+      "isCorrect": false,
+      "questionId": 51
+    },
+    {
+      "multipleChoiceAnswerId": 35,
+      "text": "Στοίβα",
+      "isCorrect": false,
+      "questionId": 51
+    },
+    {
+      "multipleChoiceAnswerId": 36,
+      "text": "Ουρά προτεραιότητας",
+      "isCorrect": true,
+      "questionId": 51
+    },
+    {
+      "multipleChoiceAnswerId": 37,
+      "text": "CPU",
+      "isCorrect": false,
+      "questionId": 52
+    },
+    {
+      "multipleChoiceAnswerId": 38,
+      "text": "RAM",
+      "isCorrect": false,
+      "questionId": 52
+    },
+    {
+      "multipleChoiceAnswerId": 39,
+      "text": "Όλα τα παραπάνω",
+      "isCorrect": true,
+      "questionId": 52
+    },
+    {
+      "multipleChoiceAnswerId": 40,
+      "text": "WebGL",
+      "isCorrect": false,
+      "questionId": 55
+    },
+    {
+      "multipleChoiceAnswerId": 41,
+      "text": "OpenGL",
+      "isCorrect": false,
+      "questionId": 55
+    },
+    {
+      "multipleChoiceAnswerId": 42,
+      "text": "Όλα τα παραπάνω",
+      "isCorrect": true,
+      "questionId": 55
+    },
+    {
+      "multipleChoiceAnswerId": 43,
+      "text": "Δέντρα απόφασης",
+      "isCorrect": true,
+      "questionId": 58
+    },
+    {
+      "multipleChoiceAnswerId": 44,
+      "text": "Γραμμική άλγεβρα",
+      "isCorrect": false,
+      "questionId": 58
+    },
+    {
+      "multipleChoiceAnswerId": 45,
+      "text": "Πίνακες διαστημάτων",
+      "isCorrect": false,
+      "questionId": 58
+    },
+    {
+      "multipleChoiceAnswerId": 46,
+      "text": "WebGL",
+      "isCorrect": false,
+      "questionId": 60
+    },
+    {
+      "multipleChoiceAnswerId": 47,
+      "text": "OpenGL",
+      "isCorrect": false,
+      "questionId": 60
+    },
+    {
+      "multipleChoiceAnswerId": 48,
+      "text": "Όλα τα παραπάνω",
+      "isCorrect": true,
+      "questionId": 60
+    },
+    {
+      "multipleChoiceAnswerId": 49,
+      "text": "Δέντρα απόφασης",
+      "isCorrect": true,
+      "questionId": 63
+    },
+    {
+      "multipleChoiceAnswerId": 50,
+      "text": "OpeΓραμμική άλγεβραnGL",
+      "isCorrect": false,
+      "questionId": 63
+    },
+    {
+      "multipleChoiceAnswerId": 51,
+      "text": "Πίνακες διαστημάτων",
+      "isCorrect": false,
+      "questionId": 63
+    },
+    {
+      "multipleChoiceAnswerId": 52,
+      "text": "O(n log n)",
+      "isCorrect": false,
+      "questionId": 64
+    },
+    {
+      "multipleChoiceAnswerId": 53,
+      "text": "O(n^2)",
+      "isCorrect": false,
+      "questionId": 64
+    },
+    {
+      "multipleChoiceAnswerId": 54,
+      "text": "O(n)",
+      "isCorrect": false,
+      "questionId": 64
+    },
+    {
+      "multipleChoiceAnswerId": 55,
+      "text": "TCP/IP",
+      "isCorrect": true,
+      "questionId": 67
+    },
+    {
+      "multipleChoiceAnswerId": 56,
+      "text": "HTTP",
+      "isCorrect": false,
+      "questionId": 67
+    },
+    {
+      "multipleChoiceAnswerId": 57,
+      "text": "SSL",
+      "isCorrect": false,
+      "questionId": 67
+    },
+    {
+      "multipleChoiceAnswerId": 58,
+      "text": "Python",
+      "isCorrect": true,
+      "questionId": 69
+    },
+    {
+      "multipleChoiceAnswerId": 59,
+      "text": "Java",
+      "isCorrect": false,
+      "questionId": 69
+    },
+    {
+      "multipleChoiceAnswerId": 60,
+      "text": "JavaScript",
+      "isCorrect": false,
+      "questionId": 69
+    },
+    {
+      "multipleChoiceAnswerId": 61,
+      "text": "Συνεχής επανάληψη και προσαρμογή",
+      "isCorrect": true,
+      "questionId": 72
+    },
+    {
+      "multipleChoiceAnswerId": 62,
+      "text": "Εγκατάσταση του νεότερου λογισμικού",
+      "isCorrect": false,
+      "questionId": 72
+    },
+    {
+      "multipleChoiceAnswerId": 63,
+      "text": "Χρήση μόνο δεδομένων εκπαίδευσης για το τεστ",
+      "isCorrect": false,
+      "questionId": 72
+    },
+    {
+      "multipleChoiceAnswerId": 64,
+      "text": "Διαίρεση του προβλήματος σε μικρότερα μέρη",
+      "isCorrect": true,
+      "questionId": 75
+    },
+    {
+      "multipleChoiceAnswerId": 65,
+      "text": "Αγνόηση των προβλημάτων και ελπίδα ότι θα εξαφανιστούν μόνα τους",
+      "isCorrect": false,
+      "questionId": 75
+    },
+    {
+      "multipleChoiceAnswerId": 66,
+      "text": "Επανεγκατάσταση του λογισμικού",
+      "isCorrect": false,
+      "questionId": 75
+    },
+    {
+      "multipleChoiceAnswerId": 67,
+      "text": "TensorFlow",
+      "isCorrect": false,
+      "questionId": 76
+    },
+    {
+      "multipleChoiceAnswerId": 68,
+      "text": "K-means clustering",
+      "isCorrect": true,
+      "questionId": 76
+    },
+    {
+      "multipleChoiceAnswerId": 69,
+      "text": "JavaScript",
+      "isCorrect": false,
+      "questionId": 76
+    },
+    {
+      "multipleChoiceAnswerId": 70,
+      "text": "SQL",
+      "isCorrect": false,
+      "questionId": 79
+    },
+    {
+      "multipleChoiceAnswerId": 71,
+      "text": "Python",
+      "isCorrect": true,
+      "questionId": 79
+    },
+    {
+      "multipleChoiceAnswerId": 72,
+      "text": "HTML",
+      "isCorrect": false,
+      "questionId": 79
+    },
+    {
+      "multipleChoiceAnswerId": 73,
+      "text": "Django",
+      "isCorrect": true,
+      "questionId": 82
+    },
+    {
+      "multipleChoiceAnswerId": 74,
+      "text": "Excel",
+      "isCorrect": false,
+      "questionId": 82
+    },
+    {
+      "multipleChoiceAnswerId": 75,
+      "text": "Google Docs",
+      "isCorrect": false,
+      "questionId": 82
+    },
+    {
+      "multipleChoiceAnswerId": 76,
+      "text": "SQL",
+      "isCorrect": false,
+      "questionId": 84
+    },
+    {
+      "multipleChoiceAnswerId": 77,
+      "text": "Python",
+      "isCorrect": true,
+      "questionId": 84
+    },
+    {
+      "multipleChoiceAnswerId": 78,
+      "text": "HTML",
+      "isCorrect": false,
+      "questionId": 84
+    },
+    {
+      "multipleChoiceAnswerId": 79,
+      "text": "Django",
+      "isCorrect": true,
+      "questionId": 87
+    },
+    {
+      "multipleChoiceAnswerId": 80,
+      "text": "Excel",
+      "isCorrect": false,
+      "questionId": 87
+    },
+    {
+      "multipleChoiceAnswerId": 81,
+      "text": "Google Docs",
+      "isCorrect": false,
+      "questionId": 87
+    },
+    {
+      "multipleChoiceAnswerId": 82,
+      "text": "Συνεχής επανάληψη και προσαρμογή",
+      "isCorrect": true,
+      "questionId": 89
+    },
+    {
+      "multipleChoiceAnswerId": 83,
+      "text": "Εγκατάσταση του νεότερου λογισμικού",
+      "isCorrect": false,
+      "questionId": 89
+    },
+    {
+      "multipleChoiceAnswerId": 84,
+      "text": "Χρήση μόνο δεδομένων εκπαίδευσης για το τεστ",
+      "isCorrect": false,
+      "questionId": 89
+    },
+    {
+      "multipleChoiceAnswerId": 85,
+      "text": "Διαίρεση του προβλήματος σε μικρότερα μέρη",
+      "isCorrect": true,
+      "questionId": 92
+    },
+    {
+      "multipleChoiceAnswerId": 86,
+      "text": "Αγνόηση των προβλημάτων και ελπίδα ότι θα εξαφανιστούν μόνα τους",
+      "isCorrect": false,
+      "questionId": 92
+    },
+    {
+      "multipleChoiceAnswerId": 87,
+      "text": "Επανεγκατάσταση του λογισμικού",
+      "isCorrect": false,
+      "questionId": 92
+    },
+    {
+      "multipleChoiceAnswerId": 88,
+      "text": "Docker",
+      "isCorrect": true,
+      "questionId": 93
+    },
+    {
+      "multipleChoiceAnswerId": 89,
+      "text": "JavaScript",
+      "isCorrect": false,
+      "questionId": 93
+    },
+    {
+      "multipleChoiceAnswerId": 90,
+      "text": "Apache Server",
+      "isCorrect": false,
+      "questionId": 93
+    },
+    {
+      "multipleChoiceAnswerId": 91,
+      "text": "Windows 10",
+      "isCorrect": false,
+      "questionId": 96
+    },
+    {
+      "multipleChoiceAnswerId": 92,
+      "text": "Ubuntu Server",
+      "isCorrect": true,
+      "questionId": 96
+    },
+    {
+      "multipleChoiceAnswerId": 93,
+      "text": "iOS",
+      "isCorrect": false,
+      "questionId": 96
+    },
+    {
+      "multipleChoiceAnswerId": 94,
+      "text": "Git",
+      "isCorrect": true,
+      "questionId": 99
+    },
+    {
+      "multipleChoiceAnswerId": 95,
+      "text": "Notepad++",
+      "isCorrect": false,
+      "questionId": 99
+    },
+    {
+      "multipleChoiceAnswerId": 96,
+      "text": "PyCharm",
+      "isCorrect": false,
+      "questionId": 99
+    },
+    {
+      "multipleChoiceAnswerId": 97,
+      "text": "TCP/IP",
+      "isCorrect": true,
+      "questionId": 100
+    },
+    {
+      "multipleChoiceAnswerId": 98,
+      "text": "OCI",
+      "isCorrect": false,
+      "questionId": 100
+    },
+    {
+      "multipleChoiceAnswerId": 99,
+      "text": "HDMI",
+      "isCorrect": false,
+      "questionId": 100
+    },
+    {
+      "multipleChoiceAnswerId": 100,
+      "text": "SMTP",
+      "isCorrect": true,
+      "questionId": 103
+    },
+    {
+      "multipleChoiceAnswerId": 101,
+      "text": "HTTP",
+      "isCorrect": false,
+      "questionId": 103
+    },
+    {
+      "multipleChoiceAnswerId": 102,
+      "text": "TCP",
+      "isCorrect": false,
+      "questionId": 103
+    },
+    {
+      "multipleChoiceAnswerId": 103,
+      "text": "Rate limiting",
+      "isCorrect": true,
+      "questionId": 106
+    },
+    {
+      "multipleChoiceAnswerId": 104,
+      "text": "Encryption",
+      "isCorrect": false,
+      "questionId": 106
+    },
+    {
+      "multipleChoiceAnswerId": 105,
+      "text": "Firewalls",
+      "isCorrect": false,
+      "questionId": 106
+    },
+    {
+      "multipleChoiceAnswerId": 106,
+      "text": "Docker",
+      "isCorrect": true,
+      "questionId": 107
+    },
+    {
+      "multipleChoiceAnswerId": 107,
+      "text": "JavaScript",
+      "isCorrect": false,
+      "questionId": 107
+    },
+    {
+      "multipleChoiceAnswerId": 108,
+      "text": "Apache Server",
+      "isCorrect": false,
+      "questionId": 107
+    },
+    {
+      "multipleChoiceAnswerId": 109,
+      "text": "Windows 10",
+      "isCorrect": false,
+      "questionId": 110
+    },
+    {
+      "multipleChoiceAnswerId": 110,
+      "text": "Ubuntu Server",
+      "isCorrect": true,
+      "questionId": 110
+    },
+    {
+      "multipleChoiceAnswerId": 111,
+      "text": "iOS",
+      "isCorrect": false,
+      "questionId": 110
+    },
+    {
+      "multipleChoiceAnswerId": 112,
+      "text": "SMTP",
+      "isCorrect": true,
+      "questionId": 113
+    },
+    {
+      "multipleChoiceAnswerId": 113,
+      "text": "HTTP",
+      "isCorrect": false,
+      "questionId": 113
+    },
+    {
+      "multipleChoiceAnswerId": 114,
+      "text": "TCP",
+      "isCorrect": false,
+      "questionId": 113
+    },
+    {
+      "multipleChoiceAnswerId": 115,
+      "text": "Rate limiting",
+      "isCorrect": false,
+      "questionId": 116
+    },
+    {
+      "multipleChoiceAnswerId": 116,
+      "text": "Encryption",
+      "isCorrect": false,
+      "questionId": 116
+    },
+    {
+      "multipleChoiceAnswerId": 117,
+      "text": "Firewalls",
+      "isCorrect": true,
+      "questionId": 116
+    }
+  ]
+} 

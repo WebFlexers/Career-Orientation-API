@@ -7,9 +7,10 @@ public static class StudentTestsResultMapping
 {
     public static StudentTestsQuestionsResponse MapToResponse(this StudentTestResult result)
     {
-        return new StudentTestsQuestionsResponse(
-            IsRevision: result.IsRevision,
-            UniversityTestId: result.UniversityTestId,
-            Questions: result.Questions);
+        return new StudentTestsQuestionsResponse (
+            result.IsRevision,
+            result.UniversityTestId,
+            result.Questions
+        );
     } 
 }

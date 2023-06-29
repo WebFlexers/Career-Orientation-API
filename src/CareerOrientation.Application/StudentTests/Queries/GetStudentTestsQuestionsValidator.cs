@@ -21,6 +21,15 @@ public class GetStudentTestsQuestionsValidator : AbstractValidator<GetStudentTes
             RuleFor(x => x.Semester)
                 .Must(BeValidSemester)
                 .WithMessage(ValidationMessages.InvalidSemester);
+
+            When(x => x.Semester >= 5, () =>
+            {
+                RuleFor(x => x.Track)
+                    .NotEmpty()
+                    .WithMessage(ValidationMessages.MustSupplyTrackAboveSemester4)
+                    .Must(BeValidTrack)
+                    .WithMessage(ValidationMessages.InvalidTrack);
+            });
         });
         
         When(x => x.RevisionYear is not null, () =>
@@ -28,6 +37,15 @@ public class GetStudentTestsQuestionsValidator : AbstractValidator<GetStudentTes
             RuleFor(x => x.RevisionYear)
                 .Must(BeValidRevisionYear)
                 .WithMessage(ValidationMessages.InvalidRevisionYear);
+
+            When(x => x.RevisionYear >= 3, () =>
+            {
+                RuleFor(x => x.Track)
+                    .NotEmpty()
+                    .WithMessage(ValidationMessages.MustSupplyTrackAboveYear2)
+                    .Must(BeValidTrack)
+                    .WithMessage(ValidationMessages.InvalidTrack);
+            });
         });
     }
 }

@@ -21,9 +21,9 @@ public class Question
     public List<Track>? Tracks { get; set; }
 
     // Answers relations
-    public TrueFalseAnswer? TrueFalseAnswer { get; set; }
-    public List<MultipleChoiceAnswer>? MultipleChoiceAnswers { get; set; }
-    public List<LikertScaleAnswers>? LikertScaleAnswers { get; set; }
+    public TrueFalseAnswer TrueFalseAnswer { get; set; }
+    public List<MultipleChoiceAnswer> MultipleChoiceAnswers { get; set; }
+    public List<LikertScaleAnswers> LikertScaleAnswers { get; set; }
 
     // User answers relations
     public List<UserLikertScaleAnswer> UsersLikertScaleAnswers { get; set; }

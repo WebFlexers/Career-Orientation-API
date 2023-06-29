@@ -17,8 +17,8 @@ public class GetCoursesWithSkillsQueryValidator : AbstractValidator<GetCoursesWi
         When(x => x.Semester >= 5 && x.IsProspectiveStudent == false, () =>
         {
             RuleFor(x => x.Track)
-                .NotNull()
-                .WithMessage("Όταν το εξάμηνο είναι από 5 και πάνω πρέπει να οριστεί και η κατεύθυνση");
+                .NotEmpty()
+                .WithMessage(ValidationMessages.MustSupplyTrackAboveSemester4);
         });
         
         When(x => x.Track is not null, () =>

@@ -1,7 +1,10 @@
 ﻿using System.Reflection;
 using CareerOrientation.API.Common.Errors;
+
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.OpenApi.Models;
+
+using Newtonsoft.Json;
 
 namespace CareerOrientation.API.StartupConfig;
 
@@ -9,7 +12,7 @@ public static class DependencyInjectionExtensions
 {
     public static IServiceCollection AddPresentation(this IServiceCollection services)
     {
-        services.AddControllers();
+        services.AddControllers().AddNewtonsoftJson();
         services.AddEndpointsApiExplorer();
         services.AddSwaggerServices();
         services.AddSingleton<ProblemDetailsFactory, CareerOrientationProblemDetailsFactory>();

@@ -24,14 +24,16 @@ public class GetStudentTestsQuestionsHandler
         List<StudentTestResult> universityTest;
         if (request.Semester is not null)
         {
-            universityTest = await _testsRepository.GetSemesterTestQuestions(
+            universityTest = await _testsRepository.GetSemesterTestQuestionsWithAnswers(
                 request.Semester,
+                request.Track,
                 cancellationToken);
         }
         else
         {
-            universityTest = await _testsRepository.GetRevisionTestQuestions(
+            universityTest = await _testsRepository.GetRevisionTestQuestionsWithAnswers(
                 request.RevisionYear, 
+                request.Track,
                 cancellationToken);
         }
 

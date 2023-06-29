@@ -4,6 +4,8 @@ namespace CareerOrientation.Application.Common.Abstractions.Persistence;
 
 public interface ITestsRepository : IRepositoryBase
 {
-    Task<List<StudentTestResult>> GetSemesterTestQuestions(int? semester, CancellationToken cancellationToken);
-    Task<List<StudentTestResult>> GetRevisionTestQuestions(int? year, CancellationToken cancellationToken);
+    Task<List<StudentTestResult>> GetSemesterTestQuestionsWithAnswers(int? semester, string? track, 
+        CancellationToken cancellationToken);
+    Task<List<StudentTestResult>> GetRevisionTestQuestionsWithAnswers(int? year, string? track, 
+        CancellationToken cancellationToken);
 }

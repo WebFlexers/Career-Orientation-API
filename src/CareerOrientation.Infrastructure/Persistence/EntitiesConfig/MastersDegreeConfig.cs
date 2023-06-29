@@ -13,6 +13,6 @@ public class MastersDegreeConfig : IEntityTypeConfiguration<MastersDegree>
 
         builder.Property(x => x.Name)
             .IsRequired()
-            .HasMaxLength(100);
+            .HasMaxLength(1000);
     }
 }

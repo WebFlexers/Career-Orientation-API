@@ -23,9 +23,38 @@
       <None Remove="Persistence\Seeding\RealData\courseSkills.json" />
       <EmbeddedResource Include="Persistence\Seeding\RealData\courseSkills.json" />
       <None Remove="Persistence\Seeding\RealData\RealData.json" />
-      <EmbeddedResource Include="Persistence\Seeding\RealData\RealData.json" />
       <None Remove="Persistence\Seeding\RealData\skills.json" />
       <EmbeddedResource Include="Persistence\Seeding\RealData\skills.json" />
+      <None Remove="Persistence\Seeding\RealData\generalTests.json" />
+      <EmbeddedResource Include="Persistence\Seeding\RealData\generalTests.json" />
+      <None Remove="Persistence\Seeding\RealData\likertScaleAnswers.json" />
+      <EmbeddedResource Include="Persistence\Seeding\RealData\likertScaleAnswers.json" />
+      <None Remove="Persistence\Seeding\RealData\mastersDegrees.json" />
+      <EmbeddedResource Include="Persistence\Seeding\RealData\mastersDegrees.json" />
+      <None Remove="Persistence\Seeding\RealData\multipleChoiceAnswers.json" />
+      <EmbeddedResource Include="Persistence\Seeding\RealData\multipleChoiceAnswers.json" />
+      <None Remove="Persistence\Seeding\RealData\professions.json" />
+      <EmbeddedResource Include="Persistence\Seeding\RealData\professions.json" />
+      <None Remove="Persistence\Seeding\RealData\questionLikertScaleAnswers.json" />
+      <EmbeddedResource Include="Persistence\Seeding\RealData\questionLikertScaleAnswers.json" />
+      <None Remove="Persistence\Seeding\RealData\questionMastersDegrees.json" />
+      <EmbeddedResource Include="Persistence\Seeding\RealData\questionMastersDegrees.json" />
+      <None Remove="Persistence\Seeding\RealData\questionProfessions.json" />
+      <EmbeddedResource Include="Persistence\Seeding\RealData\questionProfessions.json" />
+      <None Remove="Persistence\Seeding\RealData\questions.json" />
+      <EmbeddedResource Include="Persistence\Seeding\RealData\questions.json" />
+      <None Remove="Persistence\Seeding\RealData\questionTracks.json" />
+      <EmbeddedResource Include="Persistence\Seeding\RealData\questionTracks.json" />
+      <None Remove="Persistence\Seeding\RealData\trackMastersDegrees.json" />
+      <EmbeddedResource Include="Persistence\Seeding\RealData\trackMastersDegrees.json" />
+      <None Remove="Persistence\Seeding\RealData\trackProfessions.json" />
+      <EmbeddedResource Include="Persistence\Seeding\RealData\trackProfessions.json" />
+      <None Remove="Persistence\Seeding\RealData\tracks.json" />
+      <EmbeddedResource Include="Persistence\Seeding\RealData\tracks.json" />
+      <None Remove="Persistence\Seeding\RealData\trueFalseAnswers.json" />
+      <EmbeddedResource Include="Persistence\Seeding\RealData\trueFalseAnswers.json" />
+      <None Remove="Persistence\Seeding\RealData\universityTests.json" />
+      <EmbeddedResource Include="Persistence\Seeding\RealData\universityTests.json" />
     </ItemGroup>
 
     <PropertyGroup>
