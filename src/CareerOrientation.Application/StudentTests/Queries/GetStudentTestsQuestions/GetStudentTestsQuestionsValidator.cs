@@ -1,9 +1,10 @@
 ﻿using CareerOrientation.Application.Common.Validation;
 
 using FluentValidation;
+
 using static CareerOrientation.Application.Common.Validation.ValidationHelper;
 
-namespace CareerOrientation.Application.StudentTests.Queries;
+namespace CareerOrientation.Application.StudentTests.Queries.GetStudentTestsQuestions;
 
 public class GetStudentTestsQuestionsValidator : AbstractValidator<GetStudentTestsQuestionsQuery>
 {

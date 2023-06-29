@@ -1,5 +1,6 @@
 ﻿using CareerOrientation.API.Common.Contracts.StudentTests;
 using CareerOrientation.Application.StudentTests.Queries;
+using CareerOrientation.Application.StudentTests.Queries.GetStudentTestsQuestions;
 
 namespace CareerOrientation.API.Common.Mapping.StudentTests;
 

@@ -35,11 +35,7 @@ public class StudentTestsController : ApiController
         var result = await _mediator.Send(request.MapToQuery(), cancellationToken);
 
         return result.Match(
-            result =>
-            {
-                var tests = result.ConvertAll(test => test.MapToResponse());
-                return Ok(tests);
-            },
+            result => Ok(result.MapToResponse()),
             errors => Problem(errors));
     }
     

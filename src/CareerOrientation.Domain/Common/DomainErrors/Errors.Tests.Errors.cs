@@ -8,6 +8,6 @@ public static partial class Errors
     {
         public static Error NoQuestionsFound => Error.NotFound(
             code: nameof(NoQuestionsFound),
-            description: "No questions were found");
+            description: "Δεν βρέθηκαν ερωτήσεις");
     }
 }

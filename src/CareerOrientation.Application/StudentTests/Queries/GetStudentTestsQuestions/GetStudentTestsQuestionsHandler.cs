@@ -6,10 +6,10 @@ using ErrorOr;
 
 using MediatR;
 
-namespace CareerOrientation.Application.StudentTests.Queries;
+namespace CareerOrientation.Application.StudentTests.Queries.GetStudentTestsQuestions;
 
 public class GetStudentTestsQuestionsHandler 
-    : IRequestHandler<GetStudentTestsQuestionsQuery, ErrorOr<List<StudentTestResult>>>
+    : IRequestHandler<GetStudentTestsQuestionsQuery, ErrorOr<StudentTestResult>>
 {
     private readonly ITestsRepository _testsRepository;
 
@@ -18,10 +18,10 @@ public class GetStudentTestsQuestionsHandler
         _testsRepository = testsRepository;
     }
     
-    public async Task<ErrorOr<List<StudentTestResult>>> Handle(GetStudentTestsQuestionsQuery request, 
+    public async Task<ErrorOr<StudentTestResult>> Handle(GetStudentTestsQuestionsQuery request, 
         CancellationToken cancellationToken)
     {
-        List<StudentTestResult> universityTest;
+        StudentTestResult? universityTest;
         if (request.Semester is not null)
         {
             universityTest = await _testsRepository.GetSemesterTestQuestionsWithAnswers(
@@ -37,7 +37,7 @@ public class GetStudentTestsQuestionsHandler
                 cancellationToken);
         }
 
-        if (universityTest.Any() == false)
+        if (universityTest is null)
         {
             return Errors.Tests.NoQuestionsFound;
         }
