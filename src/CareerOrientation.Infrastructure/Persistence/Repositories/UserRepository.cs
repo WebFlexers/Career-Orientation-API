@@ -10,6 +10,11 @@ public class UserRepository : RepositoryBase, IUserRepository
     public UserRepository(ApplicationDbContext dbContext) : base(dbContext)
     {
     }
+
+    public async Task<User?> GetUserById(string userId, CancellationToken cancellationToken)
+    {
+        return await _dbContext.Users.FindAsync(new object?[] { userId }, cancellationToken);
+    }
     
     public async Task<UniversityStudent?> GetUniversityStudentById(string? userId)
     {

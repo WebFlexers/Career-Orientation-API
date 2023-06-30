@@ -115,12 +115,6 @@ public class TestsRepository : RepositoryBase, ITestsRepository
         List<QuestionAnswer> answers, 
         CancellationToken cancellationToken)
     {
-        var user = await _dbContext.Users.FindAsync(new object?[] { userId }, cancellationToken);
-        if (user is null) 
-        {
-            return Errors.User.UserNotFoundById;
-        }
-        
         var universityTest = await _dbContext.UniversityTests.FindAsync(
             new object?[] { testId }, cancellationToken);
         if (universityTest is null)

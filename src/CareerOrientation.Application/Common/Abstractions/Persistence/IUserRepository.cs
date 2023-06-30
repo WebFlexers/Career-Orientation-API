@@ -4,6 +4,7 @@ namespace CareerOrientation.Application.Common.Abstractions.Persistence;
 
 public interface IUserRepository : IRepositoryBase
 {
+    Task<User?> GetUserById(string userId, CancellationToken cancellationToken);
     Task<UniversityStudent?> GetUniversityStudentById(string? userId);
     Task AddUniversityStudent(UniversityStudent student);
 }
