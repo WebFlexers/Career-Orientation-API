@@ -16,7 +16,7 @@ public class TrueFalseAnswerConfig : IEntityTypeConfiguration<TrueFalseAnswer>
 
         builder.Property(x => x.QuestionId)
             .IsRequired();
-
+        
         // One to one relationships
         builder.HasOne(trueFalse => trueFalse.Question)
             .WithOne(question => question.TrueFalseAnswer)

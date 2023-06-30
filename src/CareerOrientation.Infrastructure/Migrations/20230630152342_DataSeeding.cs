@@ -17,9 +17,9 @@ namespace CareerOrientation.Infrastructure.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "308c5314-cafc-46c7-a6c0-47e055659820", "0b06d301-f7c6-4dc6-b603-bd3c2af1835a", "Student", "STUDENT" },
-                    { "b4df43ce-349f-4c04-804e-483b93264173", "b15318df-e392-419c-95d5-61a3ee4b96a4", "ProspectiveStudent", "PROSPECTIVESTUDENT" },
-                    { "b9f77d67-0bbc-4d3d-99e5-dbd7c717a2e4", "400d26b1-43b1-4fc2-859e-6e98f5c296d0", "GraduateStudent", "GRADUATESTUDENT" }
+                    { "685a5cee-0bfa-4ac5-95f1-c9e3ec281278", "55f87224-52a9-4017-8203-24154e9155da", "GraduateStudent", "GRADUATESTUDENT" },
+                    { "b8241ed9-d7c6-4c11-a72a-9f5343b820c3", "a8d1751a-d670-496a-8711-531528d06955", "Student", "STUDENT" },
+                    { "da26e68a-8b7c-4e7f-a1cb-7c02c7e9f93f", "76104dd5-2147-4532-9ac8-144686d687d2", "ProspectiveStudent", "PROSPECTIVESTUDENT" }
                 });
 
             migrationBuilder.InsertData(
@@ -1415,17 +1415,17 @@ namespace CareerOrientation.Infrastructure.Migrations
             migrationBuilder.DeleteData(
                 table: "AspNetRoles",
                 keyColumn: "Id",
-                keyValue: "308c5314-cafc-46c7-a6c0-47e055659820");
+                keyValue: "685a5cee-0bfa-4ac5-95f1-c9e3ec281278");
 
             migrationBuilder.DeleteData(
                 table: "AspNetRoles",
                 keyColumn: "Id",
-                keyValue: "b4df43ce-349f-4c04-804e-483b93264173");
+                keyValue: "b8241ed9-d7c6-4c11-a72a-9f5343b820c3");
 
             migrationBuilder.DeleteData(
                 table: "AspNetRoles",
                 keyColumn: "Id",
-                keyValue: "b9f77d67-0bbc-4d3d-99e5-dbd7c717a2e4");
+                keyValue: "da26e68a-8b7c-4e7f-a1cb-7c02c7e9f93f");
 
             migrationBuilder.DeleteData(
                 table: "CourseSkills",

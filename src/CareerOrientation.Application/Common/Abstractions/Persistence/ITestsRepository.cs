@@ -1,5 +1,10 @@
 ﻿using CareerOrientation.Application.ProspectiveStudentTests.Common;
 using CareerOrientation.Application.StudentTests.Common;
+using CareerOrientation.Domain.Common.Enums;
+
+using ErrorOr;
+
+using MediatR;
 
 namespace CareerOrientation.Application.Common.Abstractions.Persistence;
 
@@ -13,4 +18,7 @@ public interface ITestsRepository
 
     Task<ProspectiveStudentTestResult?> GetGeneralTestQuestionsWithAnswers(
         int generalTestId, CancellationToken cancellationToken);
+
+    Task<ErrorOr<Unit>> InsertUserTestAnswers(string userId, int testId, TestType testType,
+        List<QuestionAnswer> answers, CancellationToken cancellationToken);
 }

@@ -9,4 +9,10 @@ public class UserTookGeneralTest
 
     public GeneralTest GeneralTest { get; set; }
     public User User { get; set; }
+
+    public UserTookGeneralTest(string userId, int generalTestId)
+    {
+        GeneralTestId = generalTestId;
+        UserId = userId;
+    }
 }

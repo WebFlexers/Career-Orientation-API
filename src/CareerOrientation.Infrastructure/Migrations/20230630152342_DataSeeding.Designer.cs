@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CareerOrientation.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230629155853_DataSeeding")]
+    [Migration("20230630152342_DataSeeding")]
     partial class DataSeeding
     {
         /// <inheritdoc />
@@ -7345,7 +7345,12 @@ namespace CareerOrientation.Infrastructure.Migrations
                     b.Property<string>("UserId")
                         .HasColumnType("text");
 
-                    b.HasKey("QuestionId", "UserId");
+                    b.Property<int>("MultipleChoiceAnswerId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("QuestionId", "UserId", "MultipleChoiceAnswerId");
+
+                    b.HasIndex("MultipleChoiceAnswerId");
 
                     b.HasIndex("UserId");
 
@@ -7374,6 +7379,9 @@ namespace CareerOrientation.Infrastructure.Migrations
 
                     b.Property<string>("UserId")
                         .HasColumnType("text");
+
+                    b.Property<bool>("Value")
+                        .HasColumnType("boolean");
 
                     b.HasKey("QuestionId", "UserId");
 
@@ -7410,22 +7418,22 @@ namespace CareerOrientation.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "308c5314-cafc-46c7-a6c0-47e055659820",
-                            ConcurrencyStamp = "0b06d301-f7c6-4dc6-b603-bd3c2af1835a",
+                            Id = "b8241ed9-d7c6-4c11-a72a-9f5343b820c3",
+                            ConcurrencyStamp = "a8d1751a-d670-496a-8711-531528d06955",
                             Name = "Student",
                             NormalizedName = "STUDENT"
                         },
                         new
                         {
-                            Id = "b9f77d67-0bbc-4d3d-99e5-dbd7c717a2e4",
-                            ConcurrencyStamp = "400d26b1-43b1-4fc2-859e-6e98f5c296d0",
+                            Id = "685a5cee-0bfa-4ac5-95f1-c9e3ec281278",
+                            ConcurrencyStamp = "55f87224-52a9-4017-8203-24154e9155da",
                             Name = "GraduateStudent",
                             NormalizedName = "GRADUATESTUDENT"
                         },
                         new
                         {
-                            Id = "b4df43ce-349f-4c04-804e-483b93264173",
-                            ConcurrencyStamp = "b15318df-e392-419c-95d5-61a3ee4b96a4",
+                            Id = "da26e68a-8b7c-4e7f-a1cb-7c02c7e9f93f",
+                            ConcurrencyStamp = "76104dd5-2147-4532-9ac8-144686d687d2",
                             Name = "ProspectiveStudent",
                             NormalizedName = "PROSPECTIVESTUDENT"
                         });
@@ -7806,6 +7814,12 @@ namespace CareerOrientation.Infrastructure.Migrations
                 {
                     b.HasOne("CareerOrientation.Domain.Entities.MultipleChoiceAnswer", "MultipleChoiceAnswer")
                         .WithMany()
+                        .HasForeignKey("MultipleChoiceAnswerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CareerOrientation.Domain.Entities.Question", "Question")
+                        .WithMany()
                         .HasForeignKey("QuestionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -7817,6 +7831,8 @@ namespace CareerOrientation.Infrastructure.Migrations
                         .IsRequired();
 
                     b.Navigation("MultipleChoiceAnswer");
+
+                    b.Navigation("Question");
 
                     b.Navigation("User");
                 });

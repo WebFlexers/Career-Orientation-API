@@ -9,4 +9,10 @@ public class StudentTookUniversityTest
 
     public UniversityTest UniversityTest { get; set; }
     public User User { get; set; }
+
+    public StudentTookUniversityTest(string userId, int universityTestId)
+    {
+        UserId = userId;
+        UniversityTestId = universityTestId;
+    }
 }

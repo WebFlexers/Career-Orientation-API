@@ -25,4 +25,9 @@ public static class ValidationHelper
     {
         return revisionYear is >= 1 and <= 4;
     }
+
+    public static bool BeValidLikertScaleAnswer(int? likertScaleAnswer)
+    {
+        return likertScaleAnswer is >= 1 and <= 5;
+    }
 }

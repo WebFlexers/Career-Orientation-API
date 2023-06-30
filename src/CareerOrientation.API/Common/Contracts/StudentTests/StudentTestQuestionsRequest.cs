@@ -1,6 +1,6 @@
 ﻿namespace CareerOrientation.API.Common.Contracts.StudentTests;
 
-public record StudentTestsQuestionsRequest(
+public record StudentTestQuestionsRequest(
     string? Track,
     int? Semester, 
     int? RevisionYear);

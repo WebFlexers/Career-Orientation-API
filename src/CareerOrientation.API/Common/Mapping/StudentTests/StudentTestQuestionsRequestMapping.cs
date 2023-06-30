@@ -4,9 +4,9 @@ using CareerOrientation.Application.StudentTests.Queries.GetStudentTestsQuestion
 
 namespace CareerOrientation.API.Common.Mapping.StudentTests;
 
-public static class StudentTestsQuestionsRequestMapping
+public static class StudentTestQuestionsRequestMapping
 {
-    public static GetStudentTestsQuestionsQuery MapToQuery(this StudentTestsQuestionsRequest request)
+    public static GetStudentTestsQuestionsQuery MapToQuery(this StudentTestQuestionsRequest request)
     {
         return new GetStudentTestsQuestionsQuery(
             Track: request.Track,

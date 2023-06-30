@@ -3,11 +3,11 @@ using CareerOrientation.Application.StudentTests.Common;
 
 namespace CareerOrientation.API.Common.Mapping.StudentTests;
 
-public static class StudentTestsResultMapping
+public static class StudentTestResultMapping
 {
-    public static StudentTestsQuestionsResponse MapToResponse(this StudentTestResult result)
+    public static StudentTestQuestionsResponse MapToResponse(this StudentTestResult result)
     {
-        return new StudentTestsQuestionsResponse (
+        return new StudentTestQuestionsResponse (
             result.IsRevision,
             result.UniversityTestId,
             result.Questions

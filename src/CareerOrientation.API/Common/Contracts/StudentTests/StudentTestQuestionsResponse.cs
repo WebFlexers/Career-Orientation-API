@@ -2,9 +2,9 @@
 
 namespace CareerOrientation.API.Common.Contracts.StudentTests;
 
-public class StudentTestsQuestionsResponse
+public class StudentTestQuestionsResponse
 {
-    public StudentTestsQuestionsResponse(bool isRevision, int universityTestId, List<ITestQuestionResult?> questions)
+    public StudentTestQuestionsResponse(bool isRevision, int universityTestId, List<ITestQuestionResult?> questions)
     {
         IsRevision = isRevision;
         UniversityTestId = universityTestId;
