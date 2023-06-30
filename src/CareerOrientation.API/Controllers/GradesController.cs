@@ -1,7 +1,4 @@
-﻿using System.Net;
-
-using CareerOrientation.API.Common.Contracts.Grades;
-using CareerOrientation.Application.Grades.Queries;
+﻿using CareerOrientation.Application.Grades.Queries;
 
 using MediatR;
 
@@ -20,6 +17,9 @@ public class GradesController : ApiController
         _mediator = mediator;
     }
     
+    /// <summary>
+    /// Gets the grades of all the courses of the logged in student
+    /// </summary>
     [HttpGet]
     public async Task<IActionResult> Get(CancellationToken cancellationToken)
     {
