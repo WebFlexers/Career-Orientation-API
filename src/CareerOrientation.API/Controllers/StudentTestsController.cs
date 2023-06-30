@@ -1,5 +1,5 @@
-﻿using CareerOrientation.API.Common.Contracts.StudentTests;
-using CareerOrientation.API.Common.Mapping.StudentTests;
+﻿using CareerOrientation.API.Common.Contracts.Tests.StudentTests;
+using CareerOrientation.API.Common.Mapping.Tests.StudentTests;
 
 using ErrorOr;
 
@@ -96,5 +96,4 @@ public class StudentTestsController : ApiController
             _ => Ok(),
             errors => Problem(errors));
     }
-    
 }

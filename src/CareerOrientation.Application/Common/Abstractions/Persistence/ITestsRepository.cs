@@ -1,5 +1,5 @@
-﻿using CareerOrientation.Application.ProspectiveStudentTests.Common;
-using CareerOrientation.Application.StudentTests.Common;
+﻿using CareerOrientation.Application.Tests.ProspectiveStudentTests.Common;
+using CareerOrientation.Application.Tests.StudentTests.Common;
 using CareerOrientation.Domain.Common.Enums;
 
 using ErrorOr;

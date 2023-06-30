@@ -1,10 +1,10 @@
 ﻿using System.Collections.Immutable;
 
 using CareerOrientation.Application.Common.Abstractions.Persistence;
-using CareerOrientation.Application.ProspectiveStudentTests.Common;
-using CareerOrientation.Application.ProspectiveStudentTests.Common.Mapping;
-using CareerOrientation.Application.StudentTests.Common;
-using CareerOrientation.Application.StudentTests.Common.Mapping;
+using CareerOrientation.Application.Tests.ProspectiveStudentTests.Common;
+using CareerOrientation.Application.Tests.ProspectiveStudentTests.Common.Mapping;
+using CareerOrientation.Application.Tests.StudentTests.Common;
+using CareerOrientation.Application.Tests.StudentTests.Common.Mapping;
 using CareerOrientation.Domain.Common.DomainErrors;
 using CareerOrientation.Domain.Common.Enums;
 using CareerOrientation.Domain.Entities;
@@ -115,13 +115,12 @@ public class TestsRepository : RepositoryBase, ITestsRepository
         List<QuestionAnswer> answers, 
         CancellationToken cancellationToken)
     {
-        var universityTest = await _dbContext.UniversityTests.FindAsync(
-            new object?[] { testId }, cancellationToken);
-        if (universityTest is null)
+        var correctTestTypeResult = await EnsureCorrectTestType(testId, testType, cancellationToken);
+        if (correctTestTypeResult.IsError)
         {
-            return Errors.Tests.UniversityTestIdNotFound;
+            return correctTestTypeResult;
         }
-
+        
         var userHasTakenTestResult = await EnsureUserHasntTakenTest(userId, testId, testType, cancellationToken);
         if (userHasTakenTestResult.IsError)
         {
@@ -150,6 +149,30 @@ public class TestsRepository : RepositoryBase, ITestsRepository
         return Unit.Value;
     }
 
+    private async Task<ErrorOr<Unit>> EnsureCorrectTestType(int testId, TestType testType, 
+        CancellationToken cancellationToken)
+    {
+        if (testType == TestType.UniversityTest)
+        {
+            var universityTest = await _dbContext.UniversityTests.FindAsync(
+                new object?[] { testId }, cancellationToken);
+            if (universityTest is null)
+            {
+                return Errors.Tests.UniversityTestIdNotFound;
+            }
+        }
+        else
+        {
+            var generalTest = await _dbContext.GeneralTests.FindAsync(
+                new object?[] { testId }, cancellationToken);
+            if (generalTest is null)
+            {
+                return Errors.Tests.GeneralTestNotFound;
+            }
+        }
+
+        return Unit.Value;
+    }
     private async Task<ErrorOr<Unit>> EnsureUserHasntTakenTest(string userId, int testId, TestType testType,
         CancellationToken cancellationToken)
     {

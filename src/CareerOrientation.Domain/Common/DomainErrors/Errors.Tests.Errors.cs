@@ -9,7 +9,9 @@ public static partial class Errors
         public static Error UniversityTestIdNotFound => Error.NotFound(
             code: nameof(UniversityTestIdNotFound),
             description: "Δεν βρέθηκε τεστ με το δεδομένο UniversityTestId");
-
+        public static Error GeneralTestNotFound => Error.NotFound(
+            code: nameof(GeneralTestNotFound),
+            description: "Δεν βρέθηκε τεστ με το δεδομένο GeneralTestId");
         public static Error StudentAlreadyTookTest => Error.Conflict(
             code: nameof(StudentAlreadyTookTest),
             description: "Ο φοιτητής που δόθηκε έχει ήδη συμπληρώσει το δεδομένο τεστ");
