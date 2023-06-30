@@ -91,4 +91,6 @@ public class ApplicationDbContext : IdentityDbContext<User, IdentityRole, string
     public DbSet<Course> Courses { get; set; }
     public DbSet<Skill> Skills { get; set; }
     public DbSet<CourseSkill> CourseSkills { get; set; }
+    
+    public DbSet<UserCourseGrade> UserCourseGrades { get; set; }
 }

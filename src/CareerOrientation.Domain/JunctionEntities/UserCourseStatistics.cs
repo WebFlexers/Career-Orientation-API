@@ -1,4 +1,6 @@
-﻿namespace CareerOrientation.Domain.JunctionEntities;
+﻿using CareerOrientation.Domain.Entities;
+
+namespace CareerOrientation.Domain.JunctionEntities;
 
 public class UserCourseStatistics
 {

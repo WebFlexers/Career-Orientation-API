@@ -7282,20 +7282,20 @@ namespace CareerOrientation.Infrastructure.Migrations
 
             modelBuilder.Entity("CareerOrientation.Domain.JunctionEntities.UserCourseGrade", b =>
                 {
-                    b.Property<int>("CourseId")
-                        .HasColumnType("integer");
-
                     b.Property<string>("UserId")
                         .HasColumnType("text");
+
+                    b.Property<int>("CourseId")
+                        .HasColumnType("integer");
 
                     b.Property<float>("Value")
                         .HasColumnType("real");
 
-                    b.HasKey("CourseId", "UserId");
+                    b.HasKey("UserId", "CourseId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("CourseId");
 
-                    b.ToTable("UserCourseGrade");
+                    b.ToTable("UserCourseGrades");
                 });
 
             modelBuilder.Entity("CareerOrientation.Domain.JunctionEntities.UserCourseStatistics", b =>
@@ -7415,22 +7415,22 @@ namespace CareerOrientation.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "b8241ed9-d7c6-4c11-a72a-9f5343b820c3",
-                            ConcurrencyStamp = "a8d1751a-d670-496a-8711-531528d06955",
+                            Id = "62fbeb6c-1082-4589-b626-e7b2ede6cb02",
+                            ConcurrencyStamp = "fc66884c-0238-4871-a6ec-af977a5d4b82",
                             Name = "Student",
                             NormalizedName = "STUDENT"
                         },
                         new
                         {
-                            Id = "685a5cee-0bfa-4ac5-95f1-c9e3ec281278",
-                            ConcurrencyStamp = "55f87224-52a9-4017-8203-24154e9155da",
+                            Id = "934d8a15-7fe8-4a7d-8362-26475490d5f2",
+                            ConcurrencyStamp = "dd2389c5-7932-4e05-a0ed-0b5759b5fb18",
                             Name = "GraduateStudent",
                             NormalizedName = "GRADUATESTUDENT"
                         },
                         new
                         {
-                            Id = "da26e68a-8b7c-4e7f-a1cb-7c02c7e9f93f",
-                            ConcurrencyStamp = "76104dd5-2147-4532-9ac8-144686d687d2",
+                            Id = "2224aaf3-943d-4e92-9344-2b4157d7b0ed",
+                            ConcurrencyStamp = "f5a78022-d53f-4568-892b-537261db7a5c",
                             Name = "ProspectiveStudent",
                             NormalizedName = "PROSPECTIVESTUDENT"
                         });
@@ -7760,17 +7760,21 @@ namespace CareerOrientation.Infrastructure.Migrations
 
             modelBuilder.Entity("CareerOrientation.Domain.JunctionEntities.UserCourseGrade", b =>
                 {
-                    b.HasOne("CareerOrientation.Domain.Entities.Course", null)
+                    b.HasOne("CareerOrientation.Domain.Entities.Course", "Course")
                         .WithMany("UserCourseGrades")
                         .HasForeignKey("CourseId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CareerOrientation.Domain.Entities.User", null)
+                    b.HasOne("CareerOrientation.Domain.Entities.User", "User")
                         .WithMany("UserCourseGrades")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Course");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("CareerOrientation.Domain.JunctionEntities.UserCourseStatistics", b =>

@@ -13,7 +13,11 @@ public class ErrorsController : ControllerBase
     public IActionResult Error()
     {
         Exception? exception = HttpContext.Features.Get<IExceptionHandlerFeature>()?.Error;
-        
-        return Problem();
+
+        return exception switch
+        {
+            OperationCanceledException => Problem(statusCode: 499, title: "Operation Cancelled"),
+            _ => Problem()
+        };
     }
 }

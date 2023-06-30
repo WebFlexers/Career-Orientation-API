@@ -64,7 +64,7 @@ public class JwtService : ITokenCreationService
             new Claim(JwtRegisteredClaimNames.Sub, _configuration["Jwt:Subject"]!),
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
             new Claim(JwtRegisteredClaimNames.Iat, _creationDateTime.ToString()),
-            new Claim(ClaimTypes.NameIdentifier, user.Id),
+            new Claim("userId", user.Id),
             new Claim(ClaimTypes.Name, user.UserName!),
             new Claim(ClaimTypes.Email, user.Email!)
         };

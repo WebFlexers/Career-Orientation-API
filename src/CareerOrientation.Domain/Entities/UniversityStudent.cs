@@ -1,4 +1,6 @@
-﻿namespace CareerOrientation.Domain.Entities;
+﻿using CareerOrientation.Domain.JunctionEntities;
+
+namespace CareerOrientation.Domain.Entities;
 
 public class UniversityStudent
 {

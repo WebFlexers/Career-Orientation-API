@@ -1,4 +1,6 @@
-﻿using CareerOrientation.API.Common.Http;
+﻿using System.Security.Claims;
+
+using CareerOrientation.API.Common.Http;
 using ErrorOr;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
@@ -7,6 +9,13 @@ namespace CareerOrientation.API.Controllers;
 
 public class ApiController : ControllerBase
 {
+    protected string? GetUserIdFromToken()
+    {
+        var claimsIdentity = User.Identity as ClaimsIdentity;
+        var claimValue = claimsIdentity?.Claims?.FirstOrDefault(c => c.Type == "userId");
+    
+        return claimValue?.Value;
+    }
     protected IActionResult Problem(List<Error> errors)
     {
         if (errors.Count is 0)

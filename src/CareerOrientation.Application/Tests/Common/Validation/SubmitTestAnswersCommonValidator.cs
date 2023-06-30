@@ -10,6 +10,12 @@ public class SubmitTestAnswersCommonValidator : AbstractValidator<ISubmitTestCom
 {
     public SubmitTestAnswersCommonValidator()
     {
+        RuleFor(x => x.Answers)
+            .NotNull()
+            .WithMessage("Πρέπει να δοθούν απαντήσεις")
+            .Must(x => x.Any())
+            .WithMessage("Πρέπει να δοθούν απαντήσεις");
+
         RuleForEach(x => x.Answers).ChildRules(answer =>
         {
             answer.RuleFor(a => a)
