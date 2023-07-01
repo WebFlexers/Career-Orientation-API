@@ -1,5 +1,6 @@
 ﻿using CareerOrientation.API.Common.Contracts.Tests.StudentTests;
 using CareerOrientation.API.Common.Mapping.Tests.StudentTests;
+using CareerOrientation.Application.Tests.StudentTests.Queries.GetHasStudentTakenTest;
 
 using ErrorOr;
 
@@ -38,6 +39,25 @@ public class StudentTestsController : ApiController
 
         return result.Match(
             result => Ok(result.MapToResponse()),
+            errors => Problem(errors));
+    }
+    
+    /// <summary>
+    /// Gets a bool that indicates whether the logged in user has completed the supplied general test
+    /// </summary>
+    [HttpGet("GetIsTestComplete/{universityTestId}")]
+    public async Task<IActionResult> GetCompleted(int universityTestId, CancellationToken cancellationToken)
+    {
+        var userId = GetUserIdFromToken();
+        if (userId is null)
+        {
+            return Problem(statusCode: 401, title: "Unauthorized");
+        }
+
+        var query = new GetHasStudentTakenTestQuery(userId, universityTestId);
+        var result = await _mediator.Send(query, cancellationToken);
+
+        return result.Match(hasUserTakenTest => Ok(hasUserTakenTest),
             errors => Problem(errors));
     }
 

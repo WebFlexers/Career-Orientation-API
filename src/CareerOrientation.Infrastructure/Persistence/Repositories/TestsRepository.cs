@@ -173,7 +173,7 @@ public class TestsRepository : RepositoryBase, ITestsRepository
 
         return Unit.Value;
     }
-    private async Task<ErrorOr<Unit>> EnsureUserHasntTakenTest(string userId, int testId, TestType testType,
+    public async Task<ErrorOr<Unit>> EnsureUserHasntTakenTest(string userId, int testId, TestType testType,
         CancellationToken cancellationToken)
     {
         if (testType == TestType.UniversityTest)

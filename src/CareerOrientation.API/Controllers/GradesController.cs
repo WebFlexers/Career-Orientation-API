@@ -26,7 +26,7 @@ public class GradesController : ApiController
         var userId = GetUserIdFromToken();
         if (userId == null)
         {
-            return Problem();
+            return Problem(statusCode: 401, title: "Unauthorized");
         }
         
         var query = new FetchStudentGradesQuery(userId);

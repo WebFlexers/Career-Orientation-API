@@ -21,4 +21,7 @@ public interface ITestsRepository
 
     Task<ErrorOr<Unit>> InsertUserTestAnswers(string userId, int testId, TestType testType,
         List<QuestionAnswer> answers, CancellationToken cancellationToken);
+
+    Task<ErrorOr<Unit>> EnsureUserHasntTakenTest(string userId, int testId, TestType testType,
+        CancellationToken cancellationToken);
 }

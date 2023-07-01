@@ -1,6 +1,7 @@
 ﻿using CareerOrientation.API.Common.Contracts.Tests.ProspectiveStudentTests;
 using CareerOrientation.API.Common.Mapping.Tests.Common;
 using CareerOrientation.API.Common.Mapping.Tests.ProspectiveStudentTests;
+using CareerOrientation.Application.Tests.ProspectiveStudentTests.Queries.GetHasProspectiveStudentTakenTest;
 using CareerOrientation.Application.Tests.ProspectiveStudentTests.Queries.GetProspectiveStudentTestsQuestions;
 
 using MediatR;
@@ -35,6 +36,26 @@ public class ProspectiveStudentTestsController : ApiController
         var result = await _mediator.Send(query, cancellationToken);
 
         return result.Match(test => Ok(test.MapToResponse()),
+            errors => Problem(errors));
+    }
+    
+    /// <summary>
+    /// Gets a bool that indicates whether the logged in user has completed the supplied general test
+    /// </summary>
+    [HttpGet("GetIsTestComplete/{generalTestId}")]
+    public async Task<IActionResult> GetCompleted(int generalTestId, CancellationToken cancellationToken)
+    {
+        var userId = GetUserIdFromToken();
+        if (userId is null)
+        {
+            return Problem(statusCode: 401, title: "Unauthorized");
+        }
+
+        var query = new GetHasProspectiveStudentTakenTestQuery(userId, generalTestId);
+        var result = await _mediator.Send(query, cancellationToken);
+
+        return result.Match(
+            hasUserTakenTest => Ok(hasUserTakenTest),
             errors => Problem(errors));
     }
     
