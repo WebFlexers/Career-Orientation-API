@@ -18,6 +18,10 @@ public static class DependencyInjectionExtensions
             typeof(IPipelineBehavior<,>),
             typeof(ValidationBehavior<,>));
         
+        services.AddScoped(
+            typeof(IPipelineBehavior<,>),
+            typeof(ErrorLoggingBehavior<,>));
+        
         services.AddValidatorsFromAssembly(typeof(DependencyInjectionExtensions).Assembly);
         return services;
     }
