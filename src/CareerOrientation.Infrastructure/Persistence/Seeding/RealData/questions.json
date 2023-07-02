@@ -105,7 +105,7 @@
       "universityTestId": null,
       "generalTestId": 2
     },
-        {
+    {
       "questionId": 16,
       "text": "Ποια είναι η κύρια διαφορά μεταξύ της αρχιτεκτονικής Πελάτη-Εξυπηρετητή (Client-Server) και της 3-tier αρχιτεκτονικής;",
       "type": "MultipleChoice",

@@ -2,6 +2,8 @@ using CareerOrientation.API.StartupConfig;
 using CareerOrientation.Application;
 using CareerOrientation.Infrastructure;
 
+Console.OutputEncoding = System.Text.Encoding.UTF8;
+
 var builder = WebApplication.CreateBuilder(args);
 {
     builder.Services.AddCors();
