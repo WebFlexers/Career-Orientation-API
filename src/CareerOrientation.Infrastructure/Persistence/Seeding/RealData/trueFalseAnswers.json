@@ -129,6 +129,131 @@
       "trueFalseAnswerId": 27,
       "Value": true,
       "questionId": 115
+    },
+    {
+      "trueFalseAnswerId": 28,
+      "Value": false,
+      "questionId": 118
+    },
+    {
+      "trueFalseAnswerId": 29,
+      "Value": true,
+      "questionId": 122
+    },
+    {
+      "trueFalseAnswerId": 30,
+      "Value": true,
+      "questionId": 125
+    },
+    {
+      "trueFalseAnswerId": 31,
+      "Value": true,
+      "questionId": 128
+    },
+    {
+      "trueFalseAnswerId": 32,
+      "Value": false,
+      "questionId": 132
+    },
+    {
+      "trueFalseAnswerId": 33,
+      "Value": false,
+      "questionId": 138
+    },
+    {
+      "trueFalseAnswerId": 34,
+      "Value": false,
+      "questionId": 142
+    },
+    {
+      "trueFalseAnswerId": 35,
+      "Value": false,
+      "questionId": 146
+    },
+    {
+      "trueFalseAnswerId": 36,
+      "Value": true,
+      "questionId": 149
+    },
+    {
+      "trueFalseAnswerId": 37,
+      "Value": true,
+      "questionId": 153
+    },
+    {
+      "trueFalseAnswerId": 38,
+      "Value": false,
+      "questionId": 156
+    },
+    {
+      "trueFalseAnswerId": 39,
+      "Value": true,
+      "questionId": 163
+    },
+    {
+      "trueFalseAnswerId": 40,
+      "Value": true,
+      "questionId": 166
+    },
+    {
+      "trueFalseAnswerId": 42,
+      "Value": true,
+      "questionId": 170
+    },
+    {
+      "trueFalseAnswerId": 43,
+      "Value": true,
+      "questionId": 173
+    },
+    {
+      "trueFalseAnswerId": 44,
+      "Value": true,
+      "questionId": 176
+    },
+    {
+      "trueFalseAnswerId": 45,
+      "Value": true,
+      "questionId": 179
+    },
+    {
+      "trueFalseAnswerId": 46,
+      "Value": true,
+      "questionId": 183
+    },
+    {
+      "trueFalseAnswerId": 47,
+      "Value": true,
+      "questionId": 190
+    },
+    {
+      "trueFalseAnswerId": 48,
+      "Value": false,
+      "questionId": 194
+    },
+    {
+      "trueFalseAnswerId": 49,
+      "Value": true,
+      "questionId": 197
+    },
+    {
+      "trueFalseAnswerId": 50,
+      "Value": true,
+      "questionId": 200
+    },
+    {
+      "trueFalseAnswerId": 51,
+      "Value": true,
+      "questionId": 204
+    },
+    {
+      "trueFalseAnswerId": 52,
+      "Value": false,
+      "questionId": 207
+    },
+    {
+      "trueFalseAnswerId": 53,
+      "Value": true,
+      "questionId": 209
     }
   ]
 }

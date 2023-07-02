@@ -13,7 +13,7 @@ public class MultipleChoiceAnswerConfig : IEntityTypeConfiguration<MultipleChoic
 
         builder.Property(x => x.Text)
             .IsRequired()
-            .HasMaxLength(100);
+            .HasMaxLength(1000);
 
         builder.Property(x => x.IsCorrect)
             .IsRequired();

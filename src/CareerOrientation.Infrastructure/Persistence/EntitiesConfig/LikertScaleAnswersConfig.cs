@@ -14,23 +14,23 @@ public class LikertScaleAnswersConfig : IEntityTypeConfiguration<LikertScaleAnsw
         
         builder.Property(x => x.Option1)
             .IsRequired()
-            .HasMaxLength(50);
+            .HasMaxLength(500);
 
         builder.Property(x => x.Option2)
             .IsRequired()
-            .HasMaxLength(50);
+            .HasMaxLength(500);
 
         builder.Property(x => x.Option3)
             .IsRequired()
-            .HasMaxLength(50);
+            .HasMaxLength(500);
 
         builder.Property(x => x.Option4)
             .IsRequired()
-            .HasMaxLength(50);
+            .HasMaxLength(500);
 
         builder.Property(x => x.Option5)
             .IsRequired()
-            .HasMaxLength(50);
+            .HasMaxLength(500);
 
         builder.HasMany(x => x.Questions)
             .WithMany(x => x.LikertScaleAnswers)

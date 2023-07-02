@@ -7,6 +7,8 @@
     <ItemGroup>
       <Folder Include="Courses\Commands\" />
       <Folder Include="Grades\Commands\" />
+      <Folder Include="Statistics\Common\" />
+      <Folder Include="Statistics\Queries\" />
     </ItemGroup>
 
     <ItemGroup>

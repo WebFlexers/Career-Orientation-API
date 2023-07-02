@@ -219,7 +219,7 @@ public class TestsRepository : RepositoryBase, ITestsRepository
             
             if (question is null)
             {
-                return Errors.Tests.QuestionNotPartOfTest(testId, userAnswer.QuestionId);
+                return Errors.Tests.QuestionNotPartOfTest(userAnswer.QuestionId, testId);
             }
 
             if (question.Type != userAnswer.QuestionType)

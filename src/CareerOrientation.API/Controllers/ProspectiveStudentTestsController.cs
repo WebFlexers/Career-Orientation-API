@@ -73,7 +73,8 @@ public class ProspectiveStudentTestsController : ApiController
     public async Task<IActionResult> Post([FromBody] ProspectiveStudentTestsSubmissionRequest request, 
         CancellationToken cancellationToken)
     {
-        var result = await _mediator.Send(request.MapToCommand(), cancellationToken);
+        var command = request.MapToCommand();
+        var result = await _mediator.Send(command, cancellationToken);
 
         return result.Match(
             _ => Ok(),

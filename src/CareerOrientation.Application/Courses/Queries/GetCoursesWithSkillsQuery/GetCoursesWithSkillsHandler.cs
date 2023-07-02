@@ -22,6 +22,9 @@ public class GetCoursesWithSkillsHandler :
         CancellationToken cancellationToken)
     {
         List<CoursesWithSkillsResult>? coursesWithSkills = null;
+        // If the track is not provided it means the given semester doesn't have track specific courses and
+        // if the user is a prospective student then they can see all the courses not only the ones of a track and
+        // the common ones
         if (request.Track is null || request.IsProspectiveStudent)
         {
             coursesWithSkills = 

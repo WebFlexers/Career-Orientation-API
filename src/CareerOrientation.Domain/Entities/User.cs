@@ -21,4 +21,7 @@ public class User : IdentityUser
     // Course relations
     public List<UserCourseGrade> UserCourseGrades { get; set; }
     public List<UserCourseStatistics> UserCourseStatistics { get; set; }
+    
+    // Statistics
+    public Statistics Statistics { get; set; }
 }

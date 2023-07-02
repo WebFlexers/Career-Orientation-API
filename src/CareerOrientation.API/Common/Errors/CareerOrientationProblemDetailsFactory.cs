@@ -8,6 +8,10 @@ using Microsoft.Extensions.Options;
 
 namespace CareerOrientation.API.Common.Errors;
 
+/// <summary>
+/// This class overrides the default Asp Net Core implementation of ProblemDetailsFactory, in order
+/// to include the custom Errors of this app to the error http responses
+/// </summary>
 public class CareerOrientationProblemDetailsFactory : ProblemDetailsFactory
 {
     private readonly ApiBehaviorOptions _options;
