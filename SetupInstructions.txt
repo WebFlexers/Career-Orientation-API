@@ -11,6 +11,7 @@ psql binarys https://stackoverflow.com/questions/69544583/please-configure-the-p
  	create user career_orientation with encrypted password 'knowledge';
 	CREATE DATABASE "career_orientation_db";
 	GRANT ALL PRIVILEGES ON DATABASE "career_orientation_db" TO career_orientation;
+	GRANT ALL PRIVILEGES ON DATABASE "career_orientation_logging_db" TO career_orientation;
 	GRANT ALL PRIVILEGES ON SCHEMA public TO career_orientation;
 	
 Για τη λειτουργία των Unit Tests:
