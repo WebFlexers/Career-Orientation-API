@@ -6,6 +6,7 @@ using ErrorOr;
 
 using MediatR;
 
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CareerOrientation.API.Controllers;
@@ -32,6 +33,7 @@ public class StudentTestsController : ApiController
     /// * Tests that correspond to a revision of a year that is 3 or above
     /// </remarks>
     [HttpGet]
+    [Authorize]
     public async Task<IActionResult> Get([FromQuery] StudentTestQuestionsRequest request, 
         CancellationToken cancellationToken)
     {
@@ -46,6 +48,7 @@ public class StudentTestsController : ApiController
     /// Gets a bool that indicates whether the logged in user has completed the supplied university test
     /// </summary>
     [HttpGet("GetIsTestComplete/{universityTestId}")]
+    [Authorize]
     public async Task<IActionResult> GetCompleted(int universityTestId, CancellationToken cancellationToken)
     {
         var userId = GetUserIdFromToken();
@@ -107,6 +110,7 @@ public class StudentTestsController : ApiController
     /// }
     /// </remarks>
     [HttpPost]
+    [Authorize]
     public async Task<IActionResult> Post([FromBody] StudentTestSubmissionRequest request, 
         CancellationToken cancellationToken)
     {

@@ -6,6 +6,7 @@ using CareerOrientation.Application.Tests.ProspectiveStudentTests.Queries.GetPro
 
 using MediatR;
 
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CareerOrientation.API.Controllers;
@@ -30,6 +31,7 @@ public class ProspectiveStudentTestsController : ApiController
     /// * 2 -> UniversityOfPiraeusSuitability
     /// </remarks>
     [HttpGet("generalTestId")]
+    [Authorize]
     public async Task<IActionResult> Get(int generalTestId, CancellationToken cancellationToken)
     {
         var query = new GetProspectiveStudentTestsQuestionsQuery(generalTestId);
@@ -43,6 +45,7 @@ public class ProspectiveStudentTestsController : ApiController
     /// Gets a bool that indicates whether the logged in user has completed the supplied general test
     /// </summary>
     [HttpGet("GetIsTestComplete/{generalTestId}")]
+    [Authorize]
     public async Task<IActionResult> GetCompleted(int generalTestId, CancellationToken cancellationToken)
     {
         var userId = GetUserIdFromToken();
@@ -70,6 +73,7 @@ public class ProspectiveStudentTestsController : ApiController
     /// * All questions of the given test must have an answer <br/> <br/>
     /// </remarks>
     [HttpPost]
+    [Authorize]
     public async Task<IActionResult> Post([FromBody] ProspectiveStudentTestsSubmissionRequest request, 
         CancellationToken cancellationToken)
     {

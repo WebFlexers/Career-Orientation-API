@@ -2,6 +2,7 @@
 
 using MediatR;
 
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CareerOrientation.API.Controllers;
@@ -21,6 +22,7 @@ public class GradesController : ApiController
     /// Gets the grades of all the courses of the logged in student
     /// </summary>
     [HttpGet]
+    [Authorize]
     public async Task<IActionResult> Get(CancellationToken cancellationToken)
     {
         var userId = GetUserIdFromToken();

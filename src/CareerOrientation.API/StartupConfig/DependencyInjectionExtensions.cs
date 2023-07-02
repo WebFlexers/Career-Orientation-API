@@ -6,20 +6,26 @@ using Microsoft.OpenApi.Models;
 
 using Newtonsoft.Json;
 
+using WatchDog;
+using WatchDog.src.Enums;
+
 namespace CareerOrientation.API.StartupConfig;
 
 public static class DependencyInjectionExtensions
 {
-    public static IServiceCollection AddPresentation(this IServiceCollection services)
+    public static IServiceCollection AddPresentation(this IServiceCollection services, IConfiguration config)
     {
         services.AddControllers().AddNewtonsoftJson();
-        services.AddEndpointsApiExplorer();
-        services.AddSwaggerServices();
-        services.AddSingleton<ProblemDetailsFactory, CareerOrientationProblemDetailsFactory>();
+        
+        services.AddEndpointsApiExplorer()
+            .AddSwaggerServices()
+            .AddLoggingServices(config)
+            .AddSingleton<ProblemDetailsFactory, CareerOrientationProblemDetailsFactory>();
+        
         return services;
     }
     
-    private static void AddSwaggerServices(this IServiceCollection services)
+    private static IServiceCollection AddSwaggerServices(this IServiceCollection services)
     {
         var securityScheme = new OpenApiSecurityScheme()
         {
@@ -59,6 +65,21 @@ public static class DependencyInjectionExtensions
             var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
             opts.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFile));
         });
+
+        return services;
+    }
+
+    private static IServiceCollection AddLoggingServices(this IServiceCollection services, IConfiguration config)
+    {
+        services.AddWatchDogServices(opt => 
+        {
+            opt.IsAutoClear = true;
+            opt.ClearTimeSchedule = WatchDogAutoClearScheduleEnum.Weekly;
+            opt.SetExternalDbConnString = config.GetConnectionString("LoggingDb");
+            opt.DbDriverOption = WatchDogDbDriverEnum.PostgreSql;
+        });
+
+        return services;
     }
     
     public static void UseCustomCors(this WebApplication app)

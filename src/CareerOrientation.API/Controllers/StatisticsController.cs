@@ -11,6 +11,7 @@ public class StatisticsController : ApiController
     /// Increments the semester or the revision year access count statistic for the logged in user by one
     /// </summary>
     [HttpPost("TeachingAccessStatistic")]
+    [Authorize]
     public async Task<IActionResult> PostTeachingAccessStats([FromBody] PostTeachingAccessStatsRequest request, 
         CancellationToken cancellationToken)
     {
@@ -21,6 +22,7 @@ public class StatisticsController : ApiController
     /// Gets all the teaching access statistics for both the semesters and the revision years
     /// </summary>
     [HttpGet("TeachingAccessStatistic")]
+    [Authorize]
     public async Task<IActionResult> PostTeachingAccessStats(CancellationToken cancellationToken)
     {
         

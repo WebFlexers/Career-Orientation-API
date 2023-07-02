@@ -42,9 +42,9 @@ public static class DependencyInjectionExtensions
     {
         services.AddAuthorization(opts =>
         {
-            opts.FallbackPolicy = new AuthorizationPolicyBuilder()
-                .RequireAuthenticatedUser()
-                .Build();
+            /*opts.FallbackPolicy = new AuthorizationPolicyBuilder()
+                //.RequireAuthenticatedUser()
+                .Build();*/
         });
 
         services.AddAuthentication(options =>

@@ -40,6 +40,7 @@ public class UsersController : ApiController
     /// The user with the specified id was not found
     /// </remarks>
     [HttpGet("{userId}")]
+    [Authorize]
     public async Task<IActionResult> Get(string userId, CancellationToken token)
     {
         var result = await _mediator.Send(new GetUserByIdQuery(userId), token);

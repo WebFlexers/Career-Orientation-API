@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Diagnostics;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CareerOrientation.API.Controllers;
@@ -10,6 +11,7 @@ namespace CareerOrientation.API.Controllers;
 public class ErrorsController : ControllerBase
 {
     [Route("/error")]
+    [Authorize]
     public IActionResult Error()
     {
         Exception? exception = HttpContext.Features.Get<IExceptionHandlerFeature>()?.Error;
