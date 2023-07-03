@@ -24,4 +24,10 @@ public interface ITestsRepository
 
     Task<ErrorOr<Unit>> EnsureUserHasntTakenTest(string userId, int testId, TestType testType,
         CancellationToken cancellationToken);
+
+    Task<ErrorOr<List<IUniversityTestCompletionResult>>> GetStudentTestsCompletionState(string userId,
+        CancellationToken cancellationToken);
+
+    Task<ErrorOr<List<GeneralTestCompletionResult>>> GetProspectiveStudentTestsCompletionState(string userId,
+        CancellationToken cancellationToken);
 }

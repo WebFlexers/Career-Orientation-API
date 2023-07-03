@@ -18,6 +18,8 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 
+using MongoDB.Driver.Linq;
+
 namespace CareerOrientation.Infrastructure.Persistence.Repositories;
 
 public class TestsRepository : RepositoryBase, ITestsRepository
@@ -108,6 +110,107 @@ public class TestsRepository : RepositoryBase, ITestsRepository
         return generalTest;
     }
 
+    public async Task<ErrorOr<List<IUniversityTestCompletionResult>>> GetStudentTestsCompletionState(string userId, 
+        CancellationToken cancellationToken)
+    {
+        var student = await _dbContext.UniversityStudents.FindAsync(new object?[] {userId}, cancellationToken);
+        if (student is null)
+        {
+            return Errors.User.WrongUserType;
+        }
+
+        // First we filter by the students track
+        var universityTestsQueryable = _dbContext.UniversityTests
+            .AsNoTracking()
+            .Where(ut => ut.TrackId == null || ut.TrackId == student.TrackId);
+
+        // Then if the student is not a graduate we want to limit the number of tests available to them
+        // according to their semester and year
+        if (student.IsGraduate == false)
+        {
+            var studentYear = student.Semester % 2 == 0
+                ? student.Semester / 2
+                : (student.Semester + 1) / 2;
+            
+            // Here if the semester is odd we will load one extra revision test that we will remove later
+            universityTestsQueryable = universityTestsQueryable.Where(ut => 
+                ut.Semester <= student.Semester &&
+                ut.Year <= studentYear);
+        }
+        
+        var universityTests = await universityTestsQueryable
+            .OrderBy(ut => ut.Semester)
+            .ThenBy(ut => ut.Year)
+            .ToListAsync(cancellationToken);
+
+        // If the semester is odd we need to remove the extra loaded revision test, 
+        // since the student mustn't have access to it yet
+        if (student.Semester % 2 != 0)
+        {
+            universityTests.RemoveAt(universityTests.Count - 1);
+        }
+        
+        var universityTestsTaken = await _dbContext.StudentsTookUniversityTests
+            .AsNoTracking()
+            .Where(stut => stut.UserId == userId)
+            .ToListAsync(cancellationToken);
+
+        List<IUniversityTestCompletionResult> universityTestCompletionResults = new();
+        foreach (var universityTest in universityTests)
+        {
+            var isTestCompleted = universityTestsTaken.Any(completedTest => 
+                completedTest.UniversityTestId == universityTest.UniversityTestId);
+            
+            if (universityTest.IsRevision)
+            {
+                universityTestCompletionResults.Add(new RevisionYearTestCompletionResult(
+                    UniversityTestId: universityTest.UniversityTestId,
+                    RevisionYear: universityTest.Year,
+                    IsCompleted: isTestCompleted));
+            }
+            else
+            {
+                universityTestCompletionResults.Add(new SemesterUniversityTestCompletionResult(
+                    UniversityTestId: universityTest.UniversityTestId,
+                    Semester: universityTest.Semester!.Value,
+                    IsCompleted: isTestCompleted));
+            }
+        }
+
+        return universityTestCompletionResults;
+    }
+
+    public async Task<ErrorOr<List<GeneralTestCompletionResult>>> GetProspectiveStudentTestsCompletionState(string userId,
+        CancellationToken cancellationToken)
+    {
+        var user = await _dbContext.Users.FindAsync(new object?[] {userId}, cancellationToken);
+        if (user is null)
+        {
+            return Errors.User.WrongUserType;
+        }
+        
+        var generalTests = await _dbContext.GeneralTests.ToListAsync(cancellationToken);
+        
+        var completedGeneralTests = await _dbContext.UsersTookGeneralTests
+            .AsNoTracking()
+            .Where(x => x.UserId == userId)
+            .ToListAsync(cancellationToken);
+
+        var testCompletionResult = new List<GeneralTestCompletionResult>();
+        
+        foreach (var test in generalTests)
+        {
+            var userHasCompletedTest = completedGeneralTests.Any(completedTest => 
+                completedTest.GeneralTestId == test.GeneralTestId);
+            
+            testCompletionResult.Add(new GeneralTestCompletionResult(
+                GeneralTestId: test.GeneralTestId,
+                IsCompleted: userHasCompletedTest));
+        }
+
+        return testCompletionResult;
+    }
+    
     public async Task<ErrorOr<Unit>> InsertUserTestAnswers(
         string userId,
         int testId, 

@@ -1,6 +1,7 @@
 ﻿using CareerOrientation.API.Common.Contracts.Tests.ProspectiveStudentTests;
 using CareerOrientation.API.Common.Mapping.Tests.ProspectiveStudentTests;
 using CareerOrientation.Application.Tests.ProspectiveStudentTests.Queries.GetHasProspectiveStudentTakenTest;
+using CareerOrientation.Application.Tests.ProspectiveStudentTests.Queries.GetProspectiveStudentTestsCompletionState;
 using CareerOrientation.Application.Tests.ProspectiveStudentTests.Queries.GetProspectiveStudentTestsQuestions;
 
 using MediatR;
@@ -58,6 +59,31 @@ public class ProspectiveStudentTestsController : ApiController
 
         return result.Match(
             hasUserTakenTest => Ok(hasUserTakenTest),
+            errors => Problem(errors));
+    }
+    
+    /// <summary>
+    /// Gets the completion state of all the eligible tests of the logged in user
+    /// </summary>
+    [HttpGet("Completed")]
+    [Authorize]
+    public async Task<IActionResult> GetAllCompleted(CancellationToken cancellationToken)
+    {
+        var userId = GetUserIdFromToken();
+        if (userId is null)
+        {
+            return Problem(statusCode: 401, title: "Unauthorized");
+        }
+
+        var query = new GetProspectiveStudentTestsCompletionStateQuery(userId);
+        var result = await _mediator.Send(query, cancellationToken);
+
+        return result.Match(completedTests =>
+            {
+                return Ok(new ProspectiveStudentCompletedTestsResponse(
+                    HasCompletedAllTests: completedTests.All(test => test.IsCompleted) && completedTests.Any(),
+                    completedTests));
+            },
             errors => Problem(errors));
     }
     
