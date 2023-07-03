@@ -43,7 +43,7 @@ public class ProspectiveStudentTestsController : ApiController
     /// <summary>
     /// Gets a bool that indicates whether the logged in user has completed the supplied general test
     /// </summary>
-    [HttpGet("GetIsTestComplete/{generalTestId}")]
+    [HttpGet("Completed/{generalTestId}")]
     [Authorize]
     public async Task<IActionResult> GetCompleted(int generalTestId, CancellationToken cancellationToken)
     {
