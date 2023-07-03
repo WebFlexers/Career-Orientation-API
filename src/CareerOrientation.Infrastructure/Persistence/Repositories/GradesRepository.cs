@@ -4,6 +4,7 @@ using System.Text;
 using CareerOrientation.Application.Common.Abstractions.Persistence;
 using CareerOrientation.Application.Grades.Common;
 using CareerOrientation.Domain.Common.DomainErrors;
+using CareerOrientation.Domain.Entities;
 
 using ErrorOr;
 
@@ -28,11 +29,16 @@ public class GradesRepository : RepositoryBase, IGradesRepository
             return Errors.User.StudentNotFoundById;
         }
 
-        var coursesQueryable = _dbContext.Courses
-            .AsNoTracking()
-            .Where(c => c.Semester <= student.Semester);
+        IQueryable<Course>? coursesQueryable = _dbContext.Courses.AsNoTracking();
 
-        if (student.Semester >= 5)
+        if (student.IsGraduate == false)
+        {
+            coursesQueryable = _dbContext.Courses
+                .AsNoTracking()
+                .Where(c => c.Semester <= student.Semester);
+        }
+
+        if (student.Semester >= 5 || student.IsGraduate)
         {
             coursesQueryable = coursesQueryable.Where(c => c.TrackId == student.TrackId || c.TrackId == null);
         }
