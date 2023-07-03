@@ -1,5 +1,4 @@
 ﻿using CareerOrientation.API.Common.Contracts.Tests.ProspectiveStudentTests;
-using CareerOrientation.API.Common.Mapping.Tests.Common;
 using CareerOrientation.API.Common.Mapping.Tests.ProspectiveStudentTests;
 using CareerOrientation.Application.Tests.ProspectiveStudentTests.Queries.GetHasProspectiveStudentTakenTest;
 using CareerOrientation.Application.Tests.ProspectiveStudentTests.Queries.GetProspectiveStudentTestsQuestions;

@@ -31,5 +31,8 @@ public class UserConfig : IEntityTypeConfiguration<User>
         builder.HasMany(user => user.CompletedUniversityTests)
             .WithMany(uniTest => uniTest.UsersTookTest)
             .UsingEntity<StudentTookUniversityTest>();
+        
+        // Statistics
+
     }
 }

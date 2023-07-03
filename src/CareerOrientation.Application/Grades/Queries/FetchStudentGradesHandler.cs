@@ -16,7 +16,8 @@ public class FetchStudentGradesHandler : IRequestHandler<FetchStudentGradesQuery
         _gradesRepository = gradesRepository;
     }
     
-    public async Task<ErrorOr<List<GradeResult>>> Handle(FetchStudentGradesQuery request, CancellationToken cancellationToken)
+    public async Task<ErrorOr<List<GradeResult>>> Handle(FetchStudentGradesQuery request, 
+        CancellationToken cancellationToken)
     {
         var grades = await _gradesRepository.FetchGradesForStudent(request.UserId, cancellationToken);
         return grades;

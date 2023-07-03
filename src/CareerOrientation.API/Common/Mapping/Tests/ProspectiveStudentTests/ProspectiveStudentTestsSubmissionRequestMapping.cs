@@ -2,7 +2,7 @@
 using CareerOrientation.API.Common.Mapping.Tests.StudentTests;
 using CareerOrientation.Application.Tests.ProspectiveStudentTests.Commands.SubmitTestAnswersCommand;
 
-namespace CareerOrientation.API.Common.Mapping.Tests.Common;
+namespace CareerOrientation.API.Common.Mapping.Tests.ProspectiveStudentTests;
 
 public static class ProspectiveStudentTestsSubmissionRequestMapping
 {

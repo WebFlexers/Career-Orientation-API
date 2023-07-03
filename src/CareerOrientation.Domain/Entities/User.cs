@@ -23,5 +23,5 @@ public class User : IdentityUser
     public List<UserCourseStatistics> UserCourseStatistics { get; set; }
     
     // Statistics
-    public Statistics Statistics { get; set; }
+    public List<Statistics> Statistics { get; set; }
 }

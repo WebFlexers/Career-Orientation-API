@@ -11,4 +11,5 @@ public static class ValidationMessages
     public static string InvalidRevisionYear => "Τα έτη είναι από 1 έως 4";
     public static string InvalidLikertScaleAnswer => "Οι απαντήσεις τύπου Likert Scale πρέπει να είναι ένας ακέραιος " +
                                                      "από 1 έως 5";
+    public static string UserIdCantBeEmpty => "Το id του χρήστη δε μπορεί να είναι κενό";
 }

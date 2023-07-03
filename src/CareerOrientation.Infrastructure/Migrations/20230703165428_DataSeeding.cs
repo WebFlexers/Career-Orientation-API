@@ -17,9 +17,9 @@ namespace CareerOrientation.Infrastructure.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "096b6aaa-8867-49b2-8ec1-6da09ed9b208", "d83d5f58-3174-43bf-ad79-f10de419115a", "ProspectiveStudent", "PROSPECTIVESTUDENT" },
-                    { "bf4f700e-9d2f-49d3-988f-3e0d2273afef", "d2229747-084d-4b72-b024-5cb0514f48f7", "Student", "STUDENT" },
-                    { "ff7c1136-8030-4907-9af5-7e83ab940797", "ff50bb0a-7e9b-466d-bb7a-a2fa706920ef", "GraduateStudent", "GRADUATESTUDENT" }
+                    { "403faf29-e74e-4ece-b26d-6ced8e2c84ec", "d396e3e8-259e-47e6-a435-90a81271ec35", "GraduateStudent", "GRADUATESTUDENT" },
+                    { "78e8dccd-084a-4fd2-8ff1-ecef29b14c21", "1b9979e8-2716-416a-8d5b-7e98210af93f", "Student", "STUDENT" },
+                    { "dddb0de3-5852-4fbc-8c2a-9d196d56a729", "0e88fd28-534e-4d44-b7ac-4188a2f65695", "ProspectiveStudent", "PROSPECTIVESTUDENT" }
                 });
 
             migrationBuilder.InsertData(
@@ -263,7 +263,7 @@ namespace CareerOrientation.Infrastructure.Migrations
                     { 139, "Ικανότητα αντίληψης των συνδυασμών γνώσεων επεξεργασίας σήματος, θεωρίας χρώματος, ψυχοακουστικής, θεωρίας της πληροφορίας, συμπίεσης και δικτύωσης για τη δημιουργία και λειτουργία συστημάτων πολυμέσων", 0 },
                     { 140, "Δυνατότητα ανάπτυξης προχωρημένου λογισμικού Python/MATLAB/GNU Octave για την υλοποίηση αλγορίθμων, τεχνικών και μεθόδων επεξεργασίας πολυμεσικού περιεχομένου", 0 },
                     { 141, "Διαχείριση φόρτου και άγχους", 1 },
-                    { 142, "asdas", 0 }
+                    { 142, "Στρατηγικές λήψης αποφάσεων", 0 }
                 });
 
             migrationBuilder.InsertData(
@@ -2003,17 +2003,17 @@ namespace CareerOrientation.Infrastructure.Migrations
             migrationBuilder.DeleteData(
                 table: "AspNetRoles",
                 keyColumn: "Id",
-                keyValue: "096b6aaa-8867-49b2-8ec1-6da09ed9b208");
+                keyValue: "403faf29-e74e-4ece-b26d-6ced8e2c84ec");
 
             migrationBuilder.DeleteData(
                 table: "AspNetRoles",
                 keyColumn: "Id",
-                keyValue: "bf4f700e-9d2f-49d3-988f-3e0d2273afef");
+                keyValue: "78e8dccd-084a-4fd2-8ff1-ecef29b14c21");
 
             migrationBuilder.DeleteData(
                 table: "AspNetRoles",
                 keyColumn: "Id",
-                keyValue: "ff7c1136-8030-4907-9af5-7e83ab940797");
+                keyValue: "dddb0de3-5852-4fbc-8c2a-9d196d56a729");
 
             migrationBuilder.DeleteData(
                 table: "CourseSkills",

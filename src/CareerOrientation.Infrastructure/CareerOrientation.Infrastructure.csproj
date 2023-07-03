@@ -41,8 +41,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <EmbeddedResource Include="Persistence\Seeding\RealData\courses.json" />
-      <EmbeddedResource Include="Persistence\Seeding\RealData\courseSkills.json" />
       <EmbeddedResource Include="Persistence\Seeding\RealData\generalTests.json" />
       <EmbeddedResource Include="Persistence\Seeding\RealData\likertScaleAnswers.json" />
       <EmbeddedResource Include="Persistence\Seeding\RealData\mastersDegrees.json" />
@@ -53,12 +51,17 @@
       <EmbeddedResource Include="Persistence\Seeding\RealData\questionProfessions.json" />
       <EmbeddedResource Include="Persistence\Seeding\RealData\questions.json" />
       <EmbeddedResource Include="Persistence\Seeding\RealData\questionTracks.json" />
-      <EmbeddedResource Include="Persistence\Seeding\RealData\skills.json" />
       <EmbeddedResource Include="Persistence\Seeding\RealData\trackMastersDegrees.json" />
       <EmbeddedResource Include="Persistence\Seeding\RealData\trackProfessions.json" />
       <EmbeddedResource Include="Persistence\Seeding\RealData\tracks.json" />
       <EmbeddedResource Include="Persistence\Seeding\RealData\trueFalseAnswers.json" />
       <EmbeddedResource Include="Persistence\Seeding\RealData\universityTests.json" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Include="Persistence\Seeding\RealData\courses.json" />
+      <EmbeddedResource Include="Persistence\Seeding\RealData\courseSkills.json" />
+      <EmbeddedResource Include="Persistence\Seeding\RealData\skills.json" />
     </ItemGroup>
 
     <PropertyGroup>

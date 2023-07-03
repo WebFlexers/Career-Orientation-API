@@ -28,8 +28,4 @@
       <ProjectReference Include="..\CareerOrientation.Infrastructure\CareerOrientation.Infrastructure.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Common\Contracts\Statistics\" />
-    </ItemGroup>
-
 </Project>

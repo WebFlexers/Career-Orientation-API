@@ -24,7 +24,7 @@ public class StatisticsConfig : IEntityTypeConfiguration<Statistics>
             .IsRequired();
 
         builder.HasOne(stats => stats.User)
-            .WithOne(user => user.Statistics)
-            .HasForeignKey<Statistics>(stats => stats.UserId);
+            .WithMany(user => user.Statistics)
+            .HasForeignKey(stats => stats.UserId);
     }
 }
