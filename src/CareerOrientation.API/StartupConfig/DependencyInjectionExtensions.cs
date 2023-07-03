@@ -1,10 +1,11 @@
 ﻿using System.Reflection;
+
 using CareerOrientation.API.Common.Errors;
+using CareerOrientation.Infrastructure.Common.Options;
+using CareerOrientation.Infrastructure.Common.Options.Validators;
 
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.OpenApi.Models;
-
-using Newtonsoft.Json;
 
 using WatchDog;
 using WatchDog.src.Enums;
@@ -13,18 +14,20 @@ namespace CareerOrientation.API.StartupConfig;
 
 public static class DependencyInjectionExtensions
 {
-    public static IServiceCollection AddPresentation(this IServiceCollection services, IConfiguration config)
+    /// <summary>
+    /// Adds all the services related to the presentation layer
+    /// </summary>
+    public static IServiceCollection AddPresentation(this IServiceCollection services, ConfigurationManager config)
     {
         services.AddControllers().AddNewtonsoftJson();
         
         services.AddEndpointsApiExplorer()
             .AddSwaggerServices()
-            .AddLoggingServices(config)
             .AddSingleton<ProblemDetailsFactory, CareerOrientationProblemDetailsFactory>();
         
         return services;
     }
-    
+
     private static IServiceCollection AddSwaggerServices(this IServiceCollection services)
     {
         var securityScheme = new OpenApiSecurityScheme()
@@ -69,19 +72,9 @@ public static class DependencyInjectionExtensions
         return services;
     }
 
-    private static IServiceCollection AddLoggingServices(this IServiceCollection services, IConfiguration config)
-    {
-        services.AddWatchDogServices(opt => 
-        {
-            opt.IsAutoClear = true;
-            opt.ClearTimeSchedule = WatchDogAutoClearScheduleEnum.Weekly;
-            opt.SetExternalDbConnString = config.GetConnectionString("LoggingDb");
-            opt.DbDriverOption = WatchDogDbDriverEnum.PostgreSql;
-        });
-
-        return services;
-    }
-    
+    /// <summary>
+    /// Enables Cors and sets up allowed origins 
+    /// </summary>
     public static void UseCustomCors(this WebApplication app)
     {
         var corsConfiguration = app.Configuration.GetSection("Cors");

@@ -6,31 +6,31 @@ using CareerOrientation.Application.Auth.Common;
 using CareerOrientation.Application.Common.Abstractions.Auth;
 using CareerOrientation.Application.Common.Abstractions.Services;
 using CareerOrientation.Domain.Entities;
+using CareerOrientation.Infrastructure.Common.Options;
 
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 
 namespace CareerOrientation.Infrastructure.Auth;
 
 public class JwtService : ITokenCreationService
 {
-    private readonly int ExpirationMinutes;
     private DateTime _creationDateTime;
 
-    private readonly IConfiguration _configuration;
+    private readonly JwtOptions _jwtOptions;
     private readonly IClock _clock;
 
-    public JwtService(IConfiguration configuration, IClock clock)
+    public JwtService(IOptions<JwtOptions> jwtOptions, IClock clock)
     {
-        _configuration = configuration;
+        _jwtOptions = jwtOptions.Value;
         _clock = clock;
-        ExpirationMinutes = int.Parse(configuration["Jwt:ExpirationMinutes"]!);
     }
 
     public AuthenticationResult CreateToken(User user)
     {
         _creationDateTime = _clock.UtcNow;
-        var expiration = _creationDateTime.AddMinutes(ExpirationMinutes);
+        var expiration = _creationDateTime.Add(_jwtOptions.ExpirationTime);
 
         var token = CreateJwtToken(
             CreateClaims(user),
@@ -50,8 +50,8 @@ public class JwtService : ITokenCreationService
 
     private JwtSecurityToken CreateJwtToken(Claim[] claims, SigningCredentials credentials, DateTime expirationDateTime) =>
         new JwtSecurityToken(
-            issuer: _configuration["Jwt:Issuer"],
-            audience: _configuration["Jwt:Audience"],
+            issuer: _jwtOptions.Issuer,
+            audience: _jwtOptions.Audience,
             claims: claims,
             notBefore: _creationDateTime,
             expires: expirationDateTime,
@@ -61,7 +61,7 @@ public class JwtService : ITokenCreationService
     // TODO: Add roles and their corresponding non secret claims
     private Claim[] CreateClaims(User user) =>
         new[] {
-            new Claim(JwtRegisteredClaimNames.Sub, _configuration["Jwt:Subject"]!),
+            new Claim(JwtRegisteredClaimNames.Sub, _jwtOptions.Subject),
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
             new Claim(JwtRegisteredClaimNames.Iat, _creationDateTime.ToString()),
             new Claim("userId", user.Id),
@@ -72,7 +72,7 @@ public class JwtService : ITokenCreationService
     private SigningCredentials CreateSigningCredentials() =>
         new SigningCredentials(
             new SymmetricSecurityKey(
-                Encoding.ASCII.GetBytes(_configuration["Jwt:Key"]!)
+                Encoding.ASCII.GetBytes(_jwtOptions.Key)
             ),
             SecurityAlgorithms.HmacSha256
         );

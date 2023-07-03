@@ -18,7 +18,7 @@ public class ErrorsController : ControllerBase
 
         return exception switch
         {
-            OperationCanceledException => Problem(statusCode: 499, title: "Operation Cancelled"),
+            OperationCanceledException => Problem(statusCode: 499, title: "Operation cancelled"),
             _ => Problem()
         };
     }

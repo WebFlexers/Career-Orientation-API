@@ -8,6 +8,8 @@ using CareerOrientation.Application.Common.Abstractions.Services;
 using CareerOrientation.Domain.Common.DomainErrors;
 using CareerOrientation.Domain.Entities;
 using CareerOrientation.Infrastructure.Auth;
+using CareerOrientation.Infrastructure.Common.Options;
+using CareerOrientation.Infrastructure.Common.Options.Validators;
 using CareerOrientation.Infrastructure.Persistence;
 using CareerOrientation.Infrastructure.Persistence.Repositories;
 using CareerOrientation.Infrastructure.Services;
@@ -20,26 +22,68 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+
+using WatchDog;
+using WatchDog.src.Enums;
 
 namespace CareerOrientation.Infrastructure;
 
 public static class DependencyInjectionExtensions
 {
-    public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
+    public static IServiceCollection AddInfrastructure(this IServiceCollection services, ConfigurationManager config)
     {
         services
+            .AddAppSettings(config)
+            .AddLoggingServices(config)
             .AddIdentity()
-            .AddAuth(configuration)
-            .AddPersistence(configuration);
+            .AddAuth(config)
+            .AddPersistence(config);
 
         services.AddSingleton<IClock, Clock>();
         
         return services;
     }
 
-    private static IServiceCollection AddAuth(this IServiceCollection services, IConfiguration configuration)
+    private static IServiceCollection AddAppSettings(this IServiceCollection services, ConfigurationManager config)
     {
+        services.AddOptions<JwtOptions>()
+            .Bind(config.GetRequiredSection(JwtOptions.SectionName))
+            .Validate(x => x.ValidateJwtOptions())
+            .ValidateOnStart();
+
+        services.AddOptions<ConnectionStringsOptions>()
+            .Bind(config.GetSection(ConnectionStringsOptions.SectionName))
+            .Validate(x => x.ValidateConnectionStringOptions())
+            .ValidateOnStart();
+
+        return services;
+    }
+    
+    private static IServiceCollection AddLoggingServices(this IServiceCollection services, ConfigurationManager config)
+    {
+        var connectionStrings = config.GetRequiredSection(ConnectionStringsOptions.SectionName)
+            .Get<ConnectionStringsOptions>();
+        Debug.Assert(connectionStrings is not null);
+        
+        services.AddWatchDogServices(opt => 
+        {
+            opt.IsAutoClear = true;
+            opt.ClearTimeSchedule = WatchDogAutoClearScheduleEnum.Weekly;
+            opt.SetExternalDbConnString = connectionStrings.LoggingDb;
+            opt.DbDriverOption = WatchDogDbDriverEnum.PostgreSql;
+        });
+
+        return services;
+    }
+
+    private static IServiceCollection AddAuth(this IServiceCollection services, ConfigurationManager config)
+    {
+        var jwtOptions = config.GetRequiredSection(JwtOptions.SectionName)
+            .Get<JwtOptions>();
+        Debug.Assert(jwtOptions is not null);
+        
         services.AddAuthorization(opts =>
         {
             /*opts.FallbackPolicy = new AuthorizationPolicyBuilder()
@@ -61,10 +105,10 @@ public static class DependencyInjectionExtensions
                     ValidateAudience = true,
                     ValidateLifetime = true,
                     ValidateIssuerSigningKey = true,
-                    ValidIssuer = configuration["Jwt:Issuer"],
-                    ValidAudience = configuration["Jwt:Audience"],
+                    ValidIssuer = jwtOptions.Issuer,
+                    ValidAudience = jwtOptions.Audience,
                     IssuerSigningKey = new SymmetricSecurityKey(
-                        Encoding.ASCII.GetBytes(configuration["Jwt:Key"]!)
+                        Encoding.ASCII.GetBytes(jwtOptions.Key)
                     ),
                     ClockSkew = TimeSpan.FromSeconds(10)
                 };
@@ -121,11 +165,15 @@ public static class DependencyInjectionExtensions
         return services;
     }
 
-    private static IServiceCollection AddPersistence(this IServiceCollection services, IConfiguration configuration)
+    private static IServiceCollection AddPersistence(this IServiceCollection services, ConfigurationManager config)
     {
+        var connectionStrings = config.GetRequiredSection(ConnectionStringsOptions.SectionName)
+            .Get<ConnectionStringsOptions>();
+        Debug.Assert(connectionStrings is not null);
+        
         services.AddDbContext<ApplicationDbContext> (options =>
         {
-            options.UseNpgsql(configuration.GetConnectionString("Default"));
+            options.UseNpgsql(connectionStrings.Default);
         });
         
         services.AddScoped<IUserRepository, UserRepository>();
@@ -133,6 +181,7 @@ public static class DependencyInjectionExtensions
         services.AddScoped<ITrackRepository, TrackRepository>();
         services.AddScoped<ICourseRepository, CourseRepository>();
         services.AddScoped<ITestsRepository, TestsRepository>();
+        services.AddScoped<IStatisticsRepository, StatisticsRepository>();
         
         return services;
     }
