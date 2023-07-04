@@ -134,13 +134,12 @@ public class TestsRepository : RepositoryBase, ITestsRepository
             
             // Here if the semester is odd we will load one extra revision test that we will remove later
             universityTestsQueryable = universityTestsQueryable.Where(ut => 
-                ut.Semester <= student.Semester &&
-                ut.Year <= studentYear);
+                ut.Semester <= student.Semester ||
+                (ut.Semester == null && ut.Year <= studentYear));
         }
         
         var universityTests = await universityTestsQueryable
-            .OrderBy(ut => ut.Semester)
-            .ThenBy(ut => ut.Year)
+            .OrderBy(ut => ut.UniversityTestId)
             .ToListAsync(cancellationToken);
 
         // If the semester is odd we need to remove the extra loaded revision test, 

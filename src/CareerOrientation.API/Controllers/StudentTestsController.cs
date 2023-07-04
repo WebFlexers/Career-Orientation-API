@@ -84,7 +84,7 @@ public class StudentTestsController : ApiController
         return result.Match(completedTests =>
             {
                 return Ok(new StudentCompletedTestsResponse(
-                    HasCompletedAllTests: completedTests.All(test => test.IsCompleted) && completedTests.Any(),
+                    HasCompletedAllTests: completedTests.Any() && completedTests.All(test => test.IsCompleted),
                     completedTests));
             },
             errors => Problem(errors));
