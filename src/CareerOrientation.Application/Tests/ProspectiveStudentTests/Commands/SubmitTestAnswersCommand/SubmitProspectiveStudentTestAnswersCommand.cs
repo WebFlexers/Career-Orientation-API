@@ -10,4 +10,4 @@ namespace CareerOrientation.Application.Tests.ProspectiveStudentTests.Commands.S
 public record SubmitProspectiveStudentTestAnswersCommand(
     string UserId,
     int GeneralTestId,
-    List<QuestionAnswer> Answers) : IRequest<ErrorOr<Unit>>, ISubmitTestCommand;
+    List<QuestionAnswer> Answers) : IRequest<ErrorOr<bool>>, ISubmitTestCommand;

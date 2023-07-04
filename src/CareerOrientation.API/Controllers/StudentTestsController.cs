@@ -1,4 +1,5 @@
-﻿using CareerOrientation.API.Common.Contracts.Tests.StudentTests;
+﻿using CareerOrientation.API.Common.Contracts.Tests.Common;
+using CareerOrientation.API.Common.Contracts.Tests.StudentTests;
 using CareerOrientation.API.Common.Mapping.Tests.StudentTests;
 using CareerOrientation.Application.Tests.StudentTests.Queries.GetHasStudentTakenTest;
 using CareerOrientation.Application.Tests.StudentTests.Queries.GetStudentTestsCompletionState;
@@ -143,7 +144,7 @@ public class StudentTestsController : ApiController
         var result = await _mediator.Send(request.MapToCommand(), cancellationToken);
 
         return result.Match(
-            _ => Ok(),
+            areAllTestsCompleted => Ok(new TestsSubmissionResponse(areAllTestsCompleted)),
             errors => Problem(errors));
     }
 }

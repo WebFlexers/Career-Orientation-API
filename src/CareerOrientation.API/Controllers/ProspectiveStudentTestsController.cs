@@ -1,4 +1,5 @@
-﻿using CareerOrientation.API.Common.Contracts.Tests.ProspectiveStudentTests;
+﻿using CareerOrientation.API.Common.Contracts.Tests.Common;
+using CareerOrientation.API.Common.Contracts.Tests.ProspectiveStudentTests;
 using CareerOrientation.API.Common.Mapping.Tests.ProspectiveStudentTests;
 using CareerOrientation.Application.Tests.ProspectiveStudentTests.Queries.GetHasProspectiveStudentTakenTest;
 using CareerOrientation.Application.Tests.ProspectiveStudentTests.Queries.GetProspectiveStudentTestsCompletionState;
@@ -106,7 +107,7 @@ public class ProspectiveStudentTestsController : ApiController
         var result = await _mediator.Send(command, cancellationToken);
 
         return result.Match(
-            _ => Ok(),
+            areAllTestsCompleted => Ok(new TestsSubmissionResponse(areAllTestsCompleted)),
             errors => Problem(errors));
     }
 }

@@ -1,4 +1,5 @@
 ﻿using CareerOrientation.Application.Common.Abstractions.Persistence;
+using CareerOrientation.Application.Tests.StudentTests.Queries.GetStudentTestsCompletionState;
 using CareerOrientation.Domain.Common.DomainErrors;
 using CareerOrientation.Domain.Common.Enums;
 
@@ -8,18 +9,21 @@ using MediatR;
 
 namespace CareerOrientation.Application.Tests.StudentTests.Commands.SubmitTestAnswers;
 
-public class SubmitStudentTestAnswersHandler : IRequestHandler<SubmitStudentTestAnswersCommand, ErrorOr<Unit>>
+public class SubmitStudentTestAnswersHandler : IRequestHandler<SubmitStudentTestAnswersCommand, ErrorOr<bool>>
 {
     private readonly ITestsRepository _testsRepository;
     private readonly IUserRepository _userRepository;
+    private readonly ISender _mediatorSender;
 
-    public SubmitStudentTestAnswersHandler(ITestsRepository testsRepository, IUserRepository userRepository)
+    public SubmitStudentTestAnswersHandler(ITestsRepository testsRepository, IUserRepository userRepository,
+        ISender mediatorSender)
     {
         _testsRepository = testsRepository;
         _userRepository = userRepository;
+        _mediatorSender = mediatorSender;
     }
     
-    public async Task<ErrorOr<Unit>> Handle(SubmitStudentTestAnswersCommand command, CancellationToken cancellationToken)
+    public async Task<ErrorOr<bool>> Handle(SubmitStudentTestAnswersCommand command, CancellationToken cancellationToken)
     {
         var user = await _userRepository.GetUserById(command.UserId, cancellationToken);
         if (user is null)
@@ -38,6 +42,20 @@ public class SubmitStudentTestAnswersHandler : IRequestHandler<SubmitStudentTest
             command.Answers, 
             cancellationToken);
 
-        return result;
+        if (result.IsError)
+        {
+            return result.Errors;
+        }
+
+        var query = new GetStudentTestsCompletionStateQuery(command.UserId);
+        var completionState = await _mediatorSender.Send(query, cancellationToken);
+
+        if (completionState.IsError)
+        {
+            return completionState.Errors;
+        }
+        
+        // If all the tests are complete the user can proceed to the recommendations
+        return completionState.Value.All(completionResult => completionResult.IsCompleted);
     }
 }
