@@ -54,6 +54,11 @@ public class CoursesController : ApiController
     /// </remarks>
     [HttpGet]
     [AllowAnonymous]
+    [ResponseCache(Duration = 60*5, Location = ResponseCacheLocation.Any, NoStore = false, 
+        VaryByQueryKeys = new []{
+            nameof(GetCoursesWithSkillsRequest.Semester), 
+            nameof(GetCoursesWithSkillsRequest.Track), 
+            nameof(GetCoursesWithSkillsRequest.IsProspectiveStudent)})]
     public async Task<IActionResult> Get([FromQuery]GetCoursesWithSkillsRequest request, CancellationToken token)
     {
         var result = await _mediator.Send(request.MapToQuery(), token);

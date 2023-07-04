@@ -20,11 +20,14 @@ public static class DependencyInjectionExtensions
         services.AddControllers().AddNewtonsoftJson(options =>
         {
             options.SerializerSettings.Converters = new List<JsonConverter>() { new StringEnumConverter() };
+            options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
         });
         
         services.AddEndpointsApiExplorer()
             .AddSwaggerServices()
             .AddSingleton<ProblemDetailsFactory, CareerOrientationProblemDetailsFactory>();
+
+        services.AddResponseCaching();
         
         return services;
     }

@@ -24,7 +24,10 @@ var app = builder.Build();
     if (app.Environment.IsDevelopment())
     {
         app.UseSwagger();
-        app.UseSwaggerUI();
+        app.UseSwaggerUI(options =>
+        {
+            options.DisplayRequestDuration();
+        });
     }
     
     app.UseCustomCors();
@@ -34,8 +37,9 @@ var app = builder.Build();
     app.UseAuthentication();
     app.UseAuthorization();
     
-    app.UseWatchDogExceptionLogger();
+    app.UseResponseCaching();
     
+    app.UseWatchDogExceptionLogger();
     app.UseWatchDog(opts =>
     {
         opts.WatchPageUsername = app.Configuration["WatchDog:Username"];

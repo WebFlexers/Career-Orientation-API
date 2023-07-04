@@ -33,6 +33,7 @@ public class ProspectiveStudentTestsController : ApiController
     /// </remarks>
     [HttpGet("generalTestId")]
     [Authorize]
+    [ResponseCache(Duration = 60*5, Location = ResponseCacheLocation.Any, NoStore = false)]
     public async Task<IActionResult> Get(int generalTestId, CancellationToken cancellationToken)
     {
         var query = new ProspectiveStudentTestsQuestionsQuery(generalTestId);

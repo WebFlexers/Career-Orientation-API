@@ -34,6 +34,13 @@ public class StudentTestsController : ApiController
     /// </remarks>
     [HttpGet]
     [Authorize]
+    [ResponseCache(Duration = 60*5, Location = ResponseCacheLocation.Any, NoStore = false,
+        VaryByQueryKeys = new []
+        {
+            nameof(StudentTestQuestionsRequest.Track),
+            nameof(StudentTestQuestionsRequest.Semester),
+            nameof(StudentTestQuestionsRequest.RevisionYear)
+        })]
     public async Task<IActionResult> Get([FromQuery] StudentTestQuestionsRequest request, 
         CancellationToken cancellationToken)
     {
