@@ -1,3 +1,5 @@
+using AspNetCoreRateLimit;
+
 using CareerOrientation.API.StartupConfig;
 using CareerOrientation.Application;
 using CareerOrientation.Infrastructure;
@@ -34,6 +36,8 @@ var app = builder.Build();
 
     app.UseHttpsRedirection();
 
+    app.UseIpRateLimiting();
+    
     app.UseAuthentication();
     app.UseAuthorization();
     

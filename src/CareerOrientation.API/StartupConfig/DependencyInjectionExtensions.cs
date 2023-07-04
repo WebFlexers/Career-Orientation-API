@@ -1,5 +1,7 @@
 ﻿using System.Reflection;
 
+using AspNetCoreRateLimit;
+
 using CareerOrientation.API.Common.Errors;
 
 using Microsoft.AspNetCore.Mvc.Infrastructure;
@@ -28,6 +30,9 @@ public static class DependencyInjectionExtensions
             .AddSingleton<ProblemDetailsFactory, CareerOrientationProblemDetailsFactory>();
 
         services.AddResponseCaching();
+        
+        services.AddMemoryCache();
+        services.AddRateLimiting(config);
         
         return services;
     }
@@ -76,6 +81,18 @@ public static class DependencyInjectionExtensions
         return services;
     }
 
+    private static IServiceCollection AddRateLimiting(this IServiceCollection services, ConfigurationManager config)
+    {
+        services.Configure<IpRateLimitOptions>(config.GetSection("IpRateLimiting"));
+        services.AddSingleton<IIpPolicyStore, MemoryCacheIpPolicyStore>();
+        services.AddSingleton<IRateLimitCounterStore, MemoryCacheRateLimitCounterStore>();
+        services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
+        services.AddSingleton<IProcessingStrategy, AsyncKeyLockProcessingStrategy>();
+        services.AddInMemoryRateLimiting();
+
+        return services;
+    }
+    
     /// <summary>
     /// Enables Cors and sets up allowed origins 
     /// </summary>
