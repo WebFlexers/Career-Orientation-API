@@ -63,6 +63,11 @@ public class ProspectiveStudentRecommendationHandler
         // for that as well
         foreach (var testCompletionResult in testsCompletionState.OrderBy(test => test.TestType))
         {
+            if (testCompletionResult.IsCompleted == false)
+            {
+                continue;
+            }
+            
             var generalTestRecommendationQuery = new GeneralTestRecommendationQuery(request.UserId,
                 testCompletionResult.GeneralTestId, testCompletionResult.TestType);
             
@@ -76,7 +81,7 @@ public class ProspectiveStudentRecommendationHandler
             
             recommendationResults.Add(suitabilityResult.Value);
 
-            if (suitabilityResult.Value.RecommendationLevel <= RecommendationLevel.ModerateFit)
+            if (suitabilityResult.Value.RecommendationLevel < RecommendationLevel.ModerateFit)
             {
                 return recommendationResults;
             }
