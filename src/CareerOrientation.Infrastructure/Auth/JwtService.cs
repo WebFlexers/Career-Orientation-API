@@ -8,7 +8,6 @@ using CareerOrientation.Application.Common.Abstractions.Services;
 using CareerOrientation.Domain.Entities;
 using CareerOrientation.Infrastructure.Common.Options;
 
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 

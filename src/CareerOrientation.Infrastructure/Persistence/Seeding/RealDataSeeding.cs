@@ -1,6 +1,4 @@
-﻿using System.Diagnostics;
-
-using CareerOrientation.Domain.Common;
+﻿using CareerOrientation.Domain.Common;
 using CareerOrientation.Domain.Entities;
 using CareerOrientation.Domain.JunctionEntities;
 using CareerOrientation.Infrastructure.Persistence.Seeding.JsonDTOs;

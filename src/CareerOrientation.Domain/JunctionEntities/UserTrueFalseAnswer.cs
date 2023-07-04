@@ -8,6 +8,6 @@ public class UserTrueFalseAnswer
     public string UserId { get; set; }
     public bool Value { get; set; }
 
-    public TrueFalseAnswer TrueFalseAnswer { get; set; }
+    public Question Question { get; set; }
     public User User { get; set; }
 }

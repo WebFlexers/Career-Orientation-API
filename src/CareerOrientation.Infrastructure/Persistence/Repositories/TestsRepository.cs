@@ -1,13 +1,13 @@
 ﻿using System.Collections.Immutable;
 
 using CareerOrientation.Application.Common.Abstractions.Persistence;
+using CareerOrientation.Application.Tests.Common;
 using CareerOrientation.Application.Tests.ProspectiveStudentTests.Common;
 using CareerOrientation.Application.Tests.ProspectiveStudentTests.Common.Mapping;
 using CareerOrientation.Application.Tests.StudentTests.Common;
 using CareerOrientation.Application.Tests.StudentTests.Common.Mapping;
 using CareerOrientation.Domain.Common.DomainErrors;
 using CareerOrientation.Domain.Common.Enums;
-using CareerOrientation.Domain.Entities;
 using CareerOrientation.Domain.Entities.Enums;
 using CareerOrientation.Domain.JunctionEntities;
 
@@ -17,8 +17,6 @@ using MediatR;
 
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
-
-using MongoDB.Driver.Linq;
 
 namespace CareerOrientation.Infrastructure.Persistence.Repositories;
 
@@ -204,17 +202,104 @@ public class TestsRepository : RepositoryBase, ITestsRepository
             
             testCompletionResult.Add(new GeneralTestCompletionResult(
                 GeneralTestId: test.GeneralTestId,
+                TestType: test.Type,
                 IsCompleted: userHasCompletedTest));
         }
 
         return testCompletionResult;
+    }
+
+    public async Task<List<IQuestionAnswer>> GetUserAnswersToGeneralTest(string userId, int generalTestId,
+        CancellationToken cancellationToken)
+    {
+        var testQuestionsWithUserAnswers = await _dbContext.Questions
+            .AsNoTracking()
+            .Where(question => question.GeneralTestId == generalTestId)
+            .Include(question => question.LikertScaleAnswers)
+            .Include(question => question.UsersLikertScaleAnswers)
+            .Include(question => question.UsersMultipleChoiceAnswers)
+            .Include(question => question.UsersTrueFalseAnswers)
+            .ToListAsync(cancellationToken);
+
+        List<IQuestionAnswer> userAnswers = new();
+
+        foreach (var question in testQuestionsWithUserAnswers)
+        {
+            switch (question.Type)
+            {
+                case QuestionType.TrueFalse:
+                    userAnswers.Add(new TrueFalseAnswer(
+                        question.QuestionId, 
+                        question.UsersTrueFalseAnswers.First(answer => answer.QuestionId == question.QuestionId).Value));
+                    break;
+                case QuestionType.MultipleChoice:
+                    userAnswers.Add(new MultipleChoiceAnswer(
+                        question.QuestionId,
+                        question.UsersMultipleChoiceAnswers.First(answer => 
+                            answer.QuestionId == question.QuestionId).MultipleChoiceAnswerId));
+                    break;
+                case QuestionType.LikertScale:
+                    userAnswers.Add(new LikertScaleAnswer(
+                        question.QuestionId,
+                        question.UsersLikertScaleAnswers.First(answer =>
+                            answer.QuestionId == question.QuestionId).Value,
+                        question.LikertScaleAnswers.Any(answer => 
+                            String.IsNullOrWhiteSpace(answer.Option3))));
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(question.Type), "QuestionTypeWasWrong");
+            }
+        }
+
+        return userAnswers;
+    }
+    
+    public async Task<List<IQuestionAnswer>> GetStudentAnswersToUniversityTest(string userId, string universityTestId)
+    {
+        throw new NotImplementedException();
+    }
+
+    public async Task<List<IQuestionAnswer>> GetCorrectAnswersOfGeneralTest(int generalTestId, 
+        CancellationToken cancellationToken)
+    {
+        var testQuestionsWithCorrectAnswers = await _dbContext.Questions
+            .AsNoTracking()
+            .Where(question => question.GeneralTestId == generalTestId)
+            .Include(question => question.MultipleChoiceAnswers)
+            .Include(question => question.TrueFalseAnswer)
+            .ToListAsync(cancellationToken);
+
+        List<IQuestionAnswer> questionAnswers = new();
+        
+        foreach (var question in testQuestionsWithCorrectAnswers)
+        {
+            switch (question.Type)
+            {
+                case QuestionType.TrueFalse:
+                    questionAnswers.Add(new TrueFalseAnswer(
+                        question.QuestionId,
+                        question.TrueFalseAnswer.Value));
+                    break;
+                case QuestionType.MultipleChoice:
+                    questionAnswers.Add(new MultipleChoiceAnswer(
+                        question.QuestionId,
+                        question.MultipleChoiceAnswers.First(answer => answer.IsCorrect).MultipleChoiceAnswerId));
+                    break;
+                case QuestionType.LikertScale:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(question.Type), "WrongQuestionType");
+            }
+        }
+
+        return questionAnswers;
     }
     
     public async Task<ErrorOr<Unit>> InsertUserTestAnswers(
         string userId,
         int testId, 
         TestType testType,
-        List<QuestionAnswer> answers, 
+        List<UserQuestionAnswer> answers, 
         CancellationToken cancellationToken)
     {
         var correctTestTypeResult = await EnsureCorrectTestType(testId, testType, cancellationToken);
@@ -300,7 +385,7 @@ public class TestsRepository : RepositoryBase, ITestsRepository
         return Unit.Value;
     }
     private async Task<ErrorOr<Unit>> CheckAnswersValidity(int testId, TestType testType,
-        List<QuestionAnswer> userAnswers, CancellationToken cancellationToken)
+        List<UserQuestionAnswer> userAnswers, CancellationToken cancellationToken)
     {
         var testQuestionsQueryable = _dbContext.Questions.AsNoTracking();
 
@@ -367,7 +452,7 @@ public class TestsRepository : RepositoryBase, ITestsRepository
 
         return Unit.Value;
     }
-    private Task InsertAnswersToDb(string userId, List<QuestionAnswer> answers)
+    private Task InsertAnswersToDb(string userId, List<UserQuestionAnswer> answers)
     {
         var userTrueFalseAnswers = 
             answers.Where(a => a.TrueOrFalseAnswer is not null).ToImmutableArray();

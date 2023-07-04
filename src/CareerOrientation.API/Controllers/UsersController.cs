@@ -1,6 +1,6 @@
 using CareerOrientation.API.Common.Contracts.Auth;
 using CareerOrientation.API.Common.Mapping.Auth;
-using CareerOrientation.Application.Auth.Queries.GetUser;
+using CareerOrientation.Application.Auth.Queries.UserById;
 
 using MediatR;
 
@@ -43,7 +43,7 @@ public class UsersController : ApiController
     [Authorize]
     public async Task<IActionResult> Get(string userId, CancellationToken token)
     {
-        var result = await _mediator.Send(new GetUserByIdQuery(userId), token);
+        var result = await _mediator.Send(new UserByIdQuery(userId), token);
 
         return result.Match<IActionResult>(
             userResponse => Ok(userResponse),

@@ -1,6 +1,5 @@
 ﻿using CareerOrientation.Application.Common.Abstractions.Persistence;
-using CareerOrientation.Application.Tests.ProspectiveStudentTests.Queries.GetProspectiveStudentTestsCompletionState;
-using CareerOrientation.Application.Tests.ProspectiveStudentTests.Queries.GetProspectiveStudentTestsQuestions;
+using CareerOrientation.Application.Tests.ProspectiveStudentTests.Queries.ProspectiveStudentTestsCompletionState;
 using CareerOrientation.Domain.Common.DomainErrors;
 using CareerOrientation.Domain.Common.Enums;
 
@@ -50,7 +49,7 @@ public class SubmitProspectiveStudentTestAnswersHandler
             return result.Errors;
         }
 
-        var query = new GetProspectiveStudentTestsCompletionStateQuery(command.UserId);
+        var query = new ProspectiveStudentTestsCompletionStateQuery(command.UserId);
         var completionState = await _mediatorSender.Send(query, cancellationToken);
 
         if (completionState.IsError)

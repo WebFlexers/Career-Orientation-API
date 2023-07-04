@@ -10,9 +10,9 @@ public class Course
     public int Semester { get; set; }
 
     public int? TrackId { get;set; }
-    public Track? Track { get; set; }
+    public Track Track { get; set; }
 
-    public List<Skill>? Skills { get; set; }
+    public List<Skill> Skills { get; set; }
 
     public List<UserCourseGrade> UserCourseGrades { get; set; }
     public List<UserCourseStatistics> UserCourseStatistics { get; set; }

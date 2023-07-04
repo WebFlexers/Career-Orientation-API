@@ -6,7 +6,7 @@ namespace CareerOrientation.API.Common.Mapping.Tests.StudentTests;
 
 public static class QuestionAnswerRequestMapping
 {
-    public static QuestionAnswer MapToQuestionAnswer(this QuestionAnswerRequest request)
+    public static UserQuestionAnswer MapToQuestionAnswer(this QuestionAnswerRequest request)
     {
         QuestionType questionType;
         if (request.LikertScaleAnswer is not null)
@@ -22,7 +22,7 @@ public static class QuestionAnswerRequestMapping
             questionType = QuestionType.TrueFalse;
         }
 
-        return new QuestionAnswer(
+        return new UserQuestionAnswer(
             QuestionId: request.QuestionId,
             MultipleChoiceAnswerId: request.MultipleChoiceAnswerId,
             TrueOrFalseAnswer: request.TrueOrFalseAnswer,

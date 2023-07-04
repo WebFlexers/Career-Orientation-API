@@ -1,6 +1,4 @@
-﻿using CareerOrientation.Domain.JunctionEntities;
-
-namespace CareerOrientation.Domain.Entities;
+﻿namespace CareerOrientation.Domain.Entities;
 
 public class UniversityStudent
 {
@@ -10,5 +8,5 @@ public class UniversityStudent
 
     public int? TrackId { get; set; }
     public User User {  get;set; }
-    public Track? Track { get; set; }
+    public Track Track { get; set; }
 }

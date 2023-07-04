@@ -1,9 +1,9 @@
 ﻿using CareerOrientation.API.Common.Contracts.Tests.Common;
 using CareerOrientation.API.Common.Contracts.Tests.ProspectiveStudentTests;
 using CareerOrientation.API.Common.Mapping.Tests.ProspectiveStudentTests;
-using CareerOrientation.Application.Tests.ProspectiveStudentTests.Queries.GetHasProspectiveStudentTakenTest;
-using CareerOrientation.Application.Tests.ProspectiveStudentTests.Queries.GetProspectiveStudentTestsCompletionState;
-using CareerOrientation.Application.Tests.ProspectiveStudentTests.Queries.GetProspectiveStudentTestsQuestions;
+using CareerOrientation.Application.Tests.ProspectiveStudentTests.Queries.HasProspectiveStudentTakenTest;
+using CareerOrientation.Application.Tests.ProspectiveStudentTests.Queries.ProspectiveStudentTestsCompletionState;
+using CareerOrientation.Application.Tests.ProspectiveStudentTests.Queries.ProspectiveStudentTestsQuestions;
 
 using MediatR;
 
@@ -35,7 +35,7 @@ public class ProspectiveStudentTestsController : ApiController
     [Authorize]
     public async Task<IActionResult> Get(int generalTestId, CancellationToken cancellationToken)
     {
-        var query = new GetProspectiveStudentTestsQuestionsQuery(generalTestId);
+        var query = new ProspectiveStudentTestsQuestionsQuery(generalTestId);
         var result = await _mediator.Send(query, cancellationToken);
 
         return result.Match(test => Ok(test.MapToResponse()),
@@ -55,7 +55,7 @@ public class ProspectiveStudentTestsController : ApiController
             return Problem(statusCode: 401, title: "Unauthorized");
         }
 
-        var query = new GetHasProspectiveStudentTakenTestQuery(userId, generalTestId);
+        var query = new HasProspectiveStudentTakenTestQuery(userId, generalTestId);
         var result = await _mediator.Send(query, cancellationToken);
 
         return result.Match(
@@ -76,13 +76,13 @@ public class ProspectiveStudentTestsController : ApiController
             return Problem(statusCode: 401, title: "Unauthorized");
         }
 
-        var query = new GetProspectiveStudentTestsCompletionStateQuery(userId);
+        var query = new ProspectiveStudentTestsCompletionStateQuery(userId);
         var result = await _mediator.Send(query, cancellationToken);
 
         return result.Match(completedTests =>
             {
                 return Ok(new ProspectiveStudentCompletedTestsResponse(
-                    HasCompletedAllTests: completedTests.All(test => test.IsCompleted) && completedTests.Any(),
+                    HasCompletedAllEssentialTests: completedTests.All(test => test.IsCompleted) && completedTests.Any(),
                     completedTests));
             },
             errors => Problem(errors));

@@ -1,5 +1,4 @@
 ﻿using CareerOrientation.API.Common.Contracts.Tests.Common;
-using CareerOrientation.API.Common.Contracts.Tests.StudentTests;
 
 namespace CareerOrientation.API.Common.Contracts.Tests.ProspectiveStudentTests;
 

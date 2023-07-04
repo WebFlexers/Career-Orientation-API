@@ -1,4 +1,6 @@
-﻿namespace CareerOrientation.Domain.Entities;
+﻿using CareerOrientation.Domain.JunctionEntities;
+
+namespace CareerOrientation.Domain.Entities;
 
 public class MultipleChoiceAnswer
 {
@@ -9,5 +11,5 @@ public class MultipleChoiceAnswer
     public int QuestionId { get; set; }
     public Question Question { get; set; }
 
-    public List<User>? UsersAnswered { get; set; }
+    public List<UserMultipleChoiceAnswer>? UserMultipleChoiceAnswers { get; set; }
 }

@@ -1,14 +1,12 @@
 ﻿using System.Reflection;
 
 using CareerOrientation.API.Common.Errors;
-using CareerOrientation.Infrastructure.Common.Options;
-using CareerOrientation.Infrastructure.Common.Options.Validators;
 
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.OpenApi.Models;
 
-using WatchDog;
-using WatchDog.src.Enums;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace CareerOrientation.API.StartupConfig;
 
@@ -19,7 +17,10 @@ public static class DependencyInjectionExtensions
     /// </summary>
     public static IServiceCollection AddPresentation(this IServiceCollection services, ConfigurationManager config)
     {
-        services.AddControllers().AddNewtonsoftJson();
+        services.AddControllers().AddNewtonsoftJson(options =>
+        {
+            options.SerializerSettings.Converters = new List<JsonConverter>() { new StringEnumConverter() };
+        });
         
         services.AddEndpointsApiExplorer()
             .AddSwaggerServices()

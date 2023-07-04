@@ -2,8 +2,6 @@ using CareerOrientation.API.StartupConfig;
 using CareerOrientation.Application;
 using CareerOrientation.Infrastructure;
 
-using Microsoft.Extensions.Options;
-
 using WatchDog;
 using WatchDog.src.Enums;
 

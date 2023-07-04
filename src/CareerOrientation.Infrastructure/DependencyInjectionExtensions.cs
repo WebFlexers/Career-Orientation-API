@@ -4,6 +4,7 @@ using System.Text.Json;
 
 using CareerOrientation.Application.Common.Abstractions.Auth;
 using CareerOrientation.Application.Common.Abstractions.Persistence;
+using CareerOrientation.Application.Common.Abstractions.Recommendations;
 using CareerOrientation.Application.Common.Abstractions.Services;
 using CareerOrientation.Domain.Common.DomainErrors;
 using CareerOrientation.Domain.Entities;
@@ -12,17 +13,16 @@ using CareerOrientation.Infrastructure.Common.Options;
 using CareerOrientation.Infrastructure.Common.Options.Validators;
 using CareerOrientation.Infrastructure.Persistence;
 using CareerOrientation.Infrastructure.Persistence.Repositories;
+using CareerOrientation.Infrastructure.Recommendations;
 using CareerOrientation.Infrastructure.Services;
 
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 
 using WatchDog;
@@ -42,6 +42,7 @@ public static class DependencyInjectionExtensions
             .AddPersistence(config);
 
         services.AddSingleton<IClock, Clock>();
+        services.AddSingleton<IPointsCalculationService, PointsCalculationService>();
         
         return services;
     }

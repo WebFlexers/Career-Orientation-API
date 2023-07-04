@@ -1,7 +1,7 @@
 ﻿
 using CareerOrientation.API.Common.Contracts.Statistics;
 using CareerOrientation.Application.Statistics.Commands;
-using CareerOrientation.Application.Statistics.Queries;
+using CareerOrientation.Application.Statistics.Queries.TeachingAccessStats;
 
 using MediatR;
 
@@ -54,7 +54,7 @@ public class StatisticsController : ApiController
             return Problem(statusCode: 401, title: "Unauthorized");
         }
 
-        var query = new GetTeachingAccessStatsQuery(userId);
+        var query = new TeachingAccessStatsQuery(userId);
         var result = await _mediator.Send(query, cancellationToken);
 
         return result.Match(accessStats => Ok(accessStats),

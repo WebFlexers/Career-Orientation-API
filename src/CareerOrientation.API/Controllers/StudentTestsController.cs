@@ -1,10 +1,8 @@
 ﻿using CareerOrientation.API.Common.Contracts.Tests.Common;
 using CareerOrientation.API.Common.Contracts.Tests.StudentTests;
 using CareerOrientation.API.Common.Mapping.Tests.StudentTests;
-using CareerOrientation.Application.Tests.StudentTests.Queries.GetHasStudentTakenTest;
-using CareerOrientation.Application.Tests.StudentTests.Queries.GetStudentTestsCompletionState;
-
-using ErrorOr;
+using CareerOrientation.Application.Tests.StudentTests.Queries.HasStudentTakenTest;
+using CareerOrientation.Application.Tests.StudentTests.Queries.StudentTestsCompletionState;
 
 using MediatR;
 
@@ -59,7 +57,7 @@ public class StudentTestsController : ApiController
             return Problem(statusCode: 401, title: "Unauthorized");
         }
 
-        var query = new GetHasStudentTakenTestQuery(userId, universityTestId);
+        var query = new HasStudentCompletedTestQuery(userId, universityTestId);
         var result = await _mediator.Send(query, cancellationToken);
 
         return result.Match(hasUserTakenTest => Ok(hasUserTakenTest),
@@ -79,7 +77,7 @@ public class StudentTestsController : ApiController
             return Problem(statusCode: 401, title: "Unauthorized");
         }
 
-        var query = new GetStudentTestsCompletionStateQuery(userId);
+        var query = new StudentTestsCompletionStateQuery(userId);
         var result = await _mediator.Send(query, cancellationToken);
 
         return result.Match(completedTests =>

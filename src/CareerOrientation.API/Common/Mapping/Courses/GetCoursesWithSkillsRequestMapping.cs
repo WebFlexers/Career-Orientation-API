@@ -1,13 +1,13 @@
 ﻿using CareerOrientation.API.Common.Contracts.Courses;
-using CareerOrientation.Application.Courses.Queries.GetCoursesWithSkillsQuery;
+using CareerOrientation.Application.Courses.Queries.CoursesWithSkillsQuery;
 
 namespace CareerOrientation.API.Common.Mapping.Courses;
 
 public static class GetCoursesWithSkillsRequestMapping
 {
-    public static GetCoursesWithSkillsQuery MapToQuery(this GetCoursesWithSkillsRequest request)
+    public static CoursesWithSkillsQuery MapToQuery(this GetCoursesWithSkillsRequest request)
     {
-        return new GetCoursesWithSkillsQuery
+        return new CoursesWithSkillsQuery
         (
             Semester: request.Semester,
             Track: request.Track,

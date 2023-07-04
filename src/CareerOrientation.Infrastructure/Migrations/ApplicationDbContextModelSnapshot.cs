@@ -4965,269 +4965,329 @@ namespace CareerOrientation.Infrastructure.Migrations
 
             modelBuilder.Entity("CareerOrientation.Domain.Entities.TrueFalseAnswer", b =>
                 {
+                    b.Property<int>("TrueFalseAnswerId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("TrueFalseAnswerId"));
+
                     b.Property<int>("QuestionId")
                         .HasColumnType("integer");
 
                     b.Property<bool>("Value")
                         .HasColumnType("boolean");
 
-                    b.HasKey("QuestionId");
+                    b.HasKey("TrueFalseAnswerId");
+
+                    b.HasIndex("QuestionId")
+                        .IsUnique();
 
                     b.ToTable("TrueFalseAnswers");
 
                     b.HasData(
                         new
                         {
+                            TrueFalseAnswerId = 2,
                             QuestionId = 22,
                             Value = true
                         },
                         new
                         {
+                            TrueFalseAnswerId = 3,
                             QuestionId = 25,
                             Value = false
                         },
                         new
                         {
+                            TrueFalseAnswerId = 4,
                             QuestionId = 29,
                             Value = false
                         },
                         new
                         {
+                            TrueFalseAnswerId = 5,
                             QuestionId = 32,
                             Value = true
                         },
                         new
                         {
+                            TrueFalseAnswerId = 6,
                             QuestionId = 36,
                             Value = true
                         },
                         new
                         {
+                            TrueFalseAnswerId = 7,
                             QuestionId = 38,
                             Value = true
                         },
                         new
                         {
+                            TrueFalseAnswerId = 8,
                             QuestionId = 41,
                             Value = false
                         },
                         new
                         {
+                            TrueFalseAnswerId = 9,
                             QuestionId = 44,
                             Value = false
                         },
                         new
                         {
+                            TrueFalseAnswerId = 10,
                             QuestionId = 46,
                             Value = false
                         },
                         new
                         {
+                            TrueFalseAnswerId = 11,
                             QuestionId = 49,
                             Value = true
                         },
                         new
                         {
+                            TrueFalseAnswerId = 12,
                             QuestionId = 53,
                             Value = true
                         },
                         new
                         {
+                            TrueFalseAnswerId = 13,
                             QuestionId = 56,
                             Value = true
                         },
                         new
                         {
+                            TrueFalseAnswerId = 14,
                             QuestionId = 61,
                             Value = true
                         },
                         new
                         {
+                            TrueFalseAnswerId = 15,
                             QuestionId = 65,
                             Value = true
                         },
                         new
                         {
+                            TrueFalseAnswerId = 16,
                             QuestionId = 74,
                             Value = false
                         },
                         new
                         {
+                            TrueFalseAnswerId = 17,
                             QuestionId = 77,
                             Value = false
                         },
                         new
                         {
+                            TrueFalseAnswerId = 18,
                             QuestionId = 81,
                             Value = true
                         },
                         new
                         {
+                            TrueFalseAnswerId = 19,
                             QuestionId = 86,
                             Value = true
                         },
                         new
                         {
+                            TrueFalseAnswerId = 20,
                             QuestionId = 91,
                             Value = true
                         },
                         new
                         {
+                            TrueFalseAnswerId = 21,
                             QuestionId = 94,
                             Value = true
                         },
                         new
                         {
+                            TrueFalseAnswerId = 22,
                             QuestionId = 97,
                             Value = true
                         },
                         new
                         {
+                            TrueFalseAnswerId = 23,
                             QuestionId = 101,
                             Value = false
                         },
                         new
                         {
+                            TrueFalseAnswerId = 24,
                             QuestionId = 105,
                             Value = true
                         },
                         new
                         {
+                            TrueFalseAnswerId = 25,
                             QuestionId = 108,
                             Value = false
                         },
                         new
                         {
+                            TrueFalseAnswerId = 26,
                             QuestionId = 111,
                             Value = true
                         },
                         new
                         {
+                            TrueFalseAnswerId = 27,
                             QuestionId = 115,
                             Value = true
                         },
                         new
                         {
+                            TrueFalseAnswerId = 28,
                             QuestionId = 118,
                             Value = false
                         },
                         new
                         {
+                            TrueFalseAnswerId = 29,
                             QuestionId = 122,
                             Value = true
                         },
                         new
                         {
+                            TrueFalseAnswerId = 30,
                             QuestionId = 125,
                             Value = true
                         },
                         new
                         {
+                            TrueFalseAnswerId = 31,
                             QuestionId = 128,
                             Value = true
                         },
                         new
                         {
+                            TrueFalseAnswerId = 32,
                             QuestionId = 132,
                             Value = false
                         },
                         new
                         {
+                            TrueFalseAnswerId = 33,
                             QuestionId = 138,
                             Value = false
                         },
                         new
                         {
+                            TrueFalseAnswerId = 34,
                             QuestionId = 142,
                             Value = false
                         },
                         new
                         {
+                            TrueFalseAnswerId = 35,
                             QuestionId = 146,
                             Value = false
                         },
                         new
                         {
+                            TrueFalseAnswerId = 36,
                             QuestionId = 149,
                             Value = true
                         },
                         new
                         {
+                            TrueFalseAnswerId = 37,
                             QuestionId = 153,
                             Value = true
                         },
                         new
                         {
+                            TrueFalseAnswerId = 38,
                             QuestionId = 156,
                             Value = false
                         },
                         new
                         {
+                            TrueFalseAnswerId = 39,
                             QuestionId = 163,
                             Value = true
                         },
                         new
                         {
+                            TrueFalseAnswerId = 40,
                             QuestionId = 166,
                             Value = true
                         },
                         new
                         {
+                            TrueFalseAnswerId = 42,
                             QuestionId = 170,
                             Value = true
                         },
                         new
                         {
+                            TrueFalseAnswerId = 43,
                             QuestionId = 173,
                             Value = true
                         },
                         new
                         {
+                            TrueFalseAnswerId = 44,
                             QuestionId = 176,
                             Value = true
                         },
                         new
                         {
+                            TrueFalseAnswerId = 45,
                             QuestionId = 179,
                             Value = true
                         },
                         new
                         {
+                            TrueFalseAnswerId = 46,
                             QuestionId = 183,
                             Value = true
                         },
                         new
                         {
+                            TrueFalseAnswerId = 47,
                             QuestionId = 190,
                             Value = true
                         },
                         new
                         {
+                            TrueFalseAnswerId = 48,
                             QuestionId = 194,
                             Value = false
                         },
                         new
                         {
+                            TrueFalseAnswerId = 49,
                             QuestionId = 197,
                             Value = true
                         },
                         new
                         {
+                            TrueFalseAnswerId = 50,
                             QuestionId = 200,
                             Value = true
                         },
                         new
                         {
+                            TrueFalseAnswerId = 51,
                             QuestionId = 204,
                             Value = true
                         },
                         new
                         {
+                            TrueFalseAnswerId = 52,
                             QuestionId = 207,
                             Value = false
                         },
                         new
                         {
+                            TrueFalseAnswerId = 53,
                             QuestionId = 209,
                             Value = true
                         });
@@ -10892,22 +10952,22 @@ namespace CareerOrientation.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "78e8dccd-084a-4fd2-8ff1-ecef29b14c21",
-                            ConcurrencyStamp = "1b9979e8-2716-416a-8d5b-7e98210af93f",
+                            Id = "d9fa5f30-2881-44c6-b440-dac2a8965dd3",
+                            ConcurrencyStamp = "898d9d2b-cb7b-4647-aa56-0e08aced32c4",
                             Name = "Student",
                             NormalizedName = "STUDENT"
                         },
                         new
                         {
-                            Id = "403faf29-e74e-4ece-b26d-6ced8e2c84ec",
-                            ConcurrencyStamp = "d396e3e8-259e-47e6-a435-90a81271ec35",
+                            Id = "113b0e44-ee1b-4dc3-ba25-2393cec690a2",
+                            ConcurrencyStamp = "3815c6a7-54c9-4b60-8452-aa7aee35718c",
                             Name = "GraduateStudent",
                             NormalizedName = "GRADUATESTUDENT"
                         },
                         new
                         {
-                            Id = "dddb0de3-5852-4fbc-8c2a-9d196d56a729",
-                            ConcurrencyStamp = "0e88fd28-534e-4d44-b7ac-4188a2f65695",
+                            Id = "09ee559f-f86d-417c-8c55-abc0046a8816",
+                            ConcurrencyStamp = "0d236b92-68ae-4a0a-baaf-5c7815893ce7",
                             Name = "ProspectiveStudent",
                             NormalizedName = "PROSPECTIVESTUDENT"
                         });
@@ -11302,19 +11362,19 @@ namespace CareerOrientation.Infrastructure.Migrations
             modelBuilder.Entity("CareerOrientation.Domain.JunctionEntities.UserMultipleChoiceAnswer", b =>
                 {
                     b.HasOne("CareerOrientation.Domain.Entities.MultipleChoiceAnswer", "MultipleChoiceAnswer")
-                        .WithMany()
+                        .WithMany("UserMultipleChoiceAnswers")
                         .HasForeignKey("MultipleChoiceAnswerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("CareerOrientation.Domain.Entities.Question", "Question")
-                        .WithMany()
+                        .WithMany("UsersMultipleChoiceAnswers")
                         .HasForeignKey("QuestionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("CareerOrientation.Domain.Entities.User", "User")
-                        .WithMany()
+                        .WithMany("UserMultipleChoiceAnswers")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -11347,19 +11407,19 @@ namespace CareerOrientation.Infrastructure.Migrations
 
             modelBuilder.Entity("CareerOrientation.Domain.JunctionEntities.UserTrueFalseAnswer", b =>
                 {
-                    b.HasOne("CareerOrientation.Domain.Entities.TrueFalseAnswer", "TrueFalseAnswer")
-                        .WithMany()
+                    b.HasOne("CareerOrientation.Domain.Entities.Question", "Question")
+                        .WithMany("UsersTrueFalseAnswers")
                         .HasForeignKey("QuestionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("CareerOrientation.Domain.Entities.User", "User")
-                        .WithMany()
+                        .WithMany("UserTrueFalseAnswers")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("TrueFalseAnswer");
+                    b.Navigation("Question");
 
                     b.Navigation("User");
                 });
@@ -11427,14 +11487,22 @@ namespace CareerOrientation.Infrastructure.Migrations
                     b.Navigation("Questions");
                 });
 
+            modelBuilder.Entity("CareerOrientation.Domain.Entities.MultipleChoiceAnswer", b =>
+                {
+                    b.Navigation("UserMultipleChoiceAnswers");
+                });
+
             modelBuilder.Entity("CareerOrientation.Domain.Entities.Question", b =>
                 {
                     b.Navigation("MultipleChoiceAnswers");
 
-                    b.Navigation("TrueFalseAnswer")
-                        .IsRequired();
+                    b.Navigation("TrueFalseAnswer");
 
                     b.Navigation("UsersLikertScaleAnswers");
+
+                    b.Navigation("UsersMultipleChoiceAnswers");
+
+                    b.Navigation("UsersTrueFalseAnswers");
                 });
 
             modelBuilder.Entity("CareerOrientation.Domain.Entities.Track", b =>
@@ -11462,6 +11530,10 @@ namespace CareerOrientation.Infrastructure.Migrations
                     b.Navigation("UserCourseStatistics");
 
                     b.Navigation("UserLikertScaleAnswers");
+
+                    b.Navigation("UserMultipleChoiceAnswers");
+
+                    b.Navigation("UserTrueFalseAnswers");
                 });
 #pragma warning restore 612, 618
         }

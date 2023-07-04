@@ -12,11 +12,11 @@ public class UserMultipleChoiceAnswerConfig : IEntityTypeConfiguration<UserMulti
         builder.HasKey(x => new { x.QuestionId, x.UserId, x.MultipleChoiceAnswerId});
 
         builder.HasOne(userMultipleChoice => userMultipleChoice.MultipleChoiceAnswer)
-            .WithMany()
+            .WithMany(multipleChoiceAnswer => multipleChoiceAnswer.UserMultipleChoiceAnswers)
             .HasForeignKey(userMultipleChoice => userMultipleChoice.MultipleChoiceAnswerId);
         
         builder.HasOne(userMultipleChoice => userMultipleChoice.User)
-            .WithMany()
+            .WithMany(user => user.UserMultipleChoiceAnswers)
             .HasForeignKey(userMultipleChoice => userMultipleChoice.UserId);
     }
 }

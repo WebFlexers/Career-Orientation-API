@@ -8,5 +8,5 @@ public class Skill
     public string Name { get; set; }
     public SkillType Type { get; set; }
 
-    public List<Course>? Courses { get; set; }
+    public List<Course> Courses { get; set; }
 }

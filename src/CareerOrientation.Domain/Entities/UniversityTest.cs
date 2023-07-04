@@ -8,8 +8,8 @@ public class UniversityTest
     public bool IsRevision { get; set; }
 
     public int? TrackId { get; set; }
-    public Track? Track { get; set; }
+    public Track Track { get; set; }
 
     public List<Question> Questions { get; set; }
-    public List<User>? UsersTookTest { get; set; }
+    public List<User> UsersTookTest { get; set; }
 }

@@ -14,12 +14,14 @@ public class UserTrueFalseAnswerConfig : IEntityTypeConfiguration<UserTrueFalseA
         builder.Property(x => x.Value)
             .IsRequired();
 
-        builder.HasOne(userMultipleChoice => userMultipleChoice.TrueFalseAnswer)
-            .WithMany()
-            .HasForeignKey(userMultipleChoice => userMultipleChoice.QuestionId);
+        builder.HasOne(userTrueFalseAnswer => userTrueFalseAnswer.Question)
+            .WithMany(question => question.UsersTrueFalseAnswers)
+            .HasForeignKey(userTrueFalseAnswer => userTrueFalseAnswer.QuestionId)
+            .IsRequired();
         
-        builder.HasOne(userMultipleChoice => userMultipleChoice.User)
-            .WithMany()
-            .HasForeignKey(userMultipleChoice => userMultipleChoice.UserId);
+        builder.HasOne(userTrueFalseAnswer => userTrueFalseAnswer.User)
+            .WithMany(user => user.UserTrueFalseAnswers)
+            .HasForeignKey(userTrueFalseAnswer => userTrueFalseAnswer.UserId)
+            .IsRequired();
     }
 }

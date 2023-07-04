@@ -4,7 +4,7 @@ namespace CareerOrientation.Application.Tests.StudentTests.Common.Mapping;
 
 public static class QuestionAnswerMapping
 {
-    public static UserTrueFalseAnswer MapToUserTrueFalseAnswer(this QuestionAnswer answer, string userId)
+    public static UserTrueFalseAnswer MapToUserTrueFalseAnswer(this UserQuestionAnswer answer, string userId)
     {
         return new UserTrueFalseAnswer
         {
@@ -14,7 +14,7 @@ public static class QuestionAnswerMapping
         };
     }
     
-    public static UserMultipleChoiceAnswer MapToUserMultipleChoiceAnswer(this QuestionAnswer answer, string userId)
+    public static UserMultipleChoiceAnswer MapToUserMultipleChoiceAnswer(this UserQuestionAnswer answer, string userId)
     {
         return new UserMultipleChoiceAnswer
         {
@@ -24,7 +24,7 @@ public static class QuestionAnswerMapping
         };
     }
     
-    public static UserLikertScaleAnswer MapToUserLikertScaleAnswer(this QuestionAnswer answer, string userId)
+    public static UserLikertScaleAnswer MapToUserLikertScaleAnswer(this UserQuestionAnswer answer, string userId)
     {
         return new UserLikertScaleAnswer
         {
