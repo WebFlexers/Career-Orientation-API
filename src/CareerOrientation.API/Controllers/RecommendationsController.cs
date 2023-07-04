@@ -23,7 +23,7 @@ public class RecommendationsController : ApiController
     /// </summary>
     /// <remarks>
     /// The algorithm first gives a percentage of how well fitted is informatics as a field for the user based on
-    /// the first test. If the percentage is above 50% it means that it is deemed as fitted and it continues to
+    /// the first test. If the percentage is above 40% it means that it is deemed as fitted and it continues to
     /// calculate how well fitted is University of Piraeus for them based on the second test. <br/>
     /// <br/>
     /// Note: To get the recommendations the user must complete all the required tests. If they fail the first test
