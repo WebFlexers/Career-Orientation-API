@@ -71,8 +71,11 @@ public class UniversityTestsRecommendationHandler
         var questionRecommendationLinks = await _testsRepository
             .GetQuestionsRecommendationLinks(universityTestIds, cancellationToken);
 
+        // Here the semester is used to only recommend tracks to those who haven't already selected one,
+        // meaning students below the 5th semester. So if the student is a graduate we just assign 8 to the semester
+        var semester = student.IsGraduate ? 8 : student.Semester!.Value;
         var recommendationResults = _pointsCalculationService.CreateStudentRecommendations(
-            userAnswers, correctAnswers, questionRecommendationLinks);
+            userAnswers, correctAnswers, questionRecommendationLinks, semester);
 
         return recommendationResults;
     }

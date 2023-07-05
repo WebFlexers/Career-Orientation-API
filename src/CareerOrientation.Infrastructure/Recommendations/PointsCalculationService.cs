@@ -119,7 +119,8 @@ public class PointsCalculationService : IPointsCalculationService
     }
 
     public List<RecommendationResult> CreateStudentRecommendations(List<IQuestionAnswer> userAnswers, 
-        List<IQuestionAnswer> correctAnswers, List<QuestionRecommendationsLinks> questionRecommendationsLinks)
+        List<IQuestionAnswer> correctAnswers, List<QuestionRecommendationsLinks> questionRecommendationsLinks,
+        int semester)
     {
         // First we create dictionaries to keep the total user points for tracks, masters degrees and professions
         Dictionary<Track, float> tracksPoints = new();
@@ -148,9 +149,9 @@ public class PointsCalculationService : IPointsCalculationService
                     
                     // At the same time we are incrementing the max points and the user points to avoid using 2 loops
                     IncrementScore(tracksMaxPoints, mastersDegreesMaxPoints, professionsMaxPoints,
-                        Scores.CorrectTrueFalseAnswer, userAnswer.QuestionId, questionRecommendationsLinks);
+                        Scores.CorrectTrueFalseAnswer, userAnswer.QuestionId, questionRecommendationsLinks, semester);
                     IncrementScore(tracksPoints, mastersDegreesPoints, professionsPoints,
-                        scoreToAdd1, userAnswer.QuestionId, questionRecommendationsLinks);
+                        scoreToAdd1, userAnswer.QuestionId, questionRecommendationsLinks, semester);
 
                     break;
                 case MultipleChoiceAnswer userMultipleChoiceAnswer:
@@ -163,9 +164,10 @@ public class PointsCalculationService : IPointsCalculationService
                         : Scores.WrongMultipleChoiceAnswer;
                     
                     IncrementScore(tracksMaxPoints, mastersDegreesMaxPoints, professionsMaxPoints,
-                        Scores.CorrectMultipleChoiceAnswer, userAnswer.QuestionId, questionRecommendationsLinks);
+                        Scores.CorrectMultipleChoiceAnswer, userAnswer.QuestionId, questionRecommendationsLinks,
+                        semester);
                     IncrementScore(tracksPoints, mastersDegreesPoints, professionsPoints,
-                        scoreToAdd2, userAnswer.QuestionId, questionRecommendationsLinks);
+                        scoreToAdd2, userAnswer.QuestionId, questionRecommendationsLinks, semester);
 
                     break;
                 case LikertScaleAnswer userLikertScaleAnswer:
@@ -191,9 +193,9 @@ public class PointsCalculationService : IPointsCalculationService
                     }
                     
                     IncrementScore(tracksMaxPoints, mastersDegreesMaxPoints, professionsMaxPoints,
-                        Scores.NormalLikertScaleAnswer5, userAnswer.QuestionId, questionRecommendationsLinks);
+                        Scores.NormalLikertScaleAnswer5, userAnswer.QuestionId, questionRecommendationsLinks, semester);
                     IncrementScore(tracksPoints, mastersDegreesPoints, professionsPoints,
-                        scoreToAdd3, userAnswer.QuestionId, questionRecommendationsLinks);
+                        scoreToAdd3, userAnswer.QuestionId, questionRecommendationsLinks, semester);
                     
                     break;
                 default:
@@ -202,31 +204,36 @@ public class PointsCalculationService : IPointsCalculationService
         }
 
         var tracksRecommendationResults = CalculateRecommendations(tracksPoints, 
-            mastersDegreesPoints, professionsPoints, tracksMaxPoints, mastersDegreesMaxPoints, professionsMaxPoints);
+            mastersDegreesPoints, professionsPoints, tracksMaxPoints, mastersDegreesMaxPoints, professionsMaxPoints,
+            semester);
 
         return tracksRecommendationResults;
     }
 
     private void IncrementScore(IDictionary<Track, float> tracksPoints, IDictionary<MastersDegree, float> mastersDegreesPoints,
         IDictionary<Profession, float> professionsPoints, float scoreToAdd, int questionId,
-        IEnumerable<QuestionRecommendationsLinks> questionRecommendationsLinks)
+        IEnumerable<QuestionRecommendationsLinks> questionRecommendationsLinks, int semester)
     {
         // We get the question recommendation links
         var questionRecommendationsLink = questionRecommendationsLinks
             .First(x => x.QuestionId == questionId);
-                        
-        questionRecommendationsLink.Tracks.ForEach(track =>
+
+        // We should only recommend tracks to students below the 5th semester
+        if (semester <= 4)
         {
-            if (tracksPoints.ContainsKey(track))
+            questionRecommendationsLink.Tracks.ForEach(track =>
             {
-                tracksPoints[track] += scoreToAdd;
-            }
-            else
-            {
-                tracksPoints.Add(track, scoreToAdd);
-            }
-        });
-        
+                if (tracksPoints.ContainsKey(track))
+                {
+                    tracksPoints[track] += scoreToAdd;
+                }
+                else
+                {
+                    tracksPoints.Add(track, scoreToAdd);
+                }
+            });
+        }
+
         questionRecommendationsLink.MastersDegrees.ForEach(mastersDegree =>
         {
             if (mastersDegreesPoints.ContainsKey(mastersDegree))
@@ -256,21 +263,25 @@ public class PointsCalculationService : IPointsCalculationService
         IDictionary<Track, float> tracksPoints, IDictionary<MastersDegree, float> mastersDegreesPoints,
         IDictionary<Profession, float> professionsPoints,
         IDictionary<Track, float> tracksMaxPoints, IDictionary<MastersDegree, float> mastersDegreesMaxPoints,
-        IDictionary<Profession, float> professionsMaxPoints)
+        IDictionary<Profession, float> professionsMaxPoints, int semester)
     {
         List<RecommendationResult> recommendationResults = new();
-        
-        foreach (var trackPoints in tracksPoints)
+
+        // We should only recommend tracks to students below the 5th semester
+        if (semester <= 4)
         {
-            var trackPercentageScore = (int)Math.Round((trackPoints.Value / tracksMaxPoints[trackPoints.Key]) * 100);
+            foreach (var trackPoints in tracksPoints)
+            {
+                var trackPercentageScore = (int)Math.Round((trackPoints.Value / tracksMaxPoints[trackPoints.Key]) * 100);
             
-            recommendationResults.Add(new RecommendationResult(
-                RecommendationType.Track,
-                GetRecommendationLevel(trackPercentageScore),
-                trackPoints.Key.Name,
-                trackPercentageScore));
+                recommendationResults.Add(new RecommendationResult(
+                    RecommendationType.Track,
+                    GetRecommendationLevel(trackPercentageScore),
+                    trackPoints.Key.Name,
+                    trackPercentageScore));
+            }
         }
-        
+
         foreach (var mastersDegreePoints in mastersDegreesPoints)
         {
             var mastersDegreePercentageScore = 

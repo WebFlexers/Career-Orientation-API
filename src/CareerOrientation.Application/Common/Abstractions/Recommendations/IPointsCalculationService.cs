@@ -9,6 +9,7 @@ public interface IPointsCalculationService
     float CalculateGeneralTestMaxPoints(List<IQuestionAnswer> userAnswers);
     float CalculateProspectiveStudentPoints(List<IQuestionAnswer> userAnswers, List<IQuestionAnswer> correctAnswers);
     List<RecommendationResult> CreateStudentRecommendations(List<IQuestionAnswer> userAnswers,
-        List<IQuestionAnswer> correctAnswers, List<QuestionRecommendationsLinks> questionRecommendationsLinks);
+        List<IQuestionAnswer> correctAnswers, List<QuestionRecommendationsLinks> questionRecommendationsLinks,
+        int semester);
     RecommendationLevel GetRecommendationLevel(int userPointsPercentage);
 }
