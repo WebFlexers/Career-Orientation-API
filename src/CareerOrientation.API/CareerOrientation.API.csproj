@@ -29,8 +29,4 @@
       <ProjectReference Include="..\CareerOrientation.Infrastructure\CareerOrientation.Infrastructure.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Common\Contracts\Recommendations\" />
-    </ItemGroup>
-
 </Project>

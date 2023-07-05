@@ -1,4 +1,5 @@
-﻿using CareerOrientation.Application.Tests.Common;
+﻿using CareerOrientation.Application.Recommendations.Queries.StudentRecommendation.Common;
+using CareerOrientation.Application.Tests.Common;
 using CareerOrientation.Application.Tests.ProspectiveStudentTests.Common;
 using CareerOrientation.Application.Tests.StudentTests.Common;
 using CareerOrientation.Domain.Common.Enums;
@@ -29,7 +30,11 @@ public interface ITestsRepository
     Task<List<IQuestionAnswer>> GetUserAnswersToGeneralTest(string userId, int generalTestId,
         CancellationToken cancellationToken);
 
-    Task<List<IQuestionAnswer>> GetStudentAnswersToUniversityTest(string userId, string universityTestId);
+    Task<List<IQuestionAnswer>> GetStudentAnswersToUniversityTests(string userId,
+        List<int> universityTestIds, CancellationToken cancellationToken);
+    
+    Task<List<IQuestionAnswer>> GetCorrectAnswersOfUniversityTest(List<int> universityTestIds,
+        CancellationToken cancellationToken);
 
     Task<List<IQuestionAnswer>> GetCorrectAnswersOfGeneralTest(int generalTestId, CancellationToken cancellationToken);
     
@@ -40,6 +45,9 @@ public interface ITestsRepository
         List<UserQuestionAnswer> answers, 
         CancellationToken cancellationToken);
 
+    Task<List<QuestionRecommendationsLinks>> GetQuestionsRecommendationLinks(List<int> universityTestIds,
+        CancellationToken cancellationToken);
+    
     Task<ErrorOr<Unit>> EnsureUserHasntTakenTest(string userId, int testId, TestType testType,
         CancellationToken cancellationToken);
 }

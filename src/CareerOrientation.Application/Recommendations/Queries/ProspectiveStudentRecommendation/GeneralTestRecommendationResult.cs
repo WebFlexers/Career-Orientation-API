@@ -1,7 +1,7 @@
 ﻿using CareerOrientation.Domain.Common.Enums;
 using CareerOrientation.Domain.Entities.Enums;
 
-namespace CareerOrientation.Application.Recommendations.Common;
+namespace CareerOrientation.Application.Recommendations.Queries.ProspectiveStudentRecommendation;
 
 public record GeneralTestRecommendationResult(
     GeneralTestType GeneralTestType,

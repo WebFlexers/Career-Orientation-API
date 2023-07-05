@@ -1,4 +1,6 @@
-﻿using CareerOrientation.Application.Recommendations.Queries.ProspectiveStudentRecommendation;
+﻿using CareerOrientation.API.Common.Mapping.Recommendations;
+using CareerOrientation.Application.Recommendations.Queries.ProspectiveStudentRecommendation;
+using CareerOrientation.Application.Recommendations.Queries.StudentRecommendation;
 
 using MediatR;
 
@@ -44,7 +46,26 @@ public class RecommendationsController : ApiController
         var query = new ProspectiveStudentRecommendationQuery(userId);
         var result = await _mediator.Send(query, cancellationToken);
 
-        return result.Match(recommendations => Ok(recommendations),
+        return result.Match(recommendations => 
+                Ok(recommendations.ConvertAll(recommendation => recommendation.MapToResponse())),
+            errors => Problem(errors));
+    }
+
+    [HttpGet("Student")]
+    [Authorize]
+    public async Task<IActionResult> GetStudentRecommendation(CancellationToken cancellationToken)
+    {
+        var userId = GetUserIdFromToken();
+        if (userId is null)
+        {
+            return Problem(statusCode: 401, title: "Unauthorized");
+        }
+
+        var query = new UniversityTestsRecommendationQuery(userId);
+        var result = await _mediator.Send(query, cancellationToken);
+
+        return result.Match(recommendations => 
+                Ok(recommendations.MapToStudentRecommendationsResponse()),
             errors => Problem(errors));
     }
 }

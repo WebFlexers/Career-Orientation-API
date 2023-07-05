@@ -1,5 +1,4 @@
 ﻿using CareerOrientation.Application.Common.Abstractions.Persistence;
-using CareerOrientation.Application.Recommendations.Common;
 using CareerOrientation.Application.Tests.ProspectiveStudentTests.Queries.ProspectiveStudentTestsCompletionState;
 using CareerOrientation.Domain.Common.DomainErrors;
 using CareerOrientation.Domain.Common.Enums;

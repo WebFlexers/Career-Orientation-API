@@ -1,12 +1,7 @@
-﻿using System.Runtime.InteropServices;
-
-using CareerOrientation.Application.Common.Abstractions.Persistence;
+﻿using CareerOrientation.Application.Common.Abstractions.Persistence;
 using CareerOrientation.Application.Common.Abstractions.Recommendations;
-using CareerOrientation.Application.Recommendations.Common;
-using CareerOrientation.Application.Tests.Common;
 using CareerOrientation.Domain.Common.Enums.Mappings;
 using CareerOrientation.Domain.Entities.Enums;
-using CareerOrientation.Domain.Recommendations;
 
 using ErrorOr;
 
@@ -36,8 +31,8 @@ public class GeneralTestRecommendationHandler
         var correctAnswers = await _testsRepository.GetCorrectAnswersOfGeneralTest(
             request.GeneralTestId, cancellationToken);
 
-        float maxPoints = _pointsCalculationService.CalculateMaxPoints(userAnswers);
-        float userPoints = _pointsCalculationService.CalculateUserPoints(userAnswers, correctAnswers);
+        float maxPoints = _pointsCalculationService.CalculateGeneralTestMaxPoints(userAnswers);
+        float userPoints = _pointsCalculationService.CalculateProspectiveStudentPoints(userAnswers, correctAnswers);
 
         var userPointsPercentage = (int)Math.Round((userPoints / maxPoints) * 100);
 

@@ -16,7 +16,8 @@ public class UserRepository : RepositoryBase, IUserRepository
         return await _dbContext.Users.FindAsync(new object?[] { userId }, cancellationToken);
     }
     
-    public async Task<UniversityStudent?> GetUniversityStudentById(string? userId, bool includeTrack = true)
+    public async Task<UniversityStudent?> GetUniversityStudentById(string? userId, CancellationToken cancellationToken, 
+        bool includeTrack = true)
     {
         if (userId is null) return null;
 
@@ -25,13 +26,13 @@ public class UserRepository : RepositoryBase, IUserRepository
             return await _dbContext.UniversityStudents
                 .AsNoTracking()
                 .Include(us => us.Track)
-                .FirstOrDefaultAsync(us => us.UserId == userId);
+                .FirstOrDefaultAsync(us => us.UserId == userId, cancellationToken);
         }
         else
         {
             return await _dbContext.UniversityStudents
                 .AsNoTracking()
-                .FirstOrDefaultAsync(us => us.UserId == userId);
+                .FirstOrDefaultAsync(us => us.UserId == userId, cancellationToken);
         }
     }
     

@@ -1,11 +1,14 @@
-﻿using CareerOrientation.Application.Tests.Common;
+﻿using CareerOrientation.Application.Recommendations.Queries.StudentRecommendation.Common;
+using CareerOrientation.Application.Tests.Common;
 using CareerOrientation.Domain.Common.Enums;
 
 namespace CareerOrientation.Application.Common.Abstractions.Recommendations;
 
 public interface IPointsCalculationService
 {
-    float CalculateMaxPoints(List<IQuestionAnswer> userAnswers);
-    float CalculateUserPoints(List<IQuestionAnswer> userAnswers, List<IQuestionAnswer> correctAnswers);
+    float CalculateGeneralTestMaxPoints(List<IQuestionAnswer> userAnswers);
+    float CalculateProspectiveStudentPoints(List<IQuestionAnswer> userAnswers, List<IQuestionAnswer> correctAnswers);
+    List<RecommendationResult> CreateStudentRecommendations(List<IQuestionAnswer> userAnswers,
+        List<IQuestionAnswer> correctAnswers, List<QuestionRecommendationsLinks> questionRecommendationsLinks);
     RecommendationLevel GetRecommendationLevel(int userPointsPercentage);
 }

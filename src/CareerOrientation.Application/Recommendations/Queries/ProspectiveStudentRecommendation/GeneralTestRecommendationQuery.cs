@@ -1,5 +1,4 @@
-﻿using CareerOrientation.Application.Recommendations.Common;
-using CareerOrientation.Domain.Entities.Enums;
+﻿using CareerOrientation.Domain.Entities.Enums;
 
 using ErrorOr;
 

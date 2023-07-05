@@ -42,7 +42,7 @@ public class UserByIdHandler : IRequestHandler<UserByIdQuery, ErrorOr<UserResult
             return Error.Unexpected();
         }
 
-        var student = await _userRepository.GetUniversityStudentById(request.UserId);
+        var student = await _userRepository.GetUniversityStudentById(request.UserId, cancellationToken);
 
         if (student is null)
         {

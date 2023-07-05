@@ -1,6 +1,4 @@
-﻿using CareerOrientation.Domain.JunctionEntities;
-
-namespace CareerOrientation.Domain.Entities;
+﻿namespace CareerOrientation.Domain.Entities;
 
 public class TrueFalseAnswer
 {

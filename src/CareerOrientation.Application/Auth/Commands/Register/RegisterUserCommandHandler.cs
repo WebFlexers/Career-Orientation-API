@@ -68,18 +68,23 @@ public class RegisterUserCommandHandler : IRequestHandler<RegisterUserCommand, E
 
             if (command.IsProspectiveStudent == false)
             {
-                var track = await _trackRepository.GetTrackByName(command.Track);
-                if (track is null)
+                Track? track = null;
+
+                if (command.Semester >= 5)
                 {
-                    return Errors.Tracks.NonExistentTrack;
+                    track = await _trackRepository.GetTrackByName(command.Track);
+                    if (track is null)
+                    {
+                        return Errors.Tracks.NonExistentTrack;
+                    }
                 }
-            
+
                 var student = new UniversityStudent()
                 {
                     UserId = newUser.Id,
                     IsGraduate = command.IsGraduate,
                     Semester = command.Semester,
-                    TrackId =  track.TrackId
+                    TrackId =  track?.TrackId
                 };
 
                 await _userRepository.AddUniversityStudent(student);

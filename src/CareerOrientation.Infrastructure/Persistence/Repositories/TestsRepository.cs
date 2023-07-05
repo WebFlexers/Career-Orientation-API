@@ -1,6 +1,7 @@
 ﻿using System.Collections.Immutable;
 
 using CareerOrientation.Application.Common.Abstractions.Persistence;
+using CareerOrientation.Application.Recommendations.Queries.StudentRecommendation.Common;
 using CareerOrientation.Application.Tests.Common;
 using CareerOrientation.Application.Tests.ProspectiveStudentTests.Common;
 using CareerOrientation.Application.Tests.ProspectiveStudentTests.Common.Mapping;
@@ -8,6 +9,7 @@ using CareerOrientation.Application.Tests.StudentTests.Common;
 using CareerOrientation.Application.Tests.StudentTests.Common.Mapping;
 using CareerOrientation.Domain.Common.DomainErrors;
 using CareerOrientation.Domain.Common.Enums;
+using CareerOrientation.Domain.Entities;
 using CareerOrientation.Domain.Entities.Enums;
 using CareerOrientation.Domain.JunctionEntities;
 
@@ -17,6 +19,9 @@ using MediatR;
 
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+
+using MultipleChoiceAnswer = CareerOrientation.Application.Tests.Common.MultipleChoiceAnswer;
+using TrueFalseAnswer = CareerOrientation.Application.Tests.Common.TrueFalseAnswer;
 
 namespace CareerOrientation.Infrastructure.Persistence.Repositories;
 
@@ -212,18 +217,88 @@ public class TestsRepository : RepositoryBase, ITestsRepository
     public async Task<List<IQuestionAnswer>> GetUserAnswersToGeneralTest(string userId, int generalTestId,
         CancellationToken cancellationToken)
     {
-        var testQuestionsWithUserAnswers = await _dbContext.Questions
+        var testQuestionsWithUserAnswers = _dbContext.Questions
             .AsNoTracking()
-            .Where(question => question.GeneralTestId == generalTestId)
+            .Where(question => question.GeneralTestId == generalTestId);
+
+        return await GetUserAnswersToTests(testQuestionsWithUserAnswers, cancellationToken);
+    }
+
+    public async Task<List<IQuestionAnswer>> GetCorrectAnswersOfGeneralTest(int generalTestId, 
+        CancellationToken cancellationToken)
+    {
+        var testQuestionsWithCorrectAnswers = _dbContext.Questions
+            .AsNoTracking()
+            .Where(question => question.GeneralTestId == generalTestId);
+
+        return await GetCorrectAnswersToTests(testQuestionsWithCorrectAnswers, cancellationToken);
+    }
+    
+    public async Task<List<IQuestionAnswer>> GetStudentAnswersToUniversityTests(string userId, 
+        List<int> universityTestIds, CancellationToken cancellationToken)
+    {
+        if (universityTestIds.Any() == false)
+        {
+            return new();
+        }
+
+        var questionsQueryable = _dbContext.Questions
+            .AsNoTracking()
+            .Where(question => question.UniversityTestId.HasValue &&
+                               universityTestIds.Contains(question.UniversityTestId.Value));
+
+        return await GetUserAnswersToTests(questionsQueryable, cancellationToken);
+    }
+    
+    public async Task<List<IQuestionAnswer>> GetCorrectAnswersOfUniversityTest(List<int> universityTestIds, 
+        CancellationToken cancellationToken)
+    {
+        var testQuestionsWithCorrectAnswers = _dbContext.Questions
+            .AsNoTracking()
+            .Where(question => question.UniversityTestId.HasValue &&
+                               universityTestIds.Contains(question.UniversityTestId.Value));
+
+        return await GetCorrectAnswersToTests(testQuestionsWithCorrectAnswers, cancellationToken);
+    }
+
+    public async Task<List<QuestionRecommendationsLinks>> GetQuestionsRecommendationLinks(List<int> universityTestIds,
+        CancellationToken cancellationToken)
+    {
+        var questionRecommendationLinks = await _dbContext.Questions
+            .AsNoTracking()
+            .Where(question => question.UniversityTestId.HasValue &&
+                               universityTestIds.Contains(question.UniversityTestId.Value))
+            .Select(question => new QuestionRecommendationsLinks(
+                question.QuestionId,
+                question.Tracks,
+                question.Professions,
+                question.MastersDegrees))
+            .ToListAsync(cancellationToken);
+
+        return questionRecommendationLinks;
+    }
+
+    /// <summary>
+    /// Gets the user answers to the questions provided through the queryable
+    /// </summary>
+    private async Task<List<IQuestionAnswer>> GetUserAnswersToTests(IQueryable<Question>? questionsQueryable, 
+        CancellationToken cancellationToken)
+    {
+        if (questionsQueryable is null)
+        {
+            return new();
+        }
+
+        var testsQuestionsWithUserAnswers = await questionsQueryable
             .Include(question => question.LikertScaleAnswers)
             .Include(question => question.UsersLikertScaleAnswers)
             .Include(question => question.UsersMultipleChoiceAnswers)
             .Include(question => question.UsersTrueFalseAnswers)
             .ToListAsync(cancellationToken);
-
+        
         List<IQuestionAnswer> userAnswers = new();
 
-        foreach (var question in testQuestionsWithUserAnswers)
+        foreach (var question in testsQuestionsWithUserAnswers)
         {
             switch (question.Type)
             {
@@ -253,22 +328,23 @@ public class TestsRepository : RepositoryBase, ITestsRepository
 
         return userAnswers;
     }
-    
-    public async Task<List<IQuestionAnswer>> GetStudentAnswersToUniversityTest(string userId, string universityTestId)
-    {
-        throw new NotImplementedException();
-    }
 
-    public async Task<List<IQuestionAnswer>> GetCorrectAnswersOfGeneralTest(int generalTestId, 
+    /// <summary>
+    /// Gets the correct answers to the questions provided through the queryable
+    /// </summary>
+    private async Task<List<IQuestionAnswer>> GetCorrectAnswersToTests(IQueryable<Question>? questionsQueryable,
         CancellationToken cancellationToken)
     {
-        var testQuestionsWithCorrectAnswers = await _dbContext.Questions
-            .AsNoTracking()
-            .Where(question => question.GeneralTestId == generalTestId)
+        if (questionsQueryable is null)
+        {
+            return new();
+        }
+        
+        var testQuestionsWithCorrectAnswers = await questionsQueryable
             .Include(question => question.MultipleChoiceAnswers)
             .Include(question => question.TrueFalseAnswer)
             .ToListAsync(cancellationToken);
-
+        
         List<IQuestionAnswer> questionAnswers = new();
         
         foreach (var question in testQuestionsWithCorrectAnswers)
@@ -294,7 +370,7 @@ public class TestsRepository : RepositoryBase, ITestsRepository
 
         return questionAnswers;
     }
-    
+
     public async Task<ErrorOr<Unit>> InsertUserTestAnswers(
         string userId,
         int testId, 

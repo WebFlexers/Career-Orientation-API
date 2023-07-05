@@ -1,6 +1,4 @@
-﻿using CareerOrientation.Application.Recommendations.Common;
-
-using ErrorOr;
+﻿using ErrorOr;
 
 using MediatR;
 

@@ -32,6 +32,8 @@ var app = builder.Build();
         });
     }
     
+    Console.WriteLine("test");
+    
     app.UseCustomCors();
 
     app.UseHttpsRedirection();
