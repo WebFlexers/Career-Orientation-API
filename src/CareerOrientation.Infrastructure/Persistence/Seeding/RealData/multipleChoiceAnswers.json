@@ -310,7 +310,7 @@
     {
       "multipleChoiceAnswerId": 52,
       "text": "O(n log n)",
-      "isCorrect": false,
+      "isCorrect": true,
       "questionId": 64
     },
     {
@@ -1440,7 +1440,7 @@
     {
       "multipleChoiceAnswerId": 240,
       "text": "Απευθείας μετατροπή από VHDL (VHDL to Gate translation)",
-      "isCorrect": false,
+      "isCorrect": true,
       "questionId": 208
     },
     {

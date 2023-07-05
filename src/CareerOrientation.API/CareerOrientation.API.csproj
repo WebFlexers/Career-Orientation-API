@@ -5,6 +5,7 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <UserSecretsId>fa62f300-b998-4f4e-bd3b-92f7736fa5f6</UserSecretsId>
     </PropertyGroup>
 
     <ItemGroup>
@@ -27,6 +28,12 @@
     <ItemGroup>
       <ProjectReference Include="..\CareerOrientation.Application\CareerOrientation.Application.csproj" />
       <ProjectReference Include="..\CareerOrientation.Infrastructure\CareerOrientation.Infrastructure.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Update="appsettings.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
     </ItemGroup>
 
 </Project>

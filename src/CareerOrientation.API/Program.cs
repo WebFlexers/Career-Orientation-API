@@ -4,6 +4,8 @@ using CareerOrientation.API.StartupConfig;
 using CareerOrientation.Application;
 using CareerOrientation.Infrastructure;
 
+using Microsoft.AspNetCore.Server.Kestrel.Core;
+
 using WatchDog;
 using WatchDog.src.Enums;
 
@@ -11,6 +13,17 @@ Console.OutputEncoding = System.Text.Encoding.UTF8;
 
 var builder = WebApplication.CreateBuilder(args);
 {
+    if (builder.Environment.IsProduction())
+    {
+        builder.WebHost.ConfigureKestrel((context, options) =>
+        {
+            options.ListenAnyIP(5121, listenOptions =>
+            {
+                listenOptions.Protocols = HttpProtocols.Http1AndHttp2;
+            });
+        });   
+    }
+
     builder.Services.AddCors();
     
     builder.Services
@@ -31,8 +44,6 @@ var app = builder.Build();
             options.DisplayRequestDuration();
         });
     }
-    
-    Console.WriteLine("test");
     
     app.UseCustomCors();
 
