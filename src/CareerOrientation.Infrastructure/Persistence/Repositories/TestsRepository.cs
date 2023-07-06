@@ -147,7 +147,7 @@ public class TestsRepository : RepositoryBase, ITestsRepository
 
         // If the semester is odd we need to remove the extra loaded revision test, 
         // since the student mustn't have access to it yet
-        if (student.Semester % 2 != 0)
+        if (student.Semester % 2 != 0 && student.IsGraduate == false)
         {
             universityTests.RemoveAt(universityTests.Count - 1);
         }

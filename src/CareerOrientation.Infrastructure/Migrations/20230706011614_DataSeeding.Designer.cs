@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CareerOrientation.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230704172903_DataSeeding")]
+    [Migration("20230706011614_DataSeeding")]
     partial class DataSeeding
     {
         /// <inheritdoc />
@@ -1046,7 +1046,7 @@ namespace CareerOrientation.Infrastructure.Migrations
                         new
                         {
                             MultipleChoiceAnswerId = 52,
-                            IsCorrect = false,
+                            IsCorrect = true,
                             QuestionId = 64,
                             Text = "O(n log n)"
                         },
@@ -2362,7 +2362,7 @@ namespace CareerOrientation.Infrastructure.Migrations
                         new
                         {
                             MultipleChoiceAnswerId = 240,
-                            IsCorrect = false,
+                            IsCorrect = true,
                             QuestionId = 208,
                             Text = "Απευθείας μετατροπή από VHDL (VHDL to Gate translation)"
                         },
@@ -4900,6 +4900,594 @@ namespace CareerOrientation.Infrastructure.Migrations
                             SkillId = 142,
                             Name = "Στρατηγικές λήψης αποφάσεων",
                             Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 143,
+                            Name = "Ανάπτυξη εφαρμογών σε περιβάλλον της γλώσσας Prolog",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 144,
+                            Name = "Εφαρμογή στρατηγικών αναζήτησης σε Prolog",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 145,
+                            Name = "Εφαρμογή αναδρομικού προγραμματισμού, διαζευκτικού λογικού προγραμματισμού, πα-ράλληλου λογικού προγραμματισμού και μετα-λογικού",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 146,
+                            Name = "Γνώση της δομής ενός συστήματος επεξεργασίας φυσικής γλώσσας",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 147,
+                            Name = "Κατανόηση εννοιών παραγωγής λόγου",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 148,
+                            Name = "Ανάπτυξη αλγορίθμων για λεκτική και συντακτική ανάλυση, εξαγωγή γνώσης, παραγωγή λόγου",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 149,
+                            Name = "Κατανόησης των βασικών εννοιών των ασύρματων δικτύων.",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 150,
+                            Name = "Εξοικείωση με τις αρχές διάδοσης και διαμόρφωσης σημάτων και διάκρισης των ειδών των παρεμβολών στο ασύρματο περιβάλλον των κινητών επικοινωνιών.",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 151,
+                            Name = "Ικανότητα μοντελοποίησης θεμάτων διάδοσης ραδιοσήματος και ανάλυσης των επιπτώ-σεων τους στην απόδοση του συστήματος επικοινωνιών.",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 152,
+                            Name = "Κατανόηση των βασικών αρχών και εννοιών των δικτύων υψηλών ταχυτήτων (ενσύρματων και ασύρματων).",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 153,
+                            Name = "Ικανότητα διάκρισης των δικτύων υψηλών ταχυτήτων από τα υπόλοιπα και εντοπισμού των βασικών χαρακτηριστικών τους.",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 154,
+                            Name = "Ικανότητα αξιολόγησης των παραμέτρων λειτουργίας και την απόδοσης ενός δικτύου.",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 155,
+                            Name = "Κατανόηση αρχιτεκτονικής σύγχρονων επεξεργαστών",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 156,
+                            Name = "Γνώση βασικών μηχανισμών απόδοσης των σύγχρονων επεξεργαστών",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 157,
+                            Name = "Χρήση εργαλείων προσομοίωσης σύγχρονων επεξεργαστών",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 158,
+                            Name = "Ανάλυση απόδοσης προγραμμάτων και κατανάλωσης ενέργειας ενός σύγχρονου υπολογι-στή ",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 159,
+                            Name = "Κατανόηση βασικών εννοιών τηλεπικοινωνιών και ασύρματων δικτύων.",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 160,
+                            Name = "Χρήση Εργαλειών Ανάπτυξης και Αποσφαλμάτωσης Λογισμικού",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 161,
+                            Name = "Ανάπτυξη εφαρμογών AR/VR, IoT, έξυπνων υπηρεσιών ",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 162,
+                            Name = "Κατανόηση μεθοδολογίας σχεδίασης σύγχρονων ψηφιακών κυκλωμάτων ",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 163,
+                            Name = "Ανάπτυξη ψηφιακών κυκλωμάτων με VHDL",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 164,
+                            Name = "Εφαρμογή τεχνικών βελτίωσης ψηφιακών κυκλωμάτων ",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 165,
+                            Name = "Γνώση αρχιτεκτονικής προγραμματισμού συσκευών FPGA",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 166,
+                            Name = "Ικανότητα αξιολόγησης της ασφάλειας που προσφέρει ένας αλγόριθμος κρυπτογράφησης.",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 167,
+                            Name = "Ικανότητα διάκρισης και κατηγοριοποίησης των ειδών και της χρήσης των αλγόριθμων.",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 168,
+                            Name = "Κατανόηση των μεθόδων και παραμέτρων σχεδιασμού και ανάπτυξης πρωτοκόλλων.",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 169,
+                            Name = "Ικανότητα εντοπισμού και αξιολόγησης πιθανών κενών ασφαλείας ενός πρωτοκόλλου. ",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 170,
+                            Name = "Ικανότητα αναγνώρισης και εφαρμογής των διαφόρων σταδίων προπαρασκευής δεδομέ-νων.",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 171,
+                            Name = "Ικανότητα επιλογής μεταξύ διαφορετικών αλγορίθμων και τεχνικών για την εκάστοτε ανά-λυση αναλόγως της φύσης των δεομένων",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 172,
+                            Name = "Πλήρης ενημέρωση σχετικά με την περαιτέρω εξειδίκευση στο χώρο της Επιστήμης Δεδο-μένων",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 173,
+                            Name = "Προσδιορισμός βασικών αρχών πολυκριτηριακής ανάλυσης εφαρμογή τους",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 174,
+                            Name = "Προσδιορισμός βασικών μοντέλων υποστήριξης αποφάσεων ",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 175,
+                            Name = "Κατανόηση της μεθόδου Data Envelopment Analysis (DEA) στο πλαίσιο της μέτρησης της αποδοτικότητας μονάδων απόφασης (Decision making units)",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 176,
+                            Name = "Κατανόηση εννοιών Συστημικής Ανάλυσης ",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 177,
+                            Name = "Δημιουργία μοντέλων Συστημικής Ανάλυσης ",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 178,
+                            Name = "Διάκριση επιπέδων δυναμικής συστημικής ",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 179,
+                            Name = "Υλοποίηση ανάλυσης Συστημάτων από απόσταση",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 180,
+                            Name = "Ανάπτυξη εφαρμογών εικονικής πραγματικότητας σε Unity3D ",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 181,
+                            Name = "Διαχείριση τρισδιάστατων μοντέλων αντικειμένων, κάμερας, ήχου, διάφορα είδη υφής, animations, κ.α. ",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 182,
+                            Name = "Εντοπισμός και επίλυση τυχόν προβλημάτων σε λειτουργικό επίπεδο ",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 183,
+                            Name = "Κατηγοριοποίηση Τελεστών ",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 184,
+                            Name = "Ανάπτυξη αλγορίθμων επεξεργασίας δισδιάστατης εικόνας ",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 185,
+                            Name = "Μελέτη αντικειμένων σε εικόνες και περιγραφή σχήματος αντικειμένων ",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 186,
+                            Name = "Ανάλυση έγχρωμων και πολυφασματικών εικόνων ",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 187,
+                            Name = "Ανάλυση και σύγκριση μοντέλων ανάπτυξης λογισμικού ",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 188,
+                            Name = "Χρήση του Android Studio για την ανάπτυξη κινητών εφαρμογών ",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 189,
+                            Name = "Ανάπτυξη native mobile apps με χρήση του Android SDK ",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 190,
+                            Name = "Χρήση τοπικών (SQLite) βάσεων δεδομένων",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 191,
+                            Name = "Κατανόηση βασικών αρχών κατανεμημένων συστημάτων ",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 192,
+                            Name = "Κατανόηση βασικών αρχών πολυπύρηνων επεξεργαστών ",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 193,
+                            Name = "Χρήση κατανεμημένων και πολυεπεξεργαστικών συστημάτων ",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 194,
+                            Name = "Εμπειρία στην ανάπτυξη κατανεμημένων εφαρμογών με χρήση σύγχρονων προγραμματιστικών μο-ντέλων, Java RMI και Java Threads ",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 195,
+                            Name = "Κατανόηση βασικών αρχών αρχιτεκτονικών συστημάτων ασύρματων και κινητών επικοινωνιών. ",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 196,
+                            Name = "Κατανόηση τεχνικών κατανομής πόρων σε συστήματα πολλαπλών χρηστών",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 197,
+                            Name = "Γνώση τεχνικών σηματοδοσίας, διαχείρισης κινητικότητας και το πρωτόκολλο Mobile IP. ",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 198,
+                            Name = "Αναγνώριση  βασικών αρχών Δικτύων Κατά Περίπτωση (Ad-hoc), καθώς και των Ασύρματων Προσω-πικών Δικτύων (Bluetooth)",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 199,
+                            Name = "Κατανόηση απαιτήσεων ασφάλειας πληροφοριακών συστημάτων ",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 200,
+                            Name = "Εντοπισμός θεωρητικών και πρακτικών ζητημάτων ασφάλειας πληροφοριακών συστημάτων ",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 201,
+                            Name = "Κατανόηση δομικών και λειτουργικών χαρακτηριστικών των κρυπτογραφικών συστημάτων ",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 202,
+                            Name = "Υλοποίηση μέσω προσομοίωσης τεχνικών και εφαρμογών σε δεδομένες καταστάσεις απειλών ή κιν-δύνων ",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 203,
+                            Name = "Κατανόηση βασικών εννοιών ασφαλείας υπολογιστικών δικτύων TCP/IP ",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 204,
+                            Name = "Πρόβλεψη αδυναμιών και αστοχιών υπολογιστικών δικτύων",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 205,
+                            Name = "Ανάλυση τρόπων τρωτών σημείων ",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 206,
+                            Name = "Σχεδιασμός νέων τεχνικών/μεθόδων για την ανάλυση των δεδομένων",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 207,
+                            Name = "Πρακτική εφαρμογή συστημάτων ασφάλειας δικτύων",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 208,
+                            Name = "Μελέτη και ανάλυση της επιχειρηματικότητας και της καινοτομίας στο σύγχρονο επιχειρηματικό πε-ριβάλλον ",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 209,
+                            Name = "Εμβάθυνση στη στρατηγική του Ηλεκτρονικού Επιχειρείν ",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 210,
+                            Name = "Ανάπτυξη μεθόδων διαχείρισης Πελατειακών Σχέσεων ",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 211,
+                            Name = "Κατανόηση βασικών εννοιών Ηλεκτρονικού Επιχειρείν και της Καινοτομίας",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 212,
+                            Name = "Γνώση νέων τεχνολογιών που αφορούν τα πληροφοριακά συστήματα στο διαδίκτυο. ",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 213,
+                            Name = "Γνώση δικτυοκεντρικών πληροφοριακών συστημάτων και υπολογισμών ",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 214,
+                            Name = "Υλοποίηση μικροεφαρμογών (Java Applets/Servlets) ",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 215,
+                            Name = "Αναγνώριση βασικών εννοιών υπηρεσιοστραφούς αρχιτεκτονικής (SOA). ",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 216,
+                            Name = "Κατανόηση βασικών διαδικασιών μίας μηχανής αναζήτησης ",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 217,
+                            Name = "Αναγνώριση προεπεξεργασίας για την επεξεργασία ερωτήσεων των χρηστών μίας μηχανής αναζήτη-σης. ",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 218,
+                            Name = "Αποτίμηση απόδοσης μηχανών αναζήτησης ",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 219,
+                            Name = "Εντοπισμός άστοχων απαντήσεων σε ερωτήσεις αναζήτησης ",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 220,
+                            Name = "Επέκταση φάσματος λύσεων μέσω έρευνας.",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 221,
+                            Name = "Αναγνώριση βασικών ιδιοτήτων συστημάτων προσομοίωσης ",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 222,
+                            Name = "Διάκριση επιπέδων δυναμικής προσομοίωσης ",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 223,
+                            Name = "Κατηγοριοποίηση μοντέλων Προσομοίωσης και Υβριδικής Προσομοίωσης",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 224,
+                            Name = "Προγραμματισμός μοντέλων προσομοίωσης με τη χρήση των κατάλληλων λογισμικών ",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 225,
+                            Name = "Θα γνωρίζουν βασικές έννοιες και θα διακρίνουν τα χαρακτηριστικά των έργων και των λειτουργιών ",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 226,
+                            Name = "Θα κατανοούν τις δομές και το πλαίσιο ενός έργου πληροφορικής ",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 227,
+                            Name = "Θα ταξινομούν τις φάσεις και θα περιγράφουν τα βασικά χαρακτηριστικά της διοίκησης του έργου πληροφορικής ",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 228,
+                            Name = "Θα ορίζουν το αντικείμενο και θα αναλύουν το περιβάλλον του έργου ",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 229,
+                            Name = "Υλοποίηση ενός εκπαιδευτικού λογισμικού ",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 230,
+                            Name = "Αναγνώριση θεωριών μάθησης ",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 231,
+                            Name = "Κατανόηση ιδιαιτεροτήτων της διδασκαλίας με ΤΠΕ ",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 232,
+                            Name = "Εφαρμογή πρότυπων διδακτικών προσέγγισης με λογισμικό ",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 233,
+                            Name = "Γνώση δειγματοληψίας/εγγραφής σημάτων ομιλίας/ήχου",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 234,
+                            Name = "Ανάλυση προβλημάτων πραγματικών δεδομένων ",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 235,
+                            Name = "Διαχείριση φόρτου και πολυπλοκότητας προβλημάτων πραγματικών δεδομένων",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 236,
+                            Name = "Χρήση λογισμικού Python/MATLAB/GNU Octave για την υλοποίηση αλγορίθμων",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 237,
+                            Name = "Κατανόηση διαφορών και χρήση ενός Αντιδρασιαούς πράκτορα (Reactive Agent) και ενός Βουλητικού πράκτορα (Deliberative Agent) ",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 238,
+                            Name = "Εφαρμογή μοντέλων  “αντιλαμβάνομαι-αποφασίζω-ενεργώ” (Sense-Decide-Act), BDI (BeliefDesire-Intention), σε διάφορες περιπτώσεις πρακτόρων ",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 239,
+                            Name = "Ανάπτυξη αλγορίθμων εύρεσης μονοπατιού (path finding), και σχεδιασμού ενεργειών (plan generation)",
+                            Type = 0
+                        },
+                        new
+                        {
+                            SkillId = 240,
+                            Name = "Αξιολόγηση και σχεδιασμός ενεργειών βασισμένων σε κίνητρα και συναισθηματική υπολογιστική σε ευφυείς πράκτορες.",
+                            Type = 0
                         });
                 });
 
@@ -6685,6 +7273,951 @@ namespace CareerOrientation.Infrastructure.Migrations
                         {
                             CourseId = 25,
                             SkillId = 42
+                        },
+                        new
+                        {
+                            CourseId = 26,
+                            SkillId = 41
+                        },
+                        new
+                        {
+                            CourseId = 26,
+                            SkillId = 102
+                        },
+                        new
+                        {
+                            CourseId = 26,
+                            SkillId = 137
+                        },
+                        new
+                        {
+                            CourseId = 26,
+                            SkillId = 143
+                        },
+                        new
+                        {
+                            CourseId = 26,
+                            SkillId = 144
+                        },
+                        new
+                        {
+                            CourseId = 26,
+                            SkillId = 145
+                        },
+                        new
+                        {
+                            CourseId = 27,
+                            SkillId = 44
+                        },
+                        new
+                        {
+                            CourseId = 27,
+                            SkillId = 14
+                        },
+                        new
+                        {
+                            CourseId = 27,
+                            SkillId = 16
+                        },
+                        new
+                        {
+                            CourseId = 27,
+                            SkillId = 146
+                        },
+                        new
+                        {
+                            CourseId = 27,
+                            SkillId = 147
+                        },
+                        new
+                        {
+                            CourseId = 27,
+                            SkillId = 148
+                        },
+                        new
+                        {
+                            CourseId = 28,
+                            SkillId = 41
+                        },
+                        new
+                        {
+                            CourseId = 28,
+                            SkillId = 43
+                        },
+                        new
+                        {
+                            CourseId = 28,
+                            SkillId = 23
+                        },
+                        new
+                        {
+                            CourseId = 28,
+                            SkillId = 14
+                        },
+                        new
+                        {
+                            CourseId = 28,
+                            SkillId = 149
+                        },
+                        new
+                        {
+                            CourseId = 28,
+                            SkillId = 150
+                        },
+                        new
+                        {
+                            CourseId = 28,
+                            SkillId = 151
+                        },
+                        new
+                        {
+                            CourseId = 29,
+                            SkillId = 36
+                        },
+                        new
+                        {
+                            CourseId = 29,
+                            SkillId = 88
+                        },
+                        new
+                        {
+                            CourseId = 29,
+                            SkillId = 58
+                        },
+                        new
+                        {
+                            CourseId = 29,
+                            SkillId = 152
+                        },
+                        new
+                        {
+                            CourseId = 29,
+                            SkillId = 153
+                        },
+                        new
+                        {
+                            CourseId = 29,
+                            SkillId = 154
+                        },
+                        new
+                        {
+                            CourseId = 30,
+                            SkillId = 102
+                        },
+                        new
+                        {
+                            CourseId = 30,
+                            SkillId = 41
+                        },
+                        new
+                        {
+                            CourseId = 30,
+                            SkillId = 43
+                        },
+                        new
+                        {
+                            CourseId = 30,
+                            SkillId = 9
+                        },
+                        new
+                        {
+                            CourseId = 30,
+                            SkillId = 155
+                        },
+                        new
+                        {
+                            CourseId = 30,
+                            SkillId = 156
+                        },
+                        new
+                        {
+                            CourseId = 30,
+                            SkillId = 157
+                        },
+                        new
+                        {
+                            CourseId = 30,
+                            SkillId = 158
+                        },
+                        new
+                        {
+                            CourseId = 31,
+                            SkillId = 16
+                        },
+                        new
+                        {
+                            CourseId = 31,
+                            SkillId = 41
+                        },
+                        new
+                        {
+                            CourseId = 31,
+                            SkillId = 43
+                        },
+                        new
+                        {
+                            CourseId = 31,
+                            SkillId = 23
+                        },
+                        new
+                        {
+                            CourseId = 31,
+                            SkillId = 159
+                        },
+                        new
+                        {
+                            CourseId = 31,
+                            SkillId = 160
+                        },
+                        new
+                        {
+                            CourseId = 31,
+                            SkillId = 161
+                        },
+                        new
+                        {
+                            CourseId = 32,
+                            SkillId = 16
+                        },
+                        new
+                        {
+                            CourseId = 32,
+                            SkillId = 41
+                        },
+                        new
+                        {
+                            CourseId = 32,
+                            SkillId = 43
+                        },
+                        new
+                        {
+                            CourseId = 32,
+                            SkillId = 23
+                        },
+                        new
+                        {
+                            CourseId = 32,
+                            SkillId = 162
+                        },
+                        new
+                        {
+                            CourseId = 32,
+                            SkillId = 163
+                        },
+                        new
+                        {
+                            CourseId = 32,
+                            SkillId = 164
+                        },
+                        new
+                        {
+                            CourseId = 32,
+                            SkillId = 165
+                        },
+                        new
+                        {
+                            CourseId = 33,
+                            SkillId = 23
+                        },
+                        new
+                        {
+                            CourseId = 33,
+                            SkillId = 9
+                        },
+                        new
+                        {
+                            CourseId = 33,
+                            SkillId = 41
+                        },
+                        new
+                        {
+                            CourseId = 33,
+                            SkillId = 166
+                        },
+                        new
+                        {
+                            CourseId = 33,
+                            SkillId = 167
+                        },
+                        new
+                        {
+                            CourseId = 33,
+                            SkillId = 168
+                        },
+                        new
+                        {
+                            CourseId = 33,
+                            SkillId = 169
+                        },
+                        new
+                        {
+                            CourseId = 34,
+                            SkillId = 41
+                        },
+                        new
+                        {
+                            CourseId = 34,
+                            SkillId = 16
+                        },
+                        new
+                        {
+                            CourseId = 34,
+                            SkillId = 23
+                        },
+                        new
+                        {
+                            CourseId = 34,
+                            SkillId = 43
+                        },
+                        new
+                        {
+                            CourseId = 34,
+                            SkillId = 170
+                        },
+                        new
+                        {
+                            CourseId = 34,
+                            SkillId = 171
+                        },
+                        new
+                        {
+                            CourseId = 34,
+                            SkillId = 172
+                        },
+                        new
+                        {
+                            CourseId = 35,
+                            SkillId = 23
+                        },
+                        new
+                        {
+                            CourseId = 35,
+                            SkillId = 43
+                        },
+                        new
+                        {
+                            CourseId = 35,
+                            SkillId = 14
+                        },
+                        new
+                        {
+                            CourseId = 35,
+                            SkillId = 8
+                        },
+                        new
+                        {
+                            CourseId = 35,
+                            SkillId = 173
+                        },
+                        new
+                        {
+                            CourseId = 35,
+                            SkillId = 174
+                        },
+                        new
+                        {
+                            CourseId = 35,
+                            SkillId = 175
+                        },
+                        new
+                        {
+                            CourseId = 36,
+                            SkillId = 41
+                        },
+                        new
+                        {
+                            CourseId = 36,
+                            SkillId = 43
+                        },
+                        new
+                        {
+                            CourseId = 36,
+                            SkillId = 102
+                        },
+                        new
+                        {
+                            CourseId = 36,
+                            SkillId = 176
+                        },
+                        new
+                        {
+                            CourseId = 36,
+                            SkillId = 177
+                        },
+                        new
+                        {
+                            CourseId = 36,
+                            SkillId = 178
+                        },
+                        new
+                        {
+                            CourseId = 36,
+                            SkillId = 179
+                        },
+                        new
+                        {
+                            CourseId = 37,
+                            SkillId = 14
+                        },
+                        new
+                        {
+                            CourseId = 37,
+                            SkillId = 43
+                        },
+                        new
+                        {
+                            CourseId = 37,
+                            SkillId = 36
+                        },
+                        new
+                        {
+                            CourseId = 37,
+                            SkillId = 180
+                        },
+                        new
+                        {
+                            CourseId = 37,
+                            SkillId = 181
+                        },
+                        new
+                        {
+                            CourseId = 37,
+                            SkillId = 182
+                        },
+                        new
+                        {
+                            CourseId = 38,
+                            SkillId = 41
+                        },
+                        new
+                        {
+                            CourseId = 38,
+                            SkillId = 8
+                        },
+                        new
+                        {
+                            CourseId = 38,
+                            SkillId = 23
+                        },
+                        new
+                        {
+                            CourseId = 38,
+                            SkillId = 183
+                        },
+                        new
+                        {
+                            CourseId = 38,
+                            SkillId = 184
+                        },
+                        new
+                        {
+                            CourseId = 38,
+                            SkillId = 185
+                        },
+                        new
+                        {
+                            CourseId = 38,
+                            SkillId = 186
+                        },
+                        new
+                        {
+                            CourseId = 39,
+                            SkillId = 41
+                        },
+                        new
+                        {
+                            CourseId = 39,
+                            SkillId = 43
+                        },
+                        new
+                        {
+                            CourseId = 39,
+                            SkillId = 23
+                        },
+                        new
+                        {
+                            CourseId = 39,
+                            SkillId = 187
+                        },
+                        new
+                        {
+                            CourseId = 39,
+                            SkillId = 188
+                        },
+                        new
+                        {
+                            CourseId = 39,
+                            SkillId = 189
+                        },
+                        new
+                        {
+                            CourseId = 39,
+                            SkillId = 190
+                        },
+                        new
+                        {
+                            CourseId = 40,
+                            SkillId = 41
+                        },
+                        new
+                        {
+                            CourseId = 40,
+                            SkillId = 43
+                        },
+                        new
+                        {
+                            CourseId = 40,
+                            SkillId = 23
+                        },
+                        new
+                        {
+                            CourseId = 40,
+                            SkillId = 16
+                        },
+                        new
+                        {
+                            CourseId = 40,
+                            SkillId = 191
+                        },
+                        new
+                        {
+                            CourseId = 40,
+                            SkillId = 192
+                        },
+                        new
+                        {
+                            CourseId = 40,
+                            SkillId = 193
+                        },
+                        new
+                        {
+                            CourseId = 40,
+                            SkillId = 194
+                        },
+                        new
+                        {
+                            CourseId = 41,
+                            SkillId = 41
+                        },
+                        new
+                        {
+                            CourseId = 41,
+                            SkillId = 43
+                        },
+                        new
+                        {
+                            CourseId = 41,
+                            SkillId = 23
+                        },
+                        new
+                        {
+                            CourseId = 41,
+                            SkillId = 102
+                        },
+                        new
+                        {
+                            CourseId = 41,
+                            SkillId = 195
+                        },
+                        new
+                        {
+                            CourseId = 41,
+                            SkillId = 196
+                        },
+                        new
+                        {
+                            CourseId = 41,
+                            SkillId = 197
+                        },
+                        new
+                        {
+                            CourseId = 41,
+                            SkillId = 198
+                        },
+                        new
+                        {
+                            CourseId = 42,
+                            SkillId = 41
+                        },
+                        new
+                        {
+                            CourseId = 42,
+                            SkillId = 43
+                        },
+                        new
+                        {
+                            CourseId = 42,
+                            SkillId = 14
+                        },
+                        new
+                        {
+                            CourseId = 42,
+                            SkillId = 8
+                        },
+                        new
+                        {
+                            CourseId = 42,
+                            SkillId = 199
+                        },
+                        new
+                        {
+                            CourseId = 42,
+                            SkillId = 200
+                        },
+                        new
+                        {
+                            CourseId = 42,
+                            SkillId = 201
+                        },
+                        new
+                        {
+                            CourseId = 42,
+                            SkillId = 202
+                        },
+                        new
+                        {
+                            CourseId = 43,
+                            SkillId = 14
+                        },
+                        new
+                        {
+                            CourseId = 43,
+                            SkillId = 43
+                        },
+                        new
+                        {
+                            CourseId = 43,
+                            SkillId = 23
+                        },
+                        new
+                        {
+                            CourseId = 43,
+                            SkillId = 203
+                        },
+                        new
+                        {
+                            CourseId = 43,
+                            SkillId = 204
+                        },
+                        new
+                        {
+                            CourseId = 43,
+                            SkillId = 205
+                        },
+                        new
+                        {
+                            CourseId = 43,
+                            SkillId = 206
+                        },
+                        new
+                        {
+                            CourseId = 43,
+                            SkillId = 207
+                        },
+                        new
+                        {
+                            CourseId = 44,
+                            SkillId = 43
+                        },
+                        new
+                        {
+                            CourseId = 44,
+                            SkillId = 23
+                        },
+                        new
+                        {
+                            CourseId = 44,
+                            SkillId = 102
+                        },
+                        new
+                        {
+                            CourseId = 44,
+                            SkillId = 14
+                        },
+                        new
+                        {
+                            CourseId = 44,
+                            SkillId = 208
+                        },
+                        new
+                        {
+                            CourseId = 44,
+                            SkillId = 209
+                        },
+                        new
+                        {
+                            CourseId = 44,
+                            SkillId = 210
+                        },
+                        new
+                        {
+                            CourseId = 44,
+                            SkillId = 211
+                        },
+                        new
+                        {
+                            CourseId = 45,
+                            SkillId = 102
+                        },
+                        new
+                        {
+                            CourseId = 45,
+                            SkillId = 36
+                        },
+                        new
+                        {
+                            CourseId = 45,
+                            SkillId = 14
+                        },
+                        new
+                        {
+                            CourseId = 45,
+                            SkillId = 212
+                        },
+                        new
+                        {
+                            CourseId = 45,
+                            SkillId = 213
+                        },
+                        new
+                        {
+                            CourseId = 45,
+                            SkillId = 214
+                        },
+                        new
+                        {
+                            CourseId = 45,
+                            SkillId = 215
+                        },
+                        new
+                        {
+                            CourseId = 46,
+                            SkillId = 41
+                        },
+                        new
+                        {
+                            CourseId = 46,
+                            SkillId = 43
+                        },
+                        new
+                        {
+                            CourseId = 46,
+                            SkillId = 57
+                        },
+                        new
+                        {
+                            CourseId = 46,
+                            SkillId = 216
+                        },
+                        new
+                        {
+                            CourseId = 46,
+                            SkillId = 217
+                        },
+                        new
+                        {
+                            CourseId = 46,
+                            SkillId = 218
+                        },
+                        new
+                        {
+                            CourseId = 46,
+                            SkillId = 219
+                        },
+                        new
+                        {
+                            CourseId = 46,
+                            SkillId = 220
+                        },
+                        new
+                        {
+                            CourseId = 47,
+                            SkillId = 137
+                        },
+                        new
+                        {
+                            CourseId = 47,
+                            SkillId = 41
+                        },
+                        new
+                        {
+                            CourseId = 47,
+                            SkillId = 43
+                        },
+                        new
+                        {
+                            CourseId = 47,
+                            SkillId = 221
+                        },
+                        new
+                        {
+                            CourseId = 47,
+                            SkillId = 222
+                        },
+                        new
+                        {
+                            CourseId = 47,
+                            SkillId = 223
+                        },
+                        new
+                        {
+                            CourseId = 47,
+                            SkillId = 224
+                        },
+                        new
+                        {
+                            CourseId = 48,
+                            SkillId = 8
+                        },
+                        new
+                        {
+                            CourseId = 48,
+                            SkillId = 14
+                        },
+                        new
+                        {
+                            CourseId = 48,
+                            SkillId = 23
+                        },
+                        new
+                        {
+                            CourseId = 48,
+                            SkillId = 9
+                        },
+                        new
+                        {
+                            CourseId = 48,
+                            SkillId = 225
+                        },
+                        new
+                        {
+                            CourseId = 48,
+                            SkillId = 226
+                        },
+                        new
+                        {
+                            CourseId = 48,
+                            SkillId = 227
+                        },
+                        new
+                        {
+                            CourseId = 48,
+                            SkillId = 228
+                        },
+                        new
+                        {
+                            CourseId = 49,
+                            SkillId = 9
+                        },
+                        new
+                        {
+                            CourseId = 49,
+                            SkillId = 8
+                        },
+                        new
+                        {
+                            CourseId = 49,
+                            SkillId = 102
+                        },
+                        new
+                        {
+                            CourseId = 49,
+                            SkillId = 229
+                        },
+                        new
+                        {
+                            CourseId = 49,
+                            SkillId = 230
+                        },
+                        new
+                        {
+                            CourseId = 49,
+                            SkillId = 231
+                        },
+                        new
+                        {
+                            CourseId = 49,
+                            SkillId = 232
+                        },
+                        new
+                        {
+                            CourseId = 50,
+                            SkillId = 41
+                        },
+                        new
+                        {
+                            CourseId = 50,
+                            SkillId = 43
+                        },
+                        new
+                        {
+                            CourseId = 50,
+                            SkillId = 9
+                        },
+                        new
+                        {
+                            CourseId = 50,
+                            SkillId = 8
+                        },
+                        new
+                        {
+                            CourseId = 50,
+                            SkillId = 233
+                        },
+                        new
+                        {
+                            CourseId = 50,
+                            SkillId = 234
+                        },
+                        new
+                        {
+                            CourseId = 50,
+                            SkillId = 235
+                        },
+                        new
+                        {
+                            CourseId = 50,
+                            SkillId = 236
+                        },
+                        new
+                        {
+                            CourseId = 51,
+                            SkillId = 43
+                        },
+                        new
+                        {
+                            CourseId = 51,
+                            SkillId = 9
+                        },
+                        new
+                        {
+                            CourseId = 51,
+                            SkillId = 36
+                        },
+                        new
+                        {
+                            CourseId = 51,
+                            SkillId = 23
+                        },
+                        new
+                        {
+                            CourseId = 51,
+                            SkillId = 237
+                        },
+                        new
+                        {
+                            CourseId = 51,
+                            SkillId = 238
+                        },
+                        new
+                        {
+                            CourseId = 51,
+                            SkillId = 239
+                        },
+                        new
+                        {
+                            CourseId = 51,
+                            SkillId = 240
                         });
                 });
 
@@ -10955,22 +12488,22 @@ namespace CareerOrientation.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "d9fa5f30-2881-44c6-b440-dac2a8965dd3",
-                            ConcurrencyStamp = "898d9d2b-cb7b-4647-aa56-0e08aced32c4",
+                            Id = "321b1cf1-d81a-4023-8956-276fb8f3bf14",
+                            ConcurrencyStamp = "497ebf29-66af-4324-8aed-e8341dcc8fb3",
                             Name = "Student",
                             NormalizedName = "STUDENT"
                         },
                         new
                         {
-                            Id = "113b0e44-ee1b-4dc3-ba25-2393cec690a2",
-                            ConcurrencyStamp = "3815c6a7-54c9-4b60-8452-aa7aee35718c",
+                            Id = "ce34b2ed-da7f-4482-b124-d32a759cb77c",
+                            ConcurrencyStamp = "ceabcd5a-2fc8-4cb5-943e-e316bdb54287",
                             Name = "GraduateStudent",
                             NormalizedName = "GRADUATESTUDENT"
                         },
                         new
                         {
-                            Id = "09ee559f-f86d-417c-8c55-abc0046a8816",
-                            ConcurrencyStamp = "0d236b92-68ae-4a0a-baaf-5c7815893ce7",
+                            Id = "8ae02ec7-7aeb-405f-80b7-8281f4350fc5",
+                            ConcurrencyStamp = "7fa0c3a0-6dcd-44c0-9aa3-37cee2ad2003",
                             Name = "ProspectiveStudent",
                             NormalizedName = "PROSPECTIVESTUDENT"
                         });

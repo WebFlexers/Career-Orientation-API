@@ -17,9 +17,9 @@ namespace CareerOrientation.Infrastructure.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "09ee559f-f86d-417c-8c55-abc0046a8816", "0d236b92-68ae-4a0a-baaf-5c7815893ce7", "ProspectiveStudent", "PROSPECTIVESTUDENT" },
-                    { "113b0e44-ee1b-4dc3-ba25-2393cec690a2", "3815c6a7-54c9-4b60-8452-aa7aee35718c", "GraduateStudent", "GRADUATESTUDENT" },
-                    { "d9fa5f30-2881-44c6-b440-dac2a8965dd3", "898d9d2b-cb7b-4647-aa56-0e08aced32c4", "Student", "STUDENT" }
+                    { "321b1cf1-d81a-4023-8956-276fb8f3bf14", "497ebf29-66af-4324-8aed-e8341dcc8fb3", "Student", "STUDENT" },
+                    { "8ae02ec7-7aeb-405f-80b7-8281f4350fc5", "7fa0c3a0-6dcd-44c0-9aa3-37cee2ad2003", "ProspectiveStudent", "PROSPECTIVESTUDENT" },
+                    { "ce34b2ed-da7f-4482-b124-d32a759cb77c", "ceabcd5a-2fc8-4cb5-943e-e316bdb54287", "GraduateStudent", "GRADUATESTUDENT" }
                 });
 
             migrationBuilder.InsertData(
@@ -263,7 +263,105 @@ namespace CareerOrientation.Infrastructure.Migrations
                     { 139, "Ικανότητα αντίληψης των συνδυασμών γνώσεων επεξεργασίας σήματος, θεωρίας χρώματος, ψυχοακουστικής, θεωρίας της πληροφορίας, συμπίεσης και δικτύωσης για τη δημιουργία και λειτουργία συστημάτων πολυμέσων", 0 },
                     { 140, "Δυνατότητα ανάπτυξης προχωρημένου λογισμικού Python/MATLAB/GNU Octave για την υλοποίηση αλγορίθμων, τεχνικών και μεθόδων επεξεργασίας πολυμεσικού περιεχομένου", 0 },
                     { 141, "Διαχείριση φόρτου και άγχους", 1 },
-                    { 142, "Στρατηγικές λήψης αποφάσεων", 0 }
+                    { 142, "Στρατηγικές λήψης αποφάσεων", 0 },
+                    { 143, "Ανάπτυξη εφαρμογών σε περιβάλλον της γλώσσας Prolog", 0 },
+                    { 144, "Εφαρμογή στρατηγικών αναζήτησης σε Prolog", 0 },
+                    { 145, "Εφαρμογή αναδρομικού προγραμματισμού, διαζευκτικού λογικού προγραμματισμού, πα-ράλληλου λογικού προγραμματισμού και μετα-λογικού", 0 },
+                    { 146, "Γνώση της δομής ενός συστήματος επεξεργασίας φυσικής γλώσσας", 0 },
+                    { 147, "Κατανόηση εννοιών παραγωγής λόγου", 0 },
+                    { 148, "Ανάπτυξη αλγορίθμων για λεκτική και συντακτική ανάλυση, εξαγωγή γνώσης, παραγωγή λόγου", 0 },
+                    { 149, "Κατανόησης των βασικών εννοιών των ασύρματων δικτύων.", 0 },
+                    { 150, "Εξοικείωση με τις αρχές διάδοσης και διαμόρφωσης σημάτων και διάκρισης των ειδών των παρεμβολών στο ασύρματο περιβάλλον των κινητών επικοινωνιών.", 0 },
+                    { 151, "Ικανότητα μοντελοποίησης θεμάτων διάδοσης ραδιοσήματος και ανάλυσης των επιπτώ-σεων τους στην απόδοση του συστήματος επικοινωνιών.", 0 },
+                    { 152, "Κατανόηση των βασικών αρχών και εννοιών των δικτύων υψηλών ταχυτήτων (ενσύρματων και ασύρματων).", 0 },
+                    { 153, "Ικανότητα διάκρισης των δικτύων υψηλών ταχυτήτων από τα υπόλοιπα και εντοπισμού των βασικών χαρακτηριστικών τους.", 0 },
+                    { 154, "Ικανότητα αξιολόγησης των παραμέτρων λειτουργίας και την απόδοσης ενός δικτύου.", 0 },
+                    { 155, "Κατανόηση αρχιτεκτονικής σύγχρονων επεξεργαστών", 0 },
+                    { 156, "Γνώση βασικών μηχανισμών απόδοσης των σύγχρονων επεξεργαστών", 0 },
+                    { 157, "Χρήση εργαλείων προσομοίωσης σύγχρονων επεξεργαστών", 0 },
+                    { 158, "Ανάλυση απόδοσης προγραμμάτων και κατανάλωσης ενέργειας ενός σύγχρονου υπολογι-στή ", 0 },
+                    { 159, "Κατανόηση βασικών εννοιών τηλεπικοινωνιών και ασύρματων δικτύων.", 0 },
+                    { 160, "Χρήση Εργαλειών Ανάπτυξης και Αποσφαλμάτωσης Λογισμικού", 0 },
+                    { 161, "Ανάπτυξη εφαρμογών AR/VR, IoT, έξυπνων υπηρεσιών ", 0 },
+                    { 162, "Κατανόηση μεθοδολογίας σχεδίασης σύγχρονων ψηφιακών κυκλωμάτων ", 0 },
+                    { 163, "Ανάπτυξη ψηφιακών κυκλωμάτων με VHDL", 0 },
+                    { 164, "Εφαρμογή τεχνικών βελτίωσης ψηφιακών κυκλωμάτων ", 0 },
+                    { 165, "Γνώση αρχιτεκτονικής προγραμματισμού συσκευών FPGA", 0 },
+                    { 166, "Ικανότητα αξιολόγησης της ασφάλειας που προσφέρει ένας αλγόριθμος κρυπτογράφησης.", 0 },
+                    { 167, "Ικανότητα διάκρισης και κατηγοριοποίησης των ειδών και της χρήσης των αλγόριθμων.", 0 },
+                    { 168, "Κατανόηση των μεθόδων και παραμέτρων σχεδιασμού και ανάπτυξης πρωτοκόλλων.", 0 },
+                    { 169, "Ικανότητα εντοπισμού και αξιολόγησης πιθανών κενών ασφαλείας ενός πρωτοκόλλου. ", 0 },
+                    { 170, "Ικανότητα αναγνώρισης και εφαρμογής των διαφόρων σταδίων προπαρασκευής δεδομέ-νων.", 0 },
+                    { 171, "Ικανότητα επιλογής μεταξύ διαφορετικών αλγορίθμων και τεχνικών για την εκάστοτε ανά-λυση αναλόγως της φύσης των δεομένων", 0 },
+                    { 172, "Πλήρης ενημέρωση σχετικά με την περαιτέρω εξειδίκευση στο χώρο της Επιστήμης Δεδο-μένων", 0 },
+                    { 173, "Προσδιορισμός βασικών αρχών πολυκριτηριακής ανάλυσης εφαρμογή τους", 0 },
+                    { 174, "Προσδιορισμός βασικών μοντέλων υποστήριξης αποφάσεων ", 0 },
+                    { 175, "Κατανόηση της μεθόδου Data Envelopment Analysis (DEA) στο πλαίσιο της μέτρησης της αποδοτικότητας μονάδων απόφασης (Decision making units)", 0 },
+                    { 176, "Κατανόηση εννοιών Συστημικής Ανάλυσης ", 0 },
+                    { 177, "Δημιουργία μοντέλων Συστημικής Ανάλυσης ", 0 },
+                    { 178, "Διάκριση επιπέδων δυναμικής συστημικής ", 0 },
+                    { 179, "Υλοποίηση ανάλυσης Συστημάτων από απόσταση", 0 },
+                    { 180, "Ανάπτυξη εφαρμογών εικονικής πραγματικότητας σε Unity3D ", 0 },
+                    { 181, "Διαχείριση τρισδιάστατων μοντέλων αντικειμένων, κάμερας, ήχου, διάφορα είδη υφής, animations, κ.α. ", 0 },
+                    { 182, "Εντοπισμός και επίλυση τυχόν προβλημάτων σε λειτουργικό επίπεδο ", 0 },
+                    { 183, "Κατηγοριοποίηση Τελεστών ", 0 },
+                    { 184, "Ανάπτυξη αλγορίθμων επεξεργασίας δισδιάστατης εικόνας ", 0 },
+                    { 185, "Μελέτη αντικειμένων σε εικόνες και περιγραφή σχήματος αντικειμένων ", 0 },
+                    { 186, "Ανάλυση έγχρωμων και πολυφασματικών εικόνων ", 0 },
+                    { 187, "Ανάλυση και σύγκριση μοντέλων ανάπτυξης λογισμικού ", 0 },
+                    { 188, "Χρήση του Android Studio για την ανάπτυξη κινητών εφαρμογών ", 0 },
+                    { 189, "Ανάπτυξη native mobile apps με χρήση του Android SDK ", 0 },
+                    { 190, "Χρήση τοπικών (SQLite) βάσεων δεδομένων", 0 },
+                    { 191, "Κατανόηση βασικών αρχών κατανεμημένων συστημάτων ", 0 },
+                    { 192, "Κατανόηση βασικών αρχών πολυπύρηνων επεξεργαστών ", 0 },
+                    { 193, "Χρήση κατανεμημένων και πολυεπεξεργαστικών συστημάτων ", 0 },
+                    { 194, "Εμπειρία στην ανάπτυξη κατανεμημένων εφαρμογών με χρήση σύγχρονων προγραμματιστικών μο-ντέλων, Java RMI και Java Threads ", 0 },
+                    { 195, "Κατανόηση βασικών αρχών αρχιτεκτονικών συστημάτων ασύρματων και κινητών επικοινωνιών. ", 0 },
+                    { 196, "Κατανόηση τεχνικών κατανομής πόρων σε συστήματα πολλαπλών χρηστών", 0 },
+                    { 197, "Γνώση τεχνικών σηματοδοσίας, διαχείρισης κινητικότητας και το πρωτόκολλο Mobile IP. ", 0 },
+                    { 198, "Αναγνώριση  βασικών αρχών Δικτύων Κατά Περίπτωση (Ad-hoc), καθώς και των Ασύρματων Προσω-πικών Δικτύων (Bluetooth)", 0 },
+                    { 199, "Κατανόηση απαιτήσεων ασφάλειας πληροφοριακών συστημάτων ", 0 },
+                    { 200, "Εντοπισμός θεωρητικών και πρακτικών ζητημάτων ασφάλειας πληροφοριακών συστημάτων ", 0 },
+                    { 201, "Κατανόηση δομικών και λειτουργικών χαρακτηριστικών των κρυπτογραφικών συστημάτων ", 0 },
+                    { 202, "Υλοποίηση μέσω προσομοίωσης τεχνικών και εφαρμογών σε δεδομένες καταστάσεις απειλών ή κιν-δύνων ", 0 },
+                    { 203, "Κατανόηση βασικών εννοιών ασφαλείας υπολογιστικών δικτύων TCP/IP ", 0 },
+                    { 204, "Πρόβλεψη αδυναμιών και αστοχιών υπολογιστικών δικτύων", 0 },
+                    { 205, "Ανάλυση τρόπων τρωτών σημείων ", 0 },
+                    { 206, "Σχεδιασμός νέων τεχνικών/μεθόδων για την ανάλυση των δεδομένων", 0 },
+                    { 207, "Πρακτική εφαρμογή συστημάτων ασφάλειας δικτύων", 0 },
+                    { 208, "Μελέτη και ανάλυση της επιχειρηματικότητας και της καινοτομίας στο σύγχρονο επιχειρηματικό πε-ριβάλλον ", 0 },
+                    { 209, "Εμβάθυνση στη στρατηγική του Ηλεκτρονικού Επιχειρείν ", 0 },
+                    { 210, "Ανάπτυξη μεθόδων διαχείρισης Πελατειακών Σχέσεων ", 0 },
+                    { 211, "Κατανόηση βασικών εννοιών Ηλεκτρονικού Επιχειρείν και της Καινοτομίας", 0 },
+                    { 212, "Γνώση νέων τεχνολογιών που αφορούν τα πληροφοριακά συστήματα στο διαδίκτυο. ", 0 },
+                    { 213, "Γνώση δικτυοκεντρικών πληροφοριακών συστημάτων και υπολογισμών ", 0 },
+                    { 214, "Υλοποίηση μικροεφαρμογών (Java Applets/Servlets) ", 0 },
+                    { 215, "Αναγνώριση βασικών εννοιών υπηρεσιοστραφούς αρχιτεκτονικής (SOA). ", 0 },
+                    { 216, "Κατανόηση βασικών διαδικασιών μίας μηχανής αναζήτησης ", 0 },
+                    { 217, "Αναγνώριση προεπεξεργασίας για την επεξεργασία ερωτήσεων των χρηστών μίας μηχανής αναζήτη-σης. ", 0 },
+                    { 218, "Αποτίμηση απόδοσης μηχανών αναζήτησης ", 0 },
+                    { 219, "Εντοπισμός άστοχων απαντήσεων σε ερωτήσεις αναζήτησης ", 0 },
+                    { 220, "Επέκταση φάσματος λύσεων μέσω έρευνας.", 0 },
+                    { 221, "Αναγνώριση βασικών ιδιοτήτων συστημάτων προσομοίωσης ", 0 },
+                    { 222, "Διάκριση επιπέδων δυναμικής προσομοίωσης ", 0 },
+                    { 223, "Κατηγοριοποίηση μοντέλων Προσομοίωσης και Υβριδικής Προσομοίωσης", 0 },
+                    { 224, "Προγραμματισμός μοντέλων προσομοίωσης με τη χρήση των κατάλληλων λογισμικών ", 0 },
+                    { 225, "Θα γνωρίζουν βασικές έννοιες και θα διακρίνουν τα χαρακτηριστικά των έργων και των λειτουργιών ", 0 },
+                    { 226, "Θα κατανοούν τις δομές και το πλαίσιο ενός έργου πληροφορικής ", 0 },
+                    { 227, "Θα ταξινομούν τις φάσεις και θα περιγράφουν τα βασικά χαρακτηριστικά της διοίκησης του έργου πληροφορικής ", 0 },
+                    { 228, "Θα ορίζουν το αντικείμενο και θα αναλύουν το περιβάλλον του έργου ", 0 },
+                    { 229, "Υλοποίηση ενός εκπαιδευτικού λογισμικού ", 0 },
+                    { 230, "Αναγνώριση θεωριών μάθησης ", 0 },
+                    { 231, "Κατανόηση ιδιαιτεροτήτων της διδασκαλίας με ΤΠΕ ", 0 },
+                    { 232, "Εφαρμογή πρότυπων διδακτικών προσέγγισης με λογισμικό ", 0 },
+                    { 233, "Γνώση δειγματοληψίας/εγγραφής σημάτων ομιλίας/ήχου", 0 },
+                    { 234, "Ανάλυση προβλημάτων πραγματικών δεδομένων ", 0 },
+                    { 235, "Διαχείριση φόρτου και πολυπλοκότητας προβλημάτων πραγματικών δεδομένων", 0 },
+                    { 236, "Χρήση λογισμικού Python/MATLAB/GNU Octave για την υλοποίηση αλγορίθμων", 0 },
+                    { 237, "Κατανόηση διαφορών και χρήση ενός Αντιδρασιαούς πράκτορα (Reactive Agent) και ενός Βουλητικού πράκτορα (Deliberative Agent) ", 0 },
+                    { 238, "Εφαρμογή μοντέλων  “αντιλαμβάνομαι-αποφασίζω-ενεργώ” (Sense-Decide-Act), BDI (BeliefDesire-Intention), σε διάφορες περιπτώσεις πρακτόρων ", 0 },
+                    { 239, "Ανάπτυξη αλγορίθμων εύρεσης μονοπατιού (path finding), και σχεδιασμού ενεργειών (plan generation)", 0 },
+                    { 240, "Αξιολόγηση και σχεδιασμός ενεργειών βασισμένων σε κίνητρα και συναισθηματική υπολογιστική σε ευφυείς πράκτορες.", 0 }
                 });
 
             migrationBuilder.InsertData(
@@ -491,7 +589,15 @@ namespace CareerOrientation.Infrastructure.Migrations
                     { 23, 108 },
                     { 23, 131 },
                     { 23, 132 },
-                    { 23, 133 }
+                    { 23, 133 },
+                    { 46, 41 },
+                    { 46, 43 },
+                    { 46, 57 },
+                    { 46, 216 },
+                    { 46, 217 },
+                    { 46, 218 },
+                    { 46, 219 },
+                    { 46, 220 }
                 });
 
             migrationBuilder.InsertData(
@@ -694,7 +800,188 @@ namespace CareerOrientation.Infrastructure.Migrations
                     { 25, 138 },
                     { 25, 139 },
                     { 25, 140 },
-                    { 25, 141 }
+                    { 25, 141 },
+                    { 26, 41 },
+                    { 26, 102 },
+                    { 26, 137 },
+                    { 26, 143 },
+                    { 26, 144 },
+                    { 26, 145 },
+                    { 27, 14 },
+                    { 27, 16 },
+                    { 27, 44 },
+                    { 27, 146 },
+                    { 27, 147 },
+                    { 27, 148 },
+                    { 28, 14 },
+                    { 28, 23 },
+                    { 28, 41 },
+                    { 28, 43 },
+                    { 28, 149 },
+                    { 28, 150 },
+                    { 28, 151 },
+                    { 29, 36 },
+                    { 29, 58 },
+                    { 29, 88 },
+                    { 29, 152 },
+                    { 29, 153 },
+                    { 29, 154 },
+                    { 30, 9 },
+                    { 30, 41 },
+                    { 30, 43 },
+                    { 30, 102 },
+                    { 30, 155 },
+                    { 30, 156 },
+                    { 30, 157 },
+                    { 30, 158 },
+                    { 31, 16 },
+                    { 31, 23 },
+                    { 31, 41 },
+                    { 31, 43 },
+                    { 31, 159 },
+                    { 31, 160 },
+                    { 31, 161 },
+                    { 32, 16 },
+                    { 32, 23 },
+                    { 32, 41 },
+                    { 32, 43 },
+                    { 32, 162 },
+                    { 32, 163 },
+                    { 32, 164 },
+                    { 32, 165 },
+                    { 33, 9 },
+                    { 33, 23 },
+                    { 33, 41 },
+                    { 33, 166 },
+                    { 33, 167 },
+                    { 33, 168 },
+                    { 33, 169 },
+                    { 34, 16 },
+                    { 34, 23 },
+                    { 34, 41 },
+                    { 34, 43 },
+                    { 34, 170 },
+                    { 34, 171 },
+                    { 34, 172 },
+                    { 35, 8 },
+                    { 35, 14 },
+                    { 35, 23 },
+                    { 35, 43 },
+                    { 35, 173 },
+                    { 35, 174 },
+                    { 35, 175 },
+                    { 36, 41 },
+                    { 36, 43 },
+                    { 36, 102 },
+                    { 36, 176 },
+                    { 36, 177 },
+                    { 36, 178 },
+                    { 36, 179 },
+                    { 37, 14 },
+                    { 37, 36 },
+                    { 37, 43 },
+                    { 37, 180 },
+                    { 37, 181 },
+                    { 37, 182 },
+                    { 38, 8 },
+                    { 38, 23 },
+                    { 38, 41 },
+                    { 38, 183 },
+                    { 38, 184 },
+                    { 38, 185 },
+                    { 38, 186 },
+                    { 39, 23 },
+                    { 39, 41 },
+                    { 39, 43 },
+                    { 39, 187 },
+                    { 39, 188 },
+                    { 39, 189 },
+                    { 39, 190 },
+                    { 40, 16 },
+                    { 40, 23 },
+                    { 40, 41 },
+                    { 40, 43 },
+                    { 40, 191 },
+                    { 40, 192 },
+                    { 40, 193 },
+                    { 40, 194 },
+                    { 41, 23 },
+                    { 41, 41 },
+                    { 41, 43 },
+                    { 41, 102 },
+                    { 41, 195 },
+                    { 41, 196 },
+                    { 41, 197 },
+                    { 41, 198 },
+                    { 42, 8 },
+                    { 42, 14 },
+                    { 42, 41 },
+                    { 42, 43 },
+                    { 42, 199 },
+                    { 42, 200 },
+                    { 42, 201 },
+                    { 42, 202 },
+                    { 43, 14 },
+                    { 43, 23 },
+                    { 43, 43 },
+                    { 43, 203 },
+                    { 43, 204 },
+                    { 43, 205 },
+                    { 43, 206 },
+                    { 43, 207 },
+                    { 44, 14 },
+                    { 44, 23 },
+                    { 44, 43 },
+                    { 44, 102 },
+                    { 44, 208 },
+                    { 44, 209 },
+                    { 44, 210 },
+                    { 44, 211 },
+                    { 45, 14 },
+                    { 45, 36 },
+                    { 45, 102 },
+                    { 45, 212 },
+                    { 45, 213 },
+                    { 45, 214 },
+                    { 45, 215 },
+                    { 47, 41 },
+                    { 47, 43 },
+                    { 47, 137 },
+                    { 47, 221 },
+                    { 47, 222 },
+                    { 47, 223 },
+                    { 47, 224 },
+                    { 48, 8 },
+                    { 48, 9 },
+                    { 48, 14 },
+                    { 48, 23 },
+                    { 48, 225 },
+                    { 48, 226 },
+                    { 48, 227 },
+                    { 48, 228 },
+                    { 49, 8 },
+                    { 49, 9 },
+                    { 49, 102 },
+                    { 49, 229 },
+                    { 49, 230 },
+                    { 49, 231 },
+                    { 49, 232 },
+                    { 50, 8 },
+                    { 50, 9 },
+                    { 50, 41 },
+                    { 50, 43 },
+                    { 50, 233 },
+                    { 50, 234 },
+                    { 50, 235 },
+                    { 50, 236 },
+                    { 51, 9 },
+                    { 51, 23 },
+                    { 51, 36 },
+                    { 51, 43 },
+                    { 51, 237 },
+                    { 51, 238 },
+                    { 51, 239 },
+                    { 51, 240 }
                 });
 
             migrationBuilder.InsertData(
@@ -753,7 +1040,7 @@ namespace CareerOrientation.Infrastructure.Migrations
                     { 49, true, 63, "Δέντρα απόφασης" },
                     { 50, false, 63, "OpeΓραμμική άλγεβραnGL" },
                     { 51, false, 63, "Πίνακες διαστημάτων" },
-                    { 52, false, 64, "O(n log n)" },
+                    { 52, true, 64, "O(n log n)" },
                     { 53, false, 64, "O(n^2)" },
                     { 54, false, 64, "O(n)" },
                     { 55, true, 67, "TCP/IP" },
@@ -1453,7 +1740,7 @@ namespace CareerOrientation.Infrastructure.Migrations
                     { 237, false, 206, "Δυαδικό δέντρο" },
                     { 238, false, 206, "Γράφημα" },
                     { 239, false, 208, "Προγραμματισμός C++" },
-                    { 240, false, 208, "Απευθείας μετατροπή από VHDL (VHDL to Gate translation)" },
+                    { 240, true, 208, "Απευθείας μετατροπή από VHDL (VHDL to Gate translation)" },
                     { 241, false, 208, "Αρχιτεκτονική της Κατάνευσης" },
                     { 242, false, 211, "Μονοπύρηνος Επεξεργαστής" },
                     { 243, true, 211, "Πολυπύρηνος Επεξεργαστής" },
@@ -2003,17 +2290,17 @@ namespace CareerOrientation.Infrastructure.Migrations
             migrationBuilder.DeleteData(
                 table: "AspNetRoles",
                 keyColumn: "Id",
-                keyValue: "09ee559f-f86d-417c-8c55-abc0046a8816");
+                keyValue: "321b1cf1-d81a-4023-8956-276fb8f3bf14");
 
             migrationBuilder.DeleteData(
                 table: "AspNetRoles",
                 keyColumn: "Id",
-                keyValue: "113b0e44-ee1b-4dc3-ba25-2393cec690a2");
+                keyValue: "8ae02ec7-7aeb-405f-80b7-8281f4350fc5");
 
             migrationBuilder.DeleteData(
                 table: "AspNetRoles",
                 keyColumn: "Id",
-                keyValue: "d9fa5f30-2881-44c6-b440-dac2a8965dd3");
+                keyValue: "ce34b2ed-da7f-4482-b124-d32a759cb77c");
 
             migrationBuilder.DeleteData(
                 table: "CourseSkills",
@@ -3096,134 +3383,949 @@ namespace CareerOrientation.Infrastructure.Migrations
                 keyValues: new object[] { 25, 141 });
 
             migrationBuilder.DeleteData(
-                table: "Courses",
-                keyColumn: "CourseId",
-                keyValue: 26);
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 26, 41 });
 
             migrationBuilder.DeleteData(
-                table: "Courses",
-                keyColumn: "CourseId",
-                keyValue: 27);
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 26, 102 });
 
             migrationBuilder.DeleteData(
-                table: "Courses",
-                keyColumn: "CourseId",
-                keyValue: 28);
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 26, 137 });
 
             migrationBuilder.DeleteData(
-                table: "Courses",
-                keyColumn: "CourseId",
-                keyValue: 29);
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 26, 143 });
 
             migrationBuilder.DeleteData(
-                table: "Courses",
-                keyColumn: "CourseId",
-                keyValue: 30);
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 26, 144 });
 
             migrationBuilder.DeleteData(
-                table: "Courses",
-                keyColumn: "CourseId",
-                keyValue: 31);
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 26, 145 });
 
             migrationBuilder.DeleteData(
-                table: "Courses",
-                keyColumn: "CourseId",
-                keyValue: 32);
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 27, 14 });
 
             migrationBuilder.DeleteData(
-                table: "Courses",
-                keyColumn: "CourseId",
-                keyValue: 33);
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 27, 16 });
 
             migrationBuilder.DeleteData(
-                table: "Courses",
-                keyColumn: "CourseId",
-                keyValue: 34);
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 27, 44 });
 
             migrationBuilder.DeleteData(
-                table: "Courses",
-                keyColumn: "CourseId",
-                keyValue: 35);
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 27, 146 });
 
             migrationBuilder.DeleteData(
-                table: "Courses",
-                keyColumn: "CourseId",
-                keyValue: 36);
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 27, 147 });
 
             migrationBuilder.DeleteData(
-                table: "Courses",
-                keyColumn: "CourseId",
-                keyValue: 37);
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 27, 148 });
 
             migrationBuilder.DeleteData(
-                table: "Courses",
-                keyColumn: "CourseId",
-                keyValue: 38);
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 28, 14 });
 
             migrationBuilder.DeleteData(
-                table: "Courses",
-                keyColumn: "CourseId",
-                keyValue: 39);
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 28, 23 });
 
             migrationBuilder.DeleteData(
-                table: "Courses",
-                keyColumn: "CourseId",
-                keyValue: 40);
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 28, 41 });
 
             migrationBuilder.DeleteData(
-                table: "Courses",
-                keyColumn: "CourseId",
-                keyValue: 41);
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 28, 43 });
 
             migrationBuilder.DeleteData(
-                table: "Courses",
-                keyColumn: "CourseId",
-                keyValue: 42);
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 28, 149 });
 
             migrationBuilder.DeleteData(
-                table: "Courses",
-                keyColumn: "CourseId",
-                keyValue: 43);
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 28, 150 });
 
             migrationBuilder.DeleteData(
-                table: "Courses",
-                keyColumn: "CourseId",
-                keyValue: 44);
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 28, 151 });
 
             migrationBuilder.DeleteData(
-                table: "Courses",
-                keyColumn: "CourseId",
-                keyValue: 45);
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 29, 36 });
 
             migrationBuilder.DeleteData(
-                table: "Courses",
-                keyColumn: "CourseId",
-                keyValue: 46);
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 29, 58 });
 
             migrationBuilder.DeleteData(
-                table: "Courses",
-                keyColumn: "CourseId",
-                keyValue: 47);
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 29, 88 });
 
             migrationBuilder.DeleteData(
-                table: "Courses",
-                keyColumn: "CourseId",
-                keyValue: 48);
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 29, 152 });
 
             migrationBuilder.DeleteData(
-                table: "Courses",
-                keyColumn: "CourseId",
-                keyValue: 49);
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 29, 153 });
 
             migrationBuilder.DeleteData(
-                table: "Courses",
-                keyColumn: "CourseId",
-                keyValue: 50);
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 29, 154 });
 
             migrationBuilder.DeleteData(
-                table: "Courses",
-                keyColumn: "CourseId",
-                keyValue: 51);
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 30, 9 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 30, 41 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 30, 43 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 30, 102 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 30, 155 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 30, 156 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 30, 157 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 30, 158 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 31, 16 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 31, 23 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 31, 41 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 31, 43 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 31, 159 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 31, 160 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 31, 161 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 32, 16 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 32, 23 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 32, 41 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 32, 43 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 32, 162 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 32, 163 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 32, 164 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 32, 165 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 33, 9 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 33, 23 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 33, 41 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 33, 166 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 33, 167 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 33, 168 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 33, 169 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 34, 16 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 34, 23 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 34, 41 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 34, 43 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 34, 170 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 34, 171 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 34, 172 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 35, 8 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 35, 14 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 35, 23 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 35, 43 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 35, 173 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 35, 174 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 35, 175 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 36, 41 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 36, 43 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 36, 102 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 36, 176 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 36, 177 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 36, 178 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 36, 179 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 37, 14 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 37, 36 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 37, 43 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 37, 180 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 37, 181 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 37, 182 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 38, 8 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 38, 23 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 38, 41 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 38, 183 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 38, 184 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 38, 185 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 38, 186 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 39, 23 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 39, 41 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 39, 43 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 39, 187 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 39, 188 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 39, 189 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 39, 190 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 40, 16 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 40, 23 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 40, 41 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 40, 43 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 40, 191 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 40, 192 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 40, 193 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 40, 194 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 41, 23 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 41, 41 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 41, 43 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 41, 102 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 41, 195 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 41, 196 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 41, 197 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 41, 198 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 42, 8 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 42, 14 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 42, 41 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 42, 43 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 42, 199 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 42, 200 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 42, 201 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 42, 202 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 43, 14 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 43, 23 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 43, 43 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 43, 203 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 43, 204 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 43, 205 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 43, 206 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 43, 207 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 44, 14 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 44, 23 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 44, 43 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 44, 102 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 44, 208 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 44, 209 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 44, 210 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 44, 211 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 45, 14 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 45, 36 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 45, 102 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 45, 212 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 45, 213 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 45, 214 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 45, 215 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 46, 41 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 46, 43 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 46, 57 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 46, 216 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 46, 217 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 46, 218 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 46, 219 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 46, 220 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 47, 41 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 47, 43 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 47, 137 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 47, 221 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 47, 222 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 47, 223 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 47, 224 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 48, 8 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 48, 9 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 48, 14 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 48, 23 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 48, 225 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 48, 226 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 48, 227 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 48, 228 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 49, 8 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 49, 9 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 49, 102 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 49, 229 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 49, 230 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 49, 231 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 49, 232 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 50, 8 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 50, 9 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 50, 41 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 50, 43 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 50, 233 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 50, 234 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 50, 235 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 50, 236 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 51, 9 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 51, 23 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 51, 36 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 51, 43 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 51, 237 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 51, 238 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 51, 239 });
+
+            migrationBuilder.DeleteData(
+                table: "CourseSkills",
+                keyColumns: new[] { "CourseId", "SkillId" },
+                keyValues: new object[] { 51, 240 });
 
             migrationBuilder.DeleteData(
                 table: "MultipleChoiceAnswers",
@@ -8866,6 +9968,136 @@ namespace CareerOrientation.Infrastructure.Migrations
                 keyValue: 25);
 
             migrationBuilder.DeleteData(
+                table: "Courses",
+                keyColumn: "CourseId",
+                keyValue: 26);
+
+            migrationBuilder.DeleteData(
+                table: "Courses",
+                keyColumn: "CourseId",
+                keyValue: 27);
+
+            migrationBuilder.DeleteData(
+                table: "Courses",
+                keyColumn: "CourseId",
+                keyValue: 28);
+
+            migrationBuilder.DeleteData(
+                table: "Courses",
+                keyColumn: "CourseId",
+                keyValue: 29);
+
+            migrationBuilder.DeleteData(
+                table: "Courses",
+                keyColumn: "CourseId",
+                keyValue: 30);
+
+            migrationBuilder.DeleteData(
+                table: "Courses",
+                keyColumn: "CourseId",
+                keyValue: 31);
+
+            migrationBuilder.DeleteData(
+                table: "Courses",
+                keyColumn: "CourseId",
+                keyValue: 32);
+
+            migrationBuilder.DeleteData(
+                table: "Courses",
+                keyColumn: "CourseId",
+                keyValue: 33);
+
+            migrationBuilder.DeleteData(
+                table: "Courses",
+                keyColumn: "CourseId",
+                keyValue: 34);
+
+            migrationBuilder.DeleteData(
+                table: "Courses",
+                keyColumn: "CourseId",
+                keyValue: 35);
+
+            migrationBuilder.DeleteData(
+                table: "Courses",
+                keyColumn: "CourseId",
+                keyValue: 36);
+
+            migrationBuilder.DeleteData(
+                table: "Courses",
+                keyColumn: "CourseId",
+                keyValue: 37);
+
+            migrationBuilder.DeleteData(
+                table: "Courses",
+                keyColumn: "CourseId",
+                keyValue: 38);
+
+            migrationBuilder.DeleteData(
+                table: "Courses",
+                keyColumn: "CourseId",
+                keyValue: 39);
+
+            migrationBuilder.DeleteData(
+                table: "Courses",
+                keyColumn: "CourseId",
+                keyValue: 40);
+
+            migrationBuilder.DeleteData(
+                table: "Courses",
+                keyColumn: "CourseId",
+                keyValue: 41);
+
+            migrationBuilder.DeleteData(
+                table: "Courses",
+                keyColumn: "CourseId",
+                keyValue: 42);
+
+            migrationBuilder.DeleteData(
+                table: "Courses",
+                keyColumn: "CourseId",
+                keyValue: 43);
+
+            migrationBuilder.DeleteData(
+                table: "Courses",
+                keyColumn: "CourseId",
+                keyValue: 44);
+
+            migrationBuilder.DeleteData(
+                table: "Courses",
+                keyColumn: "CourseId",
+                keyValue: 45);
+
+            migrationBuilder.DeleteData(
+                table: "Courses",
+                keyColumn: "CourseId",
+                keyValue: 46);
+
+            migrationBuilder.DeleteData(
+                table: "Courses",
+                keyColumn: "CourseId",
+                keyValue: 47);
+
+            migrationBuilder.DeleteData(
+                table: "Courses",
+                keyColumn: "CourseId",
+                keyValue: 48);
+
+            migrationBuilder.DeleteData(
+                table: "Courses",
+                keyColumn: "CourseId",
+                keyValue: 49);
+
+            migrationBuilder.DeleteData(
+                table: "Courses",
+                keyColumn: "CourseId",
+                keyValue: 50);
+
+            migrationBuilder.DeleteData(
+                table: "Courses",
+                keyColumn: "CourseId",
+                keyValue: 51);
+
+            migrationBuilder.DeleteData(
                 table: "LikertScaleAnswers",
                 keyColumn: "LikertScaleAnswerId",
                 keyValue: 1);
@@ -10794,6 +12026,496 @@ namespace CareerOrientation.Infrastructure.Migrations
                 table: "Skills",
                 keyColumn: "SkillId",
                 keyValue: 141);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 143);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 144);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 145);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 146);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 147);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 148);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 149);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 150);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 151);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 152);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 153);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 154);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 155);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 156);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 157);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 158);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 159);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 160);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 161);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 162);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 163);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 164);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 165);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 166);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 167);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 168);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 169);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 170);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 171);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 172);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 173);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 174);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 175);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 176);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 177);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 178);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 179);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 180);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 181);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 182);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 183);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 184);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 185);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 186);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 187);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 188);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 189);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 190);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 191);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 192);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 193);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 194);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 195);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 196);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 197);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 198);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 199);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 200);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 201);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 202);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 203);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 204);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 205);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 206);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 207);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 208);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 209);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 210);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 211);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 212);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 213);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 214);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 215);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 216);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 217);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 218);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 219);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 220);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 221);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 222);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 223);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 224);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 225);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 226);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 227);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 228);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 229);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 230);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 231);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 232);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 233);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 234);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 235);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 236);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 237);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 238);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 239);
+
+            migrationBuilder.DeleteData(
+                table: "Skills",
+                keyColumn: "SkillId",
+                keyValue: 240);
 
             migrationBuilder.DeleteData(
                 table: "GeneralTests",

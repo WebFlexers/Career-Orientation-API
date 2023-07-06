@@ -24,7 +24,7 @@ public class ApplicationDbContext : IdentityDbContext<User, IdentityRole, string
         _lookupNormalizer = lookupNormalizer;
         _dataSeeding = dataSeeding;
     }
-
+    
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         base.OnConfiguring(optionsBuilder);
