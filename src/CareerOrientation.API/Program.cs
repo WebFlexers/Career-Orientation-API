@@ -21,7 +21,7 @@ var builder = WebApplication.CreateBuilder(args);
             {
                 listenOptions.Protocols = HttpProtocols.Http1AndHttp2;
             });
-        });   
+        });
     }
 
     builder.Services.AddCors();
@@ -47,7 +47,7 @@ var app = builder.Build();
     
     app.UseCustomCors();
 
-    app.UseHttpsRedirection();
+    // app.UseHttpsRedirection();
 
     app.UseIpRateLimiting();
     
