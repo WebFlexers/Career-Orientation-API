@@ -37,7 +37,7 @@ public static class DependencyInjectionExtensions
         return services;
     }
 
-    private static IServiceCollection AddSwaggerServices(this IServiceCollection services)
+    public static IServiceCollection AddSwaggerServices(this IServiceCollection services)
     {
         var securityScheme = new OpenApiSecurityScheme()
         {

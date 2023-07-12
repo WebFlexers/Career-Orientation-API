@@ -36,7 +36,6 @@ public static class DependencyInjectionExtensions
     {
         services
             .AddAppSettings(config)
-            .AddLoggingServices(config)
             .AddIdentity()
             .AddAuth(config)
             .AddPersistence(config);
@@ -58,23 +57,6 @@ public static class DependencyInjectionExtensions
             .Bind(config.GetSection(ConnectionStringsOptions.SectionName))
             .Validate(x => x.ValidateConnectionStringOptions())
             .ValidateOnStart();
-
-        return services;
-    }
-    
-    private static IServiceCollection AddLoggingServices(this IServiceCollection services, ConfigurationManager config)
-    {
-        var connectionStrings = config.GetRequiredSection(ConnectionStringsOptions.SectionName)
-            .Get<ConnectionStringsOptions>();
-        Debug.Assert(connectionStrings is not null);
-        
-        services.AddWatchDogServices(opt => 
-        {
-            opt.IsAutoClear = true;
-            opt.ClearTimeSchedule = WatchDogAutoClearScheduleEnum.Weekly;
-            opt.SetExternalDbConnString = connectionStrings.LoggingDb;
-            opt.DbDriverOption = WatchDogDbDriverEnum.PostgreSql;
-        });
 
         return services;
     }
