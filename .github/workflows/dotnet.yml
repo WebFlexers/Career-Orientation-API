@@ -45,7 +45,7 @@ jobs:
     - name: Copy to Server via SCP
       uses: garygrossgarten/github-action-scp@release
       with:
-        local: /src/CareerOrientation.API/bin/Debug/net7.0/publish
+        local: /home/runner/work/Career-Orientation-API/Career-Orientation-API/src/CareerOrientation.API/bin/Release/net7.0/publish/
         concurrency: 10
         remote: ${{ secrets.REMOTE_TARGET }}
         host: ${{ secrets.REMOTE_HOST }}
