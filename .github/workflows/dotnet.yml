@@ -1,0 +1,65 @@
+# This workflow will build a .NET project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
+
+name: .NET Core
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  Deploy:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 7.0.x
+        
+    - name: DotNet Restore
+      run: dotnet restore
+    
+    - name: DotNet Build
+      run: dotnet build --no-restore
+      
+    - name: DotNet Run Tests
+      run: dotnet test --no-build --verbosity normal
+      
+    - name: DotNet Publish
+      run: dotnet publish -c Release
+      
+    - name: Stop CareerOrientation.API Service
+      uses: garygrossgarten/github-action-ssh@v0.6.3
+      with:
+        command: systemctl stop CareerOrientation.API -f
+        host: ${{ secrets.REMOTE_HOST }}
+        username: ${{ secrets.REMOTE_USER }}
+        passphrase: ${{ secrets.PASSPHRASE }}
+        privateKey: ${{ secrets.REMOTE_SSH_KEY }}
+      
+    - name: Copy to Server via SCP
+      uses: garygrossgarten/github-action-scp@release
+      with:
+        local: /src/CareerOrientation.API/bin/Debug/net7.0/publish
+        concurrency: 10
+        remote: ${{ secrets.REMOTE_TARGET }}
+        host: ${{ secrets.REMOTE_HOST }}
+        username: ${{ secrets.REMOTE_USER }}
+        passphrase: ${{ secrets.PASSPHRASE }}
+        privateKey: ${{ secrets.REMOTE_SSH_KEY }}
+      env:
+        ASPNETCORE_ENVIRONMENT: Production
+        
+    - name: Start ServiceName Service
+      uses: garygrossgarten/github-action-ssh@v0.6.3
+      with:
+        command: systemctl start CareerOrientation.API -f
+        host: ${{ secrets.REMOTE_HOST }}
+        username: ${{ secrets.REMOTE_USER }}
+        passphrase: ${{ secrets.PASSPHRASE }}
+        privateKey: ${{ secrets.REMOTE_SSH_KEY }}
