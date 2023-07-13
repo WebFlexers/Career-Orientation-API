@@ -33,8 +33,6 @@ public class ApplicationDbContext : IdentityDbContext<User, IdentityRole, string
         {
             optionsBuilder.UseLoggerFactory(_loggerFactory);
         }
-
-        optionsBuilder.EnableSensitiveDataLogging();
     }
 
     protected override async void OnModelCreating(ModelBuilder builder)

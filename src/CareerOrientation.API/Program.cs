@@ -1,25 +1,23 @@
+using System.Text;
+
 using AspNetCoreRateLimit;
 
 using CareerOrientation.API.StartupConfig;
 using CareerOrientation.Application;
 using CareerOrientation.Infrastructure;
 
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using Microsoft.AspNetCore.HttpOverrides;
 
-using WatchDog;
-using WatchDog.src.Enums;
-
-Console.OutputEncoding = System.Text.Encoding.UTF8;
+Console.OutputEncoding = Encoding.UTF8;
 
 var builder = WebApplication.CreateBuilder(args);
 {
     builder.Services.AddCors();
-
+    
     builder.Services
         .AddPresentation(builder.Configuration)
         .AddApplication()
-        .AddInfrastructure(builder.Configuration);
+        .AddInfrastructure(builder.Configuration, builder.Environment);
 }
 
 var app = builder.Build();
@@ -32,10 +30,24 @@ var app = builder.Build();
             options.DisplayRequestDuration();
         });
     }
-    
+    else if (app.Environment.IsProduction())
+    {
+        // In production we are using a reverse proxy through nginx
+        // so we need to setup the forwarded headers correctly
+        app.UseForwardedHeaders(new ForwardedHeadersOptions
+        {
+            ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+        });
+    }
+
     app.UseCustomCors();
 
-    app.UseHttpsRedirection();
+    if (app.Environment.IsDevelopment())
+    {
+        // In production we are using a reverse proxy through nginx
+        // so we do not need https redirection
+        app.UseHttpsRedirection();
+    }
 
     app.UseIpRateLimiting();
     
@@ -43,7 +55,6 @@ var app = builder.Build();
     app.UseAuthorization();
     
     app.UseResponseCaching();
-
     app.UseExceptionHandler("/error");
 
     app.MapControllers();

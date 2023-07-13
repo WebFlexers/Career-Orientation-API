@@ -19,10 +19,12 @@ using CareerOrientation.Infrastructure.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 
 using WatchDog;
@@ -32,13 +34,14 @@ namespace CareerOrientation.Infrastructure;
 
 public static class DependencyInjectionExtensions
 {
-    public static IServiceCollection AddInfrastructure(this IServiceCollection services, ConfigurationManager config)
+    public static IServiceCollection AddInfrastructure(this IServiceCollection services, ConfigurationManager config,
+        IWebHostEnvironment environment)
     {
         services
             .AddAppSettings(config)
             .AddIdentity()
             .AddAuth(config)
-            .AddPersistence(config);
+            .AddPersistence(config, environment);
 
         services.AddSingleton<IClock, Clock>();
         services.AddSingleton<IPointsCalculationService, PointsCalculationService>();
@@ -148,7 +151,8 @@ public static class DependencyInjectionExtensions
         return services;
     }
 
-    private static IServiceCollection AddPersistence(this IServiceCollection services, ConfigurationManager config)
+    private static IServiceCollection AddPersistence(this IServiceCollection services, ConfigurationManager config,
+        IWebHostEnvironment environment)
     {
         var connectionStrings = config.GetRequiredSection(ConnectionStringsOptions.SectionName)
             .Get<ConnectionStringsOptions>();
@@ -157,6 +161,7 @@ public static class DependencyInjectionExtensions
         services.AddDbContext<ApplicationDbContext> (options =>
         {
             options.UseNpgsql(connectionStrings.Default);
+            options.EnableSensitiveDataLogging(environment.IsProduction() == false);
         });
         
         services.AddScoped<IUserRepository, UserRepository>();

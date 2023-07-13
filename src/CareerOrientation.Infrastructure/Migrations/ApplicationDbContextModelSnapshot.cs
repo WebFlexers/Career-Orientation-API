@@ -49,7 +49,7 @@ namespace CareerOrientation.Infrastructure.Migrations
 
                     b.HasIndex("TrackId");
 
-                    b.ToTable("Courses");
+                    b.ToTable("Courses", (string)null);
 
                     b.HasData(
                         new
@@ -451,7 +451,7 @@ namespace CareerOrientation.Infrastructure.Migrations
 
                     b.HasKey("GeneralTestId");
 
-                    b.ToTable("GeneralTests");
+                    b.ToTable("GeneralTests", (string)null);
 
                     b.HasData(
                         new
@@ -501,7 +501,7 @@ namespace CareerOrientation.Infrastructure.Migrations
 
                     b.HasKey("LikertScaleAnswerId");
 
-                    b.ToTable("LikertScaleAnswers");
+                    b.ToTable("LikertScaleAnswers", (string)null);
 
                     b.HasData(
                         new
@@ -602,7 +602,7 @@ namespace CareerOrientation.Infrastructure.Migrations
 
                     b.HasKey("MastersDegreeId");
 
-                    b.ToTable("MastersDegrees");
+                    b.ToTable("MastersDegrees", (string)null);
 
                     b.HasData(
                         new
@@ -680,7 +680,7 @@ namespace CareerOrientation.Infrastructure.Migrations
 
                     b.HasIndex("QuestionId");
 
-                    b.ToTable("MultipleChoiceAnswers");
+                    b.ToTable("MultipleChoiceAnswers", (string)null);
 
                     b.HasData(
                         new
@@ -2429,7 +2429,7 @@ namespace CareerOrientation.Infrastructure.Migrations
 
                     b.HasKey("ProfessionId");
 
-                    b.ToTable("Professions");
+                    b.ToTable("Professions", (string)null);
 
                     b.HasData(
                         new
@@ -2536,7 +2536,7 @@ namespace CareerOrientation.Infrastructure.Migrations
 
                     b.HasIndex("UniversityTestId");
 
-                    b.ToTable("Questions");
+                    b.ToTable("Questions", (string)null);
 
                     b.HasData(
                         new
@@ -4043,7 +4043,7 @@ namespace CareerOrientation.Infrastructure.Migrations
 
                     b.HasKey("SkillId");
 
-                    b.ToTable("Skills");
+                    b.ToTable("Skills", (string)null);
 
                     b.HasData(
                         new
@@ -5513,7 +5513,7 @@ namespace CareerOrientation.Infrastructure.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Statistics");
+                    b.ToTable("Statistics", (string)null);
                 });
 
             modelBuilder.Entity("CareerOrientation.Domain.Entities.Track", b =>
@@ -5531,7 +5531,7 @@ namespace CareerOrientation.Infrastructure.Migrations
 
                     b.HasKey("TrackId");
 
-                    b.ToTable("Tracks");
+                    b.ToTable("Tracks", (string)null);
 
                     b.HasData(
                         new
@@ -5570,7 +5570,7 @@ namespace CareerOrientation.Infrastructure.Migrations
                     b.HasIndex("QuestionId")
                         .IsUnique();
 
-                    b.ToTable("TrueFalseAnswers");
+                    b.ToTable("TrueFalseAnswers", (string)null);
 
                     b.HasData(
                         new
@@ -5899,7 +5899,7 @@ namespace CareerOrientation.Infrastructure.Migrations
 
                     b.HasIndex("TrackId");
 
-                    b.ToTable("UniversityStudents");
+                    b.ToTable("UniversityStudents", (string)null);
                 });
 
             modelBuilder.Entity("CareerOrientation.Domain.Entities.UniversityTest", b =>
@@ -5926,7 +5926,7 @@ namespace CareerOrientation.Infrastructure.Migrations
 
                     b.HasIndex("TrackId");
 
-                    b.ToTable("UniversityTests");
+                    b.ToTable("UniversityTests", (string)null);
 
                     b.HasData(
                         new
@@ -6188,7 +6188,7 @@ namespace CareerOrientation.Infrastructure.Migrations
 
                     b.HasIndex("SkillId");
 
-                    b.ToTable("CourseSkills");
+                    b.ToTable("CourseSkills", (string)null);
 
                     b.HasData(
                         new
@@ -8230,7 +8230,7 @@ namespace CareerOrientation.Infrastructure.Migrations
 
                     b.HasIndex("LikertScaleAnswersId");
 
-                    b.ToTable("QuestionLikertScaleAnswers");
+                    b.ToTable("QuestionLikertScaleAnswers", (string)null);
 
                     b.HasData(
                         new
@@ -8627,7 +8627,7 @@ namespace CareerOrientation.Infrastructure.Migrations
 
                     b.HasIndex("MastersDegreeId");
 
-                    b.ToTable("QuestionsMastersDegrees");
+                    b.ToTable("QuestionsMastersDegrees", (string)null);
 
                     b.HasData(
                         new
@@ -10179,7 +10179,7 @@ namespace CareerOrientation.Infrastructure.Migrations
 
                     b.HasIndex("ProfessionId");
 
-                    b.ToTable("QuestionsProfessions");
+                    b.ToTable("QuestionsProfessions", (string)null);
 
                     b.HasData(
                         new
@@ -11866,7 +11866,7 @@ namespace CareerOrientation.Infrastructure.Migrations
 
                     b.HasIndex("TrackId");
 
-                    b.ToTable("QuestionsTracks");
+                    b.ToTable("QuestionsTracks", (string)null);
 
                     b.HasData(
                         new
@@ -12163,7 +12163,7 @@ namespace CareerOrientation.Infrastructure.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("StudentsTookUniversityTests");
+                    b.ToTable("StudentsTookUniversityTests", (string)null);
                 });
 
             modelBuilder.Entity("CareerOrientation.Domain.JunctionEntities.TrackMastersDegree", b =>
@@ -12178,7 +12178,7 @@ namespace CareerOrientation.Infrastructure.Migrations
 
                     b.HasIndex("MastersDegreeId");
 
-                    b.ToTable("TrackMastersDegrees");
+                    b.ToTable("TrackMastersDegrees", (string)null);
 
                     b.HasData(
                         new
@@ -12270,7 +12270,7 @@ namespace CareerOrientation.Infrastructure.Migrations
 
                     b.HasIndex("ProfessionId");
 
-                    b.ToTable("TrackProfessions");
+                    b.ToTable("TrackProfessions", (string)null);
 
                     b.HasData(
                         new
@@ -12365,7 +12365,7 @@ namespace CareerOrientation.Infrastructure.Migrations
 
                     b.HasIndex("CourseId");
 
-                    b.ToTable("UserCourseGrades");
+                    b.ToTable("UserCourseGrades", (string)null);
                 });
 
             modelBuilder.Entity("CareerOrientation.Domain.JunctionEntities.UserCourseStatistics", b =>
@@ -12383,7 +12383,7 @@ namespace CareerOrientation.Infrastructure.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("UserCourseStatistics");
+                    b.ToTable("UserCourseStatistics", (string)null);
                 });
 
             modelBuilder.Entity("CareerOrientation.Domain.JunctionEntities.UserLikertScaleAnswer", b =>
@@ -12401,7 +12401,7 @@ namespace CareerOrientation.Infrastructure.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("UserLikertScaleAnswers");
+                    b.ToTable("UserLikertScaleAnswers", (string)null);
                 });
 
             modelBuilder.Entity("CareerOrientation.Domain.JunctionEntities.UserMultipleChoiceAnswer", b =>
@@ -12421,7 +12421,7 @@ namespace CareerOrientation.Infrastructure.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("UserMultipleChoiceAnswers");
+                    b.ToTable("UserMultipleChoiceAnswers", (string)null);
                 });
 
             modelBuilder.Entity("CareerOrientation.Domain.JunctionEntities.UserTookGeneralTest", b =>
@@ -12436,7 +12436,7 @@ namespace CareerOrientation.Infrastructure.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("UsersTookGeneralTests");
+                    b.ToTable("UsersTookGeneralTests", (string)null);
                 });
 
             modelBuilder.Entity("CareerOrientation.Domain.JunctionEntities.UserTrueFalseAnswer", b =>
@@ -12454,7 +12454,7 @@ namespace CareerOrientation.Infrastructure.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("UserTrueFalseAnswers");
+                    b.ToTable("UserTrueFalseAnswers", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
