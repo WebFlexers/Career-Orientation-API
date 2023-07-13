@@ -55,7 +55,7 @@ jobs:
       env:
         ASPNETCORE_ENVIRONMENT: Production
         
-    - name: Start ServiceName Service
+    - name: Start CareerOrientation.API Service
       uses: garygrossgarten/github-action-ssh@v0.6.3
       with:
         command: systemctl start CareerOrientation.API -f
