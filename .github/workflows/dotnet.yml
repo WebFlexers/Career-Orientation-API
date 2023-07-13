@@ -39,7 +39,7 @@ jobs:
         command: systemctl stop CareerOrientation.API -f
         host: ${{ secrets.REMOTE_HOST }}
         username: ${{ secrets.REMOTE_USER }}
-        ssh-private-key: ${{ secrets.REMOTE_SSH_KEY }}
+        privateKey: ${{ secrets.REMOTE_SSH_KEY }}
       
     - name: Copy to Server via SCP
       uses: garygrossgarten/github-action-scp@release
@@ -49,7 +49,7 @@ jobs:
         remote: ${{ secrets.REMOTE_TARGET }}
         host: ${{ secrets.REMOTE_HOST }}
         username: ${{ secrets.REMOTE_USER }}
-        ssh-private-key: ${{ secrets.REMOTE_SSH_KEY }}
+        privateKey: ${{ secrets.REMOTE_SSH_KEY }}
       env:
         ASPNETCORE_ENVIRONMENT: Production
         
@@ -59,4 +59,4 @@ jobs:
         command: systemctl start CareerOrientation.API -f
         host: ${{ secrets.REMOTE_HOST }}
         username: ${{ secrets.REMOTE_USER }}
-        ssh-private-key: ${{ secrets.REMOTE_SSH_KEY }}
+        privateKey: ${{ secrets.REMOTE_SSH_KEY }}
