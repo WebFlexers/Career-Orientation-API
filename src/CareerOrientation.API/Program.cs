@@ -10,8 +10,6 @@ using Microsoft.AspNetCore.HttpOverrides;
 
 Console.OutputEncoding = Encoding.UTF8;
 
-Console.WriteLine("Api Starting...");
-
 var builder = WebApplication.CreateBuilder(args);
 {
     builder.Services.AddCors();
