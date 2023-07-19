@@ -9,6 +9,8 @@ public static class DependencyInjectionExtensions
 {
     public static IServiceCollection AddApplication(this IServiceCollection services)
     {
+        services.AddValidatorsFromAssembly(typeof(DependencyInjectionExtensions).Assembly);
+
         services.AddMediatR(config =>
         {
             config.RegisterServicesFromAssembly(typeof(DependencyInjectionExtensions).Assembly);
@@ -16,13 +18,12 @@ public static class DependencyInjectionExtensions
         
         services.AddScoped(
             typeof(IPipelineBehavior<,>),
-            typeof(ValidationBehavior<,>));
+            typeof(ErrorLoggingBehavior<,>));
         
         services.AddScoped(
             typeof(IPipelineBehavior<,>),
-            typeof(ErrorLoggingBehavior<,>));
-        
-        services.AddValidatorsFromAssembly(typeof(DependencyInjectionExtensions).Assembly);
+            typeof(ValidationBehavior<,>));
+
         return services;
     }
 }
