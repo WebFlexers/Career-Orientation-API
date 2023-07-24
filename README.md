@@ -13,6 +13,8 @@
 **Για το front end**
 * NextJs
 
+Το repository του NextJs βρίσκεται εδώ: https://github.com/WebFlexers/Career-Orientation-App
+
 Live ιστοσελίδα: https://career.webflexers.gr
 
 ## Documentation
