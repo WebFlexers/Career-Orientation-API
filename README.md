@@ -15,8 +15,6 @@
 
 Το repository του NextJs βρίσκεται εδώ: https://github.com/WebFlexers/Career-Orientation-App
 
-Live ιστοσελίδα: https://career.webflexers.gr
-
 ## Documentation
 
 Link: https://docdro.id/xCrDxFL
