@@ -55,5 +55,3 @@ Link: https://docdro.id/xCrDxFL
 ### Περισσότερες πληροφορίες
 
 Για περισσότερες πληροφορίες επισκεφτείτε το documentation: https://docdro.id/xCrDxFL
-
-Για να δοκιμάσετε την ιστοσελίδα μπείτε στο: https://career.webflexers.gr
